@@ -16,11 +16,13 @@ const abilities: PageSection = {
     body: 'Russel has wings.'
 }
 
-export default {
+const RusselKing: Page = {
     name: "Russel King",
     sections: [
         headline,
         appearance,
         abilities,
     ]
-} as Page
+}
+
+export default RusselKing

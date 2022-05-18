@@ -13,7 +13,7 @@ const abilities = {
     title: constants_1.ABILITIES,
     body: 'Russel has wings.'
 };
-exports.default = {
+const RusselKing = {
     name: "Russel King",
     sections: [
         headline,
@@ -21,3 +21,4 @@ exports.default = {
         abilities,
     ]
 };
+exports.default = RusselKing;

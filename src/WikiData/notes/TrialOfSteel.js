@@ -5,7 +5,8 @@ const description = {
     title: constants_1.DESCRIPTION,
     body: 'The Trial of Steel is an event run by Radio in his mansion.'
 };
-exports.default = {
+const TrialOfSteel = {
     name: "Trial of Steel",
     sections: [description]
 };
+exports.default = TrialOfSteel;

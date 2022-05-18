@@ -6,7 +6,9 @@ const description: PageSection = {
     body: 'Stone-face(d) is just a common way of describing the -_- face.'
 }
 
-export default {
+const StoneFaced: Page = {
     name: "Stone-Faced",
     sections: [description]
-} as Page
+}
+
+export default StoneFaced

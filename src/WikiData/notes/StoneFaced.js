@@ -5,7 +5,8 @@ const description = {
     title: constants_1.DESCRIPTION,
     body: 'Stone-face(d) is just a common way of describing the -_- face.'
 };
-exports.default = {
+const StoneFaced = {
     name: "Stone-Faced",
     sections: [description]
 };
+exports.default = StoneFaced;

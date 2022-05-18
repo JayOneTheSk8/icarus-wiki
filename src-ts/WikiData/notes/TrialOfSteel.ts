@@ -6,7 +6,9 @@ const description: PageSection = {
     body: 'The Trial of Steel is an event run by Radio in his mansion.'
 }
 
-export default {
+const TrialOfSteel: Page = {
     name: "Trial of Steel",
     sections: [description]
-} as Page
+}
+
+export default TrialOfSteel

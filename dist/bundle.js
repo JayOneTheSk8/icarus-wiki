@@ -26,7 +26,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
   \***********************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../constants */ \"./src/constants.js\");\n\nvar headline = {\n  title: constants_1.HEADLINE,\n  body: 'Russel King is one of the main characters in the story \"Icarus\".'\n};\nvar appearance = {\n  title: constants_1.APPEARANCE,\n  body: 'Russel has an afro.'\n};\nvar abilities = {\n  title: constants_1.ABILITIES,\n  body: 'Russel has wings.'\n};\nexports[\"default\"] = {\n  name: \"Russel King\",\n  sections: [headline, appearance, abilities]\n};\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/RusselKing.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../constants */ \"./src/constants.js\");\n\nvar headline = {\n  title: constants_1.HEADLINE,\n  body: 'Russel King is one of the main characters in the story \"Icarus\".'\n};\nvar appearance = {\n  title: constants_1.APPEARANCE,\n  body: 'Russel has an afro.'\n};\nvar abilities = {\n  title: constants_1.ABILITIES,\n  body: 'Russel has wings.'\n};\nvar RusselKing = {\n  name: \"Russel King\",\n  sections: [headline, appearance, abilities]\n};\nexports[\"default\"] = RusselKing;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/RusselKing.js?");
 
 /***/ }),
 
@@ -56,7 +56,7 @@ eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {
   \******************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../constants */ \"./src/constants.js\");\n\nvar description = {\n  title: constants_1.DESCRIPTION,\n  body: 'Stone-face(d) is just a common way of describing the -_- face.'\n};\nexports[\"default\"] = {\n  name: \"Stone-Faced\",\n  sections: [description]\n};\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/notes/StoneFaced.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../constants */ \"./src/constants.js\");\n\nvar description = {\n  title: constants_1.DESCRIPTION,\n  body: 'Stone-face(d) is just a common way of describing the -_- face.'\n};\nvar StoneFaced = {\n  name: \"Stone-Faced\",\n  sections: [description]\n};\nexports[\"default\"] = StoneFaced;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/notes/StoneFaced.js?");
 
 /***/ }),
 
@@ -66,7 +66,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
   \********************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../constants */ \"./src/constants.js\");\n\nvar description = {\n  title: constants_1.DESCRIPTION,\n  body: 'The Trial of Steel is an event run by Radio in his mansion.'\n};\nexports[\"default\"] = {\n  name: \"Trial of Steel\",\n  sections: [description]\n};\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/notes/TrialOfSteel.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../constants */ \"./src/constants.js\");\n\nvar description = {\n  title: constants_1.DESCRIPTION,\n  body: 'The Trial of Steel is an event run by Radio in his mansion.'\n};\nvar TrialOfSteel = {\n  name: \"Trial of Steel\",\n  sections: [description]\n};\nexports[\"default\"] = TrialOfSteel;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/notes/TrialOfSteel.js?");
 
 /***/ }),
 

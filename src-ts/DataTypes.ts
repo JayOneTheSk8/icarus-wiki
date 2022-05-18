@@ -1,6 +1,12 @@
+export interface SubSection {
+    subSectionTitle: string
+    subSectionText: string
+}
+
 export interface PageSection {
-    sectionName: string
-    sectionText: string
+    title: string
+    imageUrls?: Array<string>
+    body: string | Array<SubSection>
 }
 
 export interface Page {

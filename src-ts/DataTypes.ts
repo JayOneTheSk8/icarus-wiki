@@ -5,7 +5,7 @@ export interface PageSection {
 
 export interface Page {
     name: string
-    imageUrl?: string
+    imageUrls?: Array<string>
     sections: Array<PageSection>
 }
 

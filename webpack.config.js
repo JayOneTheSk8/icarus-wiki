@@ -2,7 +2,6 @@ const path = require('path');
 
 module.exports = {
     mode: 'development',
-    watch: true,
     entry: {
         // Main javascript entry point
         bundle: path.resolve(__dirname, 'src/index.js')

@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "tsc": "tsc --watch"
+    "build": "tsc && webpack",
+    "start": "webpack --watch",
+    "tsc": "tsc",
+    "tsc-watch": "tsc --watch"
   },
   "repository": {
     "type": "git",

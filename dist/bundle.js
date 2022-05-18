@@ -10,6 +10,16 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/WikiData/HomePage.js":
+/*!**********************************!*\
+  !*** ./src/WikiData/HomePage.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../constants */ \"./src/constants.js\");\n\nvar headline = {\n  title: constants_1.HEADLINE,\n  body: 'Icarus is a cool story bro.'\n};\nvar HomePage = {\n  name: 'Icarus Wiki',\n  sections: [headline]\n};\nexports[\"default\"] = HomePage;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/HomePage.js?");
+
+/***/ }),
+
 /***/ "./src/WikiData/characters/RusselKing.js":
 /*!***********************************************!*\
   !*** ./src/WikiData/characters/RusselKing.js ***!
@@ -36,7 +46,7 @@ eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {
   \*******************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar characters_1 = __importDefault(__webpack_require__(/*! ./characters */ \"./src/WikiData/characters/index.js\"));\n\nvar notes_1 = __importDefault(__webpack_require__(/*! ./notes */ \"./src/WikiData/notes/index.js\"));\n\nexports[\"default\"] = {\n  characters: characters_1[\"default\"],\n  notes: notes_1[\"default\"]\n};\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/index.js?");
+eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar HomePage_1 = __importDefault(__webpack_require__(/*! ./HomePage */ \"./src/WikiData/HomePage.js\"));\n\nvar characters_1 = __importDefault(__webpack_require__(/*! ./characters */ \"./src/WikiData/characters/index.js\"));\n\nvar notes_1 = __importDefault(__webpack_require__(/*! ./notes */ \"./src/WikiData/notes/index.js\"));\n\nvar WikiData = {\n  homePage: HomePage_1[\"default\"],\n  characters: characters_1[\"default\"],\n  notes: notes_1[\"default\"]\n};\nexports[\"default\"] = WikiData;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/index.js?");
 
 /***/ }),
 

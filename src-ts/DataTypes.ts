@@ -25,6 +25,7 @@ export type CharacterList = Array<Page>
 export type Notes = Array<Page>
 
 export interface BlogData {
+    homePage: Page
     characters: CharacterList
     notes: Notes
 }

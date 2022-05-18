@@ -1,9 +1,13 @@
 import { BlogData } from "../DataTypes";
 
+import HomePage from "./HomePage";
 import characters from "./characters";
 import notes from "./notes";
 
-export default {
+const WikiData: BlogData = {
+    homePage: HomePage,
     characters,
     notes,
-} as BlogData
+}
+
+export default WikiData

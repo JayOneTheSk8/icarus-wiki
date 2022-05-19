@@ -3,7 +3,7 @@ import { Page, PageSection } from '../DataTypes'
 import { HEADLINE } from '../constants'
 
 const headline: PageSection = {
-    title: HEADLINE,
+    title: 'Home Page',
     body: 'Icarus is a cool story bro.'
 }
 

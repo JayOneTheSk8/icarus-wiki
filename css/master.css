@@ -1,0 +1,67 @@
+/* Flex main display */
+#main {
+    display: flex;
+}
+
+/* Main Containers */
+#section-selector {
+    width: 5vw;
+    height: 100vh;
+    border-right: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1vh;
+}
+
+#page-selector {
+    width: 13vw;
+    height: 100vh;
+    border-right: 1px solid black;
+    overflow-y: auto;
+}
+
+#page-content {
+    width: 82vw;
+    height: 100vh;
+}
+
+/* Icons */
+#home-icon {
+    width: 4.5vw;
+    cursor: pointer;
+}
+
+#character-icon {
+    margin-top: 2vh;
+    width: 4.5vw;
+    cursor: pointer;
+}
+
+#notes-icon {
+    margin-top: 2vh;
+    width: 4.5vw;
+    cursor: pointer;
+}
+
+/*  */
+.section-title {
+    padding: 1em;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    border-bottom: 2px solid black;
+}
+
+.page-option {
+    padding: 1em;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+    border-bottom: 1px solid black;
+}

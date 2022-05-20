@@ -73,8 +73,8 @@ const RusselKing = {
         caption: 'Russel (Age 13)'
     },
     sections: [
-        headline,
         attribues,
+        headline,
         appearance,
         abilities,
     ]

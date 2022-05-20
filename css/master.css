@@ -163,13 +163,13 @@
 }
 
 .page-img {
-    width: 20em;
+    width: 23em;
 }
 
 .page-img-caption {
     font-style: italic;
     margin-top: 0.5em;
-    width: 20em;
+    width: 23em;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;

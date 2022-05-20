@@ -3,22 +3,37 @@ export interface Image {
     caption?: string
 }
 
+export interface Attribute {
+    attributeName: string
+    attributeText: string
+}
+
 export interface SubSection {
     subSectionTitle: string
-    subSectionImage: Image
+    subSectionImage?: Image
     subSectionText: string
 }
 
 export interface PageSection {
     title: string
-    imageUrls?: Array<Image>
+    sectionImage?: Image
     body: string | Array<SubSection>
+}
+
+export interface GallerySection {
+    title: string
+    gallery: Array<Image>
+}
+
+export interface AttributesSection {
+    title: string
+    attributes: Array<Attribute>
 }
 
 export interface Page {
     name: string
-    imageUrls?: Array<Image>
-    sections: Array<PageSection>
+    pageImage?: Image
+    sections: Array<PageSection | GallerySection | AttributesSection>
 }
 
 export type CharacterList = Array<Page>

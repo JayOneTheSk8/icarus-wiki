@@ -6,3 +6,7 @@ export const HISTORY: string = 'History'
 
 /* Note Section Names */
 export const DESCRIPTION: string = 'Description'
+
+/* Page Sections */
+export const GALLERY = 'Gallery'
+export const ATTRIBUTES = 'Attributes'

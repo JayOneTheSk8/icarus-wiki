@@ -189,6 +189,7 @@
     align-self: center;
     margin-bottom: 3em;
     font-size: 2em;
+    white-space: pre-wrap;
 }
 
 .page-section-image-section {
@@ -237,6 +238,7 @@
     align-self: center;
     margin-bottom: 3em;
     font-size: 2em;
+    white-space: pre-wrap;
 }
 
 /* Attributes Section */

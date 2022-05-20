@@ -164,6 +164,7 @@
 
 .page-img {
     width: 23em;
+    cursor: pointer;
 }
 
 .page-img-caption {
@@ -199,6 +200,7 @@
 
 .page-section-img {
     width: 12em;
+    cursor: pointer;
 }
 
 .page-section-img-caption {
@@ -219,6 +221,7 @@
 
 .page-subsection-img {
     width: 11em;
+    cursor: pointer;
 }
 
 .page-subsection-img-caption {
@@ -284,6 +287,7 @@
 
 .gallery-img {
     width: 12em;
+    cursor: pointer;
 }
 
 .gallery-img-caption {
@@ -301,4 +305,36 @@
     height: 66px;
     width: 100%;
     border: 1px solid white;
+}
+
+/* Zoomed Picture */
+.zoomed-image-modal-hide {
+    display: none;
+}
+
+.zoomed-image-modal-show {
+    position: fixed;
+    background-color: rgb(0 0 0 / 47%);
+    height: 100vh;
+    width: 100vw;
+    z-index: 2;
+    top: 0;
+}
+
+.zoomed-img {
+    width: 40em;
+}
+
+.zoomed-image-section-hide {
+    display: none;
+}
+
+.zoomed-image-section-show {
+    position: fixed;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
 }

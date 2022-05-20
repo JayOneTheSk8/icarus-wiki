@@ -259,6 +259,57 @@ const displayPage = (page) => {
     contents.push(spaceBlock);
     return contents;
 };
+/* Preload Images */
+const preloadGalleryImages = (gallerySection) => {
+    for (const image of gallerySection.gallery) {
+        const i = createImg();
+        i.src = image.url;
+    }
+};
+const preloadSubSectionImage = (subSection) => {
+    if (subSection.subSectionImage) {
+        const i = createImg();
+        i.src = subSection.subSectionImage.url;
+    }
+};
+const preloadPageSectionImage = (pageSection) => {
+    if (pageSection.sectionImage) {
+        const i = createImg();
+        i.src = pageSection.sectionImage.url;
+    }
+    if (typeof pageSection.body !== 'string') {
+        for (const subSection of pageSection.body) {
+            preloadSubSectionImage(subSection);
+        }
+    }
+};
+const preloadPageImage = (page) => {
+    if (page.pageImage) {
+        const i = createImg();
+        i.src = page.pageImage.url;
+    }
+    for (const sect of page.sections) {
+        switch (sect.title) {
+            case constants_1.GALLERY:
+                preloadGalleryImages(sect);
+                break;
+            case constants_1.ATTRIBUTES: // Attributes cannot have images
+                break;
+            default:
+                preloadPageSectionImage(sect);
+                break;
+        }
+    }
+};
+const preloadImages = () => {
+    preloadPageImage(homePage);
+    for (const characterPage of characters) {
+        preloadPageImage(characterPage);
+    }
+    for (const notePage of notes) {
+        preloadPageImage(notePage);
+    }
+};
 /* Open Page */
 const openHomePage = () => {
     return () => {
@@ -332,6 +383,8 @@ notes.forEach((note, idx) => {
 homeIcon.onclick = setHomeSelectors;
 characterIcon.onclick = setCharactersSelectors;
 notesIcon.onclick = setNotesSelectors;
+/* Preload images */
+preloadImages();
 /* Page Selector Modal Click Function */
 pageSelectorModal.onclick = () => toggleSidebar(false);
 /* Set Home Selectors by default */

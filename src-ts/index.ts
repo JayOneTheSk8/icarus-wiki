@@ -321,6 +321,69 @@ const displayPage = (page: Page): Array<HTMLElement> => {
     return contents
 }
 
+
+/* Preload Images */
+const preloadGalleryImages = (gallerySection: GallerySection): void => {
+    for (const image of gallerySection.gallery) {
+        const i = createImg()
+        i.src = image.url
+    }
+}
+
+const preloadSubSectionImage = (subSection: SubSection): void => {
+    if (subSection.subSectionImage) {
+        const i = createImg()
+        i.src = subSection.subSectionImage.url
+    }
+}
+
+const preloadPageSectionImage = (pageSection: PageSection): void => {
+    if (pageSection.sectionImage) {
+        const i = createImg()
+        i.src = pageSection.sectionImage.url
+    }
+
+    if (typeof pageSection.body !== 'string') {
+        for (const subSection of pageSection.body) {
+            preloadSubSectionImage(subSection)
+        }
+    }
+}
+
+const preloadPageImage = (page: Page): void => {
+    if (page.pageImage) {
+        const i = createImg()
+        i.src = page.pageImage.url
+    }
+
+    for (const sect of page.sections) {
+        switch (sect.title) {
+            case GALLERY:
+                preloadGalleryImages(sect as GallerySection)
+                break;
+
+            case ATTRIBUTES: // Attributes cannot have images
+                break;
+
+            default:
+                preloadPageSectionImage(sect as PageSection)
+                break;
+        }
+    }
+}
+
+const preloadImages = (): void => {
+    preloadPageImage(homePage)
+
+    for (const characterPage of characters) {
+        preloadPageImage(characterPage)
+    }
+
+    for (const notePage of notes) {
+        preloadPageImage(notePage)
+    }
+}
+
 /* Open Page */
 const openHomePage = () => {
     return (): void => {
@@ -406,6 +469,9 @@ notes.forEach((note, idx) => {
 homeIcon.onclick = setHomeSelectors
 characterIcon.onclick = setCharactersSelectors
 notesIcon.onclick = setNotesSelectors
+
+/* Preload images */
+preloadImages()
 
 /* Page Selector Modal Click Function */
 pageSelectorModal.onclick = (): void => toggleSidebar(false)

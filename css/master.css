@@ -21,7 +21,7 @@
     border-right: 1px solid black;
     background-color:white;
     overflow-y: auto;
-    margin-left: 5.05vw;
+    margin-left: 5.1vw;
     position: fixed;
 }
 
@@ -96,7 +96,7 @@
 }
 
 .page-selector-mobile-show {
-    width: 25vw;
+    width: 40vw;
     height: 100vh;
     border-right: 1px solid black;
     overflow-y: auto;
@@ -104,6 +104,7 @@
     top: 0;
     z-index: 3;
     background-color: white;
+    font-size: 1.5em;
 }
 
 .page-selector-mobile-hide {
@@ -187,6 +188,7 @@
     width: 92%;
     align-self: center;
     margin-bottom: 3em;
+    font-size: 2em;
 }
 
 .page-section-image-section {
@@ -233,6 +235,7 @@
     width: 92%;
     align-self: center;
     margin-bottom: 3em;
+    font-size: 2em;
 }
 
 /* Attributes Section */

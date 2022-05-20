@@ -20,6 +20,12 @@ const NOTES_ICON_CLASS = 'notes-icon';
 const PAGE_SELECTOR_MODAL = 'page-selector-modal';
 const PAGE_SELECTOR_MODAL_SHOW_CLASS = 'page-selector-modal-show';
 const PAGE_SELECTOR_MODAL_HIDE_CLASS = 'page-selector-modal-hide';
+const ZOOMED_IMAGE_SECTION = 'zoomed-image-section';
+const ZOOMED_IMAGE_SECTION_HIDE = 'zoomed-image-section-hide';
+const ZOOMED_IMAGE_SECTION_SHOW = 'zoomed-image-section-show';
+const ZOOMED_IMAGE_MODAL = 'zoomed-image-modal';
+const ZOOMED_IMAGE_MODAL_HIDE = 'zoomed-image-modal-hide';
+const ZOOMED_IMAGE_MODAL_SHOW = 'zoomed-image-modal-show';
 const MAIN_MOBILE_CLASS = 'main-mobile';
 const PAGE_CONTENT_MOBILE_CLASS = 'page-content-mobile';
 const SECTION_SELECTOR_MOBILE_CLASS = 'section-selector-mobile';
@@ -47,6 +53,9 @@ const pageSelectorModal = findElement(PAGE_SELECTOR_MODAL);
 const homeIcon = findElement(HOME_ICON_CLASS);
 const characterIcon = findElement(CHARACTER_ICON_CLASS);
 const notesIcon = findElement(NOTES_ICON_CLASS);
+// Zoomed Img Modal
+const zoomedImageSection = findElement(ZOOMED_IMAGE_SECTION);
+const zoomedModal = findElement(ZOOMED_IMAGE_MODAL);
 /* Toggle Dropdown */
 const toggleSidebar = (openSidebar) => {
     pageSelector.className = openSidebar ? PAGE_SELECTOR_MOBILE_SHOW_CLASS : PAGE_SELECTOR_MOBILE_HIDE_CLASS;
@@ -82,6 +91,22 @@ const setNotesSelectors = () => {
     pageSelector.replaceChildren(...notesSelector);
     usingMobile && toggleSidebar(true);
 };
+/* Zooom-In */
+const zoomInImage = (imageSrc) => {
+    return () => {
+        const zoomedImage = createImg();
+        zoomedImage.className = 'zoomed-img';
+        zoomedImage.src = imageSrc;
+        zoomedImageSection.appendChild(zoomedImage);
+        zoomedImageSection.className = ZOOMED_IMAGE_SECTION_SHOW;
+        zoomedModal.className = ZOOMED_IMAGE_MODAL_SHOW;
+    };
+};
+const closeZoomModal = () => {
+    zoomedImageSection.replaceChildren();
+    zoomedImageSection.className = ZOOMED_IMAGE_SECTION_HIDE;
+    zoomedModal.className = ZOOMED_IMAGE_MODAL_HIDE;
+};
 /* Display Page */
 const displayPage = (page) => {
     const contents = [];
@@ -99,6 +124,7 @@ const displayPage = (page) => {
         const pageImage = createImg();
         pageImage.className = 'page-img';
         pageImage.src = page.pageImage.url;
+        pageImage.onclick = zoomInImage(page.pageImage.url);
         // Add Image to DIV
         pageImageSection.appendChild(pageImage);
         // Add caption
@@ -135,6 +161,7 @@ const displayPage = (page) => {
                     const galleryImg = createImg();
                     galleryImg.className = 'gallery-img';
                     galleryImg.src = image.url;
+                    galleryImg.onclick = zoomInImage(image.url);
                     // Add img to section
                     galleryImageSection.appendChild(galleryImg);
                     // Add caption
@@ -188,6 +215,7 @@ const displayPage = (page) => {
                     const sectionImage = createImg();
                     sectionImage.className = 'page-section-img';
                     sectionImage.src = section.sectionImage.url;
+                    sectionImage.onclick = zoomInImage(section.sectionImage.url);
                     // Add image to section
                     sectionImageSection.appendChild(sectionImage);
                     // Add caption
@@ -234,6 +262,7 @@ const displayPage = (page) => {
                             const subSectionImage = createImg();
                             subSectionImage.className = 'page-subsection-img';
                             subSectionImage.src = subSection.subSectionImage.url;
+                            subSectionImage.onclick = zoomInImage(subSection.subSectionImage.url);
                             // Add image to section
                             subSectionImageSection.appendChild(subSectionImage);
                             // Add caption
@@ -383,6 +412,8 @@ notes.forEach((note, idx) => {
 homeIcon.onclick = setHomeSelectors;
 characterIcon.onclick = setCharactersSelectors;
 notesIcon.onclick = setNotesSelectors;
+/* Zoomed Modal Click */
+zoomedImageSection.onclick = closeZoomModal;
 /* Preload images */
 preloadImages();
 /* Page Selector Modal Click Function */

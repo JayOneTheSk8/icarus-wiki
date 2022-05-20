@@ -26,6 +26,14 @@ const PAGE_SELECTOR_MODAL: string = 'page-selector-modal'
 const PAGE_SELECTOR_MODAL_SHOW_CLASS: string = 'page-selector-modal-show'
 const PAGE_SELECTOR_MODAL_HIDE_CLASS: string = 'page-selector-modal-hide'
 
+const ZOOMED_IMAGE_SECTION: string = 'zoomed-image-section'
+const ZOOMED_IMAGE_SECTION_HIDE: string = 'zoomed-image-section-hide'
+const ZOOMED_IMAGE_SECTION_SHOW: string = 'zoomed-image-section-show'
+
+const ZOOMED_IMAGE_MODAL: string = 'zoomed-image-modal'
+const ZOOMED_IMAGE_MODAL_HIDE: string = 'zoomed-image-modal-hide'
+const ZOOMED_IMAGE_MODAL_SHOW: string = 'zoomed-image-modal-show'
+
 const MAIN_MOBILE_CLASS: string = 'main-mobile'
 const PAGE_CONTENT_MOBILE_CLASS: string = 'page-content-mobile'
 const SECTION_SELECTOR_MOBILE_CLASS: string = 'section-selector-mobile'
@@ -56,6 +64,9 @@ const pageSelectorModal = findElement(PAGE_SELECTOR_MODAL)
 const homeIcon = findElement(HOME_ICON_CLASS)
 const characterIcon = findElement(CHARACTER_ICON_CLASS)
 const notesIcon = findElement(NOTES_ICON_CLASS)
+// Zoomed Img Modal
+const zoomedImageSection = findElement(ZOOMED_IMAGE_SECTION)
+const zoomedModal = findElement(ZOOMED_IMAGE_MODAL)
 
 /* Toggle Dropdown */
 const toggleSidebar = (openSidebar: boolean): void => {
@@ -99,6 +110,25 @@ const setNotesSelectors = (): void => {
     usingMobile && toggleSidebar(true)
 }
 
+/* Zooom-In */
+const zoomInImage = (imageSrc: string) => {
+    return (): void => {
+        const zoomedImage = createImg()
+        zoomedImage.className = 'zoomed-img'
+        zoomedImage.src = imageSrc
+        zoomedImageSection.appendChild(zoomedImage)
+
+        zoomedImageSection.className = ZOOMED_IMAGE_SECTION_SHOW
+        zoomedModal.className = ZOOMED_IMAGE_MODAL_SHOW
+    }
+}
+
+const closeZoomModal = () => {
+    zoomedImageSection.replaceChildren()
+    zoomedImageSection.className = ZOOMED_IMAGE_SECTION_HIDE
+    zoomedModal.className = ZOOMED_IMAGE_MODAL_HIDE
+}
+
 /* Display Page */ 
 const displayPage = (page: Page): Array<HTMLElement> => {
     const contents: Array<HTMLElement> = []
@@ -119,6 +149,7 @@ const displayPage = (page: Page): Array<HTMLElement> => {
         const pageImage = createImg()
         pageImage.className = 'page-img'
         pageImage.src = page.pageImage.url
+        pageImage.onclick = zoomInImage(page.pageImage.url)
 
         // Add Image to DIV
         pageImageSection.appendChild(pageImage)
@@ -164,6 +195,7 @@ const displayPage = (page: Page): Array<HTMLElement> => {
                     const galleryImg = createImg()
                     galleryImg.className = 'gallery-img'
                     galleryImg.src = image.url
+                    galleryImg.onclick = zoomInImage(image.url)
 
                     // Add img to section
                     galleryImageSection.appendChild(galleryImg)
@@ -231,6 +263,7 @@ const displayPage = (page: Page): Array<HTMLElement> => {
                     const sectionImage = createImg()
                     sectionImage.className = 'page-section-img'
                     sectionImage.src = section.sectionImage.url
+                    sectionImage.onclick = zoomInImage(section.sectionImage.url)
 
                     // Add image to section
                     sectionImageSection.appendChild(sectionImage)
@@ -288,6 +321,7 @@ const displayPage = (page: Page): Array<HTMLElement> => {
                             const subSectionImage = createImg()
                             subSectionImage.className = 'page-subsection-img'
                             subSectionImage.src = subSection.subSectionImage.url
+                            subSectionImage.onclick = zoomInImage(subSection.subSectionImage.url)
 
                             // Add image to section
                             subSectionImageSection.appendChild(subSectionImage)
@@ -469,6 +503,9 @@ notes.forEach((note, idx) => {
 homeIcon.onclick = setHomeSelectors
 characterIcon.onclick = setCharactersSelectors
 notesIcon.onclick = setNotesSelectors
+
+/* Zoomed Modal Click */
+zoomedImageSection.onclick = closeZoomModal
 
 /* Preload images */
 preloadImages()

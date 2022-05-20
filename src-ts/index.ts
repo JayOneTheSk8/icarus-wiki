@@ -1,4 +1,6 @@
 import WikiData from "./WikiData"
+import { Page, PageSection, GallerySection, AttributesSection, SubSection } from "./DataTypes"
+import { GALLERY, ATTRIBUTES } from "./constants"
 
 const {
     homePage,
@@ -39,6 +41,7 @@ var sidebarOpen: boolean = false
 
 /* Get HTML Elements Functions */
 const createDiv = (): HTMLElement => document.createElement('div')
+const createImg = (): HTMLImageElement => document.createElement('img')
 const findElement = (id: string): HTMLElement => document.getElementById(id) as HTMLElement
 
 /* DOM Elements */
@@ -96,24 +99,246 @@ const setNotesSelectors = (): void => {
     usingMobile && toggleSidebar(true)
 }
 
+/* Display Page */ 
+const displayPage = (page: Page): Array<HTMLElement> => {
+    const contents: Array<HTMLElement> = []
+
+    // Get Page Name
+    const pageName = createDiv()
+    pageName.innerHTML = page.name
+    pageName.className = 'page-title'
+    contents.push(pageName);
+
+    // Add Page Image
+    if (page.pageImage) {
+        // Create Section
+        const pageImageSection = createDiv()
+        pageImageSection.className = 'page-image-section'
+
+        // Create Image
+        const pageImage = createImg()
+        pageImage.className = 'page-img'
+        pageImage.src = page.pageImage.url
+
+        // Add Image to DIV
+        pageImageSection.appendChild(pageImage)
+
+        // Add caption
+        if (page.pageImage.caption) {
+            const pageImageCaption = createDiv()
+            pageImageCaption.className = 'page-img-caption'
+            pageImageCaption.innerHTML = page.pageImage.caption
+
+            pageImageSection.appendChild(pageImageCaption)
+        }
+
+        // Add Page Image Section to Page Contents 
+        contents.push(pageImageSection)
+    }
+
+    // Go through sections
+    page.sections.forEach((sect, idx) => {
+        // Add section title
+        const sectionTitle = createDiv()
+        sectionTitle.innerHTML = sect.title
+        sectionTitle.className = 'page-section-title'
+        contents.push(sectionTitle) 
+        
+        let section: PageSection | GallerySection | AttributesSection;
+        switch (sect.title) {
+            case GALLERY:
+                // Cast section to Gallery type
+                section = sect as GallerySection
+                
+                // Create Gallery list
+                const galleryImageList = createDiv()
+                galleryImageList.className = 'gallery-image-list'
+
+                // Go through images
+                section.gallery.forEach((image) => {
+                    // Create image section
+                    const galleryImageSection = createDiv()
+                    galleryImageSection.className = 'gallery-image-section'
+
+                    // Create img
+                    const galleryImg = createImg()
+                    galleryImg.className = 'gallery-img'
+                    galleryImg.src = image.url
+
+                    // Add img to section
+                    galleryImageSection.appendChild(galleryImg)
+
+                    // Add caption
+                    if (image.caption) {
+                        const galleryImageCaption = createDiv()
+                        galleryImageCaption.className = 'gallery-img-caption'
+                        galleryImageCaption.innerHTML = image.caption
+
+                        galleryImageSection.appendChild(galleryImageCaption)
+                    }
+
+                    // Add image section to list
+                    galleryImageList.appendChild(galleryImageSection)
+                })
+
+                // Add gallery image list to contents
+                contents.push(galleryImageList)
+                break;
+            case ATTRIBUTES:
+                section = sect as AttributesSection
+
+                // Create Attributes list
+                const attributesList = createDiv()
+                attributesList.className = 'attributes-list'
+
+                // Go through attributes
+                section.attributes.forEach((attr) => {
+                    // Create attribute
+                    const attribute = createDiv()
+                    attribute.className = 'attribute'
+
+                    // Create title
+                    const attributeTitle = createDiv()
+                    attributeTitle.className = 'attribute-title'
+                    attributeTitle.innerHTML = attr.attributeName
+
+                    // Create Value
+                    const attributeValue = createDiv()
+                    attributeValue.className = 'attribute-value'
+                    attributeValue.innerHTML = attr.attributeText
+
+                    // Append to Attribute
+                    attribute.appendChild(attributeTitle)
+                    attribute.appendChild(attributeValue)
+
+                    // Add to Attributes List
+                    attributesList.appendChild(attribute)
+                })
+
+                // Add attributes list to contents
+                contents.push(attributesList)
+                break;
+            default:
+                section = sect as PageSection
+
+                // Add section image
+                if (section.sectionImage) {
+                    // Create image section
+                    const sectionImageSection = createDiv()
+                    sectionImageSection.className = 'page-section-image-section'
+
+                    // Create image
+                    const sectionImage = createImg()
+                    sectionImage.className = 'page-section-img'
+                    sectionImage.src = section.sectionImage.url
+
+                    // Add image to section
+                    sectionImageSection.appendChild(sectionImage)
+
+                    // Add caption
+                    if (section.sectionImage.caption) {
+                        const sectionImageCaption = createDiv()
+                        sectionImageCaption.className = 'page-section-img-caption'
+                        sectionImageCaption.innerHTML = section.sectionImage.caption
+
+                        sectionImageSection.appendChild(sectionImageCaption)
+                    }
+
+                    // Add image section to contents
+                    contents.push(sectionImageSection)
+                }
+
+                let body: string | Array<SubSection>
+                if (typeof section.body === 'string') {
+                    // Cast as string
+                    body = section.body as string
+
+                    // Create text body
+                    const textBody = createDiv()
+                    textBody.className = 'page-section-text-body'
+                    textBody.innerHTML = body
+
+                    // Add text body to content
+                    contents.push(textBody)
+                } else {
+                    // Cast as array of subsections
+                    body = section.body as Array<SubSection>
+
+                    body.forEach((subSection) => {
+                        // Add subSection title
+                        const subSectionTitle = createDiv()
+                        subSectionTitle.className = 'page-subsection-title'
+                        subSectionTitle.innerHTML = subSection.subSectionTitle
+
+                        // Add subSection title to contents
+                        contents.push(subSectionTitle)
+
+                        // Create Text Body
+                        const subSectionTextBody = createDiv()
+                        subSectionTextBody.className = 'page-subsection-text-body'
+                        subSectionTextBody.innerHTML = subSection.subSectionText
+
+                        // Add subSection image
+                        if (subSection.subSectionImage) {
+                            // Add subSection image section
+                            const subSectionImageSection =  createDiv()
+                            subSectionImageSection.className = 'page-subsection-image-section'
+
+                            // Create Image
+                            const subSectionImage = createImg()
+                            subSectionImage.className = 'page-subsection-img'
+                            subSectionImage.src = subSection.subSectionImage.url
+
+                            // Add image to section
+                            subSectionImageSection.appendChild(subSectionImage)
+
+                            // Add caption
+                            if (subSection.subSectionImage.caption) {
+                                const subSectionImageCaption = createDiv()
+                                subSectionImageCaption.className = 'page-subsection-img-caption'
+                                subSectionImageCaption.innerHTML = subSection.subSectionImage.caption
+
+                                subSectionImageSection.appendChild(subSectionImageCaption)
+                            }
+
+                            // Add image to text body in subsection
+                            subSectionTextBody.appendChild(subSectionImageSection)
+                        }
+
+                        // Add text body for subsection
+                        contents.push(subSectionTextBody)
+                    })
+                }
+                break;
+        }
+    })
+
+    // Add spacer
+    const spaceBlock = createDiv()
+    spaceBlock.className = 'space-block'
+    contents.push(spaceBlock)
+
+    return contents
+}
+
 /* Open Page */
 const openHomePage = () => {
     return (): void => {
-        pageContent.innerHTML = `<div>${JSON.stringify(homePage)}</div>`
+        pageContent.replaceChildren(...displayPage(homePage))
         sidebarOpen && toggleSidebar(false)
     }
 }
 
 const openCharacterPage = (index: number) => {
     return (): void => {
-        pageContent.innerHTML = `<div>${JSON.stringify(characters[index])}</div>`
+        pageContent.replaceChildren(...displayPage(characters[index]))
         sidebarOpen && toggleSidebar(false)
     }
 }
 
 const openNotesPage = (index: number) => {
     return (): void => {
-        pageContent.innerHTML = `<div>${JSON.stringify(notes[index])}</div>`
+        pageContent.replaceChildren(...displayPage(notes[index]))
         sidebarOpen && toggleSidebar(false)
     }
 }
@@ -139,13 +364,11 @@ homePageTitle.innerText = homePage.name
 homePageTitle.className = SECTION_TITLE
 homePageSelector.push(homePageTitle)
 
-homePage.sections.forEach((section) => {
-    const selector = createDiv()
-    selector.innerText = section.title
-    selector.className = PAGE_OPTION
-    selector.onclick = openHomePage()
-    homePageSelector.push(selector)
-})
+const homePageOption = createDiv()
+homePageOption.innerText = 'Home Page'
+homePageOption.className = PAGE_OPTION
+homePageOption.onclick = openHomePage()
+homePageSelector.push(homePageOption)
 
 /* Characters Selectors */
 const charactersSelector: Array<HTMLElement> = []
@@ -187,7 +410,7 @@ notesIcon.onclick = setNotesSelectors
 /* Page Selector Modal Click Function */
 pageSelectorModal.onclick = (): void => toggleSidebar(false)
 
-/* Set Home Page by default */
+/* Set Home Selectors by default */
 pageSelector.replaceChildren(...homePageSelector)
 
 /* Add Event Listener for resizing */
@@ -197,4 +420,4 @@ window.addEventListener('resize', handleResize)
 if (window.innerWidth < MOBILE_WIDTH_LIMIT) { changeToMobile(true) }
 
 /* Default to Home Page */
-pageContent.innerHTML = `<div>${JSON.stringify(homePage)}</div>`
+openHomePage()()

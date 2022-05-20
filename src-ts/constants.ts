@@ -8,5 +8,8 @@ export const HISTORY: string = 'History'
 export const DESCRIPTION: string = 'Description'
 
 /* Page Sections */
-export const GALLERY = 'Gallery'
-export const ATTRIBUTES = 'Attributes'
+export const GALLERY: string = 'Gallery'
+export const ATTRIBUTES: string = 'Attributes'
+
+/* Google Drive */
+export const DRIVE_THUMBNAIL_PREFIX: string = 'https://drive.google.com/thumbnail?id='

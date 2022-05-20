@@ -27,9 +27,11 @@
 }
 
 .page-content {
+    display: flex;
+    flex-direction: column;
     width: 82vw;
     height: 100vh;
-    padding: 1%;
+    padding: 1% 1% 1% 3%;
     margin-left: 18.2vw;
 }
 
@@ -123,6 +125,9 @@
 }
 
 .page-content-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 1%;
     margin-bottom: 14%;
 }
@@ -140,4 +145,155 @@
 .notes-icon-mobile {
     width: 8.5vw;
     cursor: pointer;
+}
+
+/* Main Content */
+.page-title {
+    font-weight: bold;
+    font-size: 4em;
+    text-decoration: underline;
+    margin-bottom: 1em;
+    margin-top: 0.2em;
+}
+
+/* Page Image Section */
+.page-image-section {
+    align-self: center;
+    margin-bottom: 1em;
+}
+
+.page-img {
+    width: 20em;
+}
+
+.page-img-caption {
+    font-style: italic;
+    margin-top: 0.5em;
+    width: 20em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Page Section */
+.page-section-title {
+    font-size: 3em;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: 0.5em;
+}
+
+.page-section-text-body {
+    width: 92%;
+    align-self: center;
+    margin-bottom: 3em;
+}
+
+.page-section-image-section {
+    align-self: center;
+    margin-bottom: 1em;
+}
+
+.page-section-img {
+    width: 12em;
+}
+
+.page-section-img-caption {
+    font-style: italic;
+    margin-top: 0.5em;
+    width: 12em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Subsection */
+.page-subsection-title {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.page-subsection-img {
+    width: 11em;
+}
+
+.page-subsection-img-caption {
+    font-style: italic;
+    margin-top: 0.5em;
+    width: 11em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
+}
+
+.page-subsection-text-body {
+    display: flex;
+    width: 92%;
+    align-self: center;
+    margin-bottom: 3em;
+}
+
+/* Attributes Section */
+.attributes-list {
+    margin-bottom: 3em;
+    display: flex;
+    flex-wrap: wrap;
+    width: 83%;
+    align-self: center;
+    justify-content: center;
+}
+
+.attribute {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1em;
+}
+
+.attribute-title {
+    font-weight: bold;
+    font-size: 2em;
+    text-decoration: underline;
+    text-align: center;
+}
+
+.attribute-value {
+    font-size: 1.6em;
+}
+
+/* Gallery Section */
+.gallery-image-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 3em;
+    align-self: center;
+    justify-content: center;
+}
+
+.gallery-image-section {
+    margin: 1em;
+}
+
+.gallery-img {
+    width: 12em;
+}
+
+.gallery-img-caption {
+    font-style: italic;
+    margin-top: 0.5em;
+    width: 12em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Space block */
+.space-block {
+    height: 66px;
+    width: 100%;
+    border: 1px solid white;
 }

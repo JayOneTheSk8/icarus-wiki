@@ -62,14 +62,14 @@ const abilities = {
     title: constants_1.GALLERY,
     gallery: [
         {
-            url: constants_1.DRIVE_THUMBNAIL_PREFIX + '1RJCVJDJ-5EKELmLvd81HGSm-47M0J9iR'
+            url: constants_1.DRIVE_VIEW_PREFIX + '1RJCVJDJ-5EKELmLvd81HGSm-47M0J9iR'
         }
     ]
 };
 const RusselKing = {
     name: "Russel King",
     pageImage: {
-        url: constants_1.DRIVE_THUMBNAIL_PREFIX + '1QAiWVNXwS6Zgvyqxkz2LwEKe1ti3bJ66',
+        url: constants_1.DRIVE_VIEW_PREFIX + '1QAiWVNXwS6Zgvyqxkz2LwEKe1ti3bJ66',
         caption: 'Russel (Age 13)'
     },
     sections: [

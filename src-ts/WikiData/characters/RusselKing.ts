@@ -1,5 +1,5 @@
 import { AttributesSection, GallerySection, Page, PageSection } from '../../DataTypes'
-import { HEADLINE, APPEARANCE, ATTRIBUTES, DRIVE_THUMBNAIL_PREFIX, GALLERY } from '../../constants'
+import { HEADLINE, APPEARANCE, ATTRIBUTES, DRIVE_VIEW_PREFIX, GALLERY } from '../../constants'
 
 const headline: PageSection = {
     title: HEADLINE,
@@ -67,7 +67,7 @@ const abilities: GallerySection = {
     title: GALLERY,
     gallery: [
         {
-            url: DRIVE_THUMBNAIL_PREFIX + '1RJCVJDJ-5EKELmLvd81HGSm-47M0J9iR'
+            url: DRIVE_VIEW_PREFIX + '1RJCVJDJ-5EKELmLvd81HGSm-47M0J9iR'
         }
     ]
 }
@@ -75,7 +75,7 @@ const abilities: GallerySection = {
 const RusselKing: Page = {
     name: "Russel King",
     pageImage: {
-        url: DRIVE_THUMBNAIL_PREFIX + '1QAiWVNXwS6Zgvyqxkz2LwEKe1ti3bJ66',
+        url: DRIVE_VIEW_PREFIX + '1QAiWVNXwS6Zgvyqxkz2LwEKe1ti3bJ66',
         caption: 'Russel (Age 13)'
     },
     sections: [

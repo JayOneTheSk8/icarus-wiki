@@ -223,11 +223,12 @@
 .page-subsection-img-caption {
     font-style: italic;
     margin-top: 0.5em;
-    width: 11em;
+    width: 22em;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
     text-align: center;
+    font-size: 0.5em;
 }
 
 .page-subsection-text-body {

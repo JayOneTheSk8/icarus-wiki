@@ -12,4 +12,4 @@ export const GALLERY: string = 'Gallery'
 export const ATTRIBUTES: string = 'Attributes'
 
 /* Google Drive */
-export const DRIVE_THUMBNAIL_PREFIX: string = 'https://drive.google.com/thumbnail?id='
+export const DRIVE_VIEW_PREFIX: string = 'https://drive.google.com/uc?export=view&id='

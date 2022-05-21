@@ -1,11 +1,6 @@
 import { AttributesSection, GallerySection, Page, PageSection } from '../../DataTypes'
 import { HEADLINE, APPEARANCE, ATTRIBUTES, DRIVE_VIEW_PREFIX, GALLERY } from '../../constants'
 
-const headline: PageSection = {
-    title: HEADLINE,
-    body: 'Russel King is one the primary protagonists of the story "Icarus". At 13, after an accident with a mythical object, he and his brother Reggie are given elemental powers. He is quite observant and informed on many ancient histories given his father Hudson King was a well renowned archaeologist. After being given special abilities, Russel seeks normalcy in a world not ready to offer it.'
-}
-
 const attribues: AttributesSection = {
     title: ATTRIBUTES,
     attributes: [
@@ -52,6 +47,11 @@ const attribues: AttributesSection = {
     ]
 }
 
+const headline: PageSection = {
+    title: HEADLINE,
+    body: 'Russel King is one the primary protagonists of the story "Icarus". At 13, after an accident with a mythical object, he and his brother Reggie are given elemental powers. He is quite observant and informed on many ancient histories given his father Hudson King was a well renowned archaeologist. After being given special abilities, Russel seeks normalcy in a world not ready to offer it.'
+}
+
 const appearance: PageSection = {
     title: APPEARANCE,
     body: (
@@ -63,7 +63,7 @@ const appearance: PageSection = {
     )
 }
 
-const abilities: GallerySection = {
+const gallery: GallerySection = {
     title: GALLERY,
     gallery: [
         {
@@ -82,7 +82,7 @@ const RusselKing: Page = {
         attribues,
         headline,
         appearance,
-        abilities,
+        gallery,
     ]
 }
 

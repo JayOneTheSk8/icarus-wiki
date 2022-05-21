@@ -1,10 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const constants_1 = require("../../constants");
-const headline = {
-    title: constants_1.HEADLINE,
-    body: 'Russel King is one the primary protagonists of the story "Icarus". At 13, after an accident with a mythical object, he and his brother Reggie are given elemental powers. He is quite observant and informed on many ancient histories given his father Hudson King was a well renowned archaeologist. After being given special abilities, Russel seeks normalcy in a world not ready to offer it.'
-};
 const attribues = {
     title: constants_1.ATTRIBUTES,
     attributes: [
@@ -50,6 +46,10 @@ const attribues = {
         },
     ]
 };
+const headline = {
+    title: constants_1.HEADLINE,
+    body: 'Russel King is one the primary protagonists of the story "Icarus". At 13, after an accident with a mythical object, he and his brother Reggie are given elemental powers. He is quite observant and informed on many ancient histories given his father Hudson King was a well renowned archaeologist. After being given special abilities, Russel seeks normalcy in a world not ready to offer it.'
+};
 const appearance = {
     title: constants_1.APPEARANCE,
     body: ('<strong>Age 13</strong>\n' +
@@ -58,7 +58,7 @@ const appearance = {
         '<strong>Post Divine Rope</strong>\n' +
         'After having a piece of mythical rope attached to his back, he grows a pair of orange wings. When tucked, the edges of his wings reach from a few inches above his hair to just below his knees. When expanded they more than cover his hands. On his back is a thin rope shaped like an "X" with the ends reaching both sides of his wings (at about halfway) and the backs of his hands before appearing embedded in his body. He wears shirts with the holes cut out in the back for his wings before being given specialised upper wear.')
 };
-const abilities = {
+const gallery = {
     title: constants_1.GALLERY,
     gallery: [
         {
@@ -76,7 +76,7 @@ const RusselKing = {
         attribues,
         headline,
         appearance,
-        abilities,
+        gallery,
     ]
 };
 exports.default = RusselKing;

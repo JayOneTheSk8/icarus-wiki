@@ -43,6 +43,7 @@ const PAGE_SELECTOR_DARK_CLASS = 'page-selector-dark ';
 const SECTION_SELECTOR_MOBILE_DARK_CLASS = 'section-selector-mobile-dark';
 const PAGE_SELECTOR_MOBILE_SHOW_DARK_CLASS = 'page-selector-mobile-show-dark';
 const SPACE_BLOCK_DARK_CLASS = 'space-block-dark';
+const PAGE_TITLE = 'page-title';
 /* State Variables */
 var usingMobile = false;
 var sidebarOpen = false;
@@ -400,19 +401,31 @@ const preloadImages = () => {
 /* Open Page */
 const openHomePage = () => {
     return () => {
-        pageContent.replaceChildren(...displayPage(homePage));
+        const currentPageTitle = document.getElementsByClassName(PAGE_TITLE)[0];
+        // Only switch page if page is not already loaded
+        if (!currentPageTitle || currentPageTitle.innerHTML !== homePage.name) {
+            pageContent.replaceChildren(...displayPage(homePage));
+        }
         sidebarOpen && toggleSidebar(false);
     };
 };
 const openCharacterPage = (index) => {
     return () => {
-        pageContent.replaceChildren(...displayPage(characters[index]));
+        const currentPageTitle = document.getElementsByClassName(PAGE_TITLE)[0];
+        // Only switch page if page is not already loaded
+        if (!currentPageTitle || currentPageTitle.innerHTML !== characters[index].name) {
+            pageContent.replaceChildren(...displayPage(characters[index]));
+        }
         sidebarOpen && toggleSidebar(false);
     };
 };
 const openNotesPage = (index) => {
     return () => {
-        pageContent.replaceChildren(...displayPage(notes[index]));
+        const currentPageTitle = document.getElementsByClassName(PAGE_TITLE)[0];
+        // Only switch page if page is not already loaded
+        if (!currentPageTitle || currentPageTitle.innerHTML !== notes[index].name) {
+            pageContent.replaceChildren(...displayPage(notes[index]));
+        }
         sidebarOpen && toggleSidebar(false);
     };
 };

@@ -55,6 +55,8 @@ const SECTION_SELECTOR_MOBILE_DARK_CLASS: string = 'section-selector-mobile-dark
 const PAGE_SELECTOR_MOBILE_SHOW_DARK_CLASS: string = 'page-selector-mobile-show-dark'
 const SPACE_BLOCK_DARK_CLASS: string = 'space-block-dark'
 
+const PAGE_TITLE: string = 'page-title'
+
 /* State Variables */
 var usingMobile: boolean = false
 var sidebarOpen: boolean = false
@@ -479,21 +481,33 @@ const preloadImages = (): void => {
 /* Open Page */
 const openHomePage = () => {
     return (): void => {
-        pageContent.replaceChildren(...displayPage(homePage))
+        const currentPageTitle: Element | null = document.getElementsByClassName(PAGE_TITLE)[0]
+        // Only switch page if page is not already loaded
+        if (!currentPageTitle || currentPageTitle.innerHTML !== homePage.name) {
+            pageContent.replaceChildren(...displayPage(homePage))
+        }
         sidebarOpen && toggleSidebar(false)
     }
 }
 
 const openCharacterPage = (index: number) => {
     return (): void => {
-        pageContent.replaceChildren(...displayPage(characters[index]))
+        const currentPageTitle: Element | null = document.getElementsByClassName(PAGE_TITLE)[0]
+        // Only switch page if page is not already loaded
+        if (!currentPageTitle || currentPageTitle.innerHTML !== characters[index].name) {
+            pageContent.replaceChildren(...displayPage(characters[index]))
+        }
         sidebarOpen && toggleSidebar(false)
     }
 }
 
 const openNotesPage = (index: number) => {
     return (): void => {
-        pageContent.replaceChildren(...displayPage(notes[index]))
+        const currentPageTitle: Element | null = document.getElementsByClassName(PAGE_TITLE)[0]
+        // Only switch page if page is not already loaded
+        if (!currentPageTitle || currentPageTitle.innerHTML !== notes[index].name) {
+            pageContent.replaceChildren(...displayPage(notes[index]))
+        }
         sidebarOpen && toggleSidebar(false)
     }
 }

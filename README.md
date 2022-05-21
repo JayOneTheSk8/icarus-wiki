@@ -46,7 +46,7 @@ const whatsThis: PageSection = {
 
 ### `SubSection`
 
-Sometimes paragraph text needs to be broken up into individual sections.This is where `SubSection`'s become useful. A `PageSection`'s body can be text or a list of `SubSection`'s. `SubSection`'s can have images that are displayed adjacent to the `subSectionText`.
+Sometimes paragraph text needs to be broken up into individual sections.This is where `SubSection`s become useful. A `PageSection`'s body can be text or a list of `SubSection`s. `SubSection`s can have images that are displayed adjacent to the `subSectionText`.
 
 ```typescript
 const abilities: PageSection = {
@@ -68,7 +68,8 @@ const abilities: PageSection = {
 }
 ```
 
-![](./public/PageSection+SubsectionwImage+SubsectionwText.png)
+![](./public/PageSection+SubsectionwImage+SubsectionwText1.png)
+![](./public/PageSection+SubsectionwImage+SubsectionwText2.png)
 
 ## `AttributesSection`
 
@@ -126,7 +127,7 @@ const gallery: GallerySection = {
 
 ![](./public/GallerySection.png)
 
-## Responsive
+## `Responsive`
 
 This wiki is responive.
 
@@ -135,3 +136,42 @@ This wiki is responive.
 
 ### Mobile View
 ![](./public/MobileView.png)
+
+## `Dark Mode`
+
+Clicking on the moon or checkbox in the corner activates dark mode.
+
+![](./public/DarkMode.png)
+
+Dark mode as well as the primary colours can be changed in the scss `_base` file.
+
+```scss
+/* scss/_base.scss */
+
+$primary-background-colour: #dfd1cc;
+$primary-font-colour: #000000;
+
+$primary-icon-internal-colour: #ececec;
+
+$dark-mode-background-colour: #2d2419;
+$dark-mode-font-colour: #d3b9a9;
+```
+
+## `Picture Zoom`
+
+When a picture is clicked, it zooms into fullscreen. Clicking on it or the modal reverts it back to normal.
+
+### Portrait
+#### Mobile
+![](./public/MobilePortrait.png)
+
+#### Widescreen
+![](./public/WidePortrait.png)
+
+### Landscape
+#### Mobile
+![](./public/MobileLandscape.png)
+
+#### Widescreen
+![](./public/WideLandscape.png)
+

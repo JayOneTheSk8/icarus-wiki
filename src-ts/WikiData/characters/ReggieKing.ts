@@ -41,6 +41,14 @@ const attribues: AttributesSection = {
             attributeText: 'Black'
         },
         {
+            attributeName: 'Hair Style',
+            attributeText: 'Cornrows'
+        },
+        {
+            attributeName: 'Facial Hair',
+            attributeText: 'Chin Peach Fuzz'
+        },
+        {
             attributeName: 'Debut',
             attributeText: 'Chapter 1: Elements of Surprise'
         },

@@ -41,6 +41,10 @@ const attribues = {
             attributeText: 'Black'
         },
         {
+            attributeName: 'Hair Style',
+            attributeText: 'Messy Afro'
+        },
+        {
             attributeName: 'Debut',
             attributeText: 'Chapter 1: Elements of Surprise'
         },

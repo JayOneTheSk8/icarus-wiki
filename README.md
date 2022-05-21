@@ -27,7 +27,7 @@ const HomePage: Page = {
 
 ![](./public/PageName%2BImage.png)
 
-## `PageSection`
+### `PageSection`
 
 Every page must have a list of sections. The basic `PageSection` is useful for paragraphs of information. A `sectionImage` can also be added for further detail.
 
@@ -71,7 +71,7 @@ const abilities: PageSection = {
 ![](./public/PageSection+SubsectionwImage+SubsectionwText1.png)
 ![](./public/PageSection+SubsectionwImage+SubsectionwText2.png)
 
-## `AttributesSection`
+### `AttributesSection`
 
 Attributes are typicaly more concise than other information with that, a section with the `title` of `"Attributes"` will be interpreted as an `AttributesSection` which will display individual `Attributes` in a grouped fashion.
 
@@ -101,7 +101,7 @@ const attributes: AttributesSection = {
 
 ![](./public/AttributesSection.png)
 
-## `GallerySection`
+### `GallerySection`
 
 For a simple list of pictures, a `GallerySection` would be appropriate.
 

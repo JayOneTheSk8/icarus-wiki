@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc && webpack",
+    "build": "sass scss:css && tsc && webpack",
     "start": "webpack --watch",
     "tsc": "tsc",
     "tsc-watch": "tsc --watch",

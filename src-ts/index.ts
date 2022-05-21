@@ -43,9 +43,22 @@ const HOME_ICON_MOBILE_CLASS: string = 'home-icon-mobile'
 const CHARACTER_ICON_MOBILE_CLASS: string = 'character-icon-mobile'
 const NOTES_ICON_MOBILE_CLASS: string = 'notes-icon-mobile'
 
+const DARK_MODE_TOGGLE: string = 'dark-mode-toggle'
+
+const PRIMARY_MODE_CLASS: string = 'primary-mode'
+const SPACE_BLOCK_CLASS: string = 'space-block'
+
+const DARK_MODE_CLASS: string = 'dark-mode'
+const SECTION_SELECTOR_DARK_CLASS: string = 'section-selector-dark'
+const PAGE_SELECTOR_DARK_CLASS: string = 'page-selector-dark '
+const SECTION_SELECTOR_MOBILE_DARK_CLASS: string = 'section-selector-mobile-dark'
+const PAGE_SELECTOR_MOBILE_SHOW_DARK_CLASS: string = 'page-selector-mobile-show-dark'
+const SPACE_BLOCK_DARK_CLASS: string = 'space-block-dark'
+
 /* State Variables */
 var usingMobile: boolean = false
 var sidebarOpen: boolean = false
+var darkMode: boolean = false
 
 /* Get HTML Elements Functions */
 const createDiv = (): HTMLElement => document.createElement('div')
@@ -67,31 +80,76 @@ const notesIcon = findElement(NOTES_ICON_CLASS)
 // Zoomed Img Modal
 const zoomedImageSection = findElement(ZOOMED_IMAGE_SECTION)
 const zoomedModal = findElement(ZOOMED_IMAGE_MODAL)
+// Dark mode toggle
+const darkModeToggle = findElement(DARK_MODE_TOGGLE)
 
 /* Toggle Dropdown */
 const toggleSidebar = (openSidebar: boolean): void => {
-    pageSelector.className = openSidebar ? PAGE_SELECTOR_MOBILE_SHOW_CLASS : PAGE_SELECTOR_MOBILE_HIDE_CLASS
+    if (darkMode) {
+        pageSelector.className = openSidebar ? PAGE_SELECTOR_MOBILE_SHOW_DARK_CLASS : PAGE_SELECTOR_MOBILE_HIDE_CLASS
+    } else {
+        pageSelector.className = openSidebar ? PAGE_SELECTOR_MOBILE_SHOW_CLASS : PAGE_SELECTOR_MOBILE_HIDE_CLASS
+    }
+
     pageSelectorModal.className = openSidebar ? PAGE_SELECTOR_MODAL_SHOW_CLASS : PAGE_SELECTOR_MODAL_HIDE_CLASS
     sidebarOpen = openSidebar
 }
 
 /* Change to Mobile */
 const changeToMobile = (setMobile: boolean): void => {
-    mainContent.className = setMobile ? MAIN_MOBILE_CLASS : MAIN_CLASS
-    pageContent.className = setMobile ? PAGE_CONTENT_MOBILE_CLASS : PAGE_CONTENT_CLASS
-    sectionSelector.className = setMobile ? SECTION_SELECTOR_MOBILE_CLASS : SECTION_SELECTOR_CLASS
+    if (darkMode) {
+        sectionSelector.className = setMobile ? SECTION_SELECTOR_MOBILE_DARK_CLASS : SECTION_SELECTOR_DARK_CLASS
+        // Default hide page selector on mobile
+        pageSelector.className = setMobile ? PAGE_SELECTOR_MOBILE_HIDE_CLASS : PAGE_SELECTOR_DARK_CLASS
+    } else {
+        sectionSelector.className = setMobile ? SECTION_SELECTOR_MOBILE_CLASS : SECTION_SELECTOR_CLASS
+        // Default hide page selector on mobile
+        pageSelector.className = setMobile ? PAGE_SELECTOR_MOBILE_HIDE_CLASS : PAGE_SELECTOR_CLASS
+    }
+
     homeIcon.className = setMobile ? HOME_ICON_MOBILE_CLASS : HOME_ICON_CLASS
     characterIcon.className = setMobile ? CHARACTER_ICON_MOBILE_CLASS : CHARACTER_ICON_CLASS
     notesIcon.className = setMobile ? NOTES_ICON_MOBILE_CLASS : NOTES_ICON_CLASS
 
-    // Default hide page selector on mobile
-    pageSelector.className = setMobile ? PAGE_SELECTOR_MOBILE_HIDE_CLASS : PAGE_SELECTOR_CLASS
+    mainContent.className = setMobile ? MAIN_MOBILE_CLASS : MAIN_CLASS
+    pageContent.className = setMobile ? PAGE_CONTENT_MOBILE_CLASS : PAGE_CONTENT_CLASS
+
     // Always hide modal unless toggling sidebar
     pageSelectorModal.className = PAGE_SELECTOR_MODAL_HIDE_CLASS
+
     // Since sidebar will always be closed on resize, adjust the state
     sidebarOpen = false
 
     usingMobile = setMobile
+}
+
+/* Dark Mode Toggle */
+const changeToDarkMode = (setDarkMode: boolean): void => {
+    // Adjust primary mode elements
+    const primaryModeElements: HTMLCollectionOf<Element> = document.getElementsByClassName(setDarkMode ? PRIMARY_MODE_CLASS : DARK_MODE_CLASS)
+    for (const el of primaryModeElements) { el.className = setDarkMode ? DARK_MODE_CLASS : PRIMARY_MODE_CLASS }
+
+    // Adjust section selector
+    const sectionSelectorElements: HTMLCollectionOf<Element> = document.getElementsByClassName(setDarkMode ? SECTION_SELECTOR_CLASS : SECTION_SELECTOR_DARK_CLASS)
+    for (const el of sectionSelectorElements) { el.className = setDarkMode ? SECTION_SELECTOR_DARK_CLASS : SECTION_SELECTOR_CLASS }
+    
+    // Adjust section selector (mobile)
+    const sectionSelectorMobileElements: HTMLCollectionOf<Element> = document.getElementsByClassName(setDarkMode ? SECTION_SELECTOR_MOBILE_CLASS : SECTION_SELECTOR_MOBILE_DARK_CLASS)
+    for (const el of sectionSelectorMobileElements) { el.className = setDarkMode ? SECTION_SELECTOR_MOBILE_DARK_CLASS : SECTION_SELECTOR_MOBILE_CLASS }
+
+    // Adjust page selector
+    const pageSelectorElements: HTMLCollectionOf<Element> = document.getElementsByClassName(setDarkMode ? PAGE_SELECTOR_CLASS : PAGE_SELECTOR_DARK_CLASS)
+    for (const el of pageSelectorElements) { el.className = setDarkMode ? PAGE_SELECTOR_DARK_CLASS : PAGE_SELECTOR_CLASS }
+    
+    // Adjust page selector (mobile)
+    const pageSelectorMobileElements: HTMLCollectionOf<Element> = document.getElementsByClassName(setDarkMode ? PAGE_SELECTOR_MOBILE_SHOW_CLASS : PAGE_SELECTOR_MOBILE_SHOW_DARK_CLASS)
+    for (const el of pageSelectorMobileElements) { el.className = setDarkMode ? PAGE_SELECTOR_MOBILE_SHOW_DARK_CLASS : PAGE_SELECTOR_MOBILE_SHOW_CLASS }
+    
+    // Adjust page selector (mobile)
+    const spaceBlockElements: HTMLCollectionOf<Element> = document.getElementsByClassName(setDarkMode ? SPACE_BLOCK_CLASS : SPACE_BLOCK_DARK_CLASS)
+    for (const el of spaceBlockElements) { el.className = setDarkMode ? SPACE_BLOCK_DARK_CLASS : SPACE_BLOCK_CLASS }
+
+    darkMode = setDarkMode
 }
 
 /* Set Page Selectors */
@@ -349,7 +407,7 @@ const displayPage = (page: Page): Array<HTMLElement> => {
 
     // Add spacer
     const spaceBlock = createDiv()
-    spaceBlock.className = 'space-block'
+    spaceBlock.className = darkMode ? SPACE_BLOCK_DARK_CLASS : SPACE_BLOCK_CLASS
     contents.push(spaceBlock)
 
     return contents
@@ -506,6 +564,12 @@ notesIcon.onclick = setNotesSelectors
 
 /* Zoomed Modal Click */
 zoomedImageSection.onclick = closeZoomModal
+
+/* Dark Mode Set */
+darkModeToggle.onchange = (e: Event) => {
+    const target = e.target as HTMLInputElement
+    changeToDarkMode(target.checked)
+}
 
 /* Preload images */
 preloadImages()

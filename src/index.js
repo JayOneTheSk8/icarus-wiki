@@ -34,9 +34,19 @@ const PAGE_SELECTOR_MOBILE_HIDE_CLASS = 'page-selector-mobile-hide';
 const HOME_ICON_MOBILE_CLASS = 'home-icon-mobile';
 const CHARACTER_ICON_MOBILE_CLASS = 'character-icon-mobile';
 const NOTES_ICON_MOBILE_CLASS = 'notes-icon-mobile';
+const DARK_MODE_TOGGLE = 'dark-mode-toggle';
+const PRIMARY_MODE_CLASS = 'primary-mode';
+const SPACE_BLOCK_CLASS = 'space-block';
+const DARK_MODE_CLASS = 'dark-mode';
+const SECTION_SELECTOR_DARK_CLASS = 'section-selector-dark';
+const PAGE_SELECTOR_DARK_CLASS = 'page-selector-dark ';
+const SECTION_SELECTOR_MOBILE_DARK_CLASS = 'section-selector-mobile-dark';
+const PAGE_SELECTOR_MOBILE_SHOW_DARK_CLASS = 'page-selector-mobile-show-dark';
+const SPACE_BLOCK_DARK_CLASS = 'space-block-dark';
 /* State Variables */
 var usingMobile = false;
 var sidebarOpen = false;
+var darkMode = false;
 /* Get HTML Elements Functions */
 const createDiv = () => document.createElement('div');
 const createImg = () => document.createElement('img');
@@ -56,27 +66,75 @@ const notesIcon = findElement(NOTES_ICON_CLASS);
 // Zoomed Img Modal
 const zoomedImageSection = findElement(ZOOMED_IMAGE_SECTION);
 const zoomedModal = findElement(ZOOMED_IMAGE_MODAL);
+// Dark mode toggle
+const darkModeToggle = findElement(DARK_MODE_TOGGLE);
 /* Toggle Dropdown */
 const toggleSidebar = (openSidebar) => {
-    pageSelector.className = openSidebar ? PAGE_SELECTOR_MOBILE_SHOW_CLASS : PAGE_SELECTOR_MOBILE_HIDE_CLASS;
+    if (darkMode) {
+        pageSelector.className = openSidebar ? PAGE_SELECTOR_MOBILE_SHOW_DARK_CLASS : PAGE_SELECTOR_MOBILE_HIDE_CLASS;
+    }
+    else {
+        pageSelector.className = openSidebar ? PAGE_SELECTOR_MOBILE_SHOW_CLASS : PAGE_SELECTOR_MOBILE_HIDE_CLASS;
+    }
     pageSelectorModal.className = openSidebar ? PAGE_SELECTOR_MODAL_SHOW_CLASS : PAGE_SELECTOR_MODAL_HIDE_CLASS;
     sidebarOpen = openSidebar;
 };
 /* Change to Mobile */
 const changeToMobile = (setMobile) => {
-    mainContent.className = setMobile ? MAIN_MOBILE_CLASS : MAIN_CLASS;
-    pageContent.className = setMobile ? PAGE_CONTENT_MOBILE_CLASS : PAGE_CONTENT_CLASS;
-    sectionSelector.className = setMobile ? SECTION_SELECTOR_MOBILE_CLASS : SECTION_SELECTOR_CLASS;
+    if (darkMode) {
+        sectionSelector.className = setMobile ? SECTION_SELECTOR_MOBILE_DARK_CLASS : SECTION_SELECTOR_DARK_CLASS;
+        // Default hide page selector on mobile
+        pageSelector.className = setMobile ? PAGE_SELECTOR_MOBILE_HIDE_CLASS : PAGE_SELECTOR_DARK_CLASS;
+    }
+    else {
+        sectionSelector.className = setMobile ? SECTION_SELECTOR_MOBILE_CLASS : SECTION_SELECTOR_CLASS;
+        // Default hide page selector on mobile
+        pageSelector.className = setMobile ? PAGE_SELECTOR_MOBILE_HIDE_CLASS : PAGE_SELECTOR_CLASS;
+    }
     homeIcon.className = setMobile ? HOME_ICON_MOBILE_CLASS : HOME_ICON_CLASS;
     characterIcon.className = setMobile ? CHARACTER_ICON_MOBILE_CLASS : CHARACTER_ICON_CLASS;
     notesIcon.className = setMobile ? NOTES_ICON_MOBILE_CLASS : NOTES_ICON_CLASS;
-    // Default hide page selector on mobile
-    pageSelector.className = setMobile ? PAGE_SELECTOR_MOBILE_HIDE_CLASS : PAGE_SELECTOR_CLASS;
+    mainContent.className = setMobile ? MAIN_MOBILE_CLASS : MAIN_CLASS;
+    pageContent.className = setMobile ? PAGE_CONTENT_MOBILE_CLASS : PAGE_CONTENT_CLASS;
     // Always hide modal unless toggling sidebar
     pageSelectorModal.className = PAGE_SELECTOR_MODAL_HIDE_CLASS;
     // Since sidebar will always be closed on resize, adjust the state
     sidebarOpen = false;
     usingMobile = setMobile;
+};
+/* Dark Mode Toggle */
+const changeToDarkMode = (setDarkMode) => {
+    // Adjust primary mode elements
+    const primaryModeElements = document.getElementsByClassName(setDarkMode ? PRIMARY_MODE_CLASS : DARK_MODE_CLASS);
+    for (const el of primaryModeElements) {
+        el.className = setDarkMode ? DARK_MODE_CLASS : PRIMARY_MODE_CLASS;
+    }
+    // Adjust section selector
+    const sectionSelectorElements = document.getElementsByClassName(setDarkMode ? SECTION_SELECTOR_CLASS : SECTION_SELECTOR_DARK_CLASS);
+    for (const el of sectionSelectorElements) {
+        el.className = setDarkMode ? SECTION_SELECTOR_DARK_CLASS : SECTION_SELECTOR_CLASS;
+    }
+    // Adjust section selector (mobile)
+    const sectionSelectorMobileElements = document.getElementsByClassName(setDarkMode ? SECTION_SELECTOR_MOBILE_CLASS : SECTION_SELECTOR_MOBILE_DARK_CLASS);
+    for (const el of sectionSelectorMobileElements) {
+        el.className = setDarkMode ? SECTION_SELECTOR_MOBILE_DARK_CLASS : SECTION_SELECTOR_MOBILE_CLASS;
+    }
+    // Adjust page selector
+    const pageSelectorElements = document.getElementsByClassName(setDarkMode ? PAGE_SELECTOR_CLASS : PAGE_SELECTOR_DARK_CLASS);
+    for (const el of pageSelectorElements) {
+        el.className = setDarkMode ? PAGE_SELECTOR_DARK_CLASS : PAGE_SELECTOR_CLASS;
+    }
+    // Adjust page selector (mobile)
+    const pageSelectorMobileElements = document.getElementsByClassName(setDarkMode ? PAGE_SELECTOR_MOBILE_SHOW_CLASS : PAGE_SELECTOR_MOBILE_SHOW_DARK_CLASS);
+    for (const el of pageSelectorMobileElements) {
+        el.className = setDarkMode ? PAGE_SELECTOR_MOBILE_SHOW_DARK_CLASS : PAGE_SELECTOR_MOBILE_SHOW_CLASS;
+    }
+    // Adjust page selector (mobile)
+    const spaceBlockElements = document.getElementsByClassName(setDarkMode ? SPACE_BLOCK_CLASS : SPACE_BLOCK_DARK_CLASS);
+    for (const el of spaceBlockElements) {
+        el.className = setDarkMode ? SPACE_BLOCK_DARK_CLASS : SPACE_BLOCK_CLASS;
+    }
+    darkMode = setDarkMode;
 };
 /* Set Page Selectors */
 const setHomeSelectors = () => {
@@ -284,7 +342,7 @@ const displayPage = (page) => {
     });
     // Add spacer
     const spaceBlock = createDiv();
-    spaceBlock.className = 'space-block';
+    spaceBlock.className = darkMode ? SPACE_BLOCK_DARK_CLASS : SPACE_BLOCK_CLASS;
     contents.push(spaceBlock);
     return contents;
 };
@@ -414,6 +472,11 @@ characterIcon.onclick = setCharactersSelectors;
 notesIcon.onclick = setNotesSelectors;
 /* Zoomed Modal Click */
 zoomedImageSection.onclick = closeZoomModal;
+/* Dark Mode Set */
+darkModeToggle.onchange = (e) => {
+    const target = e.target;
+    changeToDarkMode(target.checked);
+};
 /* Preload images */
 preloadImages();
 /* Page Selector Modal Click Function */

@@ -171,11 +171,20 @@ const setNotesSelectors = (): void => {
 }
 
 /* Zooom-In */
+const findOrientation = (image: HTMLImageElement): string => {
+    if (image.height > image.width) {
+        return 'portrait'
+    } else {
+        return 'landscape'
+    }
+}
+
 const zoomInImage = (imageSrc: string) => {
     return (): void => {
         const zoomedImage = createImg()
-        zoomedImage.className = 'zoomed-img'
         zoomedImage.src = imageSrc
+
+        zoomedImage.className = `zoomed-img-${findOrientation(zoomedImage)}`
         zoomedImageSection.appendChild(zoomedImage)
 
         zoomedImageSection.className = ZOOMED_IMAGE_SECTION_SHOW

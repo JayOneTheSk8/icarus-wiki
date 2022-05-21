@@ -379,8 +379,12 @@
     top: 0;
 }
 
-.zoomed-img {
-    width: 40em;
+.zoomed-img-portrait {
+    height: 85vh;
+}
+
+.zoomed-img-landscape {
+    width: 85vw;
 }
 
 .zoomed-image-section-hide {

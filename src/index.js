@@ -151,11 +151,19 @@ const setNotesSelectors = () => {
     usingMobile && toggleSidebar(true);
 };
 /* Zooom-In */
+const findOrientation = (image) => {
+    if (image.height > image.width) {
+        return 'portrait';
+    }
+    else {
+        return 'landscape';
+    }
+};
 const zoomInImage = (imageSrc) => {
     return () => {
         const zoomedImage = createImg();
-        zoomedImage.className = 'zoomed-img';
         zoomedImage.src = imageSrc;
+        zoomedImage.className = `zoomed-img-${findOrientation(zoomedImage)}`;
         zoomedImageSection.appendChild(zoomedImage);
         zoomedImageSection.className = ZOOMED_IMAGE_SECTION_SHOW;
         zoomedModal.className = ZOOMED_IMAGE_MODAL_SHOW;

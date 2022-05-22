@@ -73,7 +73,7 @@ const abilities: PageSection = {
 
 ### `AttributesSection`
 
-Attributes are typicaly more concise than other information. With that, a section with the `title` of any of the constants in the `attributesTitlesList` will be interpreted as an `AttributesSection` which will display individual `Attributes` in a grouped fashion.
+Attributes are typicaly more concise than other information. With that, a section with the `title` of any of the constants in the `ATTRIBUTES_TITLES_LIST` will be interpreted as an `AttributesSection` which will display individual `Attributes` in a grouped fashion.
 
 ```typescript
 const attributes: AttributesSection = {
@@ -103,7 +103,7 @@ const attributes: AttributesSection = {
 
 ### `GallerySection`
 
-For a simple list of pictures, a `GallerySection` would be appropriate. A section with the `title` of any of the constants in the `galleryTitlesList` will be interpreted as a `GallerySection`.
+For a simple list of pictures, a `GallerySection` would be appropriate. A section with the `title` of any of the constants in the `GALLERY_TITLES_LIST` will be interpreted as a `GallerySection`.
 
 ```typescript
 const gallery: GallerySection = {
@@ -129,7 +129,7 @@ const gallery: GallerySection = {
 
 ### `AssociationsSection`
 
-Some pages may be associated with others. `Association`s help display these relationships. A section with the `title` of any of the constants in the `associationsTitlesList` will be interpreted as a `AssociationsSection`. Clicking on the name of the associated page directs the user to said page.
+Some pages may be associated with others. `Association`s help display these relationships. A section with the `title` of any of the constants in the `ASSOCIATIONS_TITLES_LIST` will be interpreted as a `AssociationsSection`. Clicking on the name of the associated page directs the user to said page.
 
 ```typescript
 const associations: AssociationsSection = {
@@ -186,10 +186,10 @@ export const ASSOCIATIONS: string = 'Associations'
 export const FAMILY: string = 'Family'
 export const FRIENDS: string = 'Friends'
 
-export const galleryTitlesList: Array<string> = [GALLERY]
-export const attributesTitlesList: Array<string> = [ATTRIBUTES]
+export const GALLERY_TITLES_LIST: Array<string> = [GALLERY]
+export const ATTRIBUTES_TITLES_LIST: Array<string> = [ATTRIBUTES]
 // Sections with the title 'Family'/'Friends' will also be interpreted as a AssociationsSection
-export const associationsTitlesList: Array<string> = [ASSOCIATIONS, FAMILY, FRIENDS]
+export const ASSOCIATIONS_TITLES_LIST: Array<string> = [ASSOCIATIONS, FAMILY, FRIENDS]
 ```
 
 ## `Responsive`

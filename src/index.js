@@ -367,13 +367,13 @@ const getPageHTMLContents = (page) => {
         sectionTitle.innerHTML = section.title;
         sectionTitle.className = 'page-section-title';
         contents.push(sectionTitle);
-        if (constants_1.galleryTitlesList.includes(section.title)) {
+        if (constants_1.GALLERY_TITLES_LIST.includes(section.title)) {
             contents.push(getGalleryContents(section));
         }
-        else if (constants_1.attributesTitlesList.includes(section.title)) {
+        else if (constants_1.ATTRIBUTES_TITLES_LIST.includes(section.title)) {
             contents.push(getAttributesContents(section));
         }
-        else if (constants_1.associationsTitlesList.includes(section.title)) {
+        else if (constants_1.ASSOCIATIONS_TITLES_LIST.includes(section.title)) {
             contents.push(getAssociationsContents(section));
         }
         else {
@@ -416,11 +416,11 @@ const preloadPageImage = (page) => {
         i.src = page.pageImage.url;
     }
     for (const sect of page.sections) {
-        if (constants_1.attributesTitlesList.includes(sect.title) || constants_1.associationsTitlesList.includes(sect.title)) {
+        if (constants_1.ATTRIBUTES_TITLES_LIST.includes(sect.title) || constants_1.ASSOCIATIONS_TITLES_LIST.includes(sect.title)) {
             // Attributes and Associations cannot have images
             continue;
         }
-        else if (constants_1.galleryTitlesList.includes(sect.title)) {
+        else if (constants_1.GALLERY_TITLES_LIST.includes(sect.title)) {
             preloadGalleryImages(sect);
         }
         else {

@@ -1,6 +1,6 @@
 import WikiData from "./WikiData"
 import { Page, PageSection, GallerySection, AttributesSection, SubSection, AssociationsSection } from "./DataTypes"
-import { galleryTitlesList, attributesTitlesList, associationsTitlesList } from "./constants"
+import { GALLERY_TITLES_LIST, ATTRIBUTES_TITLES_LIST, ASSOCIATIONS_TITLES_LIST } from "./constants"
 
 const {
     homePage,
@@ -441,13 +441,13 @@ const getPageHTMLContents = (page: Page): Array<HTMLElement> => {
         sectionTitle.className = 'page-section-title'
         contents.push(sectionTitle) 
 
-        if (galleryTitlesList.includes(section.title)) {
+        if (GALLERY_TITLES_LIST.includes(section.title)) {
             contents.push(getGalleryContents(section as GallerySection))
 
-        } else if (attributesTitlesList.includes(section.title)) {
+        } else if (ATTRIBUTES_TITLES_LIST.includes(section.title)) {
             contents.push(getAttributesContents(section as AttributesSection))
 
-        } else if (associationsTitlesList.includes(section.title)) {
+        } else if (ASSOCIATIONS_TITLES_LIST.includes(section.title)) {
             contents.push(getAssociationsContents(section as AssociationsSection))
 
         } else {
@@ -499,10 +499,10 @@ const preloadPageImage = (page: Page): void => {
     }
 
     for (const sect of page.sections) {
-        if (attributesTitlesList.includes(sect.title) || associationsTitlesList.includes(sect.title)) {
+        if (ATTRIBUTES_TITLES_LIST.includes(sect.title) || ASSOCIATIONS_TITLES_LIST.includes(sect.title)) {
             // Attributes and Associations cannot have images
             continue
-        } else if (galleryTitlesList.includes(sect.title)) {
+        } else if (GALLERY_TITLES_LIST.includes(sect.title)) {
             preloadGalleryImages(sect as GallerySection)
         } else {
             preloadPageSectionImage(sect as PageSection)

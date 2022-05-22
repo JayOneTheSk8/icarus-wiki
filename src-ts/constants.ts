@@ -13,9 +13,9 @@ export const ATTRIBUTES: string = 'Attributes'
 export const ASSOCIATIONS: string = 'Associations'
 
 /* Sections List */
-export const galleryTitlesList: Array<string> = [GALLERY]
-export const attributesTitlesList: Array<string> = [ATTRIBUTES]
-export const associationsTitlesList: Array<string> = [ASSOCIATIONS]
+export const GALLERY_TITLES_LIST: Array<string> = [GALLERY]
+export const ATTRIBUTES_TITLES_LIST: Array<string> = [ATTRIBUTES]
+export const ASSOCIATIONS_TITLES_LIST: Array<string> = [ASSOCIATIONS]
 
 
 /* Google Drive */

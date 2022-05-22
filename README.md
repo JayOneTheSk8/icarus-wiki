@@ -73,11 +73,11 @@ const abilities: PageSection = {
 
 ### `AttributesSection`
 
-Attributes are typicaly more concise than other information with that, a section with the `title` of `"Attributes"` will be interpreted as an `AttributesSection` which will display individual `Attributes` in a grouped fashion.
+Attributes are typicaly more concise than other information with that, a section with the `title` of any of the constants in the `attributesTitlesList` will be interpreted as an `AttributesSection` which will display individual `Attributes` in a grouped fashion.
 
 ```typescript
 const attributes: AttributesSection = {
-    title: 'Attributes',
+    title: ATTRIBUTES,
     attributes: [
         {
             attributeName: 'Age',
@@ -103,11 +103,11 @@ const attributes: AttributesSection = {
 
 ### `GallerySection`
 
-For a simple list of pictures, a `GallerySection` would be appropriate.
+For a simple list of pictures, a `GallerySection` would be appropriate. A section with the `title` of any of the constants in the `galleryTitlesList` will be interpreted as a `GallerySection`.
 
 ```typescript
 const gallery: GallerySection = {
-    title: 'Gallery',
+    title: GALLERY,
     gallery: [
         {
             url: 'https://www.w3schools.com/tags/img_girl.jpg',
@@ -129,7 +129,7 @@ const gallery: GallerySection = {
 
 ### `AssociationsSection`
 
-Some pages may be associated with others. `Association`s help display these relationships. Clicking on the name of the associated page directs the user to said page.
+Some pages may be associated with others. `Association`s help display these relationships. A section with the `title` of any of the constants in the `associationsTitlesList` will be interpreted as a `AssociationsSection`. Clicking on the name of the associated page directs the user to said page.
 
 ```typescript
 const associations: AssociationsSection = {
@@ -170,6 +170,27 @@ const associations: AssociationsSection = {
 ```
 
 ![](./public/AssociationsSection.png)
+
+### Renaming Sections
+
+It is possible that `title`s like `"Gallery"` and `"Associations"` may not cover the scope of what is in the section. If this is the case, new titles can be added to the `constants.ts` section arrays.
+
+```typescript
+/* src-ts/constants.ts */
+
+export const GALLERY: string = 'Gallery'
+export const ATTRIBUTES: string = 'Attributes'
+export const ASSOCIATIONS: string = 'Associations'
+
+// Add new titles
+export const FAMILY: string = 'Family'
+export const FRIENDS: string = 'Friends'
+
+export const galleryTitlesList: Array<string> = [GALLERY]
+export const attributesTitlesList: Array<string> = [ATTRIBUTES]
+// Sections with the title 'Family'/'Friends' will also be interpreted as a AssociationsSection
+export const associationsTitlesList: Array<string> = [ASSOCIATIONS, FAMILY, FRIENDS]
+```
 
 ## `Responsive`
 

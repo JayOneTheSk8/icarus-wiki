@@ -143,10 +143,10 @@ Clicking on the moon or checkbox in the corner activates dark mode.
 
 ![](./public/DarkMode.png)
 
-Dark mode (as well as the primary colours) can be changed in the scss `_base` file.
+Dark mode (as well as the primary colours) can be changed in the scss `_base-colours` file.
 
 ```scss
-/* scss/_base.scss */
+/* scss/_base-colours.scss */
 
 $primary-background-colour: #dfd1cc;
 $primary-font-colour: #000000;

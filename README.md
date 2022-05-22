@@ -127,6 +127,50 @@ const gallery: GallerySection = {
 
 ![](./public/GallerySection.png)
 
+### `AssociationsSection`
+
+Some pages may be associated with others. `Association`s help display these relationships.
+
+```typescript
+const associations: AssociationsSection = {
+    title: ASSOCIATIONS,
+    associations: [
+        {
+            associationName: 'Allies',
+            associations: [
+                JoeSchmoe,
+                JoanneSchmoe,
+                CoolPerson,
+                HappyPerson,
+            ]
+        },
+        {
+            associationName: 'Enemies',
+            associations: [
+                BadguyJones,
+                MeanGirls,
+                NorrisViilaine,
+            ]
+        },
+        {
+            associationName: 'Siblings',
+            associations: [
+                SamanthaBynes,
+                CarlBynes,
+            ]
+        },
+        {
+            associationName: 'Best-Friend',
+            associations: [
+                CooladieMaeby,
+            ]
+        },
+    ]
+}
+```
+
+![](./public/AssociationsSection.png)
+
 ## `Responsive`
 
 This wiki is responive.

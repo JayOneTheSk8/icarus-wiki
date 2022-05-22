@@ -174,8 +174,8 @@ const closeZoomModal = () => {
     zoomedImageSection.className = ZOOMED_IMAGE_SECTION_HIDE;
     zoomedModal.className = ZOOMED_IMAGE_MODAL_HIDE;
 };
-/* Display Page */
-const displayPage = (page) => {
+/* Get HTML Contents */
+const getPageHTMLContents = (page) => {
     const contents = [];
     // Get Page Name
     const pageName = createDiv();
@@ -290,7 +290,7 @@ const displayPage = (page) => {
                     pageAssociated.className = 'associated-page';
                     pageAssociated.innerHTML = asscPage.name;
                     // Allow click to link to other pages
-                    pageAssociated.onclick = () => updateCurrentPage(displayPage(asscPage));
+                    pageAssociated.onclick = () => displayPage(getPageHTMLContents(asscPage));
                     // Add page to association group
                     associationGroup.appendChild(pageAssociated);
                 });
@@ -435,7 +435,7 @@ const preloadImages = () => {
     }
 };
 /* Open Page */
-const updateCurrentPage = (pageContents) => {
+const displayPage = (pageContents) => {
     // Update Page
     pageContent.replaceChildren(...pageContents);
     // Scroll to top
@@ -446,7 +446,7 @@ const openHomePage = () => {
         const currentPageTitle = document.getElementsByClassName(PAGE_TITLE)[0];
         // Only switch page if page is not already loaded
         if (!currentPageTitle || currentPageTitle.innerHTML !== homePage.name) {
-            updateCurrentPage(displayPage(homePage));
+            displayPage(getPageHTMLContents(homePage));
         }
         sidebarOpen && toggleSidebar(false);
     };
@@ -456,7 +456,7 @@ const openCharacterPage = (index) => {
         const currentPageTitle = document.getElementsByClassName(PAGE_TITLE)[0];
         // Only switch page if page is not already loaded
         if (!currentPageTitle || currentPageTitle.innerHTML !== characters[index].name) {
-            updateCurrentPage(displayPage(characters[index]));
+            displayPage(getPageHTMLContents(characters[index]));
         }
         sidebarOpen && toggleSidebar(false);
     };
@@ -466,7 +466,7 @@ const openNotesPage = (index) => {
         const currentPageTitle = document.getElementsByClassName(PAGE_TITLE)[0];
         // Only switch page if page is not already loaded
         if (!currentPageTitle || currentPageTitle.innerHTML !== notes[index].name) {
-            updateCurrentPage(displayPage(notes[index]));
+            displayPage(getPageHTMLContents(notes[index]));
         }
         sidebarOpen && toggleSidebar(false);
     };

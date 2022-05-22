@@ -198,8 +198,8 @@ const closeZoomModal = () => {
     zoomedModal.className = ZOOMED_IMAGE_MODAL_HIDE
 }
 
-/* Display Page */ 
-const displayPage = (page: Page): Array<HTMLElement> => {
+/* Get HTML Contents */ 
+const getPageHTMLContents = (page: Page): Array<HTMLElement> => {
     const contents: Array<HTMLElement> = []
 
     // Get Page Name
@@ -343,7 +343,7 @@ const displayPage = (page: Page): Array<HTMLElement> => {
                     pageAssociated.innerHTML = asscPage.name
 
                     // Allow click to link to other pages
-                    pageAssociated.onclick = () => updateCurrentPage(displayPage(asscPage))
+                    pageAssociated.onclick = () => displayPage(getPageHTMLContents(asscPage))
 
                     // Add page to association group
                     associationGroup.appendChild(pageAssociated)
@@ -520,7 +520,7 @@ const preloadImages = (): void => {
 }
 
 /* Open Page */
-const updateCurrentPage = (pageContents: Array<HTMLElement>): void => {
+const displayPage = (pageContents: Array<HTMLElement>): void => {
     // Update Page
     pageContent.replaceChildren(...pageContents)
     // Scroll to top
@@ -532,7 +532,7 @@ const openHomePage = () => {
         const currentPageTitle: Element | null = document.getElementsByClassName(PAGE_TITLE)[0]
         // Only switch page if page is not already loaded
         if (!currentPageTitle || currentPageTitle.innerHTML !== homePage.name) {
-            updateCurrentPage(displayPage(homePage))
+            displayPage(getPageHTMLContents(homePage))
         }
         sidebarOpen && toggleSidebar(false)
     }
@@ -543,7 +543,7 @@ const openCharacterPage = (index: number) => {
         const currentPageTitle: Element | null = document.getElementsByClassName(PAGE_TITLE)[0]
         // Only switch page if page is not already loaded
         if (!currentPageTitle || currentPageTitle.innerHTML !== characters[index].name) {
-            updateCurrentPage(displayPage(characters[index]))
+            displayPage(getPageHTMLContents(characters[index]))
         }
         sidebarOpen && toggleSidebar(false)
     }
@@ -554,7 +554,7 @@ const openNotesPage = (index: number) => {
         const currentPageTitle: Element | null = document.getElementsByClassName(PAGE_TITLE)[0]
         // Only switch page if page is not already loaded
         if (!currentPageTitle || currentPageTitle.innerHTML !== notes[index].name) {
-            updateCurrentPage(displayPage(notes[index]))
+            displayPage(getPageHTMLContents(notes[index]))
         }
         sidebarOpen && toggleSidebar(false)
     }

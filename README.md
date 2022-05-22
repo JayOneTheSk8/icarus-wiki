@@ -129,7 +129,7 @@ const gallery: GallerySection = {
 
 ### `AssociationsSection`
 
-Some pages may be associated with others. `Association`s help display these relationships.
+Some pages may be associated with others. `Association`s help display these relationships. Clicking on the name of the associated page directs the user to said page.
 
 ```typescript
 const associations: AssociationsSection = {

@@ -20,23 +20,103 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
 
 /***/ }),
 
-/***/ "./src/WikiData/characters/ReggieKing.js":
-/*!***********************************************!*\
-  !*** ./src/WikiData/characters/ReggieKing.js ***!
-  \***********************************************/
+/***/ "./src/WikiData/characters/ReggieKing/appearance.js":
+/*!**********************************************************!*\
+  !*** ./src/WikiData/characters/ReggieKing/appearance.js ***!
+  \**********************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../constants */ \"./src/constants.js\");\n\nvar attribues = {\n  title: constants_1.ATTRIBUTES,\n  attributes: [{\n    attributeName: 'Other Names',\n    attributeText: 'Reg (Russel King)'\n  }, {\n    attributeName: 'Gender',\n    attributeText: 'Male'\n  }, {\n    attributeName: 'Age',\n    attributeText: '16'\n  }, {\n    attributeName: 'Height',\n    attributeText: \"5' 3\\\"\"\n  }, {\n    attributeName: 'Birthday',\n    attributeText: 'March 16th, 1980'\n  }, {\n    attributeName: 'Birthplace',\n    attributeText: 'Philadelphia, PA'\n  }, {\n    attributeName: 'Meta-Human Type',\n    attributeText: 'Mythical'\n  }, {\n    attributeName: 'Race',\n    attributeText: 'Human'\n  }, {\n    attributeName: 'Hair Color',\n    attributeText: 'Black'\n  }, {\n    attributeName: 'Hair Style',\n    attributeText: 'Cornrows'\n  }, {\n    attributeName: 'Facial Hair',\n    attributeText: 'Chin Peach Fuzz'\n  }, {\n    attributeName: 'Debut',\n    attributeText: 'Chapter 1: Elements of Surprise'\n  }]\n};\nvar headline = {\n  title: constants_1.HEADLINE,\n  body: 'Reginald \"Reggie\" King is one of the primary protagonists of the story \"Icarus\". He and his brother Russel are given elemental powers following an accident with a mythical object. He is quite bold and tries to take action in any situation that arises. Reggie sees the true world around him after being given special abilities and takes it head on.'\n};\nvar appearance = {\n  title: constants_1.APPEARANCE,\n  body: [{\n    subSectionTitle: 'Age 16',\n    subSectionText: 'Reggie is an average height dark- skinned teen who wears his long hair in cornrows.His braided hair reaches the middle of his back.He has a small amount of peach fuzz on his chin and a rather wide nose.'\n  }, {\n    subSectionTitle: 'Post Divine Rope',\n    subSectionText: 'Reggie looks similar after receiving a piece of the mythical rope.The only difference is, on his back, he has a rope embedded shaped like a pitchfork with three prongs.The base of the prongs is below the back of his neck with the ends going along the back of both his arms and down his back to just above his waist.'\n  }]\n};\nvar gallery = {\n  title: constants_1.GALLERY,\n  gallery: [{\n    url: constants_1.DRIVE_VIEW_PREFIX + '1RHPsg3vWivrJCz0TCannWyifzdehBAaN'\n  }]\n};\nvar ReggieKing = {\n  name: 'Reggie King',\n  pageImage: {\n    url: constants_1.DRIVE_VIEW_PREFIX + '1PnMGTIJsaIy__AkWuYpAM4G9-saN4VQ5',\n    caption: 'Reggie (Age 16)'\n  },\n  sections: [attribues, headline, appearance, gallery]\n};\nexports[\"default\"] = ReggieKing;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/ReggieKing.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar appearance = {\n  title: constants_1.APPEARANCE,\n  body: [{\n    subSectionTitle: 'Age 16',\n    subSectionText: 'Reggie is an average height dark- skinned teen who wears his long hair in cornrows.His braided hair reaches the middle of his back.He has a small amount of peach fuzz on his chin and a rather wide nose.'\n  }, {\n    subSectionTitle: 'Post Divine Rope',\n    subSectionText: 'Reggie looks similar after receiving a piece of the mythical rope.The only difference is, on his back, he has a rope embedded shaped like a pitchfork with three prongs.The base of the prongs is below the back of his neck with the ends going along the back of both his arms and down his back to just above his waist.'\n  }]\n};\nexports[\"default\"] = appearance;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/ReggieKing/appearance.js?");
 
 /***/ }),
 
-/***/ "./src/WikiData/characters/RusselKing.js":
-/*!***********************************************!*\
-  !*** ./src/WikiData/characters/RusselKing.js ***!
-  \***********************************************/
+/***/ "./src/WikiData/characters/ReggieKing/attributes.js":
+/*!**********************************************************!*\
+  !*** ./src/WikiData/characters/ReggieKing/attributes.js ***!
+  \**********************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../constants */ \"./src/constants.js\");\n\nvar attribues = {\n  title: constants_1.ATTRIBUTES,\n  attributes: [{\n    attributeName: 'Other Names',\n    attributeText: 'Rus (Reggie)'\n  }, {\n    attributeName: 'Gender',\n    attributeText: 'Male'\n  }, {\n    attributeName: 'Age',\n    attributeText: '13'\n  }, {\n    attributeName: 'Height',\n    attributeText: \"4' 10\\\"\"\n  }, {\n    attributeName: 'Birthday',\n    attributeText: 'July 13th, 1983'\n  }, {\n    attributeName: 'Birthplace',\n    attributeText: 'Philadelphia, PA'\n  }, {\n    attributeName: 'Meta-Human Type',\n    attributeText: 'Mythical'\n  }, {\n    attributeName: 'Race',\n    attributeText: 'Human'\n  }, {\n    attributeName: 'Hair Color',\n    attributeText: 'Black'\n  }, {\n    attributeName: 'Hair Style',\n    attributeText: 'Messy Afro'\n  }, {\n    attributeName: 'Debut',\n    attributeText: 'Chapter 1: Elements of Surprise'\n  }]\n};\nvar headline = {\n  title: constants_1.HEADLINE,\n  body: 'Russel King is one the primary protagonists of the story \"Icarus\". At 13, after an accident with a mythical object, he and his brother Reggie are given elemental powers. He is quite observant and informed on many ancient histories given his father Hudson King was a well renowned archaeologist. After being given special abilities, Russel seeks normalcy in a world not ready to offer it.'\n};\nvar appearance = {\n  title: constants_1.APPEARANCE,\n  body: [{\n    subSectionTitle: 'Age 13',\n    subSectionText: 'Russel is a skinny dark skinned boy with an unkempt afro. His hair is deceptively long (as seen when Achilles pulls him up by his hair and he is the same height as Reggie off the ground).'\n  }, {\n    subSectionTitle: 'Post Divine Rope',\n    subSectionText: 'After having a piece of mythical rope attached to his back, he grows a pair of orange wings. When tucked, the edges of his wings reach from a few inches above his hair to just below his knees. When expanded they more than cover his hands. On his back is a thin rope shaped like an \"X\" with the ends reaching both sides of his wings (at about halfway) and the backs of his hands before appearing embedded in his body. He wears shirts with the holes cut out in the back for his wings before being given specialised upper wear.'\n  }]\n};\nvar gallery = {\n  title: constants_1.GALLERY,\n  gallery: [{\n    url: constants_1.DRIVE_VIEW_PREFIX + '1RJCVJDJ-5EKELmLvd81HGSm-47M0J9iR'\n  }]\n};\nvar RusselKing = {\n  name: \"Russel King\",\n  pageImage: {\n    url: constants_1.DRIVE_VIEW_PREFIX + '1QAiWVNXwS6Zgvyqxkz2LwEKe1ti3bJ66',\n    caption: 'Russel (Age 13)'\n  },\n  sections: [attribues, headline, appearance, gallery]\n};\nexports[\"default\"] = RusselKing;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/RusselKing.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar attributes = {\n  title: constants_1.ATTRIBUTES,\n  attributes: [{\n    attributeName: 'Other Names',\n    attributeText: 'Reg (Russel King)'\n  }, {\n    attributeName: 'Gender',\n    attributeText: 'Male'\n  }, {\n    attributeName: 'Age',\n    attributeText: '16'\n  }, {\n    attributeName: 'Height',\n    attributeText: \"5' 3\\\"\"\n  }, {\n    attributeName: 'Birthday',\n    attributeText: 'March 16th, 1980'\n  }, {\n    attributeName: 'Birthplace',\n    attributeText: 'Philadelphia, PA'\n  }, {\n    attributeName: 'Meta-Human Type',\n    attributeText: 'Mythical'\n  }, {\n    attributeName: 'Race',\n    attributeText: 'Human'\n  }, {\n    attributeName: 'Hair Color',\n    attributeText: 'Black'\n  }, {\n    attributeName: 'Hair Style',\n    attributeText: 'Cornrows'\n  }, {\n    attributeName: 'Facial Hair',\n    attributeText: 'Chin Peach Fuzz'\n  }, {\n    attributeName: 'Debut',\n    attributeText: 'Chapter 1: Elements of Surprise'\n  }]\n};\nexports[\"default\"] = attributes;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/ReggieKing/attributes.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/ReggieKing/gallery.js":
+/*!*******************************************************!*\
+  !*** ./src/WikiData/characters/ReggieKing/gallery.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar gallery = {\n  title: constants_1.GALLERY,\n  gallery: [{\n    url: constants_1.DRIVE_VIEW_PREFIX + '1RHPsg3vWivrJCz0TCannWyifzdehBAaN'\n  }]\n};\nexports[\"default\"] = gallery;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/ReggieKing/gallery.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/ReggieKing/headline.js":
+/*!********************************************************!*\
+  !*** ./src/WikiData/characters/ReggieKing/headline.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar headline = {\n  title: constants_1.HEADLINE,\n  body: 'Reginald \"Reggie\" King is one of the primary protagonists of the story \"Icarus\". He and his brother Russel are given elemental powers following an accident with a mythical object. He is quite bold and tries to take action in any situation that arises. Reggie sees the true world around him after being given special abilities and takes it head on.'\n};\nexports[\"default\"] = headline;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/ReggieKing/headline.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/ReggieKing/index.js":
+/*!*****************************************************!*\
+  !*** ./src/WikiData/characters/ReggieKing/index.js ***!
+  \*****************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar attributes_1 = __importDefault(__webpack_require__(/*! ./attributes */ \"./src/WikiData/characters/ReggieKing/attributes.js\"));\n\nvar headline_1 = __importDefault(__webpack_require__(/*! ./headline */ \"./src/WikiData/characters/ReggieKing/headline.js\"));\n\nvar appearance_1 = __importDefault(__webpack_require__(/*! ./appearance */ \"./src/WikiData/characters/ReggieKing/appearance.js\"));\n\nvar gallery_1 = __importDefault(__webpack_require__(/*! ./gallery */ \"./src/WikiData/characters/ReggieKing/gallery.js\"));\n\nvar ReggieKing = {\n  name: 'Reggie King',\n  pageImage: {\n    url: constants_1.DRIVE_VIEW_PREFIX + '1PnMGTIJsaIy__AkWuYpAM4G9-saN4VQ5',\n    caption: 'Reggie (Age 16)'\n  },\n  sections: [attributes_1[\"default\"], headline_1[\"default\"], appearance_1[\"default\"], gallery_1[\"default\"]]\n};\nexports[\"default\"] = ReggieKing;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/ReggieKing/index.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/RusselKing/appearance.js":
+/*!**********************************************************!*\
+  !*** ./src/WikiData/characters/RusselKing/appearance.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar appearance = {\n  title: constants_1.APPEARANCE,\n  body: [{\n    subSectionTitle: 'Age 13',\n    subSectionText: 'Russel is a skinny dark skinned boy with an unkempt afro. His hair is deceptively long (as seen when Achilles pulls him up by his hair and he is the same height as Reggie off the ground).'\n  }, {\n    subSectionTitle: 'Post Divine Rope',\n    subSectionText: 'After having a piece of mythical rope attached to his back, he grows a pair of orange wings. When tucked, the edges of his wings reach from a few inches above his hair to just below his knees. When expanded they more than cover his hands. On his back is a thin rope shaped like an \"X\" with the ends reaching both sides of his wings (at about halfway) and the backs of his hands before appearing embedded in his body. He wears shirts with the holes cut out in the back for his wings before being given specialised upper wear.'\n  }]\n};\nexports[\"default\"] = appearance;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/RusselKing/appearance.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/RusselKing/attributes.js":
+/*!**********************************************************!*\
+  !*** ./src/WikiData/characters/RusselKing/attributes.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar attributes = {\n  title: constants_1.ATTRIBUTES,\n  attributes: [{\n    attributeName: 'Other Names',\n    attributeText: 'Rus (Reggie)'\n  }, {\n    attributeName: 'Gender',\n    attributeText: 'Male'\n  }, {\n    attributeName: 'Age',\n    attributeText: '13'\n  }, {\n    attributeName: 'Height',\n    attributeText: \"4' 10\\\"\"\n  }, {\n    attributeName: 'Birthday',\n    attributeText: 'July 13th, 1983'\n  }, {\n    attributeName: 'Birthplace',\n    attributeText: 'Philadelphia, PA'\n  }, {\n    attributeName: 'Meta-Human Type',\n    attributeText: 'Mythical'\n  }, {\n    attributeName: 'Race',\n    attributeText: 'Human'\n  }, {\n    attributeName: 'Hair Color',\n    attributeText: 'Black'\n  }, {\n    attributeName: 'Hair Style',\n    attributeText: 'Messy Afro'\n  }, {\n    attributeName: 'Debut',\n    attributeText: 'Chapter 1: Elements of Surprise'\n  }]\n};\nexports[\"default\"] = attributes;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/RusselKing/attributes.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/RusselKing/gallery.js":
+/*!*******************************************************!*\
+  !*** ./src/WikiData/characters/RusselKing/gallery.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar gallery = {\n  title: constants_1.GALLERY,\n  gallery: [{\n    url: constants_1.DRIVE_VIEW_PREFIX + '1RJCVJDJ-5EKELmLvd81HGSm-47M0J9iR'\n  }]\n};\nexports[\"default\"] = gallery;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/RusselKing/gallery.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/RusselKing/headline.js":
+/*!********************************************************!*\
+  !*** ./src/WikiData/characters/RusselKing/headline.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar headline = {\n  title: constants_1.HEADLINE,\n  body: 'Russel King is one the primary protagonists of the story \"Icarus\". At 13, after an accident with a mythical object, he and his brother Reggie are given elemental powers. He is quite observant and informed on many ancient histories given his father Hudson King was a well renowned archaeologist. After being given special abilities, Russel seeks normalcy in a world not ready to offer it.'\n};\nexports[\"default\"] = headline;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/RusselKing/headline.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/RusselKing/index.js":
+/*!*****************************************************!*\
+  !*** ./src/WikiData/characters/RusselKing/index.js ***!
+  \*****************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar appearance_1 = __importDefault(__webpack_require__(/*! ./appearance */ \"./src/WikiData/characters/RusselKing/appearance.js\"));\n\nvar attributes_1 = __importDefault(__webpack_require__(/*! ./attributes */ \"./src/WikiData/characters/RusselKing/attributes.js\"));\n\nvar gallery_1 = __importDefault(__webpack_require__(/*! ./gallery */ \"./src/WikiData/characters/RusselKing/gallery.js\"));\n\nvar headline_1 = __importDefault(__webpack_require__(/*! ./headline */ \"./src/WikiData/characters/RusselKing/headline.js\"));\n\nvar RusselKing = {\n  name: \"Russel King\",\n  pageImage: {\n    url: constants_1.DRIVE_VIEW_PREFIX + '1QAiWVNXwS6Zgvyqxkz2LwEKe1ti3bJ66',\n    caption: 'Russel (Age 13)'\n  },\n  sections: [attributes_1[\"default\"], headline_1[\"default\"], appearance_1[\"default\"], gallery_1[\"default\"]]\n};\nexports[\"default\"] = RusselKing;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/RusselKing/index.js?");
 
 /***/ }),
 
@@ -46,7 +126,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
   \******************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar RusselKing_1 = __importDefault(__webpack_require__(/*! ./RusselKing */ \"./src/WikiData/characters/RusselKing.js\"));\n\nvar ReggieKing_1 = __importDefault(__webpack_require__(/*! ./ReggieKing */ \"./src/WikiData/characters/ReggieKing.js\"));\n\nexports[\"default\"] = [RusselKing_1[\"default\"], ReggieKing_1[\"default\"]];\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/index.js?");
+eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar RusselKing_1 = __importDefault(__webpack_require__(/*! ./RusselKing */ \"./src/WikiData/characters/RusselKing/index.js\"));\n\nvar ReggieKing_1 = __importDefault(__webpack_require__(/*! ./ReggieKing */ \"./src/WikiData/characters/ReggieKing/index.js\"));\n\nexports[\"default\"] = [RusselKing_1[\"default\"], ReggieKing_1[\"default\"]];\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/index.js?");
 
 /***/ }),
 

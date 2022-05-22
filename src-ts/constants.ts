@@ -10,6 +10,7 @@ export const DESCRIPTION: string = 'Description'
 /* Page Sections */
 export const GALLERY: string = 'Gallery'
 export const ATTRIBUTES: string = 'Attributes'
+export const ASSOCIATIONS: string = 'Associations'
 
 /* Google Drive */
 export const DRIVE_VIEW_PREFIX: string = 'https://drive.google.com/uc?export=view&id='

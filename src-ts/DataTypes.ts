@@ -8,12 +8,18 @@ export interface Attribute {
     attributeText: string
 }
 
+export interface Association {
+    associationName: string
+    associations: Array<Page>
+}
+
 export interface SubSection {
     subSectionTitle: string
     subSectionImage?: Image
     subSectionText: string
 }
 
+/* Sections */
 export interface PageSection {
     title: string
     sectionImage?: Image
@@ -30,10 +36,15 @@ export interface AttributesSection {
     attributes: Array<Attribute>
 }
 
+export interface AssociationsSection {
+    title: string
+    associations: Array<Association>
+}
+
 export interface Page {
     name: string
     pageImage?: Image
-    sections: Array<PageSection | GallerySection | AttributesSection>
+    sections: Array<PageSection | GallerySection | AttributesSection | AssociationsSection>
 }
 
 export type CharacterList = Array<Page>

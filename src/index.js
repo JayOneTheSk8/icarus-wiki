@@ -407,12 +407,18 @@ const preloadImages = () => {
     }
 };
 /* Open Page */
+const updateCurrentPage = (pageContents) => {
+    // Update Page
+    pageContent.replaceChildren(...pageContents);
+    // Scroll to top
+    window.scrollTo(0, 0);
+};
 const openHomePage = () => {
     return () => {
         const currentPageTitle = document.getElementsByClassName(PAGE_TITLE)[0];
         // Only switch page if page is not already loaded
         if (!currentPageTitle || currentPageTitle.innerHTML !== homePage.name) {
-            pageContent.replaceChildren(...displayPage(homePage));
+            updateCurrentPage(displayPage(homePage));
         }
         sidebarOpen && toggleSidebar(false);
     };
@@ -422,7 +428,7 @@ const openCharacterPage = (index) => {
         const currentPageTitle = document.getElementsByClassName(PAGE_TITLE)[0];
         // Only switch page if page is not already loaded
         if (!currentPageTitle || currentPageTitle.innerHTML !== characters[index].name) {
-            pageContent.replaceChildren(...displayPage(characters[index]));
+            updateCurrentPage(displayPage(characters[index]));
         }
         sidebarOpen && toggleSidebar(false);
     };
@@ -432,7 +438,7 @@ const openNotesPage = (index) => {
         const currentPageTitle = document.getElementsByClassName(PAGE_TITLE)[0];
         // Only switch page if page is not already loaded
         if (!currentPageTitle || currentPageTitle.innerHTML !== notes[index].name) {
-            pageContent.replaceChildren(...displayPage(notes[index]));
+            updateCurrentPage(displayPage(notes[index]));
         }
         sidebarOpen && toggleSidebar(false);
     };

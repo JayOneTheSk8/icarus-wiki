@@ -153,6 +153,37 @@
     text-align: center;
 }
 
+/* Associations */
+.associations-section {
+    width: 92%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 3em;
+}
+
+.association-group {
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+    align-items: center;
+}
+
+.association-title {
+    font-size: 2em;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: 0.2em;
+}
+
+.associated-page {
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.associated-page:hover {
+    text-decoration: underline;
+}
+
 /* Space block */
 .space-block {
     height: 66px;

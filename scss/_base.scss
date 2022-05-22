@@ -1,19 +1,13 @@
-$primary-background-colour: #dfd1cc;
-$primary-font-colour: #000000;
-
-$primary-icon-internal-colour: #ececec;
-
-$dark-mode-background-colour: #2d2419;
-$dark-mode-font-colour: #d3b9a9;
+@use 'base-colours';
 
 .primary-mode {
-    background-color: $primary-background-colour;
-    color: $primary-font-colour;
+    background-color: base-colours.$primary-background-colour;
+    color: base-colours.$primary-font-colour;
 }
 
 .dark-mode {
-    background-color: $dark-mode-background-colour;
-    color: $dark-mode-font-colour;
+    background-color: base-colours.$dark-mode-background-colour;
+    color: base-colours.$dark-mode-font-colour;
 }
 
 /* Document

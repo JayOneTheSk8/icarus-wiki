@@ -1,0 +1,35 @@
+/* Zoomed Picture */
+.zoomed-image-modal-hide {
+    display: none;
+}
+
+.zoomed-image-modal-show {
+    position: fixed;
+    background-color: rgb(0 0 0 / 47%);
+    height: 100vh;
+    width: 100vw;
+    z-index: 2;
+    top: 0;
+}
+
+.zoomed-img-portrait {
+    height: 85vh;
+}
+
+.zoomed-img-landscape {
+    width: 85vw;
+}
+
+.zoomed-image-section-hide {
+    display: none;
+}
+
+.zoomed-image-section-show {
+    position: fixed;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+}

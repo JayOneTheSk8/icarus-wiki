@@ -1,0 +1,41 @@
+@use 'base-colours';
+
+/* Primary */
+.home-icon {
+    margin-top: 2vh;
+    width: 4.5vw;
+    cursor: pointer;
+}
+
+.character-icon {
+    margin-top: 2vh;
+    width: 4.5vw;
+    cursor: pointer;
+}
+
+.notes-icon {
+    margin-top: 2vh;
+    width: 4.5vw;
+    cursor: pointer;
+}
+
+/* Mobile */
+.home-icon-mobile {
+    width: 8.5vw;
+    cursor: pointer;
+}
+
+.character-icon-mobile {
+    width: 8.5vw;
+    cursor: pointer;
+}
+
+.notes-icon-mobile {
+    width: 8.5vw;
+    cursor: pointer;
+}
+
+/* Fill Icons*/
+.primary-icon-fill {
+    fill: base-colours.$primary-icon-internal-colour;
+}

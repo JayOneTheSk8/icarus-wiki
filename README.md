@@ -73,7 +73,7 @@ const abilities: PageSection = {
 
 ### `AttributesSection`
 
-Attributes are typicaly more concise than other information with that, a section with the `title` of any of the constants in the `attributesTitlesList` will be interpreted as an `AttributesSection` which will display individual `Attributes` in a grouped fashion.
+Attributes are typicaly more concise than other information. With that, a section with the `title` of any of the constants in the `attributesTitlesList` will be interpreted as an `AttributesSection` which will display individual `Attributes` in a grouped fashion.
 
 ```typescript
 const attributes: AttributesSection = {

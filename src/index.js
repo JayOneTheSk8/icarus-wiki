@@ -175,6 +175,162 @@ const closeZoomModal = () => {
     zoomedModal.className = ZOOMED_IMAGE_MODAL_HIDE;
 };
 /* Get HTML Contents */
+const getGalleryContents = (section) => {
+    // Create Gallery list
+    const galleryImageList = createDiv();
+    galleryImageList.className = 'gallery-image-list';
+    // Go through images
+    section.gallery.forEach((image) => {
+        // Create image section
+        const galleryImageSection = createDiv();
+        galleryImageSection.className = 'gallery-image-section';
+        // Create img
+        const galleryImg = createImg();
+        galleryImg.className = 'gallery-img';
+        galleryImg.src = image.url;
+        galleryImg.onclick = zoomInImage(image.url);
+        // Add img to section
+        galleryImageSection.appendChild(galleryImg);
+        // Add caption
+        if (image.caption) {
+            const galleryImageCaption = createDiv();
+            galleryImageCaption.className = 'gallery-img-caption';
+            galleryImageCaption.innerHTML = image.caption;
+            galleryImageSection.appendChild(galleryImageCaption);
+        }
+        // Add image section to list
+        galleryImageList.appendChild(galleryImageSection);
+    });
+    return galleryImageList;
+};
+const getAttributesContents = (section) => {
+    // Create Attributes list
+    const attributesList = createDiv();
+    attributesList.className = 'attributes-list';
+    // Go through attributes
+    section.attributes.forEach((attr) => {
+        // Create attribute
+        const attribute = createDiv();
+        attribute.className = 'attribute';
+        // Create title
+        const attributeTitle = createDiv();
+        attributeTitle.className = 'attribute-title';
+        attributeTitle.innerHTML = attr.attributeName;
+        // Create Value
+        const attributeValue = createDiv();
+        attributeValue.className = 'attribute-value';
+        attributeValue.innerHTML = attr.attributeText;
+        // Append to Attribute
+        attribute.appendChild(attributeTitle);
+        attribute.appendChild(attributeValue);
+        // Add to Attributes List
+        attributesList.appendChild(attribute);
+    });
+    return attributesList;
+};
+const getAssociationsContents = (section) => {
+    // Create Associations section
+    const associationsSection = createDiv();
+    associationsSection.className = 'associations-section';
+    section.associations.forEach((assc) => {
+        // Create Group
+        const associationGroup = createDiv();
+        associationGroup.className = 'association-group';
+        // Add Title
+        const associationTitle = createDiv();
+        associationTitle.className = 'association-title';
+        associationTitle.innerHTML = assc.associationName;
+        associationGroup.appendChild(associationTitle);
+        // List pages in association
+        assc.associations.forEach((asscPage) => {
+            const pageAssociated = createDiv();
+            pageAssociated.className = 'associated-page';
+            pageAssociated.innerHTML = asscPage.name;
+            // Allow click to link to other pages
+            pageAssociated.onclick = () => displayPage(getPageHTMLContents(asscPage));
+            // Add page to association group
+            associationGroup.appendChild(pageAssociated);
+        });
+        // Add group to associations section
+        associationsSection.appendChild(associationGroup);
+    });
+    return associationsSection;
+};
+const addPageSectionToContents = (currentContents, section) => {
+    // Add section image
+    if (section.sectionImage) {
+        // Create image section
+        const sectionImageSection = createDiv();
+        sectionImageSection.className = 'page-section-image-section';
+        // Create image
+        const sectionImage = createImg();
+        sectionImage.className = 'page-section-img';
+        sectionImage.src = section.sectionImage.url;
+        sectionImage.onclick = zoomInImage(section.sectionImage.url);
+        // Add image to section
+        sectionImageSection.appendChild(sectionImage);
+        // Add caption
+        if (section.sectionImage.caption) {
+            const sectionImageCaption = createDiv();
+            sectionImageCaption.className = 'page-section-img-caption';
+            sectionImageCaption.innerHTML = section.sectionImage.caption;
+            sectionImageSection.appendChild(sectionImageCaption);
+        }
+        // Add image section to contents
+        currentContents.push(sectionImageSection);
+    }
+    let body;
+    if (typeof section.body === 'string') {
+        // Cast as string
+        body = section.body;
+        // Create text body
+        const textBody = createDiv();
+        textBody.className = 'page-section-text-body';
+        textBody.innerHTML = body;
+        // Add text body to content
+        currentContents.push(textBody);
+    }
+    else {
+        // Cast as array of subsections
+        body = section.body;
+        body.forEach((subSection) => {
+            // Add subSection title
+            const subSectionTitle = createDiv();
+            subSectionTitle.className = 'page-subsection-title';
+            subSectionTitle.innerHTML = subSection.subSectionTitle;
+            // Add subSection title to contents
+            currentContents.push(subSectionTitle);
+            // Create Text Body
+            const subSectionTextBody = createDiv();
+            subSectionTextBody.className = 'page-subsection-text-body';
+            subSectionTextBody.innerHTML = subSection.subSectionText;
+            // Add subSection image
+            if (subSection.subSectionImage) {
+                // Add subSection image section
+                const subSectionImageSection = createDiv();
+                subSectionImageSection.className = 'page-subsection-image-section';
+                // Create Image
+                const subSectionImage = createImg();
+                subSectionImage.className = 'page-subsection-img';
+                subSectionImage.src = subSection.subSectionImage.url;
+                subSectionImage.onclick = zoomInImage(subSection.subSectionImage.url);
+                // Add image to section
+                subSectionImageSection.appendChild(subSectionImage);
+                // Add caption
+                if (subSection.subSectionImage.caption) {
+                    const subSectionImageCaption = createDiv();
+                    subSectionImageCaption.className = 'page-subsection-img-caption';
+                    subSectionImageCaption.innerHTML = subSection.subSectionImage.caption;
+                    subSectionImageSection.appendChild(subSectionImageCaption);
+                }
+                // Add image to text body in subsection
+                subSectionTextBody.appendChild(subSectionImageSection);
+            }
+            // Add text body for subsection
+            currentContents.push(subSectionTextBody);
+        });
+    }
+};
 const getPageHTMLContents = (page) => {
     const contents = [];
     // Get Page Name
@@ -205,176 +361,23 @@ const getPageHTMLContents = (page) => {
         contents.push(pageImageSection);
     }
     // Go through sections
-    page.sections.forEach((sect) => {
+    page.sections.forEach((section) => {
         // Add section title
         const sectionTitle = createDiv();
-        sectionTitle.innerHTML = sect.title;
+        sectionTitle.innerHTML = section.title;
         sectionTitle.className = 'page-section-title';
         contents.push(sectionTitle);
-        let section;
-        if (constants_1.galleryTitlesList.includes(sect.title)) {
-            // Cast section to Gallery type
-            section = sect;
-            // Create Gallery list
-            const galleryImageList = createDiv();
-            galleryImageList.className = 'gallery-image-list';
-            // Go through images
-            section.gallery.forEach((image) => {
-                // Create image section
-                const galleryImageSection = createDiv();
-                galleryImageSection.className = 'gallery-image-section';
-                // Create img
-                const galleryImg = createImg();
-                galleryImg.className = 'gallery-img';
-                galleryImg.src = image.url;
-                galleryImg.onclick = zoomInImage(image.url);
-                // Add img to section
-                galleryImageSection.appendChild(galleryImg);
-                // Add caption
-                if (image.caption) {
-                    const galleryImageCaption = createDiv();
-                    galleryImageCaption.className = 'gallery-img-caption';
-                    galleryImageCaption.innerHTML = image.caption;
-                    galleryImageSection.appendChild(galleryImageCaption);
-                }
-                // Add image section to list
-                galleryImageList.appendChild(galleryImageSection);
-            });
-            // Add gallery image list to contents
-            contents.push(galleryImageList);
+        if (constants_1.galleryTitlesList.includes(section.title)) {
+            contents.push(getGalleryContents(section));
         }
-        else if (constants_1.attributesTitlesList.includes(sect.title)) {
-            section = sect;
-            // Create Attributes list
-            const attributesList = createDiv();
-            attributesList.className = 'attributes-list';
-            // Go through attributes
-            section.attributes.forEach((attr) => {
-                // Create attribute
-                const attribute = createDiv();
-                attribute.className = 'attribute';
-                // Create title
-                const attributeTitle = createDiv();
-                attributeTitle.className = 'attribute-title';
-                attributeTitle.innerHTML = attr.attributeName;
-                // Create Value
-                const attributeValue = createDiv();
-                attributeValue.className = 'attribute-value';
-                attributeValue.innerHTML = attr.attributeText;
-                // Append to Attribute
-                attribute.appendChild(attributeTitle);
-                attribute.appendChild(attributeValue);
-                // Add to Attributes List
-                attributesList.appendChild(attribute);
-            });
-            // Add attributes list to contents
-            contents.push(attributesList);
+        else if (constants_1.attributesTitlesList.includes(section.title)) {
+            contents.push(getAttributesContents(section));
         }
-        else if (constants_1.associationsTitlesList.includes(sect.title)) {
-            section = sect;
-            // Create Attributes list
-            const associationsSection = createDiv();
-            associationsSection.className = 'associations-section';
-            section.associations.forEach((assc) => {
-                // Create Group
-                const associationGroup = createDiv();
-                associationGroup.className = 'association-group';
-                // Add Title
-                const associationTitle = createDiv();
-                associationTitle.className = 'association-title';
-                associationTitle.innerHTML = assc.associationName;
-                associationGroup.appendChild(associationTitle);
-                // List pages in association
-                assc.associations.forEach((asscPage) => {
-                    const pageAssociated = createDiv();
-                    pageAssociated.className = 'associated-page';
-                    pageAssociated.innerHTML = asscPage.name;
-                    // Allow click to link to other pages
-                    pageAssociated.onclick = () => displayPage(getPageHTMLContents(asscPage));
-                    // Add page to association group
-                    associationGroup.appendChild(pageAssociated);
-                });
-                // Add group to associations section
-                associationsSection.appendChild(associationGroup);
-            });
-            // Add associations section to page contents
-            contents.push(associationsSection);
+        else if (constants_1.associationsTitlesList.includes(section.title)) {
+            contents.push(getAssociationsContents(section));
         }
         else {
-            section = sect;
-            // Add section image
-            if (section.sectionImage) {
-                // Create image section
-                const sectionImageSection = createDiv();
-                sectionImageSection.className = 'page-section-image-section';
-                // Create image
-                const sectionImage = createImg();
-                sectionImage.className = 'page-section-img';
-                sectionImage.src = section.sectionImage.url;
-                sectionImage.onclick = zoomInImage(section.sectionImage.url);
-                // Add image to section
-                sectionImageSection.appendChild(sectionImage);
-                // Add caption
-                if (section.sectionImage.caption) {
-                    const sectionImageCaption = createDiv();
-                    sectionImageCaption.className = 'page-section-img-caption';
-                    sectionImageCaption.innerHTML = section.sectionImage.caption;
-                    sectionImageSection.appendChild(sectionImageCaption);
-                }
-                // Add image section to contents
-                contents.push(sectionImageSection);
-            }
-            let body;
-            if (typeof section.body === 'string') {
-                // Cast as string
-                body = section.body;
-                // Create text body
-                const textBody = createDiv();
-                textBody.className = 'page-section-text-body';
-                textBody.innerHTML = body;
-                // Add text body to content
-                contents.push(textBody);
-            }
-            else {
-                // Cast as array of subsections
-                body = section.body;
-                body.forEach((subSection) => {
-                    // Add subSection title
-                    const subSectionTitle = createDiv();
-                    subSectionTitle.className = 'page-subsection-title';
-                    subSectionTitle.innerHTML = subSection.subSectionTitle;
-                    // Add subSection title to contents
-                    contents.push(subSectionTitle);
-                    // Create Text Body
-                    const subSectionTextBody = createDiv();
-                    subSectionTextBody.className = 'page-subsection-text-body';
-                    subSectionTextBody.innerHTML = subSection.subSectionText;
-                    // Add subSection image
-                    if (subSection.subSectionImage) {
-                        // Add subSection image section
-                        const subSectionImageSection = createDiv();
-                        subSectionImageSection.className = 'page-subsection-image-section';
-                        // Create Image
-                        const subSectionImage = createImg();
-                        subSectionImage.className = 'page-subsection-img';
-                        subSectionImage.src = subSection.subSectionImage.url;
-                        subSectionImage.onclick = zoomInImage(subSection.subSectionImage.url);
-                        // Add image to section
-                        subSectionImageSection.appendChild(subSectionImage);
-                        // Add caption
-                        if (subSection.subSectionImage.caption) {
-                            const subSectionImageCaption = createDiv();
-                            subSectionImageCaption.className = 'page-subsection-img-caption';
-                            subSectionImageCaption.innerHTML = subSection.subSectionImage.caption;
-                            subSectionImageSection.appendChild(subSectionImageCaption);
-                        }
-                        // Add image to text body in subsection
-                        subSectionTextBody.appendChild(subSectionImageSection);
-                    }
-                    // Add text body for subsection
-                    contents.push(subSectionTextBody);
-                });
-            }
+            addPageSectionToContents(contents, section);
         }
     });
     // Add spacer

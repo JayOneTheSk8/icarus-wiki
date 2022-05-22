@@ -271,6 +271,36 @@ const displayPage = (page) => {
                 // Add attributes list to contents
                 contents.push(attributesList);
                 break;
+            case constants_1.ASSOCIATIONS:
+                section = sect;
+                // Create Attributes list
+                const associationsSection = createDiv();
+                associationsSection.className = 'associations-section';
+                section.associations.forEach((assc) => {
+                    // Create Group
+                    const associationGroup = createDiv();
+                    associationGroup.className = 'association-group';
+                    // Add Title
+                    const associationTitle = createDiv();
+                    associationTitle.className = 'association-title';
+                    associationTitle.innerHTML = assc.associationName;
+                    associationGroup.appendChild(associationTitle);
+                    // List pages in association
+                    assc.associations.forEach((asscPage) => {
+                        const pageAssociated = createDiv();
+                        pageAssociated.className = 'associated-page';
+                        pageAssociated.innerHTML = asscPage.name;
+                        // Allow click to link to other pages
+                        pageAssociated.onclick = () => updateCurrentPage(displayPage(asscPage));
+                        // Add page to association group
+                        associationGroup.appendChild(pageAssociated);
+                    });
+                    // Add group to associations section
+                    associationsSection.appendChild(associationGroup);
+                });
+                // Add associations section to page contents
+                contents.push(associationsSection);
+                break;
             default:
                 section = sect;
                 // Add section image
@@ -390,6 +420,7 @@ const preloadPageImage = (page) => {
                 preloadGalleryImages(sect);
                 break;
             case constants_1.ATTRIBUTES: // Attributes cannot have images
+            case constants_1.ASSOCIATIONS: // Associations cannot have images
                 break;
             default:
                 preloadPageSectionImage(sect);

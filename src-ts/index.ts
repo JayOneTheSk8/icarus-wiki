@@ -1,6 +1,6 @@
 import WikiData from "./WikiData"
-import { Page, PageSection, GallerySection, AttributesSection, SubSection } from "./DataTypes"
-import { GALLERY, ATTRIBUTES } from "./constants"
+import { Page, PageSection, GallerySection, AttributesSection, SubSection, AssociationsSection } from "./DataTypes"
+import { GALLERY, ATTRIBUTES, ASSOCIATIONS } from "./constants"
 
 const {
     homePage,
@@ -244,7 +244,7 @@ const displayPage = (page: Page): Array<HTMLElement> => {
         sectionTitle.className = 'page-section-title'
         contents.push(sectionTitle) 
         
-        let section: PageSection | GallerySection | AttributesSection;
+        let section: PageSection | GallerySection | AttributesSection | AssociationsSection;
         switch (sect.title) {
             case GALLERY:
                 // Cast section to Gallery type
@@ -318,6 +318,44 @@ const displayPage = (page: Page): Array<HTMLElement> => {
 
                 // Add attributes list to contents
                 contents.push(attributesList)
+                break;
+            case ASSOCIATIONS:
+                section = sect as AssociationsSection
+
+                // Create Attributes list
+                const associationsSection = createDiv()
+                associationsSection.className = 'associations-section'
+
+                section.associations.forEach((assc) => {
+                    // Create Group
+                    const associationGroup = createDiv()
+                    associationGroup.className = 'association-group'
+                    
+                    // Add Title
+                    const associationTitle = createDiv()
+                    associationTitle.className = 'association-title'
+                    associationTitle.innerHTML = assc.associationName
+                    associationGroup.appendChild(associationTitle)
+
+                    // List pages in association
+                    assc.associations.forEach((asscPage) => {
+                        const pageAssociated = createDiv()
+                        pageAssociated.className = 'associated-page'
+                        pageAssociated.innerHTML = asscPage.name
+
+                        // Allow click to link to other pages
+                        pageAssociated.onclick = () => updateCurrentPage(displayPage(asscPage))
+                        
+                        // Add page to association group
+                        associationGroup.appendChild(pageAssociated)
+                    })
+
+                    // Add group to associations section
+                    associationsSection.appendChild(associationGroup)
+                })
+
+                // Add associations section to page contents
+                contents.push(associationsSection)
                 break;
             default:
                 section = sect as PageSection
@@ -466,6 +504,7 @@ const preloadPageImage = (page: Page): void => {
                 break;
 
             case ATTRIBUTES: // Attributes cannot have images
+            case ASSOCIATIONS: // Associations cannot have images
                 break;
 
             default:

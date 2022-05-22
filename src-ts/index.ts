@@ -1,6 +1,6 @@
 import WikiData from "./WikiData"
 import { Page, PageSection, GallerySection, AttributesSection, SubSection, AssociationsSection } from "./DataTypes"
-import { GALLERY, ATTRIBUTES, ASSOCIATIONS } from "./constants"
+import { galleryTitlesList, attributesTitlesList, associationsTitlesList } from "./constants"
 
 const {
     homePage,
@@ -237,220 +237,218 @@ const displayPage = (page: Page): Array<HTMLElement> => {
     }
 
     // Go through sections
-    page.sections.forEach((sect, idx) => {
+    page.sections.forEach((sect) => {
         // Add section title
         const sectionTitle = createDiv()
         sectionTitle.innerHTML = sect.title
         sectionTitle.className = 'page-section-title'
         contents.push(sectionTitle) 
         
-        let section: PageSection | GallerySection | AttributesSection | AssociationsSection;
-        switch (sect.title) {
-            case GALLERY:
-                // Cast section to Gallery type
-                section = sect as GallerySection
-                
-                // Create Gallery list
-                const galleryImageList = createDiv()
-                galleryImageList.className = 'gallery-image-list'
+        let section: PageSection | GallerySection | AttributesSection | AssociationsSection
+        if (galleryTitlesList.includes(sect.title)) {
+            // Cast section to Gallery type
+            section = sect as GallerySection
 
-                // Go through images
-                section.gallery.forEach((image) => {
-                    // Create image section
-                    const galleryImageSection = createDiv()
-                    galleryImageSection.className = 'gallery-image-section'
+            // Create Gallery list
+            const galleryImageList = createDiv()
+            galleryImageList.className = 'gallery-image-list'
 
-                    // Create img
-                    const galleryImg = createImg()
-                    galleryImg.className = 'gallery-img'
-                    galleryImg.src = image.url
-                    galleryImg.onclick = zoomInImage(image.url)
+            // Go through images
+            section.gallery.forEach((image) => {
+                // Create image section
+                const galleryImageSection = createDiv()
+                galleryImageSection.className = 'gallery-image-section'
 
-                    // Add img to section
-                    galleryImageSection.appendChild(galleryImg)
+                // Create img
+                const galleryImg = createImg()
+                galleryImg.className = 'gallery-img'
+                galleryImg.src = image.url
+                galleryImg.onclick = zoomInImage(image.url)
 
-                    // Add caption
-                    if (image.caption) {
-                        const galleryImageCaption = createDiv()
-                        galleryImageCaption.className = 'gallery-img-caption'
-                        galleryImageCaption.innerHTML = image.caption
+                // Add img to section
+                galleryImageSection.appendChild(galleryImg)
 
-                        galleryImageSection.appendChild(galleryImageCaption)
-                    }
+                // Add caption
+                if (image.caption) {
+                    const galleryImageCaption = createDiv()
+                    galleryImageCaption.className = 'gallery-img-caption'
+                    galleryImageCaption.innerHTML = image.caption
 
-                    // Add image section to list
-                    galleryImageList.appendChild(galleryImageSection)
-                })
-
-                // Add gallery image list to contents
-                contents.push(galleryImageList)
-                break;
-            case ATTRIBUTES:
-                section = sect as AttributesSection
-
-                // Create Attributes list
-                const attributesList = createDiv()
-                attributesList.className = 'attributes-list'
-
-                // Go through attributes
-                section.attributes.forEach((attr) => {
-                    // Create attribute
-                    const attribute = createDiv()
-                    attribute.className = 'attribute'
-
-                    // Create title
-                    const attributeTitle = createDiv()
-                    attributeTitle.className = 'attribute-title'
-                    attributeTitle.innerHTML = attr.attributeName
-
-                    // Create Value
-                    const attributeValue = createDiv()
-                    attributeValue.className = 'attribute-value'
-                    attributeValue.innerHTML = attr.attributeText
-
-                    // Append to Attribute
-                    attribute.appendChild(attributeTitle)
-                    attribute.appendChild(attributeValue)
-
-                    // Add to Attributes List
-                    attributesList.appendChild(attribute)
-                })
-
-                // Add attributes list to contents
-                contents.push(attributesList)
-                break;
-            case ASSOCIATIONS:
-                section = sect as AssociationsSection
-
-                // Create Attributes list
-                const associationsSection = createDiv()
-                associationsSection.className = 'associations-section'
-
-                section.associations.forEach((assc) => {
-                    // Create Group
-                    const associationGroup = createDiv()
-                    associationGroup.className = 'association-group'
-                    
-                    // Add Title
-                    const associationTitle = createDiv()
-                    associationTitle.className = 'association-title'
-                    associationTitle.innerHTML = assc.associationName
-                    associationGroup.appendChild(associationTitle)
-
-                    // List pages in association
-                    assc.associations.forEach((asscPage) => {
-                        const pageAssociated = createDiv()
-                        pageAssociated.className = 'associated-page'
-                        pageAssociated.innerHTML = asscPage.name
-
-                        // Allow click to link to other pages
-                        pageAssociated.onclick = () => updateCurrentPage(displayPage(asscPage))
-                        
-                        // Add page to association group
-                        associationGroup.appendChild(pageAssociated)
-                    })
-
-                    // Add group to associations section
-                    associationsSection.appendChild(associationGroup)
-                })
-
-                // Add associations section to page contents
-                contents.push(associationsSection)
-                break;
-            default:
-                section = sect as PageSection
-
-                // Add section image
-                if (section.sectionImage) {
-                    // Create image section
-                    const sectionImageSection = createDiv()
-                    sectionImageSection.className = 'page-section-image-section'
-
-                    // Create image
-                    const sectionImage = createImg()
-                    sectionImage.className = 'page-section-img'
-                    sectionImage.src = section.sectionImage.url
-                    sectionImage.onclick = zoomInImage(section.sectionImage.url)
-
-                    // Add image to section
-                    sectionImageSection.appendChild(sectionImage)
-
-                    // Add caption
-                    if (section.sectionImage.caption) {
-                        const sectionImageCaption = createDiv()
-                        sectionImageCaption.className = 'page-section-img-caption'
-                        sectionImageCaption.innerHTML = section.sectionImage.caption
-
-                        sectionImageSection.appendChild(sectionImageCaption)
-                    }
-
-                    // Add image section to contents
-                    contents.push(sectionImageSection)
+                    galleryImageSection.appendChild(galleryImageCaption)
                 }
 
-                let body: string | Array<SubSection>
-                if (typeof section.body === 'string') {
-                    // Cast as string
-                    body = section.body as string
+                // Add image section to list
+                galleryImageList.appendChild(galleryImageSection)
+            })
 
-                    // Create text body
-                    const textBody = createDiv()
-                    textBody.className = 'page-section-text-body'
-                    textBody.innerHTML = body
+            // Add gallery image list to contents
+            contents.push(galleryImageList)
 
-                    // Add text body to content
-                    contents.push(textBody)
-                } else {
-                    // Cast as array of subsections
-                    body = section.body as Array<SubSection>
+        } else if (attributesTitlesList.includes(sect.title)) {
+            section = sect as AttributesSection
 
-                    body.forEach((subSection) => {
-                        // Add subSection title
-                        const subSectionTitle = createDiv()
-                        subSectionTitle.className = 'page-subsection-title'
-                        subSectionTitle.innerHTML = subSection.subSectionTitle
+            // Create Attributes list
+            const attributesList = createDiv()
+            attributesList.className = 'attributes-list'
 
-                        // Add subSection title to contents
-                        contents.push(subSectionTitle)
+            // Go through attributes
+            section.attributes.forEach((attr) => {
+                // Create attribute
+                const attribute = createDiv()
+                attribute.className = 'attribute'
 
-                        // Create Text Body
-                        const subSectionTextBody = createDiv()
-                        subSectionTextBody.className = 'page-subsection-text-body'
-                        subSectionTextBody.innerHTML = subSection.subSectionText
+                // Create title
+                const attributeTitle = createDiv()
+                attributeTitle.className = 'attribute-title'
+                attributeTitle.innerHTML = attr.attributeName
 
-                        // Add subSection image
-                        if (subSection.subSectionImage) {
-                            // Add subSection image section
-                            const subSectionImageSection =  createDiv()
-                            subSectionImageSection.className = 'page-subsection-image-section'
+                // Create Value
+                const attributeValue = createDiv()
+                attributeValue.className = 'attribute-value'
+                attributeValue.innerHTML = attr.attributeText
 
-                            // Create Image
-                            const subSectionImage = createImg()
-                            subSectionImage.className = 'page-subsection-img'
-                            subSectionImage.src = subSection.subSectionImage.url
-                            subSectionImage.onclick = zoomInImage(subSection.subSectionImage.url)
+                // Append to Attribute
+                attribute.appendChild(attributeTitle)
+                attribute.appendChild(attributeValue)
 
-                            // Add image to section
-                            subSectionImageSection.appendChild(subSectionImage)
+                // Add to Attributes List
+                attributesList.appendChild(attribute)
+            })
 
-                            // Add caption
-                            if (subSection.subSectionImage.caption) {
-                                const subSectionImageCaption = createDiv()
-                                subSectionImageCaption.className = 'page-subsection-img-caption'
-                                subSectionImageCaption.innerHTML = subSection.subSectionImage.caption
+            // Add attributes list to contents
+            contents.push(attributesList)
 
-                                subSectionImageSection.appendChild(subSectionImageCaption)
-                            }
+        } else if (associationsTitlesList.includes(sect.title)) {
+            section = sect as AssociationsSection
 
-                            // Add image to text body in subsection
-                            subSectionTextBody.appendChild(subSectionImageSection)
+            // Create Attributes list
+            const associationsSection = createDiv()
+            associationsSection.className = 'associations-section'
+
+            section.associations.forEach((assc) => {
+                // Create Group
+                const associationGroup = createDiv()
+                associationGroup.className = 'association-group'
+
+                // Add Title
+                const associationTitle = createDiv()
+                associationTitle.className = 'association-title'
+                associationTitle.innerHTML = assc.associationName
+                associationGroup.appendChild(associationTitle)
+
+                // List pages in association
+                assc.associations.forEach((asscPage) => {
+                    const pageAssociated = createDiv()
+                    pageAssociated.className = 'associated-page'
+                    pageAssociated.innerHTML = asscPage.name
+
+                    // Allow click to link to other pages
+                    pageAssociated.onclick = () => updateCurrentPage(displayPage(asscPage))
+
+                    // Add page to association group
+                    associationGroup.appendChild(pageAssociated)
+                })
+
+                // Add group to associations section
+                associationsSection.appendChild(associationGroup)
+            })
+
+            // Add associations section to page contents
+            contents.push(associationsSection)
+
+        } else {
+            section = sect as PageSection
+
+            // Add section image
+            if (section.sectionImage) {
+                // Create image section
+                const sectionImageSection = createDiv()
+                sectionImageSection.className = 'page-section-image-section'
+
+                // Create image
+                const sectionImage = createImg()
+                sectionImage.className = 'page-section-img'
+                sectionImage.src = section.sectionImage.url
+                sectionImage.onclick = zoomInImage(section.sectionImage.url)
+
+                // Add image to section
+                sectionImageSection.appendChild(sectionImage)
+
+                // Add caption
+                if (section.sectionImage.caption) {
+                    const sectionImageCaption = createDiv()
+                    sectionImageCaption.className = 'page-section-img-caption'
+                    sectionImageCaption.innerHTML = section.sectionImage.caption
+
+                    sectionImageSection.appendChild(sectionImageCaption)
+                }
+
+                // Add image section to contents
+                contents.push(sectionImageSection)
+            }
+
+            let body: string | Array<SubSection>
+            if (typeof section.body === 'string') {
+                // Cast as string
+                body = section.body as string
+
+                // Create text body
+                const textBody = createDiv()
+                textBody.className = 'page-section-text-body'
+                textBody.innerHTML = body
+
+                // Add text body to content
+                contents.push(textBody)
+            } else {
+                // Cast as array of subsections
+                body = section.body as Array<SubSection>
+
+                body.forEach((subSection) => {
+                    // Add subSection title
+                    const subSectionTitle = createDiv()
+                    subSectionTitle.className = 'page-subsection-title'
+                    subSectionTitle.innerHTML = subSection.subSectionTitle
+
+                    // Add subSection title to contents
+                    contents.push(subSectionTitle)
+
+                    // Create Text Body
+                    const subSectionTextBody = createDiv()
+                    subSectionTextBody.className = 'page-subsection-text-body'
+                    subSectionTextBody.innerHTML = subSection.subSectionText
+
+                    // Add subSection image
+                    if (subSection.subSectionImage) {
+                        // Add subSection image section
+                        const subSectionImageSection =  createDiv()
+                        subSectionImageSection.className = 'page-subsection-image-section'
+
+                        // Create Image
+                        const subSectionImage = createImg()
+                        subSectionImage.className = 'page-subsection-img'
+                        subSectionImage.src = subSection.subSectionImage.url
+                        subSectionImage.onclick = zoomInImage(subSection.subSectionImage.url)
+
+                        // Add image to section
+                        subSectionImageSection.appendChild(subSectionImage)
+
+                        // Add caption
+                        if (subSection.subSectionImage.caption) {
+                            const subSectionImageCaption = createDiv()
+                            subSectionImageCaption.className = 'page-subsection-img-caption'
+                            subSectionImageCaption.innerHTML = subSection.subSectionImage.caption
+
+                            subSectionImageSection.appendChild(subSectionImageCaption)
                         }
 
-                        // Add text body for subsection
-                        contents.push(subSectionTextBody)
-                    })
-                }
-                break;
+                        // Add image to text body in subsection
+                        subSectionTextBody.appendChild(subSectionImageSection)
+                    }
+
+                    // Add text body for subsection
+                    contents.push(subSectionTextBody)
+                })
+            }
         }
     })
 
@@ -498,18 +496,13 @@ const preloadPageImage = (page: Page): void => {
     }
 
     for (const sect of page.sections) {
-        switch (sect.title) {
-            case GALLERY:
-                preloadGalleryImages(sect as GallerySection)
-                break;
-
-            case ATTRIBUTES: // Attributes cannot have images
-            case ASSOCIATIONS: // Associations cannot have images
-                break;
-
-            default:
-                preloadPageSectionImage(sect as PageSection)
-                break;
+        if (attributesTitlesList.includes(sect.title) || associationsTitlesList.includes(sect.title)) {
+            // Attributes and Associations cannot have images
+            continue
+        } else if (galleryTitlesList.includes(sect.title)) {
+            preloadGalleryImages(sect as GallerySection)
+        } else {
+            preloadPageSectionImage(sect as PageSection)
         }
     }
 }

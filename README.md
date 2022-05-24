@@ -243,6 +243,10 @@ Clicking on the moon or checkbox in the corner activates dark mode.
 
 ![](./public/DarkMode.png)
 
+Dark mode can also be activated by default when setting the query params `dark` or `d` to equal `true` or `t`
+
+(ex. `https://jayonethesk8.github.io/icarus-wiki/?d=t`)
+
 Dark mode (as well as the primary colours) can be changed in the scss `_base-colours` file.
 
 ```scss

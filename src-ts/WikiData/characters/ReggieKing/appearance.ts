@@ -1,5 +1,5 @@
-import { PageSection } from "../../../DataTypes";
-import { APPEARANCE } from "../../../constants";
+import { APPEARANCE } from '../../../constants'
+import { PageSection } from '../../../DataTypes'
 
 const appearance: PageSection = {
     title: APPEARANCE,

@@ -108,6 +108,9 @@ const changeToMobile = (setMobile) => {
 const changeToDarkMode = (setDarkMode) => {
     // Adjust primary mode elements
     const primaryModeElements = document.getElementsByClassName(setDarkMode ? PRIMARY_MODE_CLASS : DARK_MODE_CLASS);
+    for (let i = 0; i < primaryModeElements.length; i++) {
+        primaryModeElements[i].className = setDarkMode ? DARK_MODE_CLASS : PRIMARY_MODE_CLASS;
+    }
     for (const el of primaryModeElements) {
         el.className = setDarkMode ? DARK_MODE_CLASS : PRIMARY_MODE_CLASS;
     }

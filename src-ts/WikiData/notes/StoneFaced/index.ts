@@ -7,7 +7,7 @@ import description from './description'
 
 const StoneFaced: Page = {
     id: STONE_FACED_PAGE_ID,
-    name: "Stone-Faced",
+    name: 'Stone-Faced',
     pageImage: {
         url: DRIVE_VIEW_PREFIX + '1cx-R2-OwVB04JDTL7jqz-1EkcTR5zo99'
     },

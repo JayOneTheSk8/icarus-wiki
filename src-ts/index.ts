@@ -1,6 +1,6 @@
-import WikiData from "./WikiData"
-import { Page, PageSection, GallerySection, AttributesSection, SubSection, AssociationsSection } from "./DataTypes"
-import { GALLERY_TITLES_LIST, ATTRIBUTES_TITLES_LIST, ASSOCIATIONS_TITLES_LIST } from "./constants"
+import WikiData from './WikiData'
+import { Page, PageSection, GallerySection, AttributesSection, SubSection, AssociationsSection } from './DataTypes'
+import { GALLERY_TITLES_LIST, ATTRIBUTES_TITLES_LIST, ASSOCIATIONS_TITLES_LIST } from './constants'
 
 const {
     homePage,
@@ -9,59 +9,59 @@ const {
 } = WikiData
 
 /* Constants */
-const MOBILE_WIDTH_LIMIT: number = 1000
+const MOBILE_WIDTH_LIMIT = 1000
 const PAGE_MAP: { [key: string]: Page } = {}
 
-const SECTION_TITLE: string = 'section-title'
-const PAGE_OPTION: string = 'page-option'
+const SECTION_TITLE = 'section-title'
+const PAGE_OPTION = 'page-option'
 
-const MAIN_CLASS: string = 'main'
-const PAGE_CONTENT_CLASS: string = 'page-content'
-const SECTION_SELECTOR_CLASS: string = 'section-selector'
-const PAGE_SELECTOR_CLASS: string = 'page-selector'
-const HOME_ICON_CLASS: string = 'home-icon'
-const CHARACTER_ICON_CLASS: string = 'character-icon'
-const NOTES_ICON_CLASS: string = 'notes-icon'
+const MAIN_CLASS = 'main'
+const PAGE_CONTENT_CLASS = 'page-content'
+const SECTION_SELECTOR_CLASS = 'section-selector'
+const PAGE_SELECTOR_CLASS = 'page-selector'
+const HOME_ICON_CLASS = 'home-icon'
+const CHARACTER_ICON_CLASS = 'character-icon'
+const NOTES_ICON_CLASS = 'notes-icon'
 
-const PAGE_SELECTOR_MODAL: string = 'page-selector-modal'
-const PAGE_SELECTOR_MODAL_SHOW_CLASS: string = 'page-selector-modal-show'
-const PAGE_SELECTOR_MODAL_HIDE_CLASS: string = 'page-selector-modal-hide'
+const PAGE_SELECTOR_MODAL = 'page-selector-modal'
+const PAGE_SELECTOR_MODAL_SHOW_CLASS = 'page-selector-modal-show'
+const PAGE_SELECTOR_MODAL_HIDE_CLASS = 'page-selector-modal-hide'
 
-const ZOOMED_IMAGE_SECTION: string = 'zoomed-image-section'
-const ZOOMED_IMAGE_SECTION_HIDE: string = 'zoomed-image-section-hide'
-const ZOOMED_IMAGE_SECTION_SHOW: string = 'zoomed-image-section-show'
+const ZOOMED_IMAGE_SECTION = 'zoomed-image-section'
+const ZOOMED_IMAGE_SECTION_HIDE = 'zoomed-image-section-hide'
+const ZOOMED_IMAGE_SECTION_SHOW = 'zoomed-image-section-show'
 
-const ZOOMED_IMAGE_MODAL: string = 'zoomed-image-modal'
-const ZOOMED_IMAGE_MODAL_HIDE: string = 'zoomed-image-modal-hide'
-const ZOOMED_IMAGE_MODAL_SHOW: string = 'zoomed-image-modal-show'
+const ZOOMED_IMAGE_MODAL = 'zoomed-image-modal'
+const ZOOMED_IMAGE_MODAL_HIDE = 'zoomed-image-modal-hide'
+const ZOOMED_IMAGE_MODAL_SHOW = 'zoomed-image-modal-show'
 
-const MAIN_MOBILE_CLASS: string = 'main-mobile'
-const PAGE_CONTENT_MOBILE_CLASS: string = 'page-content-mobile'
-const SECTION_SELECTOR_MOBILE_CLASS: string = 'section-selector-mobile'
-const PAGE_SELECTOR_MOBILE_SHOW_CLASS: string = 'page-selector-mobile-show'
-const PAGE_SELECTOR_MOBILE_HIDE_CLASS: string = 'page-selector-mobile-hide'
-const HOME_ICON_MOBILE_CLASS: string = 'home-icon-mobile'
-const CHARACTER_ICON_MOBILE_CLASS: string = 'character-icon-mobile'
-const NOTES_ICON_MOBILE_CLASS: string = 'notes-icon-mobile'
+const MAIN_MOBILE_CLASS = 'main-mobile'
+const PAGE_CONTENT_MOBILE_CLASS = 'page-content-mobile'
+const SECTION_SELECTOR_MOBILE_CLASS = 'section-selector-mobile'
+const PAGE_SELECTOR_MOBILE_SHOW_CLASS = 'page-selector-mobile-show'
+const PAGE_SELECTOR_MOBILE_HIDE_CLASS = 'page-selector-mobile-hide'
+const HOME_ICON_MOBILE_CLASS = 'home-icon-mobile'
+const CHARACTER_ICON_MOBILE_CLASS = 'character-icon-mobile'
+const NOTES_ICON_MOBILE_CLASS = 'notes-icon-mobile'
 
-const DARK_MODE_TOGGLE: string = 'dark-mode-toggle'
+const DARK_MODE_TOGGLE = 'dark-mode-toggle'
 
-const PRIMARY_MODE_CLASS: string = 'primary-mode'
-const SPACE_BLOCK_CLASS: string = 'space-block'
+const PRIMARY_MODE_CLASS = 'primary-mode'
+const SPACE_BLOCK_CLASS = 'space-block'
 
-const DARK_MODE_CLASS: string = 'dark-mode'
-const SECTION_SELECTOR_DARK_CLASS: string = 'section-selector-dark'
-const PAGE_SELECTOR_DARK_CLASS: string = 'page-selector-dark '
-const SECTION_SELECTOR_MOBILE_DARK_CLASS: string = 'section-selector-mobile-dark'
-const PAGE_SELECTOR_MOBILE_SHOW_DARK_CLASS: string = 'page-selector-mobile-show-dark'
-const SPACE_BLOCK_DARK_CLASS: string = 'space-block-dark'
+const DARK_MODE_CLASS = 'dark-mode'
+const SECTION_SELECTOR_DARK_CLASS = 'section-selector-dark'
+const PAGE_SELECTOR_DARK_CLASS = 'page-selector-dark '
+const SECTION_SELECTOR_MOBILE_DARK_CLASS = 'section-selector-mobile-dark'
+const PAGE_SELECTOR_MOBILE_SHOW_DARK_CLASS = 'page-selector-mobile-show-dark'
+const SPACE_BLOCK_DARK_CLASS = 'space-block-dark'
 
-const PAGE_TITLE: string = 'page-title'
+const PAGE_TITLE = 'page-title'
 
 /* State Variables */
-var usingMobile: boolean = false
-var sidebarOpen: boolean = false
-var darkMode: boolean = false
+var usingMobile = false
+var sidebarOpen = false
+var darkMode = false
 
 /* Get HTML Elements Functions */
 const createDiv = (): HTMLElement => document.createElement('div')
@@ -130,6 +130,7 @@ const changeToMobile = (setMobile: boolean): void => {
 const changeToDarkMode = (setDarkMode: boolean): void => {
     // Adjust primary mode elements
     const primaryModeElements: HTMLCollectionOf<Element> = document.getElementsByClassName(setDarkMode ? PRIMARY_MODE_CLASS : DARK_MODE_CLASS)
+    for (let i = 0; i < primaryModeElements.length; i++) { primaryModeElements[i].className = setDarkMode ? DARK_MODE_CLASS : PRIMARY_MODE_CLASS }
     for (const el of primaryModeElements) { el.className = setDarkMode ? DARK_MODE_CLASS : PRIMARY_MODE_CLASS }
 
     // Adjust section selector
@@ -406,7 +407,7 @@ const getPageHTMLContents = (page: Page): Array<HTMLElement> => {
     const pageName = createDiv()
     pageName.innerHTML = page.name
     pageName.className = 'page-title'
-    contents.push(pageName);
+    contents.push(pageName)
 
     // Add Page Image
     if (page.pageImage) {
@@ -465,7 +466,6 @@ const getPageHTMLContents = (page: Page): Array<HTMLElement> => {
 
     return contents
 }
-
 
 /* Preload Images */
 const preloadGalleryImages = (gallerySection: GallerySection): void => {

@@ -1,22 +1,21 @@
 /* Character Section Names */
-export const ABILITIES: string = 'Abilities'
-export const APPEARANCE: string = 'Appearance'
-export const HEADLINE: string = 'Headline'
-export const HISTORY: string = 'History'
+export const ABILITIES = 'Abilities'
+export const APPEARANCE = 'Appearance'
+export const HEADLINE = 'Headline'
+export const HISTORY = 'History'
 
 /* Note Section Names */
-export const DESCRIPTION: string = 'Description'
+export const DESCRIPTION = 'Description'
 
 /* Page Sections */
-export const GALLERY: string = 'Gallery'
-export const ATTRIBUTES: string = 'Attributes'
-export const ASSOCIATIONS: string = 'Associations'
+export const GALLERY = 'Gallery'
+export const ATTRIBUTES = 'Attributes'
+export const ASSOCIATIONS = 'Associations'
 
 /* Sections List */
 export const GALLERY_TITLES_LIST: Array<string> = [GALLERY]
 export const ATTRIBUTES_TITLES_LIST: Array<string> = [ATTRIBUTES]
 export const ASSOCIATIONS_TITLES_LIST: Array<string> = [ASSOCIATIONS]
 
-
 /* Google Drive */
-export const DRIVE_VIEW_PREFIX: string = 'https://drive.google.com/uc?export=view&id='
+export const DRIVE_VIEW_PREFIX = 'https://drive.google.com/uc?export=view&id='

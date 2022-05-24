@@ -1,6 +1,6 @@
-import { Notes } from "../../DataTypes"
+import { Notes } from '../../DataTypes'
 
-import StoneFaced from "./StoneFaced"
+import StoneFaced from './StoneFaced'
 
 export default [
     StoneFaced,

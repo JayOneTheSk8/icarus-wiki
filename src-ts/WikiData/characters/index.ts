@@ -1,7 +1,7 @@
-import { CharacterList } from "../../DataTypes"
+import { CharacterList } from '../../DataTypes'
 
-import RusselKing from "./RusselKing"
-import ReggieKing from "./ReggieKing"
+import RusselKing from './RusselKing'
+import ReggieKing from './ReggieKing'
 
 export default [
     RusselKing,

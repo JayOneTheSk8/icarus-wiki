@@ -1,5 +1,5 @@
-import { AttributesSection } from "../../../DataTypes";
-import { ATTRIBUTES } from "../../../constants";
+import { AttributesSection } from '../../../DataTypes'
+import { ATTRIBUTES } from '../../../constants'
 
 const attributes: AttributesSection = {
     title: ATTRIBUTES,

@@ -1,5 +1,5 @@
-import { PageSection } from "../../../DataTypes";
-import { DESCRIPTION, DRIVE_VIEW_PREFIX } from "../../../constants";
+import { PageSection } from '../../../DataTypes'
+import { DESCRIPTION, DRIVE_VIEW_PREFIX } from '../../../constants'
 
 const description: PageSection = {
     title: DESCRIPTION,

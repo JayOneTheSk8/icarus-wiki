@@ -10,7 +10,7 @@ export interface Attribute {
 
 export interface Association {
     associationName: string
-    associations: Array<Page>
+    associationPageIds: Array<string>
 }
 
 export interface SubSection {
@@ -42,6 +42,7 @@ export interface AssociationsSection {
 }
 
 export interface Page {
+    id: string
     name: string
     pageImage?: Image
     sections: Array<PageSection | GallerySection | AttributesSection | AssociationsSection>

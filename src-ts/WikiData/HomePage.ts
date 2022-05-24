@@ -1,5 +1,5 @@
-import { ABILITIES, ATTRIBUTES, GALLERY } from '../constants'
-import { Page, PageSection, GallerySection, AttributesSection } from '../DataTypes'
+import { Page, PageSection } from '../DataTypes'
+import { HOME_PAGE_ID } from '../page-ids'
 
 const whatsIcarus: PageSection = {
     title: "What's Icarus?",
@@ -12,6 +12,7 @@ const whereToRead: PageSection = {
 }
 
 const HomePage: Page = {
+    id: HOME_PAGE_ID,
     name: 'Icarus Wiki',
     sections: [
         whatsIcarus,

@@ -8,6 +8,7 @@ const constants_1 = require("./constants");
 const { homePage, characters, notes, } = WikiData_1.default;
 /* Constants */
 const MOBILE_WIDTH_LIMIT = 1000;
+const PAGE_MAP = {};
 const SECTION_TITLE = 'section-title';
 const PAGE_OPTION = 'page-option';
 const MAIN_CLASS = 'main';
@@ -242,12 +243,13 @@ const getAssociationsContents = (section) => {
         associationTitle.innerHTML = assc.associationName;
         associationGroup.appendChild(associationTitle);
         // List pages in association
-        assc.associations.forEach((asscPage) => {
+        assc.associationPageIds.forEach((asscPageId) => {
+            const associationPage = PAGE_MAP[asscPageId];
             const pageAssociated = createDiv();
             pageAssociated.className = 'associated-page';
-            pageAssociated.innerHTML = asscPage.name;
+            pageAssociated.innerHTML = associationPage.name;
             // Allow click to link to other pages
-            pageAssociated.onclick = () => displayPage(getPageHTMLContents(asscPage));
+            pageAssociated.onclick = () => displayPage(getPageHTMLContents(associationPage));
             // Add page to association group
             associationGroup.appendChild(pageAssociated);
         });
@@ -498,6 +500,8 @@ homePageOption.innerText = 'Home Page';
 homePageOption.className = PAGE_OPTION;
 homePageOption.onclick = openHomePage();
 homePageSelector.push(homePageOption);
+// Add homepage to page map
+PAGE_MAP[homePage.id] = homePage;
 /* Characters Selectors */
 const charactersSelector = [];
 const charactersTitle = createDiv();
@@ -510,6 +514,8 @@ characters.forEach((character, idx) => {
     selector.className = PAGE_OPTION;
     selector.onclick = openCharacterPage(idx);
     charactersSelector.push(selector);
+    // Add character page to page map
+    PAGE_MAP[character.id] = character;
 });
 /* Notes Selectors */
 const notesSelector = [];
@@ -523,6 +529,8 @@ notes.forEach((note, idx) => {
     selector.className = PAGE_OPTION;
     selector.onclick = openNotesPage(idx);
     notesSelector.push(selector);
+    // Add note page to page map
+    PAGE_MAP[note.id] = note;
 });
 /* Icon Click Functions */
 homeIcon.onclick = setHomeSelectors;

@@ -1,5 +1,5 @@
-import { HEADLINE } from "../../../constants"
 import { PageSection } from "../../../DataTypes"
+import { HEADLINE } from "../../../constants"
 
 const headline: PageSection = {
     title: HEADLINE,

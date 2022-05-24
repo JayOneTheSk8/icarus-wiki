@@ -10,6 +10,7 @@ const {
 
 /* Constants */
 const MOBILE_WIDTH_LIMIT: number = 1000
+const PAGE_MAP: { [key: string]: Page } = {}
 
 const SECTION_TITLE: string = 'section-title'
 const PAGE_OPTION: string = 'page-option'
@@ -284,13 +285,15 @@ const getAssociationsContents = (section: AssociationsSection): HTMLElement => {
         associationGroup.appendChild(associationTitle)
 
         // List pages in association
-        assc.associations.forEach((asscPage) => {
+        assc.associationPageIds.forEach((asscPageId) => {
+            const associationPage = PAGE_MAP[asscPageId]
+
             const pageAssociated = createDiv()
             pageAssociated.className = 'associated-page'
-            pageAssociated.innerHTML = asscPage.name
+            pageAssociated.innerHTML = associationPage.name
 
             // Allow click to link to other pages
-            pageAssociated.onclick = () => displayPage(getPageHTMLContents(asscPage))
+            pageAssociated.onclick = () => displayPage(getPageHTMLContents(associationPage))
 
             // Add page to association group
             associationGroup.appendChild(pageAssociated)
@@ -590,6 +593,9 @@ homePageOption.className = PAGE_OPTION
 homePageOption.onclick = openHomePage()
 homePageSelector.push(homePageOption)
 
+// Add homepage to page map
+PAGE_MAP[homePage.id] = homePage
+
 /* Characters Selectors */
 const charactersSelector: Array<HTMLElement> = []
 
@@ -604,6 +610,9 @@ characters.forEach((character, idx) => {
     selector.className = PAGE_OPTION
     selector.onclick = openCharacterPage(idx)
     charactersSelector.push(selector)
+
+    // Add character page to page map
+    PAGE_MAP[character.id] = character
 })
 
 /* Notes Selectors */
@@ -620,6 +629,9 @@ notes.forEach((note, idx) => {
     selector.className = PAGE_OPTION
     selector.onclick = openNotesPage(idx)
     notesSelector.push(selector)
+
+    // Add note page to page map
+    PAGE_MAP[note.id] = note
 })
 
 /* Icon Click Functions */

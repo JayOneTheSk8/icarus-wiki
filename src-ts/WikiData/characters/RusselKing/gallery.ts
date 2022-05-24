@@ -1,5 +1,5 @@
-import { DRIVE_VIEW_PREFIX, GALLERY } from "../../../constants"
 import { GallerySection } from "../../../DataTypes"
+import { DRIVE_VIEW_PREFIX, GALLERY } from "../../../constants"
 
 const gallery: GallerySection = {
     title: GALLERY,

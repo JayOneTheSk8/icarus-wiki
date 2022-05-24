@@ -665,3 +665,12 @@ if (window.innerWidth < MOBILE_WIDTH_LIMIT) { changeToMobile(true) }
 
 /* Default to Home Page */
 openHomePage()()
+
+const initSearchParams = new URLSearchParams(window.location.search)
+const initDark = initSearchParams.get('dark') || initSearchParams.get('d')
+
+if (initDark === 'true' || initDark === 't') {
+    const checkIcon = darkModeToggle as HTMLInputElement
+    checkIcon.checked = true
+    changeToDarkMode(true)
+}

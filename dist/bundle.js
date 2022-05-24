@@ -36,7 +36,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
   \**********************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Friends',\n    associationPageIds: [page_ids_1.REGGIE_KING_PAGE_ID, page_ids_1.RUSSEL_KING_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Achilles/associations.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Friends',\n    associationPageIds: [page_ids_1.REGGIE_KING_PAGE_ID, page_ids_1.RUSSEL_KING_PAGE_ID, page_ids_1.MELVIN_GERRITSEN_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Achilles/associations.js?");
 
 /***/ }),
 
@@ -56,7 +56,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
   \******************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar headline = {\n  title: constants_1.HEADLINE,\n  body: 'Achilles is one the primary protagonists of the story \"Icarus\". He is a born fighter and seeks strong friendships metaphorically and physically. He is very confident in his strength and yearns for others to learn theirs.'\n};\nexports[\"default\"] = headline;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Achilles/headline.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar headline = {\n  title: constants_1.HEADLINE,\n  body: 'Achilles is one of the protagonists in the story \"Icarus\". He is a born fighter and seeks strong friendships metaphorically and physically. He is very confident in his strength and yearns for others to learn theirs.'\n};\nexports[\"default\"] = headline;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Achilles/headline.js?");
 
 /***/ }),
 
@@ -67,6 +67,56 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar appearance_1 = __importDefault(__webpack_require__(/*! ./appearance */ \"./src/WikiData/characters/Achilles/appearance.js\"));\n\nvar associations_1 = __importDefault(__webpack_require__(/*! ./associations */ \"./src/WikiData/characters/Achilles/associations.js\"));\n\nvar attributes_1 = __importDefault(__webpack_require__(/*! ./attributes */ \"./src/WikiData/characters/Achilles/attributes.js\"));\n\nvar headline_1 = __importDefault(__webpack_require__(/*! ./headline */ \"./src/WikiData/characters/Achilles/headline.js\"));\n\nvar Achilles = {\n  id: page_ids_1.ACHILLES_PAGE_ID,\n  name: 'Achilles',\n  pageImage: {\n    url: constants_1.DRIVE_VIEW_PREFIX + '1Pfg4oVvlXURqevxJNxrQHBCMJPre-N56',\n    caption: 'Achilles (Age 17)'\n  },\n  sections: [attributes_1[\"default\"], headline_1[\"default\"], appearance_1[\"default\"], associations_1[\"default\"]]\n};\nexports[\"default\"] = Achilles;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Achilles/index.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/MelvinGerritsen/appearance.js":
+/*!***************************************************************!*\
+  !*** ./src/WikiData/characters/MelvinGerritsen/appearance.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar appearance = {\n  title: constants_1.APPEARANCE,\n  body: [{\n    subSectionTitle: 'Age 15',\n    subSectionText: 'Melvin has a curly mini fro with thick eyebrows and green eyes. His body is completely covered with pimples.'\n  }]\n};\nexports[\"default\"] = appearance;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/MelvinGerritsen/appearance.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/MelvinGerritsen/associations.js":
+/*!*****************************************************************!*\
+  !*** ./src/WikiData/characters/MelvinGerritsen/associations.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Friends',\n    associationPageIds: [page_ids_1.ACHILLES_PAGE_ID, page_ids_1.REGGIE_KING_PAGE_ID, page_ids_1.RUSSEL_KING_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/MelvinGerritsen/associations.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/MelvinGerritsen/attributes.js":
+/*!***************************************************************!*\
+  !*** ./src/WikiData/characters/MelvinGerritsen/attributes.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar attributes = {\n  title: constants_1.ATTRIBUTES,\n  attributes: [{\n    attributeName: 'Gender',\n    attributeText: 'Male'\n  }, {\n    attributeName: 'Age',\n    attributeText: '15'\n  }, {\n    attributeName: 'Height',\n    attributeText: \"5' 3\\\"\"\n  }, {\n    attributeName: 'Meta-Human Type',\n    attributeText: 'Paranormal'\n  }, {\n    attributeName: 'Race',\n    attributeText: 'Human'\n  }, {\n    attributeName: 'Eye Color',\n    attributeText: 'Green'\n  }, {\n    attributeName: 'Hair Color',\n    attributeText: 'Brown'\n  }, {\n    attributeName: 'Hair Style',\n    attributeText: 'Curly Afro'\n  }, {\n    attributeName: 'Debut',\n    attributeText: 'Chapter 5: The Man with Two Legs(Heard)<br />Chapter 6: Fi(r)st Fight (Heard)'\n  }]\n};\nexports[\"default\"] = attributes;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/MelvinGerritsen/attributes.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/MelvinGerritsen/headline.js":
+/*!*************************************************************!*\
+  !*** ./src/WikiData/characters/MelvinGerritsen/headline.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar headline = {\n  title: constants_1.HEADLINE,\n  body: 'Melvin is a character in the story Icarus. He is often unnerved and pessimistic, especially given the stakes are heavily weighed against him. He will find out where his own strength lies after being taken to the DMPA.'\n};\nexports[\"default\"] = headline;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/MelvinGerritsen/headline.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/MelvinGerritsen/index.js":
+/*!**********************************************************!*\
+  !*** ./src/WikiData/characters/MelvinGerritsen/index.js ***!
+  \**********************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar appearance_1 = __importDefault(__webpack_require__(/*! ./appearance */ \"./src/WikiData/characters/MelvinGerritsen/appearance.js\"));\n\nvar associations_1 = __importDefault(__webpack_require__(/*! ./associations */ \"./src/WikiData/characters/MelvinGerritsen/associations.js\"));\n\nvar attributes_1 = __importDefault(__webpack_require__(/*! ./attributes */ \"./src/WikiData/characters/MelvinGerritsen/attributes.js\"));\n\nvar headline_1 = __importDefault(__webpack_require__(/*! ./headline */ \"./src/WikiData/characters/MelvinGerritsen/headline.js\"));\n\nvar MelvinGerritsen = {\n  id: page_ids_1.MELVIN_GERRITSEN_PAGE_ID,\n  name: 'Melvin Gerritsen',\n  pageImage: {\n    url: constants_1.DRIVE_VIEW_PREFIX + '1RKZWzGgko6hw0mHSDr6_jE0e401WVo2d',\n    caption: 'Melvin (Age 15)'\n  },\n  sections: [attributes_1[\"default\"], headline_1[\"default\"], appearance_1[\"default\"], associations_1[\"default\"]]\n};\nexports[\"default\"] = MelvinGerritsen;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/MelvinGerritsen/index.js?");
 
 /***/ }),
 
@@ -86,7 +136,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
   \************************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Siblings',\n    associationPageIds: [page_ids_1.RUSSEL_KING_PAGE_ID]\n  }, {\n    associationName: 'Friends',\n    associationPageIds: [page_ids_1.ACHILLES_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/ReggieKing/associations.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Siblings',\n    associationPageIds: [page_ids_1.RUSSEL_KING_PAGE_ID]\n  }, {\n    associationName: 'Friends',\n    associationPageIds: [page_ids_1.ACHILLES_PAGE_ID, page_ids_1.MELVIN_GERRITSEN_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/ReggieKing/associations.js?");
 
 /***/ }),
 
@@ -116,7 +166,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
   \********************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar headline = {\n  title: constants_1.HEADLINE,\n  body: 'Reginald \"Reggie\" King is one of the primary protagonists of the story \"Icarus\". He and his brother Russel are given elemental powers following an accident with a mythical object. He is quite bold and tries to take action in any situation that arises. Reggie sees the true world around him after being given special abilities and takes it head on.'\n};\nexports[\"default\"] = headline;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/ReggieKing/headline.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar headline = {\n  title: constants_1.HEADLINE,\n  body: 'Reginald \"Reggie\" King is one of the protagonists in the story \"Icarus\". He and his brother Russel are given elemental powers following an accident with a mythical object. He is quite bold and tries to take action in any situation that arises. Reggie sees the true world around him after being given special abilities and takes it head on.'\n};\nexports[\"default\"] = headline;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/ReggieKing/headline.js?");
 
 /***/ }),
 
@@ -146,7 +196,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
   \************************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Siblings',\n    associationPageIds: [page_ids_1.REGGIE_KING_PAGE_ID]\n  }, {\n    associationName: 'Friends',\n    associationPageIds: [page_ids_1.ACHILLES_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/RusselKing/associations.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Siblings',\n    associationPageIds: [page_ids_1.REGGIE_KING_PAGE_ID]\n  }, {\n    associationName: 'Friends',\n    associationPageIds: [page_ids_1.ACHILLES_PAGE_ID, page_ids_1.MELVIN_GERRITSEN_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/RusselKing/associations.js?");
 
 /***/ }),
 
@@ -176,7 +226,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
   \********************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar headline = {\n  title: constants_1.HEADLINE,\n  body: 'Russel King is one the primary protagonists of the story \"Icarus\". At 13, after an accident with a mythical object, he and his brother Reggie are given elemental powers. He is quite observant and informed on many ancient histories given his father Hudson King was a well renowned archaeologist. After being given special abilities, Russel seeks normalcy in a world not ready to offer it.'\n};\nexports[\"default\"] = headline;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/RusselKing/headline.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar headline = {\n  title: constants_1.HEADLINE,\n  body: 'Russel King is one of the protagonists in the story \"Icarus\". At 13, after an accident with a mythical object, he and his brother Reggie are given elemental powers. He is quite observant and informed on many ancient histories given his father Hudson King was a well renowned archaeologist. After being given special abilities, Russel seeks normalcy in a world not ready to offer it.'\n};\nexports[\"default\"] = headline;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/RusselKing/headline.js?");
 
 /***/ }),
 
@@ -196,7 +246,7 @@ eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {
   \******************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar RusselKing_1 = __importDefault(__webpack_require__(/*! ./RusselKing */ \"./src/WikiData/characters/RusselKing/index.js\"));\n\nvar ReggieKing_1 = __importDefault(__webpack_require__(/*! ./ReggieKing */ \"./src/WikiData/characters/ReggieKing/index.js\"));\n\nvar Achilles_1 = __importDefault(__webpack_require__(/*! ./Achilles */ \"./src/WikiData/characters/Achilles/index.js\"));\n\nexports[\"default\"] = [RusselKing_1[\"default\"], ReggieKing_1[\"default\"], Achilles_1[\"default\"]];\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/index.js?");
+eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar RusselKing_1 = __importDefault(__webpack_require__(/*! ./RusselKing */ \"./src/WikiData/characters/RusselKing/index.js\"));\n\nvar ReggieKing_1 = __importDefault(__webpack_require__(/*! ./ReggieKing */ \"./src/WikiData/characters/ReggieKing/index.js\"));\n\nvar Achilles_1 = __importDefault(__webpack_require__(/*! ./Achilles */ \"./src/WikiData/characters/Achilles/index.js\"));\n\nvar MelvinGerritsen_1 = __importDefault(__webpack_require__(/*! ./MelvinGerritsen */ \"./src/WikiData/characters/MelvinGerritsen/index.js\"));\n\nexports[\"default\"] = [RusselKing_1[\"default\"], ReggieKing_1[\"default\"], Achilles_1[\"default\"], MelvinGerritsen_1[\"default\"]];\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/index.js?");
 
 /***/ }),
 
@@ -276,7 +326,7 @@ eval("\n\nfunction _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _
   \*************************/
 /***/ ((__unused_webpack_module, exports) => {
 
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports.STONE_FACED_PAGE_ID = exports.ACHILLES_PAGE_ID = exports.REGGIE_KING_PAGE_ID = exports.RUSSEL_KING_PAGE_ID = exports.HOME_PAGE_ID = void 0;\nexports.HOME_PAGE_ID = 'home_page';\nexports.RUSSEL_KING_PAGE_ID = 'russel_king';\nexports.REGGIE_KING_PAGE_ID = 'reggie_king';\nexports.ACHILLES_PAGE_ID = 'achilles';\nexports.STONE_FACED_PAGE_ID = 'stone_faced';\n\n//# sourceURL=webpack://icarus-wiki/./src/page-ids.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports.STONE_FACED_PAGE_ID = exports.MELVIN_GERRITSEN_PAGE_ID = exports.ACHILLES_PAGE_ID = exports.REGGIE_KING_PAGE_ID = exports.RUSSEL_KING_PAGE_ID = exports.HOME_PAGE_ID = void 0;\nexports.HOME_PAGE_ID = 'home_page';\nexports.RUSSEL_KING_PAGE_ID = 'russel_king';\nexports.REGGIE_KING_PAGE_ID = 'reggie_king';\nexports.ACHILLES_PAGE_ID = 'achilles';\nexports.MELVIN_GERRITSEN_PAGE_ID = 'melvin_gerritsen';\nexports.STONE_FACED_PAGE_ID = 'stone_faced';\n\n//# sourceURL=webpack://icarus-wiki/./src/page-ids.js?");
 
 /***/ })
 

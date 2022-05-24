@@ -10,6 +10,7 @@ const associations = {
             associationPageIds: [
                 page_ids_1.REGGIE_KING_PAGE_ID,
                 page_ids_1.RUSSEL_KING_PAGE_ID,
+                page_ids_1.MELVIN_GERRITSEN_PAGE_ID,
             ]
         }
     ]

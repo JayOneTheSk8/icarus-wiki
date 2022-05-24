@@ -6,16 +6,11 @@ const associations = {
     title: constants_1.ASSOCIATIONS,
     associations: [
         {
-            associationName: 'Siblings',
-            associationPageIds: [
-                page_ids_1.REGGIE_KING_PAGE_ID
-            ]
-        },
-        {
             associationName: 'Friends',
             associationPageIds: [
                 page_ids_1.ACHILLES_PAGE_ID,
-                page_ids_1.MELVIN_GERRITSEN_PAGE_ID,
+                page_ids_1.REGGIE_KING_PAGE_ID,
+                page_ids_1.RUSSEL_KING_PAGE_ID,
             ]
         }
     ]

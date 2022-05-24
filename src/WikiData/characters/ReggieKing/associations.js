@@ -15,6 +15,7 @@ const associations = {
             associationName: 'Friends',
             associationPageIds: [
                 page_ids_1.ACHILLES_PAGE_ID,
+                page_ids_1.MELVIN_GERRITSEN_PAGE_ID,
             ]
         }
     ]

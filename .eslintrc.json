@@ -1,0 +1,55 @@
+{
+    "root": true,
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parserOptions": {
+        "project": [
+            "./tsconfig.json"
+        ]
+    },
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@typescript-eslint"],
+    "rules": {
+        "indent": [
+            "error",
+            4,
+            {
+                "SwitchCase": 1
+            }
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "eol-last": [
+            "error",
+            "always"
+        ],
+        "quotes": [
+            "error",
+            "single",
+            {
+                "avoidEscape": true,
+                "allowTemplateLiterals": true
+            }
+        ],
+        "semi": [
+            "error",
+            "never"
+        ],
+        "no-multiple-empty-lines": [
+            "error",
+            {
+                "max": 1,
+                "maxBOF": 0,
+                "maxEOF": 1
+            }
+        ],
+        "no-unused-vars": [
+            "warn"
+        ],
+        "no-var": "off"
+    }
+}

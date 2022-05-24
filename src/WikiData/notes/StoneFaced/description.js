@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const constants_1 = require("../../constants");
+const constants_1 = require("../../../constants");
 const description = {
     title: constants_1.DESCRIPTION,
     body: [
@@ -14,23 +14,4 @@ const description = {
         }
     ]
 };
-const attributes = {
-    title: constants_1.ATTRIBUTES,
-    attributes: [
-        {
-            attributeName: 'Other Names',
-            attributeText: `Annoyed face, c'mon son face, straight line face`
-        }
-    ]
-};
-const StoneFaced = {
-    name: "Stone-Faced",
-    pageImage: {
-        url: constants_1.DRIVE_VIEW_PREFIX + '1cx-R2-OwVB04JDTL7jqz-1EkcTR5zo99'
-    },
-    sections: [
-        attributes,
-        description,
-    ]
-};
-exports.default = StoneFaced;
+exports.default = description;

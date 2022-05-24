@@ -16,7 +16,7 @@ A `Page`'s content is fairly straightforward. Adding a `name` will create a head
 
 ```typescript
 const HomePage: Page = {
-    id: 'home_page'
+    id: 'home_page',
     name: 'My Wiki',
     pageImage: {
         url: 'https://www.w3schools.com/tags/img_girl.jpg',
@@ -130,7 +130,7 @@ const gallery: GallerySection = {
 
 ### `AssociationsSection`
 
-Some pages may be associated with others. `Association`s help display these relationships. A section with the `title` of any of the constants in the `ASSOCIATIONS_TITLES_LIST` will be interpreted as a `AssociationsSection`. Clicking on the name of the associated page directs the user to said page. Import the specific `Page`'s `id` and at it to the `associationPageIds`.
+Some pages may be associated with others. `Association`s help display these relationships. A section with the `title` of any of the constants in the `ASSOCIATIONS_TITLES_LIST` will be interpreted as a `AssociationsSection`. Clicking on the name of the associated page directs the user to said page. Import the specific `Page`'s `id` and add it to the `associationPageIds`.
 
 ```typescript
 import {
@@ -199,7 +199,7 @@ export const ATTRIBUTES_TITLES_LIST: Array<string> = [ATTRIBUTES]
 export const ASSOCIATIONS_TITLES_LIST: Array<string> = [ASSOCIATIONS, FAMILY, FRIENDS]
 ```
 
-## Page `id`s
+### Page `id`s
 
 To prevent circular imports, instead of `AssociationsSection` being lists of `Page`s (which would be more straightforward), they are a list of `Page` `id`s. `id`s will be linked to `Page`s in an object in memory.
 

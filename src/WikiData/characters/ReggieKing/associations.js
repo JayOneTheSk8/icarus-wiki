@@ -10,6 +10,12 @@ const associations = {
             associationPageIds: [
                 page_ids_1.RUSSEL_KING_PAGE_ID,
             ]
+        },
+        {
+            associationName: 'Friends',
+            associationPageIds: [
+                page_ids_1.ACHILLES_PAGE_ID,
+            ]
         }
     ]
 };

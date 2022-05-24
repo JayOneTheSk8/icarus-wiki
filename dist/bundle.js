@@ -20,6 +20,56 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
 
 /***/ }),
 
+/***/ "./src/WikiData/characters/Achilles/appearance.js":
+/*!********************************************************!*\
+  !*** ./src/WikiData/characters/Achilles/appearance.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar appearance = {\n  title: constants_1.APPEARANCE,\n  body: [{\n    subSectionTitle: 'Age 17',\n    subSectionText: \"Achilles is tall and lanky with large buckteeth.Even though he is 17, he is built like someone in their mid 20's. He wears glasses and often sports a blue and white striped sweatband on some part of his body with a white tank top and blue shorts.\"\n  }]\n};\nexports[\"default\"] = appearance;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Achilles/appearance.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/Achilles/associations.js":
+/*!**********************************************************!*\
+  !*** ./src/WikiData/characters/Achilles/associations.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Friends',\n    associationPageIds: [page_ids_1.REGGIE_KING_PAGE_ID, page_ids_1.RUSSEL_KING_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Achilles/associations.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/Achilles/attributes.js":
+/*!********************************************************!*\
+  !*** ./src/WikiData/characters/Achilles/attributes.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar attributes = {\n  title: constants_1.ATTRIBUTES,\n  attributes: [{\n    attributeName: 'Other Names',\n    attributeText: 'Ace (Reggie)'\n  }, {\n    attributeName: 'Gender',\n    attributeText: 'Male'\n  }, {\n    attributeName: 'Age',\n    attributeText: '17'\n  }, {\n    attributeName: 'Height',\n    attributeText: \"5' 8\\\"\"\n  }, {\n    attributeName: 'Birthday',\n    attributeText: 'August 9, 1979'\n  }, {\n    attributeName: 'Birthplace',\n    attributeText: 'Thessaly, Greece'\n  }, {\n    attributeName: 'Meta-Human Type',\n    attributeText: 'Paranormal'\n  }, {\n    attributeName: 'Race',\n    attributeText: 'Human'\n  }, {\n    attributeName: 'Hair Color',\n    attributeText: 'Dirty Blonde'\n  }, {\n    attributeName: 'Hair Style',\n    attributeText: 'Long, Straight'\n  }, {\n    attributeName: 'Debut',\n    attributeText: 'Chapter 4: DISorientation (Seen)<br />Chapter 5: The Man with Two Legs(Heard)'\n  }]\n};\nexports[\"default\"] = attributes;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Achilles/attributes.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/Achilles/headline.js":
+/*!******************************************************!*\
+  !*** ./src/WikiData/characters/Achilles/headline.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar headline = {\n  title: constants_1.HEADLINE,\n  body: 'Achilles is one the primary protagonists of the story \"Icarus\". He is a born fighter and seeks strong friendships metaphorically and physically. He is very confident in his strength and yearns for others to learn theirs.'\n};\nexports[\"default\"] = headline;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Achilles/headline.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/Achilles/index.js":
+/*!***************************************************!*\
+  !*** ./src/WikiData/characters/Achilles/index.js ***!
+  \***************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar appearance_1 = __importDefault(__webpack_require__(/*! ./appearance */ \"./src/WikiData/characters/Achilles/appearance.js\"));\n\nvar associations_1 = __importDefault(__webpack_require__(/*! ./associations */ \"./src/WikiData/characters/Achilles/associations.js\"));\n\nvar attributes_1 = __importDefault(__webpack_require__(/*! ./attributes */ \"./src/WikiData/characters/Achilles/attributes.js\"));\n\nvar headline_1 = __importDefault(__webpack_require__(/*! ./headline */ \"./src/WikiData/characters/Achilles/headline.js\"));\n\nvar Achilles = {\n  id: page_ids_1.ACHILLES_PAGE_ID,\n  name: 'Achilles',\n  pageImage: {\n    url: constants_1.DRIVE_VIEW_PREFIX + '1Pfg4oVvlXURqevxJNxrQHBCMJPre-N56',\n    caption: 'Achilles (Age 17)'\n  },\n  sections: [attributes_1[\"default\"], headline_1[\"default\"], appearance_1[\"default\"], associations_1[\"default\"]]\n};\nexports[\"default\"] = Achilles;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Achilles/index.js?");
+
+/***/ }),
+
 /***/ "./src/WikiData/characters/ReggieKing/appearance.js":
 /*!**********************************************************!*\
   !*** ./src/WikiData/characters/ReggieKing/appearance.js ***!
@@ -36,7 +86,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
   \************************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Siblings',\n    associationPageIds: [page_ids_1.RUSSEL_KING_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/ReggieKing/associations.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Siblings',\n    associationPageIds: [page_ids_1.RUSSEL_KING_PAGE_ID]\n  }, {\n    associationName: 'Friends',\n    associationPageIds: [page_ids_1.ACHILLES_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/ReggieKing/associations.js?");
 
 /***/ }),
 
@@ -96,7 +146,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
   \************************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Siblings',\n    associationPageIds: [page_ids_1.REGGIE_KING_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/RusselKing/associations.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Siblings',\n    associationPageIds: [page_ids_1.REGGIE_KING_PAGE_ID]\n  }, {\n    associationName: 'Friends',\n    associationPageIds: [page_ids_1.ACHILLES_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/RusselKing/associations.js?");
 
 /***/ }),
 
@@ -146,7 +196,7 @@ eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {
   \******************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar RusselKing_1 = __importDefault(__webpack_require__(/*! ./RusselKing */ \"./src/WikiData/characters/RusselKing/index.js\"));\n\nvar ReggieKing_1 = __importDefault(__webpack_require__(/*! ./ReggieKing */ \"./src/WikiData/characters/ReggieKing/index.js\"));\n\nexports[\"default\"] = [RusselKing_1[\"default\"], ReggieKing_1[\"default\"]];\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/index.js?");
+eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar RusselKing_1 = __importDefault(__webpack_require__(/*! ./RusselKing */ \"./src/WikiData/characters/RusselKing/index.js\"));\n\nvar ReggieKing_1 = __importDefault(__webpack_require__(/*! ./ReggieKing */ \"./src/WikiData/characters/ReggieKing/index.js\"));\n\nvar Achilles_1 = __importDefault(__webpack_require__(/*! ./Achilles */ \"./src/WikiData/characters/Achilles/index.js\"));\n\nexports[\"default\"] = [RusselKing_1[\"default\"], ReggieKing_1[\"default\"], Achilles_1[\"default\"]];\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/index.js?");
 
 /***/ }),
 
@@ -226,7 +276,7 @@ eval("\n\nfunction _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _
   \*************************/
 /***/ ((__unused_webpack_module, exports) => {
 
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports.STONE_FACED_PAGE_ID = exports.REGGIE_KING_PAGE_ID = exports.RUSSEL_KING_PAGE_ID = exports.HOME_PAGE_ID = void 0;\nexports.HOME_PAGE_ID = 'home_page';\nexports.RUSSEL_KING_PAGE_ID = 'russel_king';\nexports.REGGIE_KING_PAGE_ID = 'reggie_king';\nexports.STONE_FACED_PAGE_ID = 'stone_faced';\n\n//# sourceURL=webpack://icarus-wiki/./src/page-ids.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports.STONE_FACED_PAGE_ID = exports.ACHILLES_PAGE_ID = exports.REGGIE_KING_PAGE_ID = exports.RUSSEL_KING_PAGE_ID = exports.HOME_PAGE_ID = void 0;\nexports.HOME_PAGE_ID = 'home_page';\nexports.RUSSEL_KING_PAGE_ID = 'russel_king';\nexports.REGGIE_KING_PAGE_ID = 'reggie_king';\nexports.ACHILLES_PAGE_ID = 'achilles';\nexports.STONE_FACED_PAGE_ID = 'stone_faced';\n\n//# sourceURL=webpack://icarus-wiki/./src/page-ids.js?");
 
 /***/ })
 

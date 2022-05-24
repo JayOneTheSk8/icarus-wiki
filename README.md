@@ -12,10 +12,11 @@ The HTML is fairly straightforward: the main `"page-content"` simply adds the DO
 
 ## Page's `name` and `pageImage`
 
-A `Page`'s content is fairly straightforward. Adding a `name` will create a header, and if a `pageImage` is present, it will adjust it under the header.
+A `Page`'s content is fairly straightforward. Adding a `name` will create a header, and if a `pageImage` is present, it will adjust it under the header. A `Page` also must have an `id`.
 
 ```typescript
 const HomePage: Page = {
+    id: 'home_page'
     name: 'My Wiki',
     pageImage: {
         url: 'https://www.w3schools.com/tags/img_girl.jpg',
@@ -129,40 +130,46 @@ const gallery: GallerySection = {
 
 ### `AssociationsSection`
 
-Some pages may be associated with others. `Association`s help display these relationships. A section with the `title` of any of the constants in the `ASSOCIATIONS_TITLES_LIST` will be interpreted as a `AssociationsSection`. Clicking on the name of the associated page directs the user to said page.
+Some pages may be associated with others. `Association`s help display these relationships. A section with the `title` of any of the constants in the `ASSOCIATIONS_TITLES_LIST` will be interpreted as a `AssociationsSection`. Clicking on the name of the associated page directs the user to said page. Import the specific `Page`'s `id` and at it to the `associationPageIds`.
 
 ```typescript
+import {
+    JOE_SCHMOE_PAGE_ID,
+    JOANNE_SCHMOE_PAGE_ID,
+    ...
+} from '../../page-ids'
+
 const associations: AssociationsSection = {
     title: ASSOCIATIONS,
-    associations: [
+    associationPageIds: [
         {
             associationName: 'Allies',
             associations: [
-                JoeSchmoe,
-                JoanneSchmoe,
-                CoolPerson,
-                HappyPerson,
+                JOE_SCHMOE_PAGE_ID,
+                JOANNE_SCHMOE_PAGE_ID,
+                COOL_PERSON_PAGE_ID,
+                HAPPY_PERSON_PAGE_ID,
             ]
         },
         {
             associationName: 'Enemies',
             associations: [
-                BadguyJones,
-                MeanGirls,
-                NorrisViilaine,
+                BADGUY_JONES_PAGE_ID,
+                MEAN_GIRLS_PAGE_ID,
+                NORRIS_VILLAINE_PAGE_ID,
             ]
         },
         {
             associationName: 'Siblings',
             associations: [
-                SamanthaBynes,
-                CarlBynes,
+                SAMANTHA_BYNES_PAGE_ID,
+                CARL_BYNES_PAGE_ID,
             ]
         },
         {
             associationName: 'Best-Friend',
             associations: [
-                CooladieMaeby,
+                COOLADIE_MAEBY_PAGE_ID,
             ]
         },
     ]
@@ -190,6 +197,34 @@ export const GALLERY_TITLES_LIST: Array<string> = [GALLERY]
 export const ATTRIBUTES_TITLES_LIST: Array<string> = [ATTRIBUTES]
 // Sections with the title 'Family'/'Friends' will also be interpreted as a AssociationsSection
 export const ASSOCIATIONS_TITLES_LIST: Array<string> = [ASSOCIATIONS, FAMILY, FRIENDS]
+```
+
+## Page `id`s
+
+To prevent circular imports, instead of `AssociationsSection` being lists of `Page`s (which would be more straightforward), they are a list of `Page` `id`s. `id`s will be linked to `Page`s in an object in memory.
+
+```typescript
+/* src-ts/index.ts */
+const PAGE_MAP: { [key: string]: Page } = {}
+
+// Add homepage to page map
+PAGE_MAP[homePage.id] = homePage
+
+// Add character page to page map
+PAGE_MAP[character.id] = character
+
+// Add note page to page map
+PAGE_MAP[note.id] = note
+```
+
+This is still a very clumsy way of managing `id`s in lieu of a DBMS. A `Page`'s `id` must be unique for the functionality to work. The solution was to maintain `page-id`s in a single file. This is far from perfect, but it at least allows a visual check of when `id`s could possibly overlap.
+
+```typescript
+/* src-ts/page-ids.ts */
+const HOME_PAGE_ID: string = 'home_page'
+
+const CHARACTER_ONE_PAGE_ID: string = 'character_one_page'
+const CHARACTER_TWO_PAGE_ID: string = 'character_two_page'
 ```
 
 ## `Responsive`

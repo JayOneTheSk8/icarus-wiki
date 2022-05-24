@@ -9,7 +9,8 @@
     "tsc": "tsc",
     "tsc-watch": "tsc --watch",
     "sass": "sass scss:css",
-    "sass-watch": "sass --watch scss:css"
+    "sass-watch": "sass --watch scss:css",
+    "lint": "eslint src-ts"
   },
   "repository": {
     "type": "git",
@@ -25,7 +26,10 @@
   "devDependencies": {
     "@babel/core": "^7.17.10",
     "@babel/preset-env": "^7.17.10",
+    "@typescript-eslint/eslint-plugin": "^5.26.0",
+    "@typescript-eslint/parser": "^5.26.0",
     "babel-loader": "^8.2.5",
+    "eslint": "^8.16.0",
     "sass": "^1.52.0",
     "typescript": "^4.6.4",
     "webpack": "^5.72.1",

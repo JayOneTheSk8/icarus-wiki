@@ -10,7 +10,7 @@
     "tsc-watch": "tsc --watch",
     "sass": "sass scss:css",
     "sass-watch": "sass --watch scss:css",
-    "lint": "eslint src-ts"
+    "lint": "eslint src-ts --max-warnings=0"
   },
   "repository": {
     "type": "git",

@@ -693,6 +693,7 @@ template {
 }
 
 .attribute-value {
+  text-align: center;
   font-size: 1.6em;
 }
 

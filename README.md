@@ -1,5 +1,7 @@
 # Icarus Wiki
 
+[![JayOneTheSk8](https://circleci.com/gh/JayOneTheSk8/icarus-wiki.svg?style=shield&circle-token=694c2057ba6f59065242213fdc3278f2fa2b975c)](https://circleci.com/gh/JayOneTheSk8/icarus-wiki)
+
 This is the Wiki for the story [Icarus](https://jayonethesk8.github.io/icarus/) built using TypeScript and bundled with Webpack.
 
 [Click here](https://jayonethesk8.github.io/icarus-wiki/) if you would like to see the full wiki.

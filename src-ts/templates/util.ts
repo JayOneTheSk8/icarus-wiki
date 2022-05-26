@@ -64,7 +64,7 @@ export const fromPascalToKebabCase = (pascalStr: string): string => {
 // Converts string from PascalCase to camelCase
 export const fromPascalToCamel = (name: string): string => name[0].toLowerCase() + name.slice(1)
 
-// Converts string from PascalCase to Sentence Title Case 
+// Converts string from PascalCase to Sentence Title Case
 export const fromPascalToTitle = (name: string): string => {
     let result = ''
     name.split('').forEach((char, idx) => {

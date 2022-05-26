@@ -136,7 +136,7 @@ const changeToDarkMode = (setDarkMode: boolean): void => {
     // Adjust section selector
     const sectionSelectorElements: HTMLCollectionOf<Element> = document.getElementsByClassName(setDarkMode ? SECTION_SELECTOR_CLASS : SECTION_SELECTOR_DARK_CLASS)
     for (const el of sectionSelectorElements) { el.className = setDarkMode ? SECTION_SELECTOR_DARK_CLASS : SECTION_SELECTOR_CLASS }
-    
+
     // Adjust section selector (mobile)
     const sectionSelectorMobileElements: HTMLCollectionOf<Element> = document.getElementsByClassName(setDarkMode ? SECTION_SELECTOR_MOBILE_CLASS : SECTION_SELECTOR_MOBILE_DARK_CLASS)
     for (const el of sectionSelectorMobileElements) { el.className = setDarkMode ? SECTION_SELECTOR_MOBILE_DARK_CLASS : SECTION_SELECTOR_MOBILE_CLASS }
@@ -144,11 +144,11 @@ const changeToDarkMode = (setDarkMode: boolean): void => {
     // Adjust page selector
     const pageSelectorElements: HTMLCollectionOf<Element> = document.getElementsByClassName(setDarkMode ? PAGE_SELECTOR_CLASS : PAGE_SELECTOR_DARK_CLASS)
     for (const el of pageSelectorElements) { el.className = setDarkMode ? PAGE_SELECTOR_DARK_CLASS : PAGE_SELECTOR_CLASS }
-    
+
     // Adjust page selector (mobile)
     const pageSelectorMobileElements: HTMLCollectionOf<Element> = document.getElementsByClassName(setDarkMode ? PAGE_SELECTOR_MOBILE_SHOW_CLASS : PAGE_SELECTOR_MOBILE_SHOW_DARK_CLASS)
     for (const el of pageSelectorMobileElements) { el.className = setDarkMode ? PAGE_SELECTOR_MOBILE_SHOW_DARK_CLASS : PAGE_SELECTOR_MOBILE_SHOW_CLASS }
-    
+
     // Adjust page selector (mobile)
     const spaceBlockElements: HTMLCollectionOf<Element> = document.getElementsByClassName(setDarkMode ? SPACE_BLOCK_CLASS : SPACE_BLOCK_DARK_CLASS)
     for (const el of spaceBlockElements) { el.className = setDarkMode ? SPACE_BLOCK_DARK_CLASS : SPACE_BLOCK_CLASS }
@@ -433,7 +433,7 @@ const getPageHTMLContents = (page: Page): Array<HTMLElement> => {
             pageImageSection.appendChild(pageImageCaption)
         }
 
-        // Add Page Image Section to Page Contents 
+        // Add Page Image Section to Page Contents
         contents.push(pageImageSection)
     }
 
@@ -443,7 +443,7 @@ const getPageHTMLContents = (page: Page): Array<HTMLElement> => {
         const sectionTitle = createDiv()
         sectionTitle.innerHTML = section.title
         sectionTitle.className = 'page-section-title'
-        contents.push(sectionTitle) 
+        contents.push(sectionTitle)
 
         if (GALLERY_TITLES_LIST.includes(section.title)) {
             contents.push(getGalleryContents(section as GallerySection))

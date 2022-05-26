@@ -57,7 +57,7 @@ exports.fromPascalToKebabCase = fromPascalToKebabCase;
 // Converts string from PascalCase to camelCase
 const fromPascalToCamel = (name) => name[0].toLowerCase() + name.slice(1);
 exports.fromPascalToCamel = fromPascalToCamel;
-// Converts string from PascalCase to Sentence Title Case 
+// Converts string from PascalCase to Sentence Title Case
 const fromPascalToTitle = (name) => {
     let result = '';
     name.split('').forEach((char, idx) => {

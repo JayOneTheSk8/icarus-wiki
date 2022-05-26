@@ -362,7 +362,7 @@ const getPageHTMLContents = (page) => {
             pageImageCaption.innerHTML = page.pageImage.caption;
             pageImageSection.appendChild(pageImageCaption);
         }
-        // Add Page Image Section to Page Contents 
+        // Add Page Image Section to Page Contents
         contents.push(pageImageSection);
     }
     // Go through sections

@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.generate = void 0;
+exports.generate = exports.noteDir = exports.charDir = void 0;
 const fs_1 = __importDefault(require("fs"));
 /* Templates */
 const associations_1 = __importDefault(require("./associations"));
@@ -24,7 +24,9 @@ const pageOptions = ['-p', '--page'];
 const sectionOptions = ['-s', '--section'];
 /* File Directories */
 const charDir = (charPageName) => `src-ts/WikiData/characters/${charPageName}`;
+exports.charDir = charDir;
 const noteDir = (notePageName) => `src-ts/WikiData/notes/${notePageName}`;
+exports.noteDir = noteDir;
 const generate = (firstArg, secondArg, pageName, sectionName) => {
     // When asking for help
     if (helpOptions.includes(firstArg)) {
@@ -56,81 +58,87 @@ const generate = (firstArg, secondArg, pageName, sectionName) => {
         // When flag is -c or --char
         if (pageOptions.includes(secondArg)) {
             // When second flag is -p or --page
-            // Make PageName and PAGE_CONST
-            const pascalName = (0, util_1.isMultipleWords)(pageName) ? (0, util_1.toPascalCase)(pageName) : (0, util_1.titleCase)(pageName);
-            const pageConst = (0, util_1.fromPascalToConstCase)(pascalName);
-            // Make character directory if does not exist
-            fs_1.default.existsSync(charDir(pascalName)) || fs_1.default.mkdirSync(charDir(pascalName));
-            // Write file with page template
-            fs_1.default.writeFile(`${charDir(pascalName)}/index.ts`, (0, page_1.default)(pageName, pascalName, pageConst), (err) => {
-                if (err) {
-                    console.log(err);
-                }
-                else {
-                    console.log(`Page ${pascalName} written successfully`);
-                }
-            });
-            // Append page id to file
-            fs_1.default.appendFile('src-ts/page-ids.ts', (0, page_id_1.default)(pageConst), (err) => {
-                if (err) {
-                    console.log(err);
-                }
-                else {
-                    console.log(`ID ${pageConst} created successfully`);
-                }
-            });
+            // If page name is passed
+            if (pageName) {
+                // Make PageName and PAGE_CONST
+                const pascalName = (0, util_1.isMultipleWords)(pageName) ? (0, util_1.toPascalCase)(pageName) : (0, util_1.titleCase)(pageName);
+                const pageConst = (0, util_1.fromPascalToConstCase)(pascalName);
+                // Make character directory if does not exist
+                fs_1.default.existsSync((0, exports.charDir)(pascalName)) || fs_1.default.mkdirSync((0, exports.charDir)(pascalName));
+                // Write file with page template
+                fs_1.default.writeFile(`${(0, exports.charDir)(pascalName)}/index.ts`, (0, page_1.default)(pascalName, pageConst), (err) => {
+                    if (err) {
+                        console.log(err);
+                    }
+                    else {
+                        console.log(`Page ${pascalName} written successfully`);
+                    }
+                });
+                // Append page id to file
+                fs_1.default.appendFile('src-ts/page-ids.ts', (0, page_id_1.default)(pageConst), (err) => {
+                    if (err) {
+                        console.log(err);
+                    }
+                    else {
+                        console.log(`ID ${pageConst} created successfully`);
+                    }
+                });
+            }
         }
         else if (sectionOptions.includes(secondArg)) {
             // When second flag is -s or --section
-            // Make PageName, PageSectionName, and page-section-name
-            const pascalPageName = (0, util_1.isMultipleWords)(pageName) ? (0, util_1.toPascalCase)(pageName) : (0, util_1.titleCase)(pageName);
-            const pascalSectionName = (0, util_1.isMultipleWords)(sectionName) ? (0, util_1.toPascalCase)(sectionName) : (0, util_1.titleCase)(sectionName);
-            const kebabSectionName = (0, util_1.fromPascalToKebabCase)(pascalSectionName);
-            // Make page directory if does not exist
-            fs_1.default.existsSync(charDir(pascalPageName)) || fs_1.default.mkdirSync(charDir(pascalPageName));
-            if (constants_1.ASSOCIATIONS_TITLES_LIST.includes(pascalSectionName)) {
-                // Write associations section under page
-                fs_1.default.writeFile(`${charDir(pascalPageName)}/${kebabSectionName}.ts`, (0, associations_1.default)(pascalSectionName, sectionName), (err) => {
-                    if (err) {
-                        console.log(err);
-                    }
-                    else {
-                        console.log(`Section ${pascalSectionName} written successfully`);
-                    }
-                });
-            }
-            else if (constants_1.ATTRIBUTES_TITLES_LIST.includes(pascalSectionName)) {
-                // Write attributes section under page
-                fs_1.default.writeFile(`${charDir(pascalPageName)}/${kebabSectionName}.ts`, (0, attributes_1.default)(pascalSectionName, sectionName), (err) => {
-                    if (err) {
-                        console.log(err);
-                    }
-                    else {
-                        console.log(`Section ${pascalSectionName} written successfully`);
-                    }
-                });
-            }
-            else if (constants_1.GALLERY_TITLES_LIST.includes(pascalSectionName)) {
-                // Write gallery section under page
-                fs_1.default.writeFile(`${charDir(pascalPageName)}/${kebabSectionName}.ts`, (0, gallery_1.default)(pascalSectionName, sectionName), (err) => {
-                    if (err) {
-                        console.log(err);
-                    }
-                    else {
-                        console.log(`Section ${pascalSectionName} written successfully`);
-                    }
-                });
-            }
-            else {
-                // Write generic page section
-                fs_1.default.writeFile(`${charDir(pascalPageName)}/${kebabSectionName}.ts`, (0, page_section_1.default)(pascalSectionName), (err) => {
-                    if (err) {
-                        console.log(err);
-                    }
-                    else {
-                        console.log(`Section "${sectionName}" written successfully`);
-                    }
-                });
+            // If page name and section name are passed
+            if (pageName && sectionName) {
+                // Make PageName, PageSectionName, and page-section-name
+                const pascalPageName = (0, util_1.isMultipleWords)(pageName) ? (0, util_1.toPascalCase)(pageName) : (0, util_1.titleCase)(pageName);
+                const pascalSectionName = (0, util_1.isMultipleWords)(sectionName) ? (0, util_1.toPascalCase)(sectionName) : (0, util_1.titleCase)(sectionName);
+                const kebabSectionName = (0, util_1.fromPascalToKebabCase)(pascalSectionName);
+                // Make page directory if does not exist
+                fs_1.default.existsSync((0, exports.charDir)(pascalPageName)) || fs_1.default.mkdirSync((0, exports.charDir)(pascalPageName));
+                if (constants_1.ASSOCIATIONS_TITLES_LIST.includes(pascalSectionName)) {
+                    // Write associations section under page
+                    fs_1.default.writeFile(`${(0, exports.charDir)(pascalPageName)}/${kebabSectionName}.ts`, (0, associations_1.default)(pascalSectionName, sectionName), (err) => {
+                        if (err) {
+                            console.log(err);
+                        }
+                        else {
+                            console.log(`Section ${pascalSectionName} written successfully`);
+                        }
+                    });
+                }
+                else if (constants_1.ATTRIBUTES_TITLES_LIST.includes(pascalSectionName)) {
+                    // Write attributes section under page
+                    fs_1.default.writeFile(`${(0, exports.charDir)(pascalPageName)}/${kebabSectionName}.ts`, (0, attributes_1.default)(pascalSectionName, sectionName), (err) => {
+                        if (err) {
+                            console.log(err);
+                        }
+                        else {
+                            console.log(`Section ${pascalSectionName} written successfully`);
+                        }
+                    });
+                }
+                else if (constants_1.GALLERY_TITLES_LIST.includes(pascalSectionName)) {
+                    // Write gallery section under page
+                    fs_1.default.writeFile(`${(0, exports.charDir)(pascalPageName)}/${kebabSectionName}.ts`, (0, gallery_1.default)(pascalSectionName, sectionName), (err) => {
+                        if (err) {
+                            console.log(err);
+                        }
+                        else {
+                            console.log(`Section ${pascalSectionName} written successfully`);
+                        }
+                    });
+                }
+                else {
+                    // Write generic page section
+                    fs_1.default.writeFile(`${(0, exports.charDir)(pascalPageName)}/${kebabSectionName}.ts`, (0, page_section_1.default)(pascalSectionName), (err) => {
+                        if (err) {
+                            console.log(err);
+                        }
+                        else {
+                            console.log(`Section "${sectionName}" written successfully`);
+                        }
+                    });
+                }
             }
         }
     }
@@ -138,81 +146,87 @@ const generate = (firstArg, secondArg, pageName, sectionName) => {
         // When flag is -n or --note
         if (pageOptions.includes(secondArg)) {
             // When second flag is -p or --page
-            // Make PageName and PAGE_CONST
-            const pascalName = (0, util_1.isMultipleWords)(pageName) ? (0, util_1.toPascalCase)(pageName) : (0, util_1.titleCase)(pageName);
-            const pageConst = (0, util_1.fromPascalToConstCase)(pascalName);
-            // Make note directory if does not exist
-            fs_1.default.existsSync(noteDir(pascalName)) || fs_1.default.mkdirSync(noteDir(pascalName));
-            // Write note page
-            fs_1.default.writeFile(`${noteDir(pascalName)}/index.ts`, (0, page_1.default)(pageName, pascalName, pageConst), (err) => {
-                if (err) {
-                    console.log(err);
-                }
-                else {
-                    console.log(`Page ${pascalName} written successfully`);
-                }
-            });
-            // Append page id to file
-            fs_1.default.appendFile('src-ts/page-ids.ts', (0, page_id_1.default)(pageConst), (err) => {
-                if (err) {
-                    console.log(err);
-                }
-                else {
-                    console.log(`ID ${pageConst} created successfully`);
-                }
-            });
+            // If page name is passed
+            if (pageName) {
+                // Make PageName and PAGE_CONST
+                const pascalName = (0, util_1.isMultipleWords)(pageName) ? (0, util_1.toPascalCase)(pageName) : (0, util_1.titleCase)(pageName);
+                const pageConst = (0, util_1.fromPascalToConstCase)(pascalName);
+                // Make note directory if does not exist
+                fs_1.default.existsSync((0, exports.noteDir)(pascalName)) || fs_1.default.mkdirSync((0, exports.noteDir)(pascalName));
+                // Write note page
+                fs_1.default.writeFile(`${(0, exports.noteDir)(pascalName)}/index.ts`, (0, page_1.default)(pascalName, pageConst), (err) => {
+                    if (err) {
+                        console.log(err);
+                    }
+                    else {
+                        console.log(`Page ${pascalName} written successfully`);
+                    }
+                });
+                // Append page id to file
+                fs_1.default.appendFile('src-ts/page-ids.ts', (0, page_id_1.default)(pageConst), (err) => {
+                    if (err) {
+                        console.log(err);
+                    }
+                    else {
+                        console.log(`ID ${pageConst} created successfully`);
+                    }
+                });
+            }
         }
         else if (sectionOptions.includes(secondArg)) {
             // When second flag is -s or --section
-            // Make PageName, PageSectionName, and page-section-name
-            const pascalPageName = (0, util_1.isMultipleWords)(pageName) ? (0, util_1.toPascalCase)(pageName) : (0, util_1.titleCase)(pageName);
-            const pascalSectionName = (0, util_1.isMultipleWords)(sectionName) ? (0, util_1.toPascalCase)(sectionName) : (0, util_1.titleCase)(sectionName);
-            const kebabSectionName = (0, util_1.fromPascalToKebabCase)(pascalSectionName);
-            // Make note directory if does not exist
-            fs_1.default.existsSync(noteDir(pascalPageName)) || fs_1.default.mkdirSync(noteDir(pascalPageName));
-            if (constants_1.ASSOCIATIONS_TITLES_LIST.includes(pascalSectionName)) {
-                // Write associations section under page
-                fs_1.default.writeFile(`${noteDir(pascalPageName)}/${kebabSectionName}.ts`, (0, associations_1.default)(pascalSectionName, sectionName), (err) => {
-                    if (err) {
-                        console.log(err);
-                    }
-                    else {
-                        console.log(`Section ${pascalSectionName} written successfully`);
-                    }
-                });
-            }
-            else if (constants_1.ATTRIBUTES_TITLES_LIST.includes(pascalSectionName)) {
-                // Write attributes section under page
-                fs_1.default.writeFile(`${noteDir(pascalPageName)}/${kebabSectionName}.ts`, (0, attributes_1.default)(pascalSectionName, sectionName), (err) => {
-                    if (err) {
-                        console.log(err);
-                    }
-                    else {
-                        console.log(`Section ${pascalSectionName} written successfully`);
-                    }
-                });
-            }
-            else if (constants_1.GALLERY_TITLES_LIST.includes(pascalSectionName)) {
-                // Write gallery section under page
-                fs_1.default.writeFile(`${noteDir(pascalPageName)}/${kebabSectionName}.ts`, (0, gallery_1.default)(pascalSectionName, sectionName), (err) => {
-                    if (err) {
-                        console.log(err);
-                    }
-                    else {
-                        console.log(`Section ${pascalSectionName} written successfully`);
-                    }
-                });
-            }
-            else {
-                // Write generic page section
-                fs_1.default.writeFile(`${noteDir(pascalPageName)}/${kebabSectionName}.ts`, (0, page_section_1.default)(pascalSectionName), (err) => {
-                    if (err) {
-                        console.log(err);
-                    }
-                    else {
-                        console.log(`Section "${sectionName}" written successfully`);
-                    }
-                });
+            // If page name and section name are passed
+            if (pageName && sectionName) {
+                // Make PageName, PageSectionName, and page-section-name
+                const pascalPageName = (0, util_1.isMultipleWords)(pageName) ? (0, util_1.toPascalCase)(pageName) : (0, util_1.titleCase)(pageName);
+                const pascalSectionName = (0, util_1.isMultipleWords)(sectionName) ? (0, util_1.toPascalCase)(sectionName) : (0, util_1.titleCase)(sectionName);
+                const kebabSectionName = (0, util_1.fromPascalToKebabCase)(pascalSectionName);
+                // Make note directory if does not exist
+                fs_1.default.existsSync((0, exports.noteDir)(pascalPageName)) || fs_1.default.mkdirSync((0, exports.noteDir)(pascalPageName));
+                if (constants_1.ASSOCIATIONS_TITLES_LIST.includes(pascalSectionName)) {
+                    // Write associations section under page
+                    fs_1.default.writeFile(`${(0, exports.noteDir)(pascalPageName)}/${kebabSectionName}.ts`, (0, associations_1.default)(pascalSectionName, sectionName), (err) => {
+                        if (err) {
+                            console.log(err);
+                        }
+                        else {
+                            console.log(`Section ${pascalSectionName} written successfully`);
+                        }
+                    });
+                }
+                else if (constants_1.ATTRIBUTES_TITLES_LIST.includes(pascalSectionName)) {
+                    // Write attributes section under page
+                    fs_1.default.writeFile(`${(0, exports.noteDir)(pascalPageName)}/${kebabSectionName}.ts`, (0, attributes_1.default)(pascalSectionName, sectionName), (err) => {
+                        if (err) {
+                            console.log(err);
+                        }
+                        else {
+                            console.log(`Section ${pascalSectionName} written successfully`);
+                        }
+                    });
+                }
+                else if (constants_1.GALLERY_TITLES_LIST.includes(pascalSectionName)) {
+                    // Write gallery section under page
+                    fs_1.default.writeFile(`${(0, exports.noteDir)(pascalPageName)}/${kebabSectionName}.ts`, (0, gallery_1.default)(pascalSectionName, sectionName), (err) => {
+                        if (err) {
+                            console.log(err);
+                        }
+                        else {
+                            console.log(`Section ${pascalSectionName} written successfully`);
+                        }
+                    });
+                }
+                else {
+                    // Write generic page section
+                    fs_1.default.writeFile(`${(0, exports.noteDir)(pascalPageName)}/${kebabSectionName}.ts`, (0, page_section_1.default)(pascalSectionName), (err) => {
+                        if (err) {
+                            console.log(err);
+                        }
+                        else {
+                            console.log(`Section "${sectionName}" written successfully`);
+                        }
+                    });
+                }
             }
         }
     }

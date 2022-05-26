@@ -18,6 +18,6 @@ const HomePage: Page = {
         whatsIcarus,
         whereToRead,
     ]
-} 
+}
 
 export default HomePage

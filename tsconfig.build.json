@@ -1,0 +1,5 @@
+{
+    // Do not compile typescript in tests folder
+    "extends": "./tsconfig.json",
+    "exclude": ["__tests__"]
+}

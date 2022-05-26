@@ -1,11 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = (originalPageName, pascalPageName, pageIdConst) => `import { Page } from '../../../DataTypes'
+const util_1 = require("./util");
+exports.default = (pascalPageName, pageIdConst) => `import { Page } from '../../../DataTypes'
 import { ${pageIdConst}_PAGE_ID } from '../../../page-ids'
 
 const ${pascalPageName}: Page = {
     id: ${pageIdConst}_PAGE_ID,
-    name: '${originalPageName}',
+    name: '${(0, util_1.fromPascalToTitle)(pascalPageName)}',
     sections: []
 }
 

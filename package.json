@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "sass scss:css && tsc && webpack",
+    "build": "eslint src-ts --max-warnings=0 && sass scss:css && tsc --project tsconfig.build.json && webpack",
     "start": "webpack --watch",
-    "tsc": "tsc",
-    "tsc-watch": "tsc --watch",
+    "tsc": "tsc --project tsconfig.build.json",
+    "tsc-watch": "tsc --project tsconfig.build.json --watch",
     "sass": "sass scss:css",
     "sass-watch": "sass --watch scss:css",
     "lint": "eslint src-ts --max-warnings=0",

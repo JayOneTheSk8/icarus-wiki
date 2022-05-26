@@ -10,7 +10,13 @@
     "tsc-watch": "tsc --watch",
     "sass": "sass scss:css",
     "sass-watch": "sass --watch scss:css",
-    "lint": "eslint src-ts --max-warnings=0"
+    "lint": "eslint src-ts --max-warnings=0",
+    "g": "node src/templates/generate.js",
+    "generate": "node src/templates/generate.js",
+    "gen-char-page": "node src/templates/generate.js -c -p",
+    "gen-char-sect": "node src/templates/generate.js -c -s",
+    "gen-note-page": "node src/templates/generate.js -n -p",
+    "gen-note-sect": "node src/templates/generate.js -n -s"
   },
   "repository": {
     "type": "git",

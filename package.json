@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "eslint src-ts --max-warnings=0 && sass scss:css && tsc --project tsconfig.build.json && webpack",
+    "webpack": "webpack",
     "start": "webpack --watch",
     "tsc": "tsc --project tsconfig.build.json",
     "tsc-watch": "tsc --project tsconfig.build.json --watch",

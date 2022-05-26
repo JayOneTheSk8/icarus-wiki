@@ -1,3 +1,4 @@
+import { fromPascalToTitle } from './util'
 import { ATTRIBUTES } from '../constants'
 
 export default (sectionName: string, customSectionName: string): string => `import { AttributesSection } from '../../../DataTypes'${
@@ -5,7 +6,7 @@ export default (sectionName: string, customSectionName: string): string => `impo
 }
 
 const attributes: AttributesSection = {
-    title: ${sectionName === ATTRIBUTES ? 'ATTRIBUTES' : `'${customSectionName}'`},
+    title: ${sectionName === ATTRIBUTES ? 'ATTRIBUTES' : `'${fromPascalToTitle(customSectionName)}'`},
     attributes: [
         {
             attributeName: '',

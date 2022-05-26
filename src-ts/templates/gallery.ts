@@ -1,3 +1,4 @@
+import { fromPascalToTitle } from './util'
 import { GALLERY } from '../constants'
 
 export default (sectionName: string, customSectionName: string): string => `import { GallerySection } from '../../../DataTypes'${
@@ -5,7 +6,7 @@ export default (sectionName: string, customSectionName: string): string => `impo
 }
 
 const gallery: GallerySection = {
-    title: ${sectionName === GALLERY ? 'GALLERY' : `'${customSectionName}'`},
+    title: ${sectionName === GALLERY ? 'GALLERY' : `'${fromPascalToTitle(customSectionName)}'`},
     gallery: [
         {
             url: '',

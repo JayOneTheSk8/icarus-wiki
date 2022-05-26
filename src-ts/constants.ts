@@ -16,6 +16,13 @@ export const ASSOCIATIONS = 'Associations'
 export const GALLERY_TITLES_LIST: Array<string> = [GALLERY]
 export const ATTRIBUTES_TITLES_LIST: Array<string> = [ATTRIBUTES]
 export const ASSOCIATIONS_TITLES_LIST: Array<string> = [ASSOCIATIONS]
+export const SECTION_TITLES_LIST: Array<string> = [
+    ABILITIES,
+    APPEARANCE,
+    HEADLINE,
+    HISTORY,
+    DESCRIPTION,
+]
 
 /* Google Drive */
 export const DRIVE_VIEW_PREFIX = 'https://drive.google.com/uc?export=view&id='

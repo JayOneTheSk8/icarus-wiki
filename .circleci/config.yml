@@ -1,0 +1,84 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@5.0.2
+
+jobs:
+  lint:
+    executor: node/default
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: npm
+      - run:
+          command: npm run lint
+          name: Lint files
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
+
+  test:
+    executor: node/default
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: npm
+      - run:
+          command: npm run test
+          name: Run tests
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
+
+  sass:
+    executor: node/default
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: npm
+      - run:
+          command: npm run sass
+          name: Compiles scss
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
+
+  tsc:
+    executor: node/default
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: npm
+      - run:
+          command: npm run tsc
+          name: Compiles typescript
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
+
+  build:
+    executor: node/default
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: npm
+      - run:
+          command: npm run webpack
+          name: Builds project with webpack
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
+
+workflows:
+  test_my_app:
+    jobs:
+      - lint
+      - test
+      - sass
+      - tsc
+      - build

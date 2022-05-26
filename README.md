@@ -10,6 +10,10 @@ The purpose of this project is to stand up a fully functioning wiki without the 
 
 The HTML is fairly straightforward: the main `"page-content"` simply adds the DOM elements necessary by analyzing the `Page`'s content.
 
+## CLI Page generation
+
+A convenient file generator can be used. Run `npm run g -- -h` for more info.
+
 ## Page's `name` and `pageImage`
 
 A `Page`'s content is fairly straightforward. Adding a `name` will create a header, and if a `pageImage` is present, it will adjust it under the header. A `Page` also must have an `id`.
@@ -180,7 +184,7 @@ const associations: AssociationsSection = {
 
 ### Renaming Sections
 
-It is possible that `title`s like `"Gallery"` and `"Associations"` may not cover the scope of what is in the section. If this is the case, new titles can be added to the `constants.ts` section arrays.
+It is possible that `title`s like `"Gallery"` and `"Associations"` may not cover the scope of what is in the section. If this is the case, new titles can be added to the `constants.ts` section arrays or by just changing the constants themselves and keeping the namespace.
 
 ```typescript
 /* src-ts/constants.ts */
@@ -223,8 +227,8 @@ This is still a very clumsy way of managing `id`s in lieu of a DBMS. A `Page`'s 
 /* src-ts/page-ids.ts */
 const HOME_PAGE_ID: string = 'home_page'
 
-const CHARACTER_ONE_PAGE_ID: string = 'character_one_page'
-const CHARACTER_TWO_PAGE_ID: string = 'character_two_page'
+const CHARACTER_ONE_PAGE_ID: string = 'character_one'
+const CHARACTER_TWO_PAGE_ID: string = 'character_two'
 ```
 
 ## `Responsive`

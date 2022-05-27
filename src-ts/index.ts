@@ -459,6 +459,20 @@ const getPageHTMLContents = (page: Page): Array<HTMLElement> => {
         }
     })
 
+    if (page.tags) {
+        const tagsList = createDiv()
+        tagsList.className = 'page-tags-list'
+        page.tags.forEach((tag) => {
+            const tagEl = createDiv()
+            tagEl.className = 'page-tag'
+            tagEl.innerHTML = tag
+
+            tagsList.appendChild(tagEl)
+        })
+
+        contents.push(tagsList)
+    }
+
     // Add spacer
     const spaceBlock = createDiv()
     spaceBlock.className = darkMode ? SPACE_BLOCK_DARK_CLASS : SPACE_BLOCK_CLASS

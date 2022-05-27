@@ -46,7 +46,7 @@ const associations: AssociationsSection = {
 export default associations
 `
 
-describe('associations template', () => {
+describe('Associations Template', () => {
     describe('when passed section matches the ASSOCIATIONS constant', () => {
         test('it returns a template with the const imported', () => {
             expect(associations('Associations', 'Associations')).toEqual(importConstAssociationsTemplate)

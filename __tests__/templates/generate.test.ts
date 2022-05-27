@@ -16,7 +16,7 @@ beforeEach(() => {
     jest.restoreAllMocks()
 })
 
-describe('generate', () => {
+describe('File Generate Script', () => {
     describe('when given improper arguments', () => {
 
         describe('when no flags are passed', () => {

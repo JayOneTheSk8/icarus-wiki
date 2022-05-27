@@ -46,7 +46,7 @@ const gallery: GallerySection = {
 export default gallery
 `
 
-describe('gallery template', () => {
+describe('Gallery Template', () => {
     describe('when passed section matches the GALLERY constant', () => {
         test('it returns a template with the const imported', () => {
             expect(gallery('Gallery', 'Gallery')).toEqual(importConstGalleryTemplate)

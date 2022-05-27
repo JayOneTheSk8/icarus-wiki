@@ -20,7 +20,7 @@ import {
     SECTION_TITLES_LIST,
 } from '../../src-ts/constants'
 
-describe('template utils', () => {
+describe('Template Utils', () => {
     describe('isMultipleWords', () => {
         describe('when single word in string', () => {
             test('it returns false', () => {

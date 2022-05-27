@@ -46,7 +46,7 @@ const attributes: AttributesSection = {
 export default attributes
 `
 
-describe('attributes template', () => {
+describe('Attributes Template', () => {
     describe('when passed section matches the ATTRIBUTES constant', () => {
         test('it returns a template with the const imported', () => {
             expect(attributes('Attributes', 'Attributes')).toEqual(importConstAttributesTemplate)

@@ -5,6 +5,7 @@ import ReggieKing from './ReggieKing'
 import Achilles from './Achilles'
 import MelvinGerritsen from './MelvinGerritsen'
 import DrWeed from './DrWeed'
+import Ferguson from './Ferguson'
 
 export default [
     RusselKing,
@@ -12,4 +13,5 @@ export default [
     Achilles,
     MelvinGerritsen,
     DrWeed,
+    Ferguson
 ] as CharacterList

@@ -1,6 +1,6 @@
 import { AssociationsSection } from '../../../DataTypes'
 import { ASSOCIATIONS } from '../../../constants'
-import { FERGUSON_PAGE_ID } from '../../../page-ids'
+import { DR_WEED_PAGE_ID } from '../../../page-ids'
 
 const associations: AssociationsSection = {
     title: ASSOCIATIONS,
@@ -8,7 +8,7 @@ const associations: AssociationsSection = {
         {
             associationName: 'Co-Workers',
             associationPageIds: [
-                FERGUSON_PAGE_ID,
+                DR_WEED_PAGE_ID
             ]
         }
     ]

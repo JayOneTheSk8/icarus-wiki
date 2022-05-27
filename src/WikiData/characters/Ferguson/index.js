@@ -5,15 +5,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const constants_1 = require("../../../constants");
 const page_ids_1 = require("../../../page-ids");
-const appearance_1 = __importDefault(require("./appearance"));
 const attributes_1 = __importDefault(require("./attributes"));
 const headline_1 = __importDefault(require("./headline"));
+const appearance_1 = __importDefault(require("./appearance"));
 const associations_1 = __importDefault(require("./associations"));
-const DrWeed = {
-    id: page_ids_1.DR_WEED_PAGE_ID,
-    name: 'Dr Weed',
+const Ferguson = {
+    id: page_ids_1.FERGUSON_PAGE_ID,
+    name: 'Sgt. Ferguson',
     pageImage: {
-        url: constants_1.DRIVE_VIEW_PREFIX + '1Qm31QZc0p2sZlo7w8eq7hJFEGD8kyWhx'
+        url: constants_1.DRIVE_VIEW_PREFIX + '1RWqIfCXbWc9K4gbW7p7KMQFWOpdhhwmK'
     },
     sections: [
         attributes_1.default,
@@ -22,4 +22,4 @@ const DrWeed = {
         associations_1.default,
     ]
 };
-exports.default = DrWeed;
+exports.default = Ferguson;

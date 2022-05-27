@@ -80,13 +80,23 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
 
 /***/ }),
 
+/***/ "./src/WikiData/characters/DrWeed/associations.js":
+/*!********************************************************!*\
+  !*** ./src/WikiData/characters/DrWeed/associations.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Co-Workers',\n    associationPageIds: [page_ids_1.FERGUSON_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/DrWeed/associations.js?");
+
+/***/ }),
+
 /***/ "./src/WikiData/characters/DrWeed/attributes.js":
 /*!******************************************************!*\
   !*** ./src/WikiData/characters/DrWeed/attributes.js ***!
   \******************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar attributes = {\n  title: constants_1.ATTRIBUTES,\n  attributes: [{\n    attributeName: 'Full Name',\n    attributeText: 'Dr. Dorson Nutsedge Ph. D.'\n  }, {\n    attributeName: 'Gender',\n    attributeText: 'Male'\n  }, {\n    attributeName: 'Age',\n    attributeText: '32'\n  }, {\n    attributeName: 'Height',\n    attributeText: \"6' 0\\\"\"\n  }, {\n    attributeName: 'Meta-Human Type',\n    attributeText: 'Paranormal'\n  }, {\n    attributeName: 'Race',\n    attributeText: 'Human'\n  }, {\n    attributeName: 'Eye Color',\n    attributeText: 'Dark Blue'\n  }, {\n    attributeName: 'Hair Color',\n    attributeText: 'Black'\n  }, {\n    attributeName: 'Hair Style',\n    attributeText: 'Mid-neck length, Straight'\n  }, {\n    attributeName: 'Facial Hair',\n    attributeText: \"5 o' clock shadow\"\n  }, {\n    attributeName: 'Debut',\n    attributeText: 'Chapter 1: Elements of Surprise'\n  }]\n};\nexports[\"default\"] = attributes;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/DrWeed/attributes.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar attributes = {\n  title: constants_1.ATTRIBUTES,\n  attributes: [{\n    attributeName: 'Full Name',\n    attributeText: 'Dr. Dorson Nutsedge Ph. D.'\n  }, {\n    attributeName: 'Occupation',\n    attributeText: 'Meta-Human Relations Manager'\n  }, {\n    attributeName: 'Gender',\n    attributeText: 'Male'\n  }, {\n    attributeName: 'Age',\n    attributeText: '32'\n  }, {\n    attributeName: 'Height',\n    attributeText: \"6' 0\\\"\"\n  }, {\n    attributeName: 'Meta-Human Type',\n    attributeText: 'Paranormal'\n  }, {\n    attributeName: 'Race',\n    attributeText: 'Human'\n  }, {\n    attributeName: 'Eye Color',\n    attributeText: 'Dark Blue'\n  }, {\n    attributeName: 'Hair Color',\n    attributeText: 'Black'\n  }, {\n    attributeName: 'Hair Style',\n    attributeText: 'Mid-neck length, Straight'\n  }, {\n    attributeName: 'Facial Hair',\n    attributeText: \"5 o' clock shadow\"\n  }, {\n    attributeName: 'Debut',\n    attributeText: 'Chapter 1: Elements of Surprise'\n  }]\n};\nexports[\"default\"] = attributes;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/DrWeed/attributes.js?");
 
 /***/ }),
 
@@ -106,7 +116,57 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
   \*************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar appearance_1 = __importDefault(__webpack_require__(/*! ./appearance */ \"./src/WikiData/characters/DrWeed/appearance.js\"));\n\nvar attributes_1 = __importDefault(__webpack_require__(/*! ./attributes */ \"./src/WikiData/characters/DrWeed/attributes.js\"));\n\nvar headline_1 = __importDefault(__webpack_require__(/*! ./headline */ \"./src/WikiData/characters/DrWeed/headline.js\"));\n\nvar DrWeed = {\n  id: page_ids_1.DR_WEED_PAGE_ID,\n  name: 'Dr Weed',\n  pageImage: {\n    url: constants_1.DRIVE_VIEW_PREFIX + '1Qm31QZc0p2sZlo7w8eq7hJFEGD8kyWhx'\n  },\n  sections: [attributes_1[\"default\"], headline_1[\"default\"], appearance_1[\"default\"]]\n};\nexports[\"default\"] = DrWeed;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/DrWeed/index.js?");
+eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar appearance_1 = __importDefault(__webpack_require__(/*! ./appearance */ \"./src/WikiData/characters/DrWeed/appearance.js\"));\n\nvar attributes_1 = __importDefault(__webpack_require__(/*! ./attributes */ \"./src/WikiData/characters/DrWeed/attributes.js\"));\n\nvar headline_1 = __importDefault(__webpack_require__(/*! ./headline */ \"./src/WikiData/characters/DrWeed/headline.js\"));\n\nvar associations_1 = __importDefault(__webpack_require__(/*! ./associations */ \"./src/WikiData/characters/DrWeed/associations.js\"));\n\nvar DrWeed = {\n  id: page_ids_1.DR_WEED_PAGE_ID,\n  name: 'Dr Weed',\n  pageImage: {\n    url: constants_1.DRIVE_VIEW_PREFIX + '1Qm31QZc0p2sZlo7w8eq7hJFEGD8kyWhx'\n  },\n  sections: [attributes_1[\"default\"], headline_1[\"default\"], appearance_1[\"default\"], associations_1[\"default\"]]\n};\nexports[\"default\"] = DrWeed;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/DrWeed/index.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/Ferguson/appearance.js":
+/*!********************************************************!*\
+  !*** ./src/WikiData/characters/Ferguson/appearance.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar appearance = {\n  title: constants_1.APPEARANCE,\n  body: 'Ferguson is a wide-framed bald man with a thick beard. He often wears a black suit with diagonally striped tie.'\n};\nexports[\"default\"] = appearance;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Ferguson/appearance.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/Ferguson/associations.js":
+/*!**********************************************************!*\
+  !*** ./src/WikiData/characters/Ferguson/associations.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Co-Workers',\n    associationPageIds: [page_ids_1.DR_WEED_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Ferguson/associations.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/Ferguson/attributes.js":
+/*!********************************************************!*\
+  !*** ./src/WikiData/characters/Ferguson/attributes.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar attributes = {\n  title: constants_1.ATTRIBUTES,\n  attributes: [{\n    attributeName: 'Full Name',\n    attributeText: 'Sgt. Mikael Ferguson'\n  }, {\n    attributeName: 'Occupation',\n    attributeText: 'Human Relations Manager'\n  }, {\n    attributeName: 'Gender',\n    attributeText: 'Male'\n  }, {\n    attributeName: 'Age',\n    attributeText: '35'\n  }, {\n    attributeName: 'Height',\n    attributeText: \"5' 11\\\"\"\n  }, {\n    attributeName: 'Race',\n    attributeText: 'Human'\n  }, {\n    attributeName: 'Eye Color',\n    attributeText: 'Baby Blue'\n  }, {\n    attributeName: 'Hair Style',\n    attributeText: 'Bald'\n  }, {\n    attributeName: 'Facial Hair',\n    attributeText: 'Thick Beard'\n  }, {\n    attributeName: 'Debut',\n    attributeText: 'Chapter 2: Baby Bird'\n  }]\n};\nexports[\"default\"] = attributes;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Ferguson/attributes.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/Ferguson/headline.js":
+/*!******************************************************!*\
+  !*** ./src/WikiData/characters/Ferguson/headline.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar headline = {\n  title: constants_1.HEADLINE,\n  body: \"Mikael Ferguson runs human relations a the DMPA and just want's what's best for humans... to a fault...\"\n};\nexports[\"default\"] = headline;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Ferguson/headline.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/Ferguson/index.js":
+/*!***************************************************!*\
+  !*** ./src/WikiData/characters/Ferguson/index.js ***!
+  \***************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar attributes_1 = __importDefault(__webpack_require__(/*! ./attributes */ \"./src/WikiData/characters/Ferguson/attributes.js\"));\n\nvar headline_1 = __importDefault(__webpack_require__(/*! ./headline */ \"./src/WikiData/characters/Ferguson/headline.js\"));\n\nvar appearance_1 = __importDefault(__webpack_require__(/*! ./appearance */ \"./src/WikiData/characters/Ferguson/appearance.js\"));\n\nvar associations_1 = __importDefault(__webpack_require__(/*! ./associations */ \"./src/WikiData/characters/Ferguson/associations.js\"));\n\nvar Ferguson = {\n  id: page_ids_1.FERGUSON_PAGE_ID,\n  name: 'Sgt. Ferguson',\n  pageImage: {\n    url: constants_1.DRIVE_VIEW_PREFIX + '1RWqIfCXbWc9K4gbW7p7KMQFWOpdhhwmK'\n  },\n  sections: [attributes_1[\"default\"], headline_1[\"default\"], appearance_1[\"default\"], associations_1[\"default\"]]\n};\nexports[\"default\"] = Ferguson;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Ferguson/index.js?");
 
 /***/ }),
 
@@ -286,7 +346,7 @@ eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {
   \******************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar RusselKing_1 = __importDefault(__webpack_require__(/*! ./RusselKing */ \"./src/WikiData/characters/RusselKing/index.js\"));\n\nvar ReggieKing_1 = __importDefault(__webpack_require__(/*! ./ReggieKing */ \"./src/WikiData/characters/ReggieKing/index.js\"));\n\nvar Achilles_1 = __importDefault(__webpack_require__(/*! ./Achilles */ \"./src/WikiData/characters/Achilles/index.js\"));\n\nvar MelvinGerritsen_1 = __importDefault(__webpack_require__(/*! ./MelvinGerritsen */ \"./src/WikiData/characters/MelvinGerritsen/index.js\"));\n\nvar DrWeed_1 = __importDefault(__webpack_require__(/*! ./DrWeed */ \"./src/WikiData/characters/DrWeed/index.js\"));\n\nexports[\"default\"] = [RusselKing_1[\"default\"], ReggieKing_1[\"default\"], Achilles_1[\"default\"], MelvinGerritsen_1[\"default\"], DrWeed_1[\"default\"]];\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/index.js?");
+eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar RusselKing_1 = __importDefault(__webpack_require__(/*! ./RusselKing */ \"./src/WikiData/characters/RusselKing/index.js\"));\n\nvar ReggieKing_1 = __importDefault(__webpack_require__(/*! ./ReggieKing */ \"./src/WikiData/characters/ReggieKing/index.js\"));\n\nvar Achilles_1 = __importDefault(__webpack_require__(/*! ./Achilles */ \"./src/WikiData/characters/Achilles/index.js\"));\n\nvar MelvinGerritsen_1 = __importDefault(__webpack_require__(/*! ./MelvinGerritsen */ \"./src/WikiData/characters/MelvinGerritsen/index.js\"));\n\nvar DrWeed_1 = __importDefault(__webpack_require__(/*! ./DrWeed */ \"./src/WikiData/characters/DrWeed/index.js\"));\n\nvar Ferguson_1 = __importDefault(__webpack_require__(/*! ./Ferguson */ \"./src/WikiData/characters/Ferguson/index.js\"));\n\nexports[\"default\"] = [RusselKing_1[\"default\"], ReggieKing_1[\"default\"], Achilles_1[\"default\"], MelvinGerritsen_1[\"default\"], DrWeed_1[\"default\"], Ferguson_1[\"default\"]];\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/index.js?");
 
 /***/ }),
 
@@ -366,7 +426,7 @@ eval("\n\nfunction _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _
   \*************************/
 /***/ ((__unused_webpack_module, exports) => {
 
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports.STONE_FACED_PAGE_ID = exports.DR_WEED_PAGE_ID = exports.MELVIN_GERRITSEN_PAGE_ID = exports.ACHILLES_PAGE_ID = exports.REGGIE_KING_PAGE_ID = exports.RUSSEL_KING_PAGE_ID = exports.HOME_PAGE_ID = void 0;\n/* Home */\n\nexports.HOME_PAGE_ID = 'home_page';\n/* Characters */\n\nexports.RUSSEL_KING_PAGE_ID = 'russel_king';\nexports.REGGIE_KING_PAGE_ID = 'reggie_king';\nexports.ACHILLES_PAGE_ID = 'achilles';\nexports.MELVIN_GERRITSEN_PAGE_ID = 'melvin_gerritsen';\nexports.DR_WEED_PAGE_ID = 'dr_weed';\n/* Notes */\n\nexports.STONE_FACED_PAGE_ID = 'stone_faced';\n\n//# sourceURL=webpack://icarus-wiki/./src/page-ids.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports.STONE_FACED_PAGE_ID = exports.FERGUSON_PAGE_ID = exports.DR_WEED_PAGE_ID = exports.MELVIN_GERRITSEN_PAGE_ID = exports.ACHILLES_PAGE_ID = exports.REGGIE_KING_PAGE_ID = exports.RUSSEL_KING_PAGE_ID = exports.HOME_PAGE_ID = void 0;\n/* Home */\n\nexports.HOME_PAGE_ID = 'home_page';\n/* Characters */\n\nexports.RUSSEL_KING_PAGE_ID = 'russel_king';\nexports.REGGIE_KING_PAGE_ID = 'reggie_king';\nexports.ACHILLES_PAGE_ID = 'achilles';\nexports.MELVIN_GERRITSEN_PAGE_ID = 'melvin_gerritsen';\nexports.DR_WEED_PAGE_ID = 'dr_weed';\nexports.FERGUSON_PAGE_ID = 'ferguson';\n/* Notes */\n\nexports.STONE_FACED_PAGE_ID = 'stone_faced';\n\n//# sourceURL=webpack://icarus-wiki/./src/page-ids.js?");
 
 /***/ })
 

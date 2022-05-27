@@ -5,6 +5,7 @@ import { DR_WEED_PAGE_ID } from '../../../page-ids'
 import appearance from './appearance'
 import attributes from './attributes'
 import headline from './headline'
+import associations from './associations'
 
 const DrWeed: Page = {
     id: DR_WEED_PAGE_ID,
@@ -16,6 +17,7 @@ const DrWeed: Page = {
         attributes,
         headline,
         appearance,
+        associations,
     ]
 }
 

@@ -6,11 +6,11 @@ const attributes: AttributesSection = {
     attributes: [
         {
             attributeName: 'Full Name',
-            attributeText: 'Dr. Dorson Nutsedge Ph. D.'
+            attributeText: 'Sgt. Mikael Ferguson'
         },
         {
             attributeName: 'Occupation',
-            attributeText: 'Meta-Human Relations Manager'
+            attributeText: 'Human Relations Manager'
         },
         {
             attributeName: 'Gender',
@@ -18,15 +18,11 @@ const attributes: AttributesSection = {
         },
         {
             attributeName: 'Age',
-            attributeText: '32'
+            attributeText: '35'
         },
         {
             attributeName: 'Height',
-            attributeText: `6' 0"`
-        },
-        {
-            attributeName: 'Meta-Human Type',
-            attributeText: 'Paranormal'
+            attributeText: `5' 11"`
         },
         {
             attributeName: 'Race',
@@ -34,23 +30,19 @@ const attributes: AttributesSection = {
         },
         {
             attributeName: 'Eye Color',
-            attributeText: 'Dark Blue'
-        },
-        {
-            attributeName: 'Hair Color',
-            attributeText: 'Black'
+            attributeText: 'Baby Blue'
         },
         {
             attributeName: 'Hair Style',
-            attributeText: 'Mid-neck length, Straight'
+            attributeText: 'Bald'
         },
         {
             attributeName: 'Facial Hair',
-            attributeText: "5 o' clock shadow"
+            attributeText: 'Thick Beard'
         },
         {
             attributeName: 'Debut',
-            attributeText: 'Chapter 1: Elements of Surprise'
+            attributeText: 'Chapter 2: Baby Bird'
         }
     ]
 }

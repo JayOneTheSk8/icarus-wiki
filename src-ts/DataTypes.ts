@@ -46,10 +46,12 @@ export interface Page {
     name: string
     pageImage?: Image
     sections: Array<PageSection | GallerySection | AttributesSection | AssociationsSection>
+    tags?: Tags
 }
 
 export type CharacterList = Array<Page>
 export type Notes = Array<Page>
+export type Tags = Set<string>
 
 export interface BlogData {
     homePage: Page

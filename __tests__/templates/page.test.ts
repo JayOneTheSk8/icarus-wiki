@@ -32,7 +32,7 @@ describe('Page Template', () => {
     })
 
     describe('when multiple name page', () => {
-        test('it returns the page name template with the name sentence title case', () => {
+        it('returns the page name template with the name sentence title case', () => {
             expect(page('PersonOne', 'PERSON_ONE')).toEqual(multiNamePage)
         })
     })

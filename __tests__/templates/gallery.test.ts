@@ -48,11 +48,11 @@ export default gallery
 
 describe('Gallery Template', () => {
     describe('when passed section matches the GALLERY constant', () => {
-        test('it returns a template with the const imported', () => {
+        it('returns a template with the const imported', () => {
             expect(gallery('Gallery', 'Gallery')).toEqual(importConstGalleryTemplate)
         })
 
-        test('it does not use the customSectionName parameter', () => {
+        it('does not use the customSectionName parameter', () => {
             expect(gallery('Gallery', '')).toEqual(importConstGalleryTemplate)
         })
     })
@@ -60,21 +60,21 @@ describe('Gallery Template', () => {
     describe('when passed section does not match the GALLERY constant', () => {
 
         describe('when passed single word section', () => {
-            test('it returns the template with the title as the section name', () => {
+            it('returns the template with the title as the section name', () => {
                 expect(gallery('Pictures', 'Pictures')).toEqual(noImportGalleryTemplate)
             })
 
-            test('it uses the customSectionName parameter to fill the title', () => {
+            it('uses the customSectionName parameter to fill the title', () => {
                 expect(gallery('Picturesname', 'Pictures')).toEqual(noImportGalleryTemplate)
             })
         })
 
         describe('when passed multiple word section', () => {
-            test('it returns the section with the sentence title as the section name', () => {
+            it('returns the section with the sentence title as the section name', () => {
                 expect(gallery('PicturesSection', 'PicturesSection')).toEqual(noImportMultipleWordsGalleryTemplate)
             })
 
-            test('it uses the customSectionName parameter to fill the title', () => {
+            it('uses the customSectionName parameter to fill the title', () => {
                 expect(gallery('Picturesname', 'PicturesSection')).toEqual(noImportMultipleWordsGalleryTemplate)
             })
         })

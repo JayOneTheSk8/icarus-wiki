@@ -43,7 +43,7 @@ export default sectionName
 
 describe('Page Section Template', () => {
     describe('when section is in given section constants', () => {
-        test('it returns a page section template with imports', () => {
+        it('returns a page section template with imports', () => {
             expect(SECTION_TITLES_LIST.length).toEqual(5)
             expect(pageSection(ABILITIES)).toEqual(importSectionTemplate(ABILITIES))
             expect(pageSection(APPEARANCE)).toEqual(importSectionTemplate(APPEARANCE))
@@ -55,13 +55,13 @@ describe('Page Section Template', () => {
 
     describe('when section is not in given section constants', () => {
         describe('when single word section', () => {
-            test('it returns string as the title', () => {
+            it('returns string as the title', () => {
                 expect(pageSection('Section')).toEqual(noImportSectionTemplate)
             })
         })
 
         describe('when multiple word section', () => {
-            test('it camelCases the variable name and sentence title cases the title', () => {
+            it('camelCases the variable name and sentence title cases the title', () => {
                 expect(pageSection('SectionName')).toEqual(noImportMultiWordSectionTemplate)
             })
         })

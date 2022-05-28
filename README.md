@@ -18,12 +18,13 @@ A convenient file generator can be used. Run `npm run g -- -h` for more info.
 
 ## Page's `name` and `pageImage`
 
-A `Page`'s content is fairly straightforward. Adding a `name` will create a header, and if a `pageImage` is present, it will adjust it under the header. A `Page` also must have an `id`.
+A `Page`'s content is fairly straightforward. Adding a `name` will create a header, and if a `pageImage` is present, it will adjust it under the header. A `Page` also must have an `id` and a `type` (either `'Characters'`, `'Notes'`, or `'Home Page'`).
 
 ```typescript
 const HomePage: Page = {
     id: 'home_page',
     name: 'My Wiki',
+    type: 'Home Page',
     pageImage: {
         url: 'https://www.w3schools.com/tags/img_girl.jpg',
         caption: 'Page Image'
@@ -33,6 +34,16 @@ const HomePage: Page = {
 ```
 
 ![](./public/PageName%2BImage.png)
+
+### `Tags`
+
+A `Page` can also have tags associated with it to find similar `Page`s. Tags are a `Set` of strings and are displayed at the bottom of a `Page`.
+
+![](./public/PageTags.png)
+
+A convenient search for pages with the same tags is given to each individual section selector (i.e. `Note` tags are separate from `Character` tags).
+
+![](./public/TagSearch.png)
 
 ### `PageSection`
 

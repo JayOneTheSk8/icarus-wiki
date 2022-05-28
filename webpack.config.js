@@ -4,7 +4,7 @@ module.exports = {
     mode: 'development',
     entry: {
         // Main javascript entry point
-        bundle: path.resolve(__dirname, 'src/index.js')
+        bundle: path.resolve(__dirname, 'src/run-app.js')
     },
     output: {
         path: path.resolve(__dirname, 'dist'),

@@ -66,7 +66,7 @@ const generate = (firstArg, secondArg, pageName, sectionName) => {
                 // Make character directory if does not exist
                 fs_1.default.existsSync((0, exports.charDir)(pascalName)) || fs_1.default.mkdirSync((0, exports.charDir)(pascalName));
                 // Write file with page template
-                fs_1.default.writeFile(`${(0, exports.charDir)(pascalName)}/index.ts`, (0, page_1.default)(pascalName, pageConst), (err) => {
+                fs_1.default.writeFile(`${(0, exports.charDir)(pascalName)}/index.ts`, (0, page_1.default)(pascalName, pageConst, constants_1.CHARACTERS_PAGE_TYPE), (err) => {
                     if (err) {
                         console.log(err);
                     }
@@ -154,7 +154,7 @@ const generate = (firstArg, secondArg, pageName, sectionName) => {
                 // Make note directory if does not exist
                 fs_1.default.existsSync((0, exports.noteDir)(pascalName)) || fs_1.default.mkdirSync((0, exports.noteDir)(pascalName));
                 // Write note page
-                fs_1.default.writeFile(`${(0, exports.noteDir)(pascalName)}/index.ts`, (0, page_1.default)(pascalName, pageConst), (err) => {
+                fs_1.default.writeFile(`${(0, exports.noteDir)(pascalName)}/index.ts`, (0, page_1.default)(pascalName, pageConst, constants_1.NOTES_PAGE_TYPE), (err) => {
                     if (err) {
                         console.log(err);
                     }

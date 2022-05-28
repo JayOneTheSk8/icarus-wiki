@@ -19,7 +19,14 @@ const DrWeed: Page = {
         headline,
         appearance,
         associations,
-    ]
+    ],
+    tags: new Set([
+        'Meta-Human',
+        'Psychic',
+        'DMPA Employee',
+        'Hero',
+        'Paranormal',
+    ])
 }
 
 export default DrWeed

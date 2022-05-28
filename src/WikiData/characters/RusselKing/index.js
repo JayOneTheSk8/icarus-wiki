@@ -24,6 +24,12 @@ const RusselKing = {
         appearance_1.default,
         associations_1.default,
         gallery_1.default,
-    ]
+    ],
+    tags: new Set([
+        'Meta-Human',
+        'Main Character',
+        'Hero',
+        'Mythical',
+    ])
 };
 exports.default = RusselKing;

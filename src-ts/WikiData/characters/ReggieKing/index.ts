@@ -22,7 +22,13 @@ const ReggieKing: Page = {
         appearance,
         associations,
         gallery,
-    ]
+    ],
+    tags: new Set([
+        'Meta-Human',
+        'Main Character',
+        'Hero',
+        'Mythical',
+    ])
 }
 
 export default ReggieKing

@@ -20,7 +20,13 @@ const MelvinGerritsen: Page = {
         headline,
         appearance,
         associations,
-    ]
+    ],
+    tags: new Set([
+        'Meta-Human',
+        'Main Character',
+        'Hero',
+        'Paranormal',
+    ])
 }
 
 export default MelvinGerritsen

@@ -21,6 +21,10 @@ const Ferguson = {
         headline_1.default,
         appearance_1.default,
         associations_1.default,
-    ]
+    ],
+    tags: new Set([
+        'Human',
+        'DMPA Employee',
+    ])
 };
 exports.default = Ferguson;

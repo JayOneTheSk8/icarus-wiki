@@ -21,6 +21,13 @@ const DrWeed = {
         headline_1.default,
         appearance_1.default,
         associations_1.default,
-    ]
+    ],
+    tags: new Set([
+        'Meta-Human',
+        'Psychic',
+        'DMPA Employee',
+        'Hero',
+        'Paranormal',
+    ])
 };
 exports.default = DrWeed;

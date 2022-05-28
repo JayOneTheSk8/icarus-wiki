@@ -19,7 +19,11 @@ const Ferguson: Page = {
         headline,
         appearance,
         associations,
-    ]
+    ],
+    tags: new Set([
+        'Human',
+        'DMPA Employee',
+    ])
 }
 
 export default Ferguson

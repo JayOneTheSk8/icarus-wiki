@@ -795,6 +795,7 @@ template {
 .page-tag {
   background: #d3b9a9;
   color: #2d2419;
+  font-size: 1.3em;
   font-weight: bold;
   padding: 0.3em;
   margin: 0.5em;
@@ -808,6 +809,7 @@ template {
 .selected-page-tag {
   background: #2d2419;
   color: #d3b9a9;
+  font-size: 1.3em;
   font-weight: bold;
   padding: 0.3em;
   margin: 0.5em;

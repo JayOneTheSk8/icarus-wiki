@@ -193,6 +193,7 @@
     flex-wrap: wrap;
 }
 
+/* Page Tag */
 .page-tag {
     background: base-colours.$dark-mode-font-colour;
     color: base-colours.$dark-mode-background-colour;
@@ -202,6 +203,21 @@
     border-radius: 0.3em;
     border: 1px solid base-colours.$dark-mode-background-colour;
     box-shadow: 3px 2px 5px 0px;
+    cursor: pointer;
+    width: max-content;
+}
+
+.selected-page-tag {
+    background: base-colours.$dark-mode-background-colour;
+    color: base-colours.$dark-mode-font-colour;
+    font-weight: bold;
+    padding: 0.3em;
+    margin: 0.5em;
+    border-radius: 0.3em;
+    border: 1px solid black;
+    box-shadow: 3px 2px 5px 0px black;
+    cursor: pointer;
+    width: max-content;
 }
 
 /* Space block */

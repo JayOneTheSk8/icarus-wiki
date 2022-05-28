@@ -8,6 +8,7 @@ import pageId from '../../src-ts/templates/page-id'
 import pageSection from '../../src-ts/templates/page-section'
 
 import { charDir, noteDir, generate } from '../../src-ts/templates/generate'
+import { CHARACTERS_PAGE_TYPE, NOTES_PAGE_TYPE } from '../../src-ts/constants'
 
 jest.mock('fs')
 
@@ -123,7 +124,7 @@ describe('File Generate Script', () => {
                     expect(fs.mkdirSync).toHaveBeenCalledWith(charDir('PageOne'))
                     expect(fs.writeFile).toHaveBeenCalledWith(
                         `${charDir('PageOne')}/index.ts`,
-                        page('PageOne', 'PAGE_ONE'),
+                        page('PageOne', 'PAGE_ONE', CHARACTERS_PAGE_TYPE),
                         expect.any(Function)
                     )
                     expect(fs.appendFile).toHaveBeenCalledWith(
@@ -157,7 +158,7 @@ describe('File Generate Script', () => {
                         expect(fs.mkdirSync).toHaveBeenCalledWith(charDir('Character'))
                         expect(fs.writeFile).toHaveBeenCalledWith(
                             `${charDir('Character')}/index.ts`,
-                            page('Character', 'CHARACTER'),
+                            page('Character', 'CHARACTER', CHARACTERS_PAGE_TYPE),
                             expect.any(Function)
                         )
                         expect(fs.appendFile).toHaveBeenCalledWith(
@@ -173,7 +174,7 @@ describe('File Generate Script', () => {
                         expect(fs.mkdirSync).toHaveBeenCalledWith(charDir('CharacterOne'))
                         expect(fs.writeFile).toHaveBeenCalledWith(
                             `${charDir('CharacterOne')}/index.ts`,
-                            page('CharacterOne', 'CHARACTER_ONE'),
+                            page('CharacterOne', 'CHARACTER_ONE', CHARACTERS_PAGE_TYPE),
                             expect.any(Function)
                         )
                         expect(fs.appendFile).toHaveBeenCalledWith(
@@ -192,7 +193,7 @@ describe('File Generate Script', () => {
                             expect(fs.mkdirSync).toHaveBeenCalledWith(charDir('CharacterOne'))
                             expect(fs.writeFile).toHaveBeenCalledWith(
                                 `${charDir('CharacterOne')}/index.ts`,
-                                page('CharacterOne', 'CHARACTER_ONE'),
+                                page('CharacterOne', 'CHARACTER_ONE', CHARACTERS_PAGE_TYPE),
                                 expect.any(Function)
                             )
                             expect(fs.appendFile).toHaveBeenCalledWith(
@@ -210,7 +211,7 @@ describe('File Generate Script', () => {
                             expect(fs.mkdirSync).toHaveBeenCalledWith(charDir('SomeOtherCharacter'))
                             expect(fs.writeFile).toHaveBeenCalledWith(
                                 `${charDir('SomeOtherCharacter')}/index.ts`,
-                                page('SomeOtherCharacter', 'SOME_OTHER_CHARACTER'),
+                                page('SomeOtherCharacter', 'SOME_OTHER_CHARACTER', CHARACTERS_PAGE_TYPE),
                                 expect.any(Function)
                             )
                             expect(fs.appendFile).toHaveBeenCalledWith(
@@ -305,14 +306,14 @@ describe('File Generate Script', () => {
 
         describe('with note flag passed', () => {
 
-            describe('when creating character page', () => {
-                it('creates a character page index and adds a page id', () => {
+            describe('when creating note page', () => {
+                it('creates a note page index and adds a page id', () => {
                     generate('-n', '-p', 'PageOne', '')
 
                     expect(fs.mkdirSync).toHaveBeenCalledWith(noteDir('PageOne'))
                     expect(fs.writeFile).toHaveBeenCalledWith(
                         `${noteDir('PageOne')}/index.ts`,
-                        page('PageOne', 'PAGE_ONE'),
+                        page('PageOne', 'PAGE_ONE', NOTES_PAGE_TYPE),
                         expect.any(Function)
                     )
                     expect(fs.appendFile).toHaveBeenCalledWith(
@@ -322,7 +323,7 @@ describe('File Generate Script', () => {
                     )
                 })
 
-                describe('when character directory does not exist', () => {
+                describe('when note directory does not exist', () => {
                     it('creates the directory necessary', () => {
                         generate('-n', '-p', 'PageOne', '')
                         expect(fs.mkdirSync).toHaveBeenCalledWith(noteDir('PageOne'))
@@ -330,7 +331,7 @@ describe('File Generate Script', () => {
 
                 })
 
-                describe('when character directory exists', () => {
+                describe('when note directory exists', () => {
                     it('does not create the directory', () => {
                         jest.spyOn(fs, 'existsSync').mockImplementationOnce(() => true)
 
@@ -341,33 +342,33 @@ describe('File Generate Script', () => {
 
                 describe('when single word is passed into argument string', () => {
                     it('uppercases the first letter of the page name', () => {
-                        generate('-n', '-p', 'character', '')
+                        generate('-n', '-p', 'note', '')
 
-                        expect(fs.mkdirSync).toHaveBeenCalledWith(noteDir('Character'))
+                        expect(fs.mkdirSync).toHaveBeenCalledWith(noteDir('Note'))
                         expect(fs.writeFile).toHaveBeenCalledWith(
-                            `${noteDir('Character')}/index.ts`,
-                            page('Character', 'CHARACTER'),
+                            `${noteDir('Note')}/index.ts`,
+                            page('Note', 'NOTE', NOTES_PAGE_TYPE),
                             expect.any(Function)
                         )
                         expect(fs.appendFile).toHaveBeenCalledWith(
                             'src-ts/page-ids.ts',
-                            pageId('CHARACTER'),
+                            pageId('NOTE'),
                             expect.any(Function)
                         )
                     })
 
                     it('ignores other characters if uppercase', () => {
-                        generate('-n', '-p', 'characterOne', '')
+                        generate('-n', '-p', 'pageOne', '')
 
-                        expect(fs.mkdirSync).toHaveBeenCalledWith(noteDir('CharacterOne'))
+                        expect(fs.mkdirSync).toHaveBeenCalledWith(noteDir('PageOne'))
                         expect(fs.writeFile).toHaveBeenCalledWith(
-                            `${noteDir('CharacterOne')}/index.ts`,
-                            page('CharacterOne', 'CHARACTER_ONE'),
+                            `${noteDir('PageOne')}/index.ts`,
+                            page('PageOne', 'PAGE_ONE', NOTES_PAGE_TYPE),
                             expect.any(Function)
                         )
                         expect(fs.appendFile).toHaveBeenCalledWith(
                             'src-ts/page-ids.ts',
-                            pageId('CHARACTER_ONE'),
+                            pageId('PAGE_ONE'),
                             expect.any(Function)
                         )
                     })
@@ -376,17 +377,17 @@ describe('File Generate Script', () => {
                 describe('when multiple words are passed in argument string', () => {
                     describe('when all words in string are lowercase', () => {
                         it('converts the words to pascal case correctly', () => {
-                            generate('-n', '-p', 'character one', '')
+                            generate('-n', '-p', 'page one', '')
 
-                            expect(fs.mkdirSync).toHaveBeenCalledWith(noteDir('CharacterOne'))
+                            expect(fs.mkdirSync).toHaveBeenCalledWith(noteDir('PageOne'))
                             expect(fs.writeFile).toHaveBeenCalledWith(
-                                `${noteDir('CharacterOne')}/index.ts`,
-                                page('CharacterOne', 'CHARACTER_ONE'),
+                                `${noteDir('PageOne')}/index.ts`,
+                                page('PageOne', 'PAGE_ONE', NOTES_PAGE_TYPE),
                                 expect.any(Function)
                             )
                             expect(fs.appendFile).toHaveBeenCalledWith(
                                 'src-ts/page-ids.ts',
-                                pageId('CHARACTER_ONE'),
+                                pageId('PAGE_ONE'),
                                 expect.any(Function)
                             )
                         })
@@ -394,17 +395,17 @@ describe('File Generate Script', () => {
 
                     describe('when words in string have multiple cases', () => {
                         it('ignores already uppercase characters', () => {
-                            generate('-n', '-p', 'someOther character', '')
+                            generate('-n', '-p', 'someOther note', '')
 
-                            expect(fs.mkdirSync).toHaveBeenCalledWith(noteDir('SomeOtherCharacter'))
+                            expect(fs.mkdirSync).toHaveBeenCalledWith(noteDir('SomeOtherNote'))
                             expect(fs.writeFile).toHaveBeenCalledWith(
-                                `${noteDir('SomeOtherCharacter')}/index.ts`,
-                                page('SomeOtherCharacter', 'SOME_OTHER_CHARACTER'),
+                                `${noteDir('SomeOtherNote')}/index.ts`,
+                                page('SomeOtherNote', 'SOME_OTHER_NOTE', NOTES_PAGE_TYPE),
                                 expect.any(Function)
                             )
                             expect(fs.appendFile).toHaveBeenCalledWith(
                                 'src-ts/page-ids.ts',
-                                pageId('SOME_OTHER_CHARACTER'),
+                                pageId('SOME_OTHER_NOTE'),
                                 expect.any(Function)
                             )
                         })
@@ -412,8 +413,8 @@ describe('File Generate Script', () => {
                 })
             })
 
-            describe('when creating character section', () => {
-                describe('when character directory does not exist', () => {
+            describe('when creating note section', () => {
+                describe('when note directory does not exist', () => {
                     it('creates the directory necessary', () => {
                         generate('-n', '-s', 'PageOne', 'section')
                         expect(fs.mkdirSync).toHaveBeenCalledWith(noteDir('PageOne'))
@@ -421,7 +422,7 @@ describe('File Generate Script', () => {
 
                 })
 
-                describe('when character directory exists', () => {
+                describe('when note directory exists', () => {
                     it('does not create the directory', () => {
                         jest.spyOn(fs, 'existsSync').mockImplementationOnce(() => true)
 

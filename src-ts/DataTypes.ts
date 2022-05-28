@@ -43,6 +43,7 @@ export interface AssociationsSection {
 
 export interface Page {
     id: string
+    type: PageType
     name: string
     pageImage?: Image
     sections: Array<PageSection | GallerySection | AttributesSection | AssociationsSection>
@@ -52,6 +53,7 @@ export interface Page {
 export type CharacterList = Array<Page>
 export type Notes = Array<Page>
 export type Tags = Set<string>
+export type PageType = 'Characters' | 'Notes' | 'Home Page'
 
 export interface BlogData {
     homePage: Page

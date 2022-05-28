@@ -11,6 +11,7 @@ const headline_1 = __importDefault(require("./headline"));
 const associations_1 = __importDefault(require("./associations"));
 const DrWeed = {
     id: page_ids_1.DR_WEED_PAGE_ID,
+    type: constants_1.CHARACTERS_PAGE_TYPE,
     name: 'Dr Weed',
     pageImage: {
         url: constants_1.DRIVE_VIEW_PREFIX + '1Qm31QZc0p2sZlo7w8eq7hJFEGD8kyWhx'

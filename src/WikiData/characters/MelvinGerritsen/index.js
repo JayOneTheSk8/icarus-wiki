@@ -11,6 +11,7 @@ const attributes_1 = __importDefault(require("./attributes"));
 const headline_1 = __importDefault(require("./headline"));
 const MelvinGerritsen = {
     id: page_ids_1.MELVIN_GERRITSEN_PAGE_ID,
+    type: constants_1.CHARACTERS_PAGE_TYPE,
     name: 'Melvin Gerritsen',
     pageImage: {
         url: constants_1.DRIVE_VIEW_PREFIX + '1RKZWzGgko6hw0mHSDr6_jE0e401WVo2d',

@@ -12,7 +12,7 @@ jobs:
           pkg-manager: npm
       - run:
           command: npm run lint
-          name: Lint files
+          name: Lint Files
       - persist_to_workspace:
           root: ~/project
           paths:
@@ -26,7 +26,7 @@ jobs:
           pkg-manager: npm
       - run:
           command: npm run test
-          name: Run tests
+          name: Run Unit Tests
       - persist_to_workspace:
           root: ~/project
           paths:
@@ -40,7 +40,7 @@ jobs:
           pkg-manager: npm
       - run:
           command: npm run sass
-          name: Compiles scss
+          name: Compile SCSS
       - persist_to_workspace:
           root: ~/project
           paths:
@@ -54,7 +54,7 @@ jobs:
           pkg-manager: npm
       - run:
           command: npm run tsc
-          name: Compiles typescript
+          name: Compile TypeScript
       - persist_to_workspace:
           root: ~/project
           paths:
@@ -68,7 +68,7 @@ jobs:
           pkg-manager: npm
       - run:
           command: npm run webpack
-          name: Builds project with webpack
+          name: Build project with Webpack
       - persist_to_workspace:
           root: ~/project
           paths:

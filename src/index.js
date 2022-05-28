@@ -7,9 +7,13 @@ const WikiData_1 = __importDefault(require("./WikiData"));
 const constants_1 = require("./constants");
 const { homePage, characters, notes, } = WikiData_1.default;
 /* Constants */
+const DEFAULT_CHARACTERS_OPTIONS = [];
+const DEFAULT_NOTES_OPTIONS = [];
 const MOBILE_WIDTH_LIMIT = 1000;
 const PAGE_MAP = {};
+const TAG_SEARCH_PLACEHOLDER = 'Tag Search';
 const SECTION_TITLE = 'section-title';
+const PAGE_OPTION_CONTAINER = 'page-option-container';
 const PAGE_OPTION = 'page-option';
 const MAIN_CLASS = 'main';
 const PAGE_CONTENT_CLASS = 'page-content';
@@ -45,13 +49,26 @@ const SECTION_SELECTOR_MOBILE_DARK_CLASS = 'section-selector-mobile-dark';
 const PAGE_SELECTOR_MOBILE_SHOW_DARK_CLASS = 'page-selector-mobile-show-dark';
 const SPACE_BLOCK_DARK_CLASS = 'space-block-dark';
 const PAGE_TITLE = 'page-title';
+const PAGE_TAG = 'page-tag';
+const SELECTED_PAGE_TAG = 'selected-page-tag';
+const SECTION_TAG_SEARCH = 'section-tag-search';
+const SELECTED_TAG_RESULTS = 'section-selected-tag-results';
+const TAG_RESULTS = 'section-tag-results';
 /* State Variables */
 var usingMobile = false;
 var sidebarOpen = false;
 var darkMode = false;
-/* Get HTML Elements Functions */
+/* Tag Sets */
+var ALL_CHARACTER_TAGS = new Set();
+const SELECTED_CHARACTER_TAGS = new Set();
+const taggedCharacterPages = {};
+var ALL_NOTE_TAGS = new Set();
+const SELECTED_NOTE_TAGS = new Set();
+const taggedNotePages = {};
+/* Make HTML Elements Functions */
 const createDiv = () => document.createElement('div');
 const createImg = () => document.createElement('img');
+const createInput = () => document.createElement('input');
 const findElement = (id) => document.getElementById(id);
 /* DOM Elements */
 const mainContent = findElement(MAIN_CLASS);
@@ -153,6 +170,172 @@ const setCharactersSelectors = () => {
 const setNotesSelectors = () => {
     pageSelector.replaceChildren(...notesSelector);
     usingMobile && toggleSidebar(true);
+};
+/* Tags */
+const removeTag = (selectedTags) => {
+    return (e) => {
+        const target = e.target;
+        const selectedTagResults = document.getElementsByClassName(SELECTED_TAG_RESULTS)[0];
+        // Remove from the DOM
+        selectedTagResults.removeChild(target);
+        // Delete tag from memory
+        selectedTags.delete(target.innerHTML);
+        // Adjust page results
+        adjustPageSelectorsToTags();
+    };
+};
+const pickTag = (fromResults, selectedTags) => {
+    return (e) => {
+        const target = e.target;
+        const tagResults = document.getElementsByClassName(TAG_RESULTS)[0];
+        // If picked from results
+        if (fromResults) {
+            // Remove from results
+            tagResults.removeChild(target);
+        }
+        const sectionTitle = document.getElementsByClassName(SECTION_TITLE)[0];
+        const currentTagSet = sectionTitle.innerHTML === constants_1.CHARACTERS_PAGE_TYPE
+            ? ALL_CHARACTER_TAGS
+            : sectionTitle.innerHTML === constants_1.NOTES_PAGE_TYPE
+                ? ALL_NOTE_TAGS
+                : new Set();
+        if (
+        // if the current tag set is populated
+        currentTagSet.size
+            // and the current tag set has the target
+            && currentTagSet.has(target.innerHTML)
+            // and the target is not in the currently selected tags (e.g tag was selected from search and clicked on page)
+            && !selectedTags.has(target.innerHTML)) {
+            const selectedTagResults = document.getElementsByClassName(SELECTED_TAG_RESULTS)[0];
+            const sectionTagSearch = document.getElementsByClassName(SECTION_TAG_SEARCH)[0];
+            // Add to selected tag to DOM
+            const selectedTag = createDiv();
+            selectedTag.className = SELECTED_PAGE_TAG;
+            selectedTag.innerHTML = target.innerHTML;
+            selectedTag.onclick = removeTag(selectedTags);
+            selectedTagResults.appendChild(selectedTag);
+            // Add selected tag to memory
+            selectedTags.add(target.innerHTML);
+            // Clear search input
+            sectionTagSearch.value = '';
+            // Adjust page results
+            adjustPageSelectorsToTags();
+        }
+    };
+};
+const searchForTags = (forPageType) => {
+    return (e) => {
+        const target = e.target;
+        const passedValue = target.value.toLowerCase();
+        const tagResults = document.getElementsByClassName(TAG_RESULTS)[0];
+        const results = [];
+        const allTags = forPageType === constants_1.CHARACTERS_PAGE_TYPE
+            ? ALL_CHARACTER_TAGS
+            : forPageType === constants_1.NOTES_PAGE_TYPE
+                ? ALL_NOTE_TAGS
+                : new Set();
+        const selectedTags = forPageType === constants_1.CHARACTERS_PAGE_TYPE
+            ? SELECTED_CHARACTER_TAGS
+            : forPageType === constants_1.NOTES_PAGE_TYPE
+                ? SELECTED_NOTE_TAGS
+                : new Set();
+        // Of all the given tags
+        allTags.forEach((tag) => {
+            // Remove non-alphanumeric to ease search
+            const parsedTag = tag.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
+            // If the tag is not in the selected tage and it starts with the input
+            if (!selectedTags.has(tag) && parsedTag.startsWith(passedValue)) {
+                // Create the tag element
+                const tagEl = createDiv();
+                tagEl.className = PAGE_TAG;
+                tagEl.innerHTML = tag;
+                tagEl.onclick = pickTag(true, selectedTags);
+                // Add to results
+                results.push(tagEl);
+            }
+        });
+        passedValue
+            // Add results to the DOM
+            ? tagResults.replaceChildren(...results)
+            // If there is nothing in the input, empty results
+            : tagResults.replaceChildren();
+    };
+};
+const addPageTags = (page) => {
+    var _a;
+    (_a = page.tags) === null || _a === void 0 ? void 0 : _a.forEach((tag) => {
+        if (page.type === constants_1.CHARACTERS_PAGE_TYPE) {
+            // Add to tagged character pages if characters page type
+            taggedCharacterPages[tag]
+                ? taggedCharacterPages[tag].push(page)
+                : taggedCharacterPages[tag] = [page];
+        }
+        else if (page.type === constants_1.NOTES_PAGE_TYPE) {
+            // Add to tagged note pages if notes page type
+            taggedNotePages[tag]
+                ? taggedNotePages[tag].push(page)
+                : taggedNotePages[tag] = [page];
+        }
+    });
+};
+const resetPageSelectors = (pageOptionContainer, sectionTitle) => {
+    // Check the current section title and replace with default options
+    switch (sectionTitle.innerHTML) {
+        case constants_1.CHARACTERS_PAGE_TYPE:
+            pageOptionContainer.replaceChildren(...DEFAULT_CHARACTERS_OPTIONS);
+            break;
+        case constants_1.NOTES_PAGE_TYPE:
+            pageOptionContainer.replaceChildren(...DEFAULT_NOTES_OPTIONS);
+            break;
+        default:
+            break;
+    }
+};
+const getInitialTaggedPages = (sectionTitle, taggedList) => {
+    // Return the first list of pages from the taggedList, default to character tagged pages
+    switch (sectionTitle.innerHTML) {
+        case constants_1.CHARACTERS_PAGE_TYPE:
+            return taggedCharacterPages[taggedList[0]];
+        case constants_1.NOTES_PAGE_TYPE:
+            return taggedNotePages[taggedList[0]];
+        default:
+            return taggedCharacterPages[taggedList[0]];
+    }
+};
+const adjustPageSelectorsToTags = () => {
+    // Get from the DOM for absolute adjustment
+    const selectedTagResults = document.getElementsByClassName(SELECTED_TAG_RESULTS)[0];
+    const pageOptionContainer = document.getElementsByClassName(PAGE_OPTION_CONTAINER)[0];
+    const sectionTitle = document.getElementsByClassName(SECTION_TITLE)[0];
+    // Get all of the tags from the DOM
+    const taggedList = [...selectedTagResults.children].map(el => el.innerHTML);
+    // If there are no selected tags
+    if (taggedList.length === 0) {
+        // Reset the selectors to default
+        resetPageSelectors(pageOptionContainer, sectionTitle);
+    }
+    else {
+        // Get all the pages tagged with the first tag
+        let results = getInitialTaggedPages(sectionTitle, taggedList);
+        // For every selected tag
+        taggedList.forEach((tag, idx) => {
+            // Skipping the first tag
+            if (idx !== 0) {
+                // Filter the results getting every page with the next tags
+                results = results.filter(page => { var _a; return (_a = page.tags) === null || _a === void 0 ? void 0 : _a.has(tag); });
+            }
+        });
+        // Get every page in the results and create selectors for them
+        const pageOptions = results.map((page) => {
+            const selector = createDiv();
+            selector.innerHTML = page.name;
+            selector.className = PAGE_OPTION;
+            selector.onclick = openPage(page);
+            return selector;
+        });
+        // Add selectors to page selector options
+        pageOptionContainer.replaceChildren(...pageOptions);
+    }
 };
 /* Zooom-In */
 const findOrientation = (image) => {
@@ -385,6 +568,26 @@ const getPageHTMLContents = (page) => {
             addPageSectionToContents(contents, section);
         }
     });
+    // Add page tags
+    if (page.tags) {
+        // Create tags list
+        const tagsList = createDiv();
+        tagsList.className = 'page-tags-list';
+        // Add tag elements
+        page.tags.forEach((tag) => {
+            const tagEl = createDiv();
+            tagEl.className = PAGE_TAG;
+            tagEl.onclick = (page.type === constants_1.CHARACTERS_PAGE_TYPE
+                ? pickTag(false, SELECTED_CHARACTER_TAGS)
+                : page.type === constants_1.NOTES_PAGE_TYPE
+                    ? pickTag(false, SELECTED_NOTE_TAGS)
+                    : null);
+            tagEl.innerHTML = tag;
+            // Add to tags list
+            tagsList.appendChild(tagEl);
+        });
+        contents.push(tagsList);
+    }
     // Add spacer
     const spaceBlock = createDiv();
     spaceBlock.className = darkMode ? SPACE_BLOCK_DARK_CLASS : SPACE_BLOCK_CLASS;
@@ -449,6 +652,16 @@ const displayPage = (pageContents) => {
     // Scroll to top
     window.scrollTo(0, 0);
 };
+const openPage = (page) => {
+    return () => {
+        const currentPageTitle = document.getElementsByClassName(PAGE_TITLE)[0];
+        // Only switch page if page is not already loaded
+        if (!currentPageTitle || currentPageTitle.innerHTML !== page.name) {
+            displayPage(getPageHTMLContents(page));
+        }
+        sidebarOpen && toggleSidebar(false);
+    };
+};
 const openHomePage = () => {
     return () => {
         const currentPageTitle = document.getElementsByClassName(PAGE_TITLE)[0];
@@ -495,11 +708,11 @@ const handleResize = () => {
 /* Home Page Selectors */
 const homePageSelector = [];
 const homePageTitle = createDiv();
-homePageTitle.innerText = homePage.name;
+homePageTitle.innerHTML = homePage.name;
 homePageTitle.className = SECTION_TITLE;
 homePageSelector.push(homePageTitle);
 const homePageOption = createDiv();
-homePageOption.innerText = 'Home Page';
+homePageOption.innerHTML = constants_1.HOME_PAGE_TYPE;
 homePageOption.className = PAGE_OPTION;
 homePageOption.onclick = openHomePage();
 homePageSelector.push(homePageOption);
@@ -508,33 +721,83 @@ PAGE_MAP[homePage.id] = homePage;
 /* Characters Selectors */
 const charactersSelector = [];
 const charactersTitle = createDiv();
-charactersTitle.innerText = 'Characters';
+charactersTitle.innerHTML = constants_1.CHARACTERS_PAGE_TYPE;
 charactersTitle.className = SECTION_TITLE;
 charactersSelector.push(charactersTitle);
+// Create tag input
+const characterTagsInput = createInput();
+characterTagsInput.className = SECTION_TAG_SEARCH;
+characterTagsInput.placeholder = TAG_SEARCH_PLACEHOLDER;
+characterTagsInput.oninput = searchForTags(constants_1.CHARACTERS_PAGE_TYPE);
+charactersSelector.push(characterTagsInput);
+// Create selected tag area
+const characterSelectedTagSection = createDiv();
+characterSelectedTagSection.className = SELECTED_TAG_RESULTS;
+charactersSelector.push(characterSelectedTagSection);
+// Create tag results
+const characterTagSection = createDiv();
+characterTagSection.className = TAG_RESULTS;
+charactersSelector.push(characterTagSection);
+const characterOptionsDiv = createDiv();
+characterOptionsDiv.className = PAGE_OPTION_CONTAINER;
 characters.forEach((character, idx) => {
     const selector = createDiv();
-    selector.innerText = character.name;
+    selector.innerHTML = character.name;
     selector.className = PAGE_OPTION;
     selector.onclick = openCharacterPage(idx);
-    charactersSelector.push(selector);
+    // Add option to div
+    characterOptionsDiv.appendChild(selector);
+    // Add option to default character options
+    DEFAULT_CHARACTERS_OPTIONS.push(selector);
+    // Add tags to set
+    if (character.tags) {
+        ALL_CHARACTER_TAGS = new Set([...ALL_CHARACTER_TAGS, ...character.tags]);
+        addPageTags(character);
+    }
     // Add character page to page map
     PAGE_MAP[character.id] = character;
 });
+charactersSelector.push(characterOptionsDiv);
 /* Notes Selectors */
 const notesSelector = [];
 const notesTitle = createDiv();
-notesTitle.innerText = 'Notes';
+notesTitle.innerHTML = constants_1.NOTES_PAGE_TYPE;
 notesTitle.className = SECTION_TITLE;
 notesSelector.push(notesTitle);
+// Create tag input
+const noteTagsInput = createInput();
+noteTagsInput.className = SECTION_TAG_SEARCH;
+noteTagsInput.placeholder = TAG_SEARCH_PLACEHOLDER;
+noteTagsInput.oninput = searchForTags(constants_1.NOTES_PAGE_TYPE);
+notesSelector.push(noteTagsInput);
+// Create selected tag area
+const noteSelectedTagSection = createDiv();
+noteSelectedTagSection.className = SELECTED_TAG_RESULTS;
+notesSelector.push(noteSelectedTagSection);
+// Create tag results
+const noteTagSection = createDiv();
+noteTagSection.className = TAG_RESULTS;
+notesSelector.push(noteTagSection);
+const noteOptionsDiv = createDiv();
+noteOptionsDiv.className = PAGE_OPTION_CONTAINER;
 notes.forEach((note, idx) => {
     const selector = createDiv();
-    selector.innerText = note.name;
+    selector.innerHTML = note.name;
     selector.className = PAGE_OPTION;
     selector.onclick = openNotesPage(idx);
-    notesSelector.push(selector);
+    // Add option to div
+    noteOptionsDiv.appendChild(selector);
+    // Add option to default note options
+    DEFAULT_NOTES_OPTIONS.push(selector);
+    // Add tags to set
+    if (note.tags) {
+        ALL_NOTE_TAGS = new Set([...ALL_NOTE_TAGS, ...note.tags]);
+        addPageTags(note);
+    }
     // Add note page to page map
     PAGE_MAP[note.id] = note;
 });
+notesSelector.push(noteOptionsDiv);
 /* Icon Click Functions */
 homeIcon.onclick = setHomeSelectors;
 characterIcon.onclick = setCharactersSelectors;

@@ -1,3 +1,8 @@
+/* Page Types */
+export const CHARACTERS_PAGE_TYPE = 'Characters'
+export const NOTES_PAGE_TYPE = 'Notes'
+export const HOME_PAGE_TYPE = 'Home Page'
+
 /* Character Section Names */
 export const ABILITIES = 'Abilities'
 export const APPEARANCE = 'Appearance'

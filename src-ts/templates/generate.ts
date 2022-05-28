@@ -13,6 +13,8 @@ import {
     ASSOCIATIONS_TITLES_LIST,
     ATTRIBUTES_TITLES_LIST,
     GALLERY_TITLES_LIST,
+    CHARACTERS_PAGE_TYPE,
+    NOTES_PAGE_TYPE,
 } from '../constants'
 
 /* Text Functions */
@@ -84,7 +86,7 @@ export const generate = (firstArg: string, secondArg: string, pageName: string, 
                 fs.existsSync(charDir(pascalName)) || fs.mkdirSync(charDir(pascalName))
 
                 // Write file with page template
-                fs.writeFile(`${charDir(pascalName)}/index.ts`, page(pascalName, pageConst), (err) => {
+                fs.writeFile(`${charDir(pascalName)}/index.ts`, page(pascalName, pageConst, CHARACTERS_PAGE_TYPE), (err) => {
                     if (err) {
                         console.log(err)
                     } else {
@@ -191,7 +193,7 @@ export const generate = (firstArg: string, secondArg: string, pageName: string, 
                 fs.existsSync(noteDir(pascalName)) || fs.mkdirSync(noteDir(pascalName))
 
                 // Write note page
-                fs.writeFile(`${noteDir(pascalName)}/index.ts`, page(pascalName, pageConst), (err) => {
+                fs.writeFile(`${noteDir(pascalName)}/index.ts`, page(pascalName, pageConst, NOTES_PAGE_TYPE), (err) => {
                     if (err) {
                         console.log(err)
                     } else {

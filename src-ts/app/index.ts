@@ -186,16 +186,10 @@ class App {
         }
     }
 
-    pickTag = (fromResults: boolean, selectedTags: Set<string>) => {
+    pickTag = (selectedTags: Set<string>) => {
         return (e: Event): void => {
             const target = e.target as HTMLElement
             const tagResults = document.getElementsByClassName(appConstants.TAG_RESULTS)[0]
-
-            // If picked from results
-            if (fromResults) {
-                // Remove from results
-                tagResults.removeChild(target)
-            }
 
             const sectionTitle = document.getElementsByClassName(appConstants.SECTION_TITLE)[0]
             const currentTagSet: Set<string> =
@@ -228,6 +222,9 @@ class App {
 
                 // Clear search input
                 sectionTagSearch.value = ''
+
+                // Clear present tags
+                tagResults.replaceChildren()
 
                 // Adjust page results
                 this.adjustPageSelectorsToTags()
@@ -268,7 +265,7 @@ class App {
                     const tagEl = this.createDiv()
                     tagEl.className = appConstants.PAGE_TAG
                     tagEl.innerHTML = tag
-                    tagEl.onclick = this.pickTag(true, selectedTags)
+                    tagEl.onclick = this.pickTag(selectedTags)
 
                     // Add to results
                     results.push(tagEl)
@@ -664,9 +661,9 @@ class App {
                 tagEl.className = appConstants.PAGE_TAG
                 tagEl.onclick = (
                     page.type === CHARACTERS_PAGE_TYPE
-                        ? this.pickTag(false, this.SELECTED_CHARACTER_TAGS)
+                        ? this.pickTag(this.SELECTED_CHARACTER_TAGS)
                         : page.type === NOTES_PAGE_TYPE
-                            ? this.pickTag(false, this.SELECTED_NOTE_TAGS)
+                            ? this.pickTag(this.SELECTED_NOTE_TAGS)
                             : null
                 )
                 tagEl.innerHTML = tag

@@ -39,6 +39,18 @@ const HomePage: Page = {
 
 A `Page` can also have tags associated with it to find similar `Page`s. `tags` are a `Set` of strings and are displayed at the bottom of a `Page`.
 
+```typescript
+const CharacterPage: Page = {
+    ...
+    sections: [...],
+    tags: new Set([
+        'Hero',
+        'Mutant',
+        'Comic Relief'
+    ])
+} 
+```
+
 ![](./public/PageTags.png)
 
 A convenient search for pages with the same `tags` is given to each individual section selector (i.e. `Notes` tags are separate from `Characters` tags).

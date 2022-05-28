@@ -37,11 +37,11 @@ const HomePage: Page = {
 
 ### `Tags`
 
-A `Page` can also have tags associated with it to find similar `Page`s. Tags are a `Set` of strings and are displayed at the bottom of a `Page`.
+A `Page` can also have tags associated with it to find similar `Page`s. `tags` are a `Set` of strings and are displayed at the bottom of a `Page`.
 
 ![](./public/PageTags.png)
 
-A convenient search for pages with the same tags is given to each individual section selector (i.e. `Note` tags are separate from `Character` tags).
+A convenient search for pages with the same `tags` is given to each individual section selector (i.e. `Notes` tags are separate from `Characters` tags).
 
 ![](./public/TagSearch.png)
 

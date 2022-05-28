@@ -86,25 +86,50 @@ class App {
     /* Toggle Dropdown */
     toggleSidebar = (openSidebar: boolean): void => {
         if (this.darkMode) {
-            this.pageSelector.className = openSidebar ? appConstants.PAGE_SELECTOR_MOBILE_SHOW_DARK_CLASS : appConstants.PAGE_SELECTOR_MOBILE_HIDE_CLASS
+            this.pageSelector.className =
+                openSidebar
+                    ? appConstants.PAGE_SELECTOR_MOBILE_SHOW_DARK_CLASS
+                    : appConstants.PAGE_SELECTOR_MOBILE_HIDE_CLASS
         } else {
-            this.pageSelector.className = openSidebar ? appConstants.PAGE_SELECTOR_MOBILE_SHOW_CLASS : appConstants.PAGE_SELECTOR_MOBILE_HIDE_CLASS
+            this.pageSelector.className =
+                openSidebar
+                    ? appConstants.PAGE_SELECTOR_MOBILE_SHOW_CLASS
+                    : appConstants.PAGE_SELECTOR_MOBILE_HIDE_CLASS
         }
 
-        this.pageSelectorModal.className = openSidebar ? appConstants.PAGE_SELECTOR_MODAL_SHOW_CLASS : appConstants.PAGE_SELECTOR_MODAL_HIDE_CLASS
+        this.pageSelectorModal.className =
+            openSidebar
+                ? appConstants.PAGE_SELECTOR_MODAL_SHOW_CLASS
+                : appConstants.PAGE_SELECTOR_MODAL_HIDE_CLASS
+
+        // Set state variable
         this.sidebarOpen = openSidebar
     }
 
     /* Change to Mobile */
     changeToMobile = (setMobile: boolean): void => {
         if (this.darkMode) {
-            this.sectionSelector.className = setMobile ? appConstants.SECTION_SELECTOR_MOBILE_DARK_CLASS : appConstants.SECTION_SELECTOR_DARK_CLASS
+            this.sectionSelector.className =
+                setMobile
+                    ? appConstants.SECTION_SELECTOR_MOBILE_DARK_CLASS
+                    : appConstants.SECTION_SELECTOR_DARK_CLASS
+
             // Default hide page selector on mobile
-            this.pageSelector.className = setMobile ? appConstants.PAGE_SELECTOR_MOBILE_HIDE_CLASS : appConstants.PAGE_SELECTOR_DARK_CLASS
+            this.pageSelector.className =
+                setMobile
+                    ? appConstants.PAGE_SELECTOR_MOBILE_HIDE_CLASS
+                    : appConstants.PAGE_SELECTOR_DARK_CLASS
         } else {
-            this.sectionSelector.className = setMobile ? appConstants.SECTION_SELECTOR_MOBILE_CLASS : appConstants.SECTION_SELECTOR_CLASS
+            this.sectionSelector.className =
+                setMobile
+                    ? appConstants.SECTION_SELECTOR_MOBILE_CLASS
+                    : appConstants.SECTION_SELECTOR_CLASS
+
             // Default hide page selector on mobile
-            this.pageSelector.className = setMobile ? appConstants.PAGE_SELECTOR_MOBILE_HIDE_CLASS : appConstants.PAGE_SELECTOR_CLASS
+            this.pageSelector.className =
+                setMobile
+                    ? appConstants.PAGE_SELECTOR_MOBILE_HIDE_CLASS
+                    : appConstants.PAGE_SELECTOR_CLASS
         }
 
         this.homeIcon.className = setMobile ? appConstants.HOME_ICON_MOBILE_CLASS : appConstants.HOME_ICON_CLASS
@@ -126,29 +151,61 @@ class App {
     /* Dark Mode Toggle */
     changeToDarkMode = (setDarkMode: boolean): void => {
         // Adjust primary mode elements
-        const primaryModeElements: HTMLCollectionOf<Element> = document.getElementsByClassName(setDarkMode ? appConstants.PRIMARY_MODE_CLASS : appConstants.DARK_MODE_CLASS)
-        for (let i = 0; i < primaryModeElements.length; i++) { primaryModeElements[i].className = setDarkMode ? appConstants.DARK_MODE_CLASS : appConstants.PRIMARY_MODE_CLASS }
-        for (const el of primaryModeElements) { el.className = setDarkMode ? appConstants.DARK_MODE_CLASS : appConstants.PRIMARY_MODE_CLASS }
+        const primaryModeElements: HTMLCollectionOf<Element> =
+            document.getElementsByClassName(
+                setDarkMode ? appConstants.PRIMARY_MODE_CLASS : appConstants.DARK_MODE_CLASS
+            )
+        for (let i = 0; i < primaryModeElements.length; i++) {
+            primaryModeElements[i].className = setDarkMode ? appConstants.DARK_MODE_CLASS : appConstants.PRIMARY_MODE_CLASS
+        }
+        for (const el of primaryModeElements) {
+            el.className = setDarkMode ? appConstants.DARK_MODE_CLASS : appConstants.PRIMARY_MODE_CLASS
+        }
 
         // Adjust section selector
-        const sectionSelectorElements: HTMLCollectionOf<Element> = document.getElementsByClassName(setDarkMode ? appConstants.SECTION_SELECTOR_CLASS : appConstants.SECTION_SELECTOR_DARK_CLASS)
-        for (const el of sectionSelectorElements) { el.className = setDarkMode ? appConstants.SECTION_SELECTOR_DARK_CLASS : appConstants.SECTION_SELECTOR_CLASS }
+        const sectionSelectorElements: HTMLCollectionOf<Element> =
+            document.getElementsByClassName(
+                setDarkMode ? appConstants.SECTION_SELECTOR_CLASS : appConstants.SECTION_SELECTOR_DARK_CLASS
+            )
+        for (const el of sectionSelectorElements) {
+            el.className = setDarkMode ? appConstants.SECTION_SELECTOR_DARK_CLASS : appConstants.SECTION_SELECTOR_CLASS
+        }
 
         // Adjust section selector (mobile)
-        const sectionSelectorMobileElements: HTMLCollectionOf<Element> = document.getElementsByClassName(setDarkMode ? appConstants.SECTION_SELECTOR_MOBILE_CLASS : appConstants.SECTION_SELECTOR_MOBILE_DARK_CLASS)
-        for (const el of sectionSelectorMobileElements) { el.className = setDarkMode ? appConstants.SECTION_SELECTOR_MOBILE_DARK_CLASS : appConstants.SECTION_SELECTOR_MOBILE_CLASS }
+        const sectionSelectorMobileElements: HTMLCollectionOf<Element> =
+            document.getElementsByClassName(
+                setDarkMode ? appConstants.SECTION_SELECTOR_MOBILE_CLASS : appConstants.SECTION_SELECTOR_MOBILE_DARK_CLASS
+            )
+        for (const el of sectionSelectorMobileElements) {
+            el.className = setDarkMode ? appConstants.SECTION_SELECTOR_MOBILE_DARK_CLASS : appConstants.SECTION_SELECTOR_MOBILE_CLASS
+        }
 
         // Adjust page selector
-        const pageSelectorElements: HTMLCollectionOf<Element> = document.getElementsByClassName(setDarkMode ? appConstants.PAGE_SELECTOR_CLASS : appConstants.PAGE_SELECTOR_DARK_CLASS)
-        for (const el of pageSelectorElements) { el.className = setDarkMode ? appConstants.PAGE_SELECTOR_DARK_CLASS : appConstants.PAGE_SELECTOR_CLASS }
+        const pageSelectorElements: HTMLCollectionOf<Element> =
+            document.getElementsByClassName(
+                setDarkMode ? appConstants.PAGE_SELECTOR_CLASS : appConstants.PAGE_SELECTOR_DARK_CLASS
+            )
+        for (const el of pageSelectorElements) {
+            el.className = setDarkMode ? appConstants.PAGE_SELECTOR_DARK_CLASS : appConstants.PAGE_SELECTOR_CLASS
+        }
 
         // Adjust page selector (mobile)
-        const pageSelectorMobileElements: HTMLCollectionOf<Element> = document.getElementsByClassName(setDarkMode ? appConstants.PAGE_SELECTOR_MOBILE_SHOW_CLASS : appConstants.PAGE_SELECTOR_MOBILE_SHOW_DARK_CLASS)
-        for (const el of pageSelectorMobileElements) { el.className = setDarkMode ? appConstants.PAGE_SELECTOR_MOBILE_SHOW_DARK_CLASS : appConstants.PAGE_SELECTOR_MOBILE_SHOW_CLASS }
+        const pageSelectorMobileElements: HTMLCollectionOf<Element> =
+            document.getElementsByClassName(
+                setDarkMode ? appConstants.PAGE_SELECTOR_MOBILE_SHOW_CLASS : appConstants.PAGE_SELECTOR_MOBILE_SHOW_DARK_CLASS
+            )
+        for (const el of pageSelectorMobileElements) {
+            el.className = setDarkMode ? appConstants.PAGE_SELECTOR_MOBILE_SHOW_DARK_CLASS : appConstants.PAGE_SELECTOR_MOBILE_SHOW_CLASS
+        }
 
         // Adjust page selector (mobile)
-        const spaceBlockElements: HTMLCollectionOf<Element> = document.getElementsByClassName(setDarkMode ? appConstants.SPACE_BLOCK_CLASS : appConstants.SPACE_BLOCK_DARK_CLASS)
-        for (const el of spaceBlockElements) { el.className = setDarkMode ? appConstants.SPACE_BLOCK_DARK_CLASS : appConstants.SPACE_BLOCK_CLASS }
+        const spaceBlockElements: HTMLCollectionOf<Element> =
+            document.getElementsByClassName(
+                setDarkMode ? appConstants.SPACE_BLOCK_CLASS : appConstants.SPACE_BLOCK_DARK_CLASS
+            )
+        for (const el of spaceBlockElements) {
+            el.className = setDarkMode ? appConstants.SPACE_BLOCK_DARK_CLASS : appConstants.SPACE_BLOCK_CLASS
+        }
 
         this.darkMode = setDarkMode
     }
@@ -773,9 +830,8 @@ class App {
         }
     }
 
-    render = (): void => {
-
-        /* Home Page Selectors */
+    /* Home Page Selectors */
+    createHomeSelectors = (): void => {
         const homePageTitle = this.createDiv()
         homePageTitle.innerHTML = homePage.name
         homePageTitle.className = appConstants.SECTION_TITLE
@@ -789,8 +845,10 @@ class App {
 
         // Add homepage to page map
         this.PAGE_MAP[homePage.id] = homePage
+    }
 
-        /* Characters Selectors */
+    /* Character Selectors */
+    createCharacterSelectors = (): void => {
         const charactersTitle = this.createDiv()
         charactersTitle.innerHTML = CHARACTERS_PAGE_TYPE
         charactersTitle.className = appConstants.SECTION_TITLE
@@ -838,8 +896,10 @@ class App {
         })
 
         this.charactersSelector.push(characterOptionsDiv)
+    }
 
-        /* Notes Selectors */
+    /* Note Selectors */
+    createNoteSelectors = (): void => {
         const notesTitle = this.createDiv()
         notesTitle.innerHTML = NOTES_PAGE_TYPE
         notesTitle.className = appConstants.SECTION_TITLE
@@ -887,6 +947,13 @@ class App {
         })
 
         this.notesSelector.push(noteOptionsDiv)
+    }
+
+    render = (): void => {
+        /* Generate Selectors */
+        this.createHomeSelectors()
+        this.createCharacterSelectors()
+        this.createNoteSelectors()
 
         /* Icon Click Functions */
         this.homeIcon.onclick = this.setHomeSelectors
@@ -920,6 +987,7 @@ class App {
         /* Default to Home Page */
         this.openPage(homePage)()
 
+        /* Change to Dark Mode if necessary from query params */
         const initSearchParams = new URLSearchParams(window.location.search)
         const initDark = initSearchParams.get('dark') || initSearchParams.get('d')
 

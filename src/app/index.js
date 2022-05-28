@@ -60,25 +60,47 @@ class App {
         /* Toggle Dropdown */
         this.toggleSidebar = (openSidebar) => {
             if (this.darkMode) {
-                this.pageSelector.className = openSidebar ? appConstants.PAGE_SELECTOR_MOBILE_SHOW_DARK_CLASS : appConstants.PAGE_SELECTOR_MOBILE_HIDE_CLASS;
+                this.pageSelector.className =
+                    openSidebar
+                        ? appConstants.PAGE_SELECTOR_MOBILE_SHOW_DARK_CLASS
+                        : appConstants.PAGE_SELECTOR_MOBILE_HIDE_CLASS;
             }
             else {
-                this.pageSelector.className = openSidebar ? appConstants.PAGE_SELECTOR_MOBILE_SHOW_CLASS : appConstants.PAGE_SELECTOR_MOBILE_HIDE_CLASS;
+                this.pageSelector.className =
+                    openSidebar
+                        ? appConstants.PAGE_SELECTOR_MOBILE_SHOW_CLASS
+                        : appConstants.PAGE_SELECTOR_MOBILE_HIDE_CLASS;
             }
-            this.pageSelectorModal.className = openSidebar ? appConstants.PAGE_SELECTOR_MODAL_SHOW_CLASS : appConstants.PAGE_SELECTOR_MODAL_HIDE_CLASS;
+            this.pageSelectorModal.className =
+                openSidebar
+                    ? appConstants.PAGE_SELECTOR_MODAL_SHOW_CLASS
+                    : appConstants.PAGE_SELECTOR_MODAL_HIDE_CLASS;
+            // Set state variable
             this.sidebarOpen = openSidebar;
         };
         /* Change to Mobile */
         this.changeToMobile = (setMobile) => {
             if (this.darkMode) {
-                this.sectionSelector.className = setMobile ? appConstants.SECTION_SELECTOR_MOBILE_DARK_CLASS : appConstants.SECTION_SELECTOR_DARK_CLASS;
+                this.sectionSelector.className =
+                    setMobile
+                        ? appConstants.SECTION_SELECTOR_MOBILE_DARK_CLASS
+                        : appConstants.SECTION_SELECTOR_DARK_CLASS;
                 // Default hide page selector on mobile
-                this.pageSelector.className = setMobile ? appConstants.PAGE_SELECTOR_MOBILE_HIDE_CLASS : appConstants.PAGE_SELECTOR_DARK_CLASS;
+                this.pageSelector.className =
+                    setMobile
+                        ? appConstants.PAGE_SELECTOR_MOBILE_HIDE_CLASS
+                        : appConstants.PAGE_SELECTOR_DARK_CLASS;
             }
             else {
-                this.sectionSelector.className = setMobile ? appConstants.SECTION_SELECTOR_MOBILE_CLASS : appConstants.SECTION_SELECTOR_CLASS;
+                this.sectionSelector.className =
+                    setMobile
+                        ? appConstants.SECTION_SELECTOR_MOBILE_CLASS
+                        : appConstants.SECTION_SELECTOR_CLASS;
                 // Default hide page selector on mobile
-                this.pageSelector.className = setMobile ? appConstants.PAGE_SELECTOR_MOBILE_HIDE_CLASS : appConstants.PAGE_SELECTOR_CLASS;
+                this.pageSelector.className =
+                    setMobile
+                        ? appConstants.PAGE_SELECTOR_MOBILE_HIDE_CLASS
+                        : appConstants.PAGE_SELECTOR_CLASS;
             }
             this.homeIcon.className = setMobile ? appConstants.HOME_ICON_MOBILE_CLASS : appConstants.HOME_ICON_CLASS;
             this.characterIcon.className = setMobile ? appConstants.CHARACTER_ICON_MOBILE_CLASS : appConstants.CHARACTER_ICON_CLASS;
@@ -642,8 +664,8 @@ class App {
                 this.changeToMobile(false);
             }
         };
-        this.render = () => {
-            /* Home Page Selectors */
+        /* Home Page Selectors */
+        this.createHomeSelectors = () => {
             const homePageTitle = this.createDiv();
             homePageTitle.innerHTML = homePage.name;
             homePageTitle.className = appConstants.SECTION_TITLE;
@@ -655,7 +677,9 @@ class App {
             this.homePageSelector.push(homePageOption);
             // Add homepage to page map
             this.PAGE_MAP[homePage.id] = homePage;
-            /* Characters Selectors */
+        };
+        /* Character Selectors */
+        this.createCharacterSelectors = () => {
             const charactersTitle = this.createDiv();
             charactersTitle.innerHTML = constants_1.CHARACTERS_PAGE_TYPE;
             charactersTitle.className = appConstants.SECTION_TITLE;
@@ -694,7 +718,9 @@ class App {
                 this.PAGE_MAP[character.id] = character;
             });
             this.charactersSelector.push(characterOptionsDiv);
-            /* Notes Selectors */
+        };
+        /* Note Selectors */
+        this.createNoteSelectors = () => {
             const notesTitle = this.createDiv();
             notesTitle.innerHTML = constants_1.NOTES_PAGE_TYPE;
             notesTitle.className = appConstants.SECTION_TITLE;
@@ -733,6 +759,12 @@ class App {
                 this.PAGE_MAP[note.id] = note;
             });
             this.notesSelector.push(noteOptionsDiv);
+        };
+        this.render = () => {
+            /* Generate Selectors */
+            this.createHomeSelectors();
+            this.createCharacterSelectors();
+            this.createNoteSelectors();
             /* Icon Click Functions */
             this.homeIcon.onclick = this.setHomeSelectors;
             this.characterIcon.onclick = this.setCharactersSelectors;
@@ -758,6 +790,7 @@ class App {
             }
             /* Default to Home Page */
             this.openPage(homePage)();
+            /* Change to Dark Mode if necessary from query params */
             const initSearchParams = new URLSearchParams(window.location.search);
             const initDark = initSearchParams.get('dark') || initSearchParams.get('d');
             if (initDark === 'true' || initDark === 't') {

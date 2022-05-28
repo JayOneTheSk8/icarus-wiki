@@ -9,6 +9,7 @@ const attributes_1 = __importDefault(require("./attributes"));
 const description_1 = __importDefault(require("./description"));
 const StoneFaced = {
     id: page_ids_1.STONE_FACED_PAGE_ID,
+    type: constants_1.NOTES_PAGE_TYPE,
     name: 'Stone-Faced',
     pageImage: {
         url: constants_1.DRIVE_VIEW_PREFIX + '1cx-R2-OwVB04JDTL7jqz-1EkcTR5zo99'

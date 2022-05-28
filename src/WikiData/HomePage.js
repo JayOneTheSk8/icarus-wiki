@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const constants_1 = require("../constants");
 const page_ids_1 = require("../page-ids");
 const whatsIcarus = {
     title: "What's Icarus?",
@@ -11,6 +12,7 @@ const whereToRead = {
 };
 const HomePage = {
     id: page_ids_1.HOME_PAGE_ID,
+    type: constants_1.HOME_PAGE_TYPE,
     name: 'Icarus Wiki',
     sections: [
         whatsIcarus,

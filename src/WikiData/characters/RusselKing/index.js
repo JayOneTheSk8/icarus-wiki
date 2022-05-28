@@ -12,6 +12,7 @@ const headline_1 = __importDefault(require("./headline"));
 const associations_1 = __importDefault(require("./associations"));
 const RusselKing = {
     id: page_ids_1.RUSSEL_KING_PAGE_ID,
+    type: constants_1.CHARACTERS_PAGE_TYPE,
     name: 'Russel King',
     pageImage: {
         url: constants_1.DRIVE_VIEW_PREFIX + '1QAiWVNXwS6Zgvyqxkz2LwEKe1ti3bJ66',

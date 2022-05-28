@@ -1,5 +1,5 @@
 import { Page } from '../../../DataTypes'
-import { DRIVE_VIEW_PREFIX } from '../../../constants'
+import { CHARACTERS_PAGE_TYPE, DRIVE_VIEW_PREFIX } from '../../../constants'
 import { RUSSEL_KING_PAGE_ID } from '../../../page-ids'
 
 import appearance from './appearance'
@@ -10,6 +10,7 @@ import associations from './associations'
 
 const RusselKing: Page = {
     id: RUSSEL_KING_PAGE_ID,
+    type: CHARACTERS_PAGE_TYPE,
     name: 'Russel King',
     pageImage: {
         url: DRIVE_VIEW_PREFIX + '1QAiWVNXwS6Zgvyqxkz2LwEKe1ti3bJ66',

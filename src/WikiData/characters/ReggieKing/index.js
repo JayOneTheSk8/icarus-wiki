@@ -12,6 +12,7 @@ const gallery_1 = __importDefault(require("./gallery"));
 const associations_1 = __importDefault(require("./associations"));
 const ReggieKing = {
     id: page_ids_1.REGGIE_KING_PAGE_ID,
+    type: constants_1.CHARACTERS_PAGE_TYPE,
     name: 'Reggie King',
     pageImage: {
         url: constants_1.DRIVE_VIEW_PREFIX + '1PnMGTIJsaIy__AkWuYpAM4G9-saN4VQ5',

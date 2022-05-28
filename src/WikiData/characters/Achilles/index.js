@@ -11,6 +11,7 @@ const attributes_1 = __importDefault(require("./attributes"));
 const headline_1 = __importDefault(require("./headline"));
 const Achilles = {
     id: page_ids_1.ACHILLES_PAGE_ID,
+    type: constants_1.CHARACTERS_PAGE_TYPE,
     name: 'Achilles',
     pageImage: {
         url: constants_1.DRIVE_VIEW_PREFIX + '1Pfg4oVvlXURqevxJNxrQHBCMJPre-N56',

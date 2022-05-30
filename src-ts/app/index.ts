@@ -85,6 +85,8 @@ class App {
 
     /* Toggle Dropdown */
     toggleSidebar = (openSidebar: boolean): void => {
+        if (!this.usingMobile) { return }
+
         if (this.darkMode) {
             this.pageSelector.className =
                 openSidebar
@@ -155,9 +157,6 @@ class App {
             document.getElementsByClassName(
                 setDarkMode ? appConstants.PRIMARY_MODE_CLASS : appConstants.DARK_MODE_CLASS
             )
-        for (let i = 0; i < primaryModeElements.length; i++) {
-            primaryModeElements[i].className = setDarkMode ? appConstants.DARK_MODE_CLASS : appConstants.PRIMARY_MODE_CLASS
-        }
         for (const el of primaryModeElements) {
             el.className = setDarkMode ? appConstants.DARK_MODE_CLASS : appConstants.PRIMARY_MODE_CLASS
         }
@@ -198,7 +197,7 @@ class App {
             el.className = setDarkMode ? appConstants.PAGE_SELECTOR_MOBILE_SHOW_DARK_CLASS : appConstants.PAGE_SELECTOR_MOBILE_SHOW_CLASS
         }
 
-        // Adjust page selector (mobile)
+        // Adjust space block
         const spaceBlockElements: HTMLCollectionOf<Element> =
             document.getElementsByClassName(
                 setDarkMode ? appConstants.SPACE_BLOCK_CLASS : appConstants.SPACE_BLOCK_DARK_CLASS

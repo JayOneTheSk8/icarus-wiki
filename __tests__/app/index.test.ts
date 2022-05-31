@@ -1,6 +1,8 @@
 import App from '../../src-ts/app'
 import * as appConstants from '../../src-ts/app/app-constants'
 
+import { CHARACTERS_PAGE_TYPE } from '../../src-ts/constants'
+
 const documentBody = `<body class="${appConstants.PRIMARY_MODE_CLASS}">
     <div class="dark-mode-toggle-area">
         <label for="${appConstants.DARK_MODE_TOGGLE}" class="dark-mode-label"></label>
@@ -689,6 +691,364 @@ describe('App', () => {
 
             it('opens the sidebar', () => {
                 expect(app.sidebarOpen).toBe(true)
+            })
+        })
+    })
+
+    describe('removeTag', () => {
+        it('returns a function', () => {
+            const app = new App()
+            expect(app.removeTag(new Set())).toBeInstanceOf(Function)
+        })
+
+        describe('when event function is run', () => {
+            it('removes tag from results in DOM and memory then adjusts the page selectors', () => {
+                document.body.outerHTML = documentBody
+
+                // Create selected results div
+                const selectedResultsHTML = document.createElement('div')
+                selectedResultsHTML.className = appConstants.SELECTED_TAG_RESULTS
+
+                // Tag names
+                const firstTag = 'firstTag'
+                const secondTag = 'secondTag'
+                const thirdTag = 'thirdTag'
+
+                // Create tag divs
+                const firstTagEl = document.createElement('div')
+                firstTagEl.innerHTML = firstTag
+                const secondTagEl = document.createElement('div')
+                secondTagEl.innerHTML = secondTag
+                const thirdTagEl = document.createElement('div')
+                thirdTagEl.innerHTML = thirdTag
+
+                // Add tag divs to selected results div
+                selectedResultsHTML.appendChild(firstTagEl)
+                selectedResultsHTML.appendChild(secondTagEl)
+                selectedResultsHTML.appendChild(thirdTagEl)
+
+                // Find the page selector and add the selected results to the DOM
+                const pageSelector = document.getElementById(appConstants.PAGE_SELECTOR_CLASS)
+                pageSelector?.appendChild(selectedResultsHTML)
+
+                // Mock selected tags in memory
+                const selectedTags = new Set([firstTag, secondTag, thirdTag])
+
+                // Create the app
+                const app = new App()
+
+                // Spy on adjustment method
+                jest.spyOn(app, 'adjustPageSelectorsToTags').mockImplementation(() => true)
+
+                // Call removeTag event function on click
+                secondTagEl.onclick = app.removeTag(selectedTags)
+                secondTagEl.click()
+
+                // Selected tags in memory should remove secondTag
+                expect(selectedTags.size).toEqual(2)
+                expect(selectedTags).toContain(firstTag)
+                expect(selectedTags).not.toContain(secondTag)
+                expect(selectedTags).toContain(thirdTag)
+
+                // DOM should remove secondTagEl
+                expect(selectedResultsHTML.children.length).toEqual(2)
+                expect(selectedResultsHTML.children).toContain(firstTagEl)
+                expect(selectedResultsHTML.children).not.toContain(secondTagEl)
+                expect(selectedResultsHTML.children).toContain(thirdTagEl)
+
+                // Adjustment function should have been called
+                expect(app.adjustPageSelectorsToTags).toHaveBeenCalled()
+            })
+        })
+    })
+
+    describe('pickTag', () => {
+        it('returns a function', () => {
+            const app = new App()
+            expect(app.removeTag(new Set())).toBeInstanceOf(Function)
+        })
+
+        describe('when event function is run', () => {
+            let sectionTitle: HTMLElement
+            let tagResults: HTMLElement
+            let selectedTagResults: HTMLElement
+            let sectionTagSearch: HTMLInputElement
+            let selectedTags: Set<string>
+
+            const firstTag = 'firstTag'
+            const secondTag = 'secondTag'
+            const thirdTag = 'thirdTag'
+
+            beforeEach(() => {
+                document.body.outerHTML = documentBody
+
+                // Create search tag results DIV
+                tagResults = document.createElement('div')
+                tagResults.className = appConstants.TAG_RESULTS
+
+                // Add single element to search results
+                const tagResult = document.createElement('div')
+                tagResults.appendChild(tagResult)
+
+                // Create blank section title
+                sectionTitle = document.createElement('div')
+                sectionTitle.className = appConstants.SECTION_TITLE
+
+                // Create selected tag results
+                selectedTagResults = document.createElement('div')
+                selectedTagResults.className = appConstants.SELECTED_TAG_RESULTS
+
+                // Add search tag search input
+                sectionTagSearch = document.createElement('input')
+                sectionTagSearch.className = appConstants.SECTION_TAG_SEARCH
+                sectionTagSearch.value = 'testsearch'
+
+                // Add elements to DOM under page selector
+                const pageSelector = document.getElementById(appConstants.PAGE_SELECTOR_CLASS)
+
+                pageSelector?.appendChild(tagResults)
+                pageSelector?.appendChild(sectionTitle)
+                pageSelector?.appendChild(selectedTagResults)
+                pageSelector?.appendChild(sectionTagSearch)
+
+                // Create selected tags in memory
+                selectedTags = new Set([firstTag, secondTag, thirdTag])
+            })
+
+            describe('when section title is not characters or note type', () => {
+                let app: App
+                let tagEl: HTMLElement
+
+                beforeEach(() => {
+                    app = new App()
+                    jest.spyOn(app, 'adjustPageSelectorsToTags').mockImplementation(() => true)
+
+                    // Create tag to be clicked on
+                    tagEl = document.createElement('div')
+                    tagEl.innerHTML = 'fourthTag'
+
+                    // Set function to run onclick
+                    tagEl.onclick = app.pickTag(selectedTags)
+                    tagEl.click()
+                })
+
+                it('does not alter the selected tags', () => {
+                    expect(selectedTags.size).toEqual(3)
+                    expect(selectedTags).toContain(firstTag)
+                    expect(selectedTags).toContain(secondTag)
+                    expect(selectedTags).toContain(thirdTag)
+                })
+
+                it('does not add to the selected tag results in the DOM', () => {
+                    expect(selectedTagResults.children).toHaveLength(0)
+                })
+
+                it('does not clear the search input', () => {
+                    expect(sectionTagSearch.value).toEqual('testsearch')
+                })
+
+                it('does not clear the found tag results in the DOM', () => {
+                    expect(tagResults.children).toHaveLength(1)
+                })
+
+                it('does not adjust the page selectors', () => {
+                    expect(app.adjustPageSelectorsToTags).not.toHaveBeenCalled()
+                })
+            })
+
+            describe('when current tag set is empty', () => {
+                let app: App
+                let tagEl: HTMLElement
+
+                beforeEach(() => {
+                    app = new App()
+                    jest.spyOn(app, 'adjustPageSelectorsToTags').mockImplementation(() => true)
+
+                    // Set proper section title
+                    sectionTitle.innerHTML = CHARACTERS_PAGE_TYPE
+
+                    // Set empty tags for section
+                    app.ALL_CHARACTER_TAGS = new Set()
+
+                    // Create tag to be clicked on
+                    tagEl = document.createElement('div')
+                    tagEl.innerHTML = 'fourthTag'
+
+                    // Set function to run onclick
+                    tagEl.onclick = app.pickTag(selectedTags)
+                    tagEl.click()
+                })
+
+                it('does not alter the selected tags', () => {
+                    expect(selectedTags.size).toEqual(3)
+                    expect(selectedTags).toContain(firstTag)
+                    expect(selectedTags).toContain(secondTag)
+                    expect(selectedTags).toContain(thirdTag)
+                })
+
+                it('does not add to the selected tag results in the DOM', () => {
+                    expect(selectedTagResults.children).toHaveLength(0)
+                })
+
+                it('does not clear the search input', () => {
+                    expect(sectionTagSearch.value).toEqual('testsearch')
+                })
+
+                it('does not clear the found tag results in the DOM', () => {
+                    expect(tagResults.children).toHaveLength(1)
+                })
+
+                it('does not adjust the page selectors', () => {
+                    expect(app.adjustPageSelectorsToTags).not.toHaveBeenCalled()
+                })
+            })
+
+            describe('when current tag set does not have the target text', () => {
+                let app: App
+                let tagEl: HTMLElement
+
+                beforeEach(() => {
+                    app = new App()
+                    jest.spyOn(app, 'adjustPageSelectorsToTags').mockImplementation(() => true)
+
+                    // Set proper section title
+                    sectionTitle.innerHTML = CHARACTERS_PAGE_TYPE
+
+                    // Set tags without target text
+                    app.ALL_CHARACTER_TAGS = new Set(['someTag', 'anotherTag'])
+
+                    // Create tag to be clicked on
+                    tagEl = document.createElement('div')
+                    tagEl.innerHTML = 'fourthTag'
+
+                    // Set function to run onclick
+                    tagEl.onclick = app.pickTag(selectedTags)
+                    tagEl.click()
+                })
+
+                it('does not alter the selected tags', () => {
+                    expect(selectedTags.size).toEqual(3)
+                    expect(selectedTags).toContain(firstTag)
+                    expect(selectedTags).toContain(secondTag)
+                    expect(selectedTags).toContain(thirdTag)
+                })
+
+                it('does not add to the selected tag results in the DOM', () => {
+                    expect(selectedTagResults.children).toHaveLength(0)
+                })
+
+                it('does not clear the search input', () => {
+                    expect(sectionTagSearch.value).toEqual('testsearch')
+                })
+
+                it('does not clear the found tag results in the DOM', () => {
+                    expect(tagResults.children).toHaveLength(1)
+                })
+
+                it('does not adjust the page selectors', () => {
+                    expect(app.adjustPageSelectorsToTags).not.toHaveBeenCalled()
+                })
+            })
+
+            describe('when current tag is already selected', () => {
+                let app: App
+                let tagEl: HTMLElement
+                const fourthTag = 'fourthTag'
+
+                beforeEach(() => {
+                    app = new App()
+                    jest.spyOn(app, 'adjustPageSelectorsToTags').mockImplementation(() => true)
+
+                    // Set proper section title
+                    sectionTitle.innerHTML = CHARACTERS_PAGE_TYPE
+
+                    // Set tags with target text
+                    app.ALL_CHARACTER_TAGS = new Set([fourthTag])
+
+                    // Add target text to selected tags in memory
+                    selectedTags.add(fourthTag)
+
+                    // Create tag to be clicked on
+                    tagEl = document.createElement('div')
+                    tagEl.innerHTML = fourthTag
+
+                    // Set function to run onclick
+                    tagEl.onclick = app.pickTag(selectedTags)
+                    tagEl.click()
+                })
+
+                it('does not alter the selected tags', () => {
+                    expect(selectedTags.size).toEqual(4)
+                    expect(selectedTags).toContain(firstTag)
+                    expect(selectedTags).toContain(secondTag)
+                    expect(selectedTags).toContain(thirdTag)
+                    expect(selectedTags).toContain(fourthTag)
+                })
+
+                it('does not add to the selected tag results in the DOM', () => {
+                    expect(selectedTagResults.children).toHaveLength(0)
+                })
+
+                it('does not clear the search input', () => {
+                    expect(sectionTagSearch.value).toEqual('testsearch')
+                })
+
+                it('does not clear the found tag results in the DOM', () => {
+                    expect(tagResults.children).toHaveLength(1)
+                })
+
+                it('does not adjust the page selectors', () => {
+                    expect(app.adjustPageSelectorsToTags).not.toHaveBeenCalled()
+                })
+            })
+
+            describe('when current tag set has the target test and the tag is not already selected', () => {
+                let app: App
+                let tagEl: HTMLElement
+                const fourthTag = 'fourthTag'
+
+                beforeEach(() => {
+                    app = new App()
+                    jest.spyOn(app, 'adjustPageSelectorsToTags').mockImplementation(() => true)
+
+                    // Set proper section title
+                    sectionTitle.innerHTML = CHARACTERS_PAGE_TYPE
+
+                    // Set tags with target text
+                    app.ALL_CHARACTER_TAGS = new Set([fourthTag])
+
+                    // Create tag to be clicked on
+                    tagEl = document.createElement('div')
+                    tagEl.innerHTML = fourthTag
+
+                    // Set function to run onclick
+                    tagEl.onclick = app.pickTag(selectedTags)
+                    tagEl.click()
+                })
+
+                it('adds the new tag to the selected tags', () => {
+                    expect(selectedTags.size).toEqual(4)
+                    expect(selectedTags).toContain(firstTag)
+                    expect(selectedTags).toContain(secondTag)
+                    expect(selectedTags).toContain(thirdTag)
+                    expect(selectedTags).toContain(fourthTag)
+                })
+
+                it('adds to the selected tag results in the DOM', () => {
+                    expect(selectedTagResults.children).toHaveLength(1)
+                })
+
+                it('clears the search input', () => {
+                    expect(sectionTagSearch.value).toEqual('')
+                })
+
+                it('clears the found tag results in the DOM', () => {
+                    expect(tagResults.children).toHaveLength(0)
+                })
+
+                it('adjusts the page selectors', () => {
+                    expect(app.adjustPageSelectorsToTags).toHaveBeenCalled()
+                })
             })
         })
     })

@@ -1668,4 +1668,66 @@ describe('App', () => {
             })
         })
     })
+
+    describe('zoomInImage', () => {
+        let app: App
+
+        beforeEach(() => {
+            document.body.outerHTML = documentBody
+            app = new App()
+        })
+
+        it('returns a function', () => {
+            expect(app.zoomInImage('testimage')).toBeInstanceOf(Function)
+        })
+
+        describe('when event function is run', () => {
+            it('shows the zoomed image section with a modal', () => {
+                app.zoomInImage('testimage')()
+                expect(app.zoomedImageSection.className).toEqual(appConstants.ZOOMED_IMAGE_SECTION_SHOW)
+                expect(app.zoomedModal.className).toEqual(appConstants.ZOOMED_IMAGE_MODAL_SHOW)
+            })
+
+            describe('when image is portrait orientation', () => {
+                it('adds a zoomed portrait image to the zoomed image section', () => {
+                    jest.spyOn(app, 'findOrientation').mockImplementation(() => 'portrait')
+                    app.zoomInImage('testimage')()
+
+                    expect(app.findOrientation).toHaveBeenCalledTimes(1)
+                    expect(app.zoomedImageSection.children).toHaveLength(1)
+                    expect(app.zoomedImageSection.children[0].className).toEqual('zoomed-img-portrait')
+                })
+            })
+
+            describe('when image is landscape orientation', () => {
+                it('adds a zoomed landscape image to the zoomed image section', () => {
+                    jest.spyOn(app, 'findOrientation').mockImplementation(() => 'landscape')
+                    app.zoomInImage('testimage')()
+
+                    expect(app.findOrientation).toHaveBeenCalledTimes(1)
+                    expect(app.zoomedImageSection.children).toHaveLength(1)
+                    expect(app.zoomedImageSection.children[0].className).toEqual('zoomed-img-landscape')
+                })
+            })
+        })
+    })
+
+    describe('closeZoomModal', () => {
+        let app: App
+
+        beforeEach(() => {
+            app = new App()
+            app.zoomInImage('testimage')()
+            app.closeZoomModal()
+        })
+
+        it('clears the zoomedImageSection in the DOM', () => {
+            expect(app.zoomedImageSection.children).toHaveLength(0)
+        })
+
+        it('hides the zoomedImageSection and zoomedModal', () => {
+            expect(app.zoomedImageSection.className).toEqual(appConstants.ZOOMED_IMAGE_SECTION_HIDE)
+            expect(app.zoomedModal.className).toEqual(appConstants.ZOOMED_IMAGE_MODAL_HIDE)
+        })
+    })
 })

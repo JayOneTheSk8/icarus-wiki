@@ -1,7 +1,8 @@
 import App from '../../src-ts/app'
 import * as appConstants from '../../src-ts/app/app-constants'
 
-import { CHARACTERS_PAGE_TYPE } from '../../src-ts/constants'
+import { CHARACTERS_PAGE_TYPE, NOTES_PAGE_TYPE } from '../../src-ts/constants'
+import { Page } from '../../src-ts/DataTypes'
 
 const documentBody = `<body class="${appConstants.PRIMARY_MODE_CLASS}">
     <div class="dark-mode-toggle-area">
@@ -1216,6 +1217,83 @@ describe('App', () => {
 
                     expect(app.pickTag).toHaveBeenCalledTimes(2)
                 })
+            })
+        })
+    })
+
+    describe('addPageTags', () => {
+        describe('when page has no tags', () => {
+            let characterPage: Page
+            let notePage: Page
+
+            beforeEach(() => {
+                characterPage = {
+                    id: 'some_page',
+                    type: CHARACTERS_PAGE_TYPE,
+                    name: 'Some Page',
+                    sections: []
+                }
+                notePage = {
+                    id: 'some_page',
+                    type: CHARACTERS_PAGE_TYPE,
+                    name: 'Some Page',
+                    sections: []
+                }
+            })
+
+            it('adds the page to memory with the tags as the key', () => {
+                const app = new App()
+                app.addPageTags(characterPage)
+                app.addPageTags(notePage)
+
+                expect(Object.keys(app.taggedCharacterPages).length).toEqual(0)
+                expect(Object.keys(app.taggedNotePages).length).toEqual(0)
+            })
+        })
+
+        describe('when page is a character type page', () => {
+            let page: Page
+            beforeEach(() => {
+                page = {
+                    id: 'some_page',
+                    type: CHARACTERS_PAGE_TYPE,
+                    name: 'Some Page',
+                    sections: [],
+                    tags: new Set(['tagOne', 'tagTwo', 'tagThree'])
+                }
+            })
+
+            it('adds the page to memory with the tags as the key', () => {
+                const app = new App()
+                app.addPageTags(page)
+
+                expect(Object.keys(app.taggedCharacterPages).length).toEqual(3)
+                expect(app.taggedCharacterPages['tagOne']).toContain(page)
+                expect(app.taggedCharacterPages['tagTwo']).toContain(page)
+                expect(app.taggedCharacterPages['tagThree']).toContain(page)
+            })
+        })
+
+        describe('when page is a note type page', () => {
+            let page: Page
+            beforeEach(() => {
+                page = {
+                    id: 'some_page',
+                    type: NOTES_PAGE_TYPE,
+                    name: 'Some Page',
+                    sections: [],
+                    tags: new Set(['tagOne', 'tagTwo', 'tagThree'])
+                }
+            })
+
+            it('adds the page to memory with the tags as the key', () => {
+                const app = new App()
+                app.addPageTags(page)
+
+                expect(Object.keys(app.taggedNotePages).length).toEqual(3)
+                expect(app.taggedNotePages['tagOne']).toContain(page)
+                expect(app.taggedNotePages['tagTwo']).toContain(page)
+                expect(app.taggedNotePages['tagThree']).toContain(page)
             })
         })
     })

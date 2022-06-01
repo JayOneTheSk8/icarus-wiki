@@ -1052,4 +1052,171 @@ describe('App', () => {
             })
         })
     })
+
+    describe('searchForTags', () => {
+        it('returns a function', () => {
+            const app = new App()
+            expect(app.searchForTags(CHARACTERS_PAGE_TYPE)).toBeInstanceOf(Function)
+        })
+
+        describe('when event function is run', () => {
+            describe('when input is empty', () => {
+                let app: App
+                let tagResults: HTMLElement
+
+                beforeEach(() => {
+                    document.body.outerHTML = documentBody
+                    app = new App()
+
+                    // Create valid tags to find
+                    app.ALL_CHARACTER_TAGS = new Set(['tagOne', 'tagTwo'])
+                    app.SELECTED_CHARACTER_TAGS = new Set(['tagTwo'])
+
+                    // Create tag results DIV
+                    tagResults = document.createElement('div')
+                    tagResults.className = appConstants.TAG_RESULTS
+
+                    // Add dummy tag to search results
+                    const dummyTagResult = document.createElement('div')
+                    tagResults.appendChild(dummyTagResult)
+
+                    // Create search input with empty value
+                    const searchInput = document.createElement('input')
+                    searchInput.value = ''
+
+                    // Add search event function on click
+                    searchInput.onclick = app.searchForTags(CHARACTERS_PAGE_TYPE)
+
+                    // Add elements to DOM
+                    const pageSelector = document.getElementById(appConstants.PAGE_SELECTOR_CLASS)
+                    pageSelector?.appendChild(tagResults)
+                    pageSelector?.appendChild(searchInput)
+
+                    // Click input to run event function
+                    searchInput.click()
+                })
+
+                it('clears the search tag results in the DOM', () => {
+                    expect(tagResults.children).toHaveLength(0)
+                })
+            })
+
+            describe('when unable to find tags that match', () => {
+                let app: App
+                let tagResults: HTMLElement
+
+                beforeEach(() => {
+                    document.body.outerHTML = documentBody
+                    app = new App()
+
+                    // Create valid tags to find
+                    app.ALL_CHARACTER_TAGS = new Set(['tagOne', 'tagTwo'])
+                    app.SELECTED_CHARACTER_TAGS = new Set(['tagTwo'])
+
+                    // Create tag results DIV
+                    tagResults = document.createElement('div')
+                    tagResults.className = appConstants.TAG_RESULTS
+
+                    // Add dummy tag to search results
+                    const dummyTagResult = document.createElement('div')
+                    tagResults.appendChild(dummyTagResult)
+
+                    // Create search input that should not find a tag
+                    const searchInput = document.createElement('input')
+                    searchInput.value = 'zyx'
+
+                    // Add search event function on click
+                    searchInput.onclick = app.searchForTags(CHARACTERS_PAGE_TYPE)
+
+                    // Add elements to DOM
+                    const pageSelector = document.getElementById(appConstants.PAGE_SELECTOR_CLASS)
+                    pageSelector?.appendChild(tagResults)
+                    pageSelector?.appendChild(searchInput)
+
+                    // Click input to run event function
+                    searchInput.click()
+                })
+
+                it('clears the search tag results in the DOM', () => {
+                    expect(tagResults.children).toHaveLength(0)
+                })
+            })
+
+            describe('when able to find tags that match', () => {
+                let app: App
+                let tagResults: HTMLElement
+                let searchInput: HTMLInputElement
+
+                beforeEach(() => {
+                    document.body.outerHTML = documentBody
+                    app = new App()
+
+                    // Create valid tags to find
+                    app.ALL_CHARACTER_TAGS = new Set(['tagOne', 'tag Two', 'tag-Three'])
+                    app.SELECTED_CHARACTER_TAGS = new Set(['tagTwo'])
+
+                    // Create empty tag results DIV
+                    tagResults = document.createElement('div')
+                    tagResults.className = appConstants.TAG_RESULTS
+
+                    // Create search input
+                    searchInput = document.createElement('input')
+
+                    // Add search event function on click
+                    searchInput.onclick = app.searchForTags(CHARACTERS_PAGE_TYPE)
+
+                    // Add elements to DOM
+                    const pageSelector = document.getElementById(appConstants.PAGE_SELECTOR_CLASS)
+                    pageSelector?.appendChild(tagResults)
+                    pageSelector?.appendChild(searchInput)
+                })
+
+                it('adds the matching tags to the DOM', () => {
+                    jest.spyOn(app, 'pickTag')
+
+                    searchInput.value = 'tagO'
+                    searchInput.click()
+
+                    const tagNames = [...tagResults.children].map(t => t.innerHTML)
+
+                    expect(tagResults.children).toHaveLength(1)
+                    expect(tagNames[0]).toEqual('tagOne')
+
+                    expect(app.pickTag).toHaveBeenCalledTimes(1)
+                })
+
+                it('ignores non alphanumeric characters', () => {
+                    jest.spyOn(app, 'pickTag')
+
+                    searchInput.value = 'tagT'
+                    searchInput.click()
+
+                    const tagNames = [...tagResults.children].map(t => t.innerHTML)
+
+                    expect(tagResults.children).toHaveLength(2)
+
+                    expect(tagNames).toContain('tag Two')
+                    expect(tagNames).toContain('tag-Three')
+
+                    expect(app.pickTag).toHaveBeenCalledTimes(2)
+                })
+
+                it('is case insensitive', () => {
+                    jest.spyOn(app, 'pickTag')
+
+                    searchInput.value = 'tagt'
+                    searchInput.click()
+
+                    const tagNames = [...tagResults.children].map(t => t.innerHTML)
+
+                    expect(tagResults.children).toHaveLength(2)
+
+                    expect(tagNames).toContain('tag Two')
+                    expect(tagNames).toContain('tag-Three')
+
+                    expect(app.pickTag).toHaveBeenCalledTimes(2)
+                })
+            })
+        })
+    })
 })

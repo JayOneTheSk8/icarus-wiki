@@ -281,14 +281,17 @@ class App {
             }
         };
         this.getInitialTaggedPages = (sectionTitle, taggedList) => {
+            if (taggedList.length === 0) {
+                return [];
+            }
             // Return the first list of pages from the taggedList, default to character tagged pages
             switch (sectionTitle.innerHTML) {
                 case constants_1.CHARACTERS_PAGE_TYPE:
-                    return this.taggedCharacterPages[taggedList[0]];
+                    return this.taggedCharacterPages[taggedList[0]] || [];
                 case constants_1.NOTES_PAGE_TYPE:
-                    return this.taggedNotePages[taggedList[0]];
+                    return this.taggedNotePages[taggedList[0]] || [];
                 default:
-                    return this.taggedCharacterPages[taggedList[0]];
+                    return [];
             }
         };
         this.adjustPageSelectorsToTags = () => {

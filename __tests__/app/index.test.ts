@@ -1357,4 +1357,172 @@ describe('App', () => {
             })
         })
     })
+
+    describe('getInitialTaggedPages', () => {
+        describe('when passed tagged list is empty', () => {
+            let app: App
+            let charPage: Page
+            let notePage: Page
+            let charSectionTitle: HTMLElement
+            let noteSectionTitle: HTMLElement
+
+            beforeEach(() => {
+                charPage = {
+                    id: 'char_page',
+                    type: CHARACTERS_PAGE_TYPE,
+                    name: 'Char Page',
+                    sections: [],
+                    tags: new Set(['charTagOne', 'charTagTwo'])
+                }
+                notePage = {
+                    id: 'note_page',
+                    type: NOTES_PAGE_TYPE,
+                    name: 'Note Page',
+                    sections: [],
+                    tags: new Set(['noteTagOne', 'noteTagTwo'])
+                }
+
+                app = new App()
+                app.taggedCharacterPages = {
+                    charTagOne: [charPage],
+                    charTagTwo: [charPage]
+                }
+                app.taggedNotePages = {
+                    noteTagOne: [notePage],
+                    noteTagTwo: [notePage]
+                }
+
+                charSectionTitle = document.createElement('div')
+                charSectionTitle.innerHTML = CHARACTERS_PAGE_TYPE
+
+                noteSectionTitle = document.createElement('div')
+                noteSectionTitle.innerHTML = NOTES_PAGE_TYPE
+            })
+
+            it('returns an empty array', () => {
+                expect(app.getInitialTaggedPages(charSectionTitle, [])).toHaveLength(0)
+                expect(app.getInitialTaggedPages(noteSectionTitle, [])).toHaveLength(0)
+            })
+        })
+
+        describe('when section title is not "Characters" or "Notes"', () => {
+            let app: App
+            let charPage: Page
+            let notePage: Page
+            let sectionTitle: HTMLElement
+
+            beforeEach(() => {
+                charPage = {
+                    id: 'char_page',
+                    type: CHARACTERS_PAGE_TYPE,
+                    name: 'Char Page',
+                    sections: [],
+                    tags: new Set(['charTagOne', 'charTagTwo'])
+                }
+                notePage = {
+                    id: 'note_page',
+                    type: NOTES_PAGE_TYPE,
+                    name: 'Note Page',
+                    sections: [],
+                    tags: new Set(['noteTagOne', 'noteTagTwo'])
+                }
+
+                app = new App()
+                app.taggedCharacterPages = {
+                    charTagOne: [charPage],
+                    charTagTwo: [charPage]
+                }
+                app.taggedNotePages = {
+                    noteTagOne: [notePage],
+                    noteTagTwo: [notePage]
+                }
+
+                sectionTitle = document.createElement('div')
+                sectionTitle.innerHTML = 'Some Section'
+            })
+
+            it('returns an empty array', () => {
+                expect(app.getInitialTaggedPages(sectionTitle, ['charTagOne', 'charTagTwo'])).toHaveLength(0)
+                expect(app.getInitialTaggedPages(sectionTitle, ['noteTagOne', 'noteTagTwo'])).toHaveLength(0)
+            })
+        })
+
+        describe('when "Characters" section title', () => {
+            let app: App
+            let charPage: Page
+            let sectionTitle: HTMLElement
+
+            beforeEach(() => {
+                charPage = {
+                    id: 'char_page',
+                    type: CHARACTERS_PAGE_TYPE,
+                    name: 'Char Page',
+                    sections: [],
+                    tags: new Set(['charTagOne', 'charTagTwo'])
+                }
+
+                app = new App()
+                app.taggedCharacterPages = {
+                    charTagOne: [charPage],
+                    charTagTwo: [charPage]
+                }
+
+                sectionTitle = document.createElement('div')
+                sectionTitle.innerHTML = CHARACTERS_PAGE_TYPE
+            })
+
+            describe('when first tag in list is not in the tagged character pages',  () => {
+                it('returns an empty array', () => {
+                    expect(app.getInitialTaggedPages(sectionTitle, ['charTagThree', 'charTagOne'])).toHaveLength(0)
+                })
+            })
+
+            describe('when first tag in list is in the tagged character pages',  () => {
+                it('returns the list of character pages under the first tag', () => {
+                    const pagesResult = app.getInitialTaggedPages(sectionTitle, ['charTagOne', 'charTagThree'])
+                    expect(pagesResult).toHaveLength(1)
+                    expect(pagesResult[0]).toEqual(charPage)
+                })
+            })
+        })
+
+        describe('when "Notes" section title', () => {
+            let app: App
+            let notePage: Page
+            let sectionTitle: HTMLElement
+
+            beforeEach(() => {
+                notePage = {
+                    id: 'note_page',
+                    type: NOTES_PAGE_TYPE,
+                    name: 'Note Page',
+                    sections: [],
+                    tags: new Set(['noteTagOne', 'noteTagTwo'])
+                }
+
+                app = new App()
+                app.taggedNotePages = {
+                    noteTagOne: [notePage],
+                    noteTagTwo: [notePage]
+                }
+
+                sectionTitle = document.createElement('div')
+                sectionTitle.innerHTML = NOTES_PAGE_TYPE
+            })
+
+            describe('when first tag in list is not in the tagged note pages',  () => {
+                it('returns an empty array', () => {
+                    expect(app.getInitialTaggedPages(sectionTitle, ['noteTagThree', 'noteTagOne'])).toHaveLength(0)
+                })
+            })
+
+            describe('when first tag in list is in the tagged note pages',  () => {
+                it('returns the list of note pages under the first tag', () => {
+                    const pagesResult = app.getInitialTaggedPages(sectionTitle, ['noteTagOne', 'noteTagThree'])
+                    expect(pagesResult).toHaveLength(1)
+                    expect(pagesResult[0]).toEqual(notePage)
+                })
+            })
+        })
+    })
 })

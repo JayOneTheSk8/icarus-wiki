@@ -56,7 +56,8 @@
                 "no-var": "off",
                 "no-trailing-spaces": [
                     "error"
-                ]
+                ],
+                "no-console": "warn"
             }
         }
     ]

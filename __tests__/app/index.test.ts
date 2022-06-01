@@ -1297,4 +1297,64 @@ describe('App', () => {
             })
         })
     })
+
+    describe('resetPageSelectors', () => {
+        let app: App
+        let defaultCharactersOption: HTMLElement
+        let defaultNotesOption: HTMLElement
+
+        beforeEach(() => {
+            app = new App()
+
+            defaultCharactersOption = document.createElement('div')
+            defaultCharactersOption.innerHTML = 'charOne'
+            app.DEFAULT_CHARACTERS_OPTIONS = [defaultCharactersOption]
+
+            defaultNotesOption = document.createElement('div')
+            defaultNotesOption.innerHTML = 'noteOne'
+            app.DEFAULT_NOTES_OPTIONS = [defaultNotesOption]
+        })
+
+        describe('when section title is not for "Characters" or "Notes"', () => {
+            it('does not add anything to the container', () => {
+                const pageOptionContainer = document.createElement('div')
+                const sectionTitle = document.createElement('div')
+                sectionTitle.innerHTML = 'Another Section'
+
+                app.resetPageSelectors(pageOptionContainer, sectionTitle)
+
+                expect(pageOptionContainer.children).toHaveLength(0)
+                expect(pageOptionContainer.children).not.toContain(defaultCharactersOption)
+                expect(pageOptionContainer.children).not.toContain(defaultNotesOption)
+            })
+        })
+
+        describe('when section title is for "Characters"', () => {
+            it('adds the default characters options to the container', () => {
+                const pageOptionContainer = document.createElement('div')
+                const sectionTitle = document.createElement('div')
+                sectionTitle.innerHTML = CHARACTERS_PAGE_TYPE
+
+                app.resetPageSelectors(pageOptionContainer, sectionTitle)
+
+                expect(pageOptionContainer.children).toHaveLength(1)
+                expect(pageOptionContainer.children).toContain(defaultCharactersOption)
+                expect(pageOptionContainer.children).not.toContain(defaultNotesOption)
+            })
+        })
+
+        describe('when section title is for "Notes"', () => {
+            it('adds the default notes options to the container', () => {
+                const pageOptionContainer = document.createElement('div')
+                const sectionTitle = document.createElement('div')
+                sectionTitle.innerHTML = NOTES_PAGE_TYPE
+
+                app.resetPageSelectors(pageOptionContainer, sectionTitle)
+
+                expect(pageOptionContainer.children).toHaveLength(1)
+                expect(pageOptionContainer.children).toContain(defaultNotesOption)
+                expect(pageOptionContainer.children).not.toContain(defaultCharactersOption)
+            })
+        })
+    })
 })

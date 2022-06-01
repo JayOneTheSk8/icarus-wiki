@@ -1178,12 +1178,18 @@ describe('App', () => {
                     searchInput.value = 'tagO'
                     searchInput.click()
 
-                    const tagNames = [...tagResults.children].map(t => t.innerHTML)
+                    const tagEls = [...tagResults.children]
+                    tagEls.forEach((el) => {
+                        const tagEl = el as HTMLElement
+                        expect(tagEl.innerHTML).toEqual('tagOne')
+                        expect(tagEl.onclick).toBeTruthy()
+                        expect(tagEl.onclick).toBeInstanceOf(Function)
+                    })
 
                     expect(tagResults.children).toHaveLength(1)
-                    expect(tagNames[0]).toEqual('tagOne')
 
                     expect(app.pickTag).toHaveBeenCalledTimes(1)
+                    expect(app.pickTag).toHaveBeenCalledWith(app.SELECTED_CHARACTER_TAGS)
                 })
 
                 it('ignores non alphanumeric characters', () => {
@@ -1192,7 +1198,14 @@ describe('App', () => {
                     searchInput.value = 'tagT'
                     searchInput.click()
 
-                    const tagNames = [...tagResults.children].map(t => t.innerHTML)
+                    const tagEls = [...tagResults.children]
+                    const tagNames = tagEls.map(t => t.innerHTML)
+
+                    tagEls.forEach((el) => {
+                        const tagEl = el as HTMLElement
+                        expect(tagEl.onclick).toBeTruthy()
+                        expect(tagEl.onclick).toBeInstanceOf(Function)
+                    })
 
                     expect(tagResults.children).toHaveLength(2)
 
@@ -1200,6 +1213,7 @@ describe('App', () => {
                     expect(tagNames).toContain('tag-Three')
 
                     expect(app.pickTag).toHaveBeenCalledTimes(2)
+                    expect(app.pickTag).toHaveBeenCalledWith(app.SELECTED_CHARACTER_TAGS)
                 })
 
                 it('is case insensitive', () => {
@@ -1208,7 +1222,14 @@ describe('App', () => {
                     searchInput.value = 'tagt'
                     searchInput.click()
 
-                    const tagNames = [...tagResults.children].map(t => t.innerHTML)
+                    const tagEls = [...tagResults.children]
+                    const tagNames = tagEls.map(t => t.innerHTML)
+
+                    tagEls.forEach((el) => {
+                        const tagEl = el as HTMLElement
+                        expect(tagEl.onclick).toBeTruthy()
+                        expect(tagEl.onclick).toBeInstanceOf(Function)
+                    })
 
                     expect(tagResults.children).toHaveLength(2)
 
@@ -1216,6 +1237,7 @@ describe('App', () => {
                     expect(tagNames).toContain('tag-Three')
 
                     expect(app.pickTag).toHaveBeenCalledTimes(2)
+                    expect(app.pickTag).toHaveBeenCalledWith(app.SELECTED_CHARACTER_TAGS)
                 })
             })
         })

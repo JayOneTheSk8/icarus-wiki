@@ -1547,4 +1547,103 @@ describe('App', () => {
             })
         })
     })
+
+    describe('adjustPageSelectorsToTags', () => {
+        let selectedTagResults: HTMLElement
+        let pageOptionContainer: HTMLElement
+        let sectionTitle: HTMLElement
+
+        beforeEach(() => {
+            document.body.outerHTML = documentBody
+
+            selectedTagResults = document.createElement('div')
+            selectedTagResults.className = appConstants.SELECTED_TAG_RESULTS
+
+            pageOptionContainer = document.createElement('div')
+            pageOptionContainer.className = appConstants.PAGE_OPTION_CONTAINER
+
+            sectionTitle = document.createElement('div')
+            sectionTitle.className = appConstants.SECTION_TITLE
+
+            const pageSelector = document.getElementById(appConstants.PAGE_SELECTOR_CLASS)
+            pageSelector?.appendChild(selectedTagResults)
+            pageSelector?.appendChild(pageOptionContainer)
+            pageSelector?.appendChild(sectionTitle)
+        })
+
+        describe('when no selected tags are in the DOM', () => {
+            it('resets the page selectors', () => {
+                const app = new App()
+                jest.spyOn(app, 'resetPageSelectors')
+                app.adjustPageSelectorsToTags()
+                expect(app.resetPageSelectors).toHaveBeenCalledWith(pageOptionContainer, sectionTitle)
+            })
+        })
+
+        describe('when selected tags are in the DOM', () => {
+            let app: App
+            let tagOneEl: HTMLElement
+            let tagTwoEl: HTMLElement
+            let pageOne: Page
+            let pageTwo: Page
+            const tagOne = 'tagOne'
+            const tagTwo = 'tagTwo'
+
+            beforeEach(() => {
+                tagOneEl = document.createElement('div')
+                tagOneEl.innerHTML = tagOne
+
+                tagTwoEl = document.createElement('div')
+                tagTwoEl.innerHTML = tagTwo
+
+                selectedTagResults.appendChild(tagOneEl)
+                selectedTagResults.appendChild(tagTwoEl)
+
+                pageOne = {
+                    id: 'page_one',
+                    type: CHARACTERS_PAGE_TYPE,
+                    name: 'Page One',
+                    sections: [],
+                    tags: new Set([tagOne, tagTwo])
+                }
+
+                pageTwo = {
+                    id: 'page_one',
+                    type: CHARACTERS_PAGE_TYPE,
+                    name: 'Page One',
+                    sections: [],
+                    tags: new Set([tagOne, 'tagThree'])
+                }
+                app = new App()
+            })
+
+            it('gets the initial tagged pages', () => {
+                jest.spyOn(app, 'getInitialTaggedPages')
+                app.adjustPageSelectorsToTags()
+                expect(app.getInitialTaggedPages).toHaveBeenCalledWith(sectionTitle, [tagOne, tagTwo])
+            })
+
+            it('filters out pages from the initial pages based on selected tags', () => {
+                jest.spyOn(app, 'getInitialTaggedPages').mockImplementation(() => [pageOne, pageTwo])
+                app.adjustPageSelectorsToTags()
+
+                const children = [...pageOptionContainer.children]
+                children.forEach((el) => {
+                    const selector = el as HTMLElement
+                    expect(selector.innerHTML).toEqual(pageOne.name)
+                    expect(selector.onclick).toBeTruthy()
+                    expect(selector.onclick).toBeInstanceOf(Function)
+                })
+
+                expect(children).toHaveLength(1)
+            })
+
+            it('adds openPage click functions', () => {
+                jest.spyOn(app, 'getInitialTaggedPages').mockImplementation(() => [pageOne, pageTwo])
+                jest.spyOn(app, 'openPage')
+                app.adjustPageSelectorsToTags()
+                expect(app.openPage).toHaveBeenCalledWith(pageOne)
+            })
+        })
+    })
 })

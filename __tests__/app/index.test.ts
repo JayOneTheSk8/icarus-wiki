@@ -1646,4 +1646,26 @@ describe('App', () => {
             })
         })
     })
+
+    describe('findOrientation', () => {
+        describe('when img is portrait orientation', () => {
+            it('returns "portrait"', () => {
+                const img = document.createElement('img')
+                img.setAttribute('height', '100')
+
+                const app = new App()
+                expect(app.findOrientation(img)).toEqual('portrait')
+            })
+        })
+
+        describe('when img is landscape orientation', () => {
+            it('returns "landscape"', () => {
+                const img = document.createElement('img')
+                img.setAttribute('width', '100')
+
+                const app = new App()
+                expect(app.findOrientation(img)).toEqual('landscape')
+            })
+        })
+    })
 })

@@ -11,6 +11,8 @@ import {
 
 import * as appConstants from './app-constants'
 
+type pictureOrientation = 'portrait' | 'landscape'
+
 const {
     homePage,
     characters,
@@ -420,7 +422,7 @@ class App {
     }
 
     /* Zooom-In */
-    findOrientation = (image: HTMLImageElement): string => {
+    findOrientation = (image: HTMLImageElement): pictureOrientation => {
         if (image.height > image.width) {
             return 'portrait'
         } else {

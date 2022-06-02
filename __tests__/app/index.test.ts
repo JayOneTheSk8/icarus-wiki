@@ -1,8 +1,8 @@
 import App from '../../src-ts/app'
 import * as appConstants from '../../src-ts/app/app-constants'
 
-import { CHARACTERS_PAGE_TYPE, NOTES_PAGE_TYPE } from '../../src-ts/constants'
-import { Page } from '../../src-ts/DataTypes'
+import { CHARACTERS_PAGE_TYPE, GALLERY_TITLES_LIST, NOTES_PAGE_TYPE } from '../../src-ts/constants'
+import { GallerySection, Page } from '../../src-ts/DataTypes'
 
 const documentBody = `<body class="${appConstants.PRIMARY_MODE_CLASS}">
     <div class="dark-mode-toggle-area">
@@ -1728,6 +1728,66 @@ describe('App', () => {
         it('hides the zoomedImageSection and zoomedModal', () => {
             expect(app.zoomedImageSection.className).toEqual(appConstants.ZOOMED_IMAGE_SECTION_HIDE)
             expect(app.zoomedModal.className).toEqual(appConstants.ZOOMED_IMAGE_MODAL_HIDE)
+        })
+    })
+
+    describe('getGalleryContents', () => {
+        const app = new App()
+        jest.spyOn(app, 'zoomInImage').mockImplementation(() => () => null)
+        const gallerySection: GallerySection = {
+            title: GALLERY_TITLES_LIST[0],
+            gallery: [
+                {
+                    url: 'testimage1',
+                    caption: 'Test Image 1'
+                },
+                {
+                    url: 'testimage2'
+                }
+            ]
+        }
+        const gallerySectionEl = app.getGalleryContents(gallerySection)
+
+        it('creates a gallery image list', () => {
+            gallerySectionEl.className = 'gallery-image-list'
+        })
+
+        it('creates a section for every image', () => {
+            expect(gallerySectionEl.children).toHaveLength(2)
+
+            const imageSections = [...gallerySectionEl.children]
+            imageSections.forEach((section) => {
+                expect(section.className).toEqual('gallery-image-section')
+            })
+        })
+
+        it('puts images in every image section', () => {
+            const imageSections = [...gallerySectionEl.children]
+            imageSections.forEach((section) => {
+                expect(section.children[0].tagName).toEqual('IMG')
+                expect(section.children[0].className).toEqual('gallery-img')
+            })
+
+            const firstImageEl = imageSections[0].children[0] as HTMLImageElement
+            const secondImageEl = imageSections[1].children[0] as HTMLImageElement
+
+            expect(firstImageEl.src.endsWith('testimage1')).toBeTruthy()
+            expect(firstImageEl.onclick).toBeTruthy()
+
+            expect(secondImageEl.src.endsWith('testimage2')).toBeTruthy()
+            expect(secondImageEl.onclick).toBeTruthy()
+        })
+
+        it('adds a zoom-in event function', () => {
+            expect(app.zoomInImage).toHaveBeenCalledTimes(2)
+        })
+
+        it('adds captions when necessary', () => {
+            const firstImageCaption = gallerySectionEl.children[0].children[1]
+            const secondImageCaption = gallerySectionEl.children[1].children[1]
+
+            expect(firstImageCaption).toBeTruthy()
+            expect(secondImageCaption).toBeFalsy()
         })
     })
 })

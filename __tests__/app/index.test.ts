@@ -1,8 +1,8 @@
 import App from '../../src-ts/app'
 import * as appConstants from '../../src-ts/app/app-constants'
 
-import { CHARACTERS_PAGE_TYPE, GALLERY_TITLES_LIST, NOTES_PAGE_TYPE } from '../../src-ts/constants'
-import { GallerySection, Page } from '../../src-ts/DataTypes'
+import { ASSOCIATIONS_TITLES_LIST, CHARACTERS_PAGE_TYPE, GALLERY_TITLES_LIST, NOTES_PAGE_TYPE } from '../../src-ts/constants'
+import { AttributesSection, GallerySection, Page } from '../../src-ts/DataTypes'
 
 const documentBody = `<body class="${appConstants.PRIMARY_MODE_CLASS}">
     <div class="dark-mode-toggle-area">
@@ -1790,6 +1790,51 @@ describe('App', () => {
             expect(firstImageCaption.innerHTML).toEqual('Test Image 1')
 
             expect(secondImageCaption).toBeFalsy()
+        })
+    })
+
+    describe('getAttributesContents', () => {
+        const app = new App()
+        const attributesSection: AttributesSection = {
+            title: ASSOCIATIONS_TITLES_LIST[0],
+            attributes: [
+                {
+                    attributeName: 'Attr1',
+                    attributeText: 'attr1text'
+                },
+                {
+                    attributeName: 'Attr2',
+                    attributeText: 'attr2text'
+                }
+            ]
+        }
+        const attributesSectionEl = app.getAttributesContents(attributesSection)
+
+        it('creates an attribute list element', () => {
+            expect(attributesSectionEl.className).toEqual('attributes-list')
+        })
+
+        it('creates an attribute section for every attribute', () => {
+            expect(attributesSectionEl.children).toHaveLength(2)
+            expect(attributesSectionEl.children[0].className).toEqual('attribute')
+            expect(attributesSectionEl.children[1].className).toEqual('attribute')
+        })
+
+        it('create an attribute title and value element based on section', () => {
+            const attrSectionOne = attributesSectionEl.children[0]
+            const attrSectionTwo = attributesSectionEl.children[1]
+
+            expect(attrSectionOne.children[0].className).toEqual('attribute-title')
+            expect(attrSectionOne.children[0].innerHTML).toEqual('Attr1')
+
+            expect(attrSectionOne.children[1].className).toEqual('attribute-value')
+            expect(attrSectionOne.children[1].innerHTML).toEqual('attr1text')
+
+            expect(attrSectionTwo.children[0].className).toEqual('attribute-title')
+            expect(attrSectionTwo.children[0].innerHTML).toEqual('Attr2')
+
+            expect(attrSectionTwo.children[1].className).toEqual('attribute-value')
+            expect(attrSectionTwo.children[1].innerHTML).toEqual('attr2text')
         })
     })
 })

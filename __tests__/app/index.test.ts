@@ -1748,7 +1748,7 @@ describe('App', () => {
         const gallerySectionEl = app.getGalleryContents(gallerySection)
 
         it('creates a gallery image list', () => {
-            gallerySectionEl.className = 'gallery-image-list'
+            expect(gallerySectionEl.className).toEqual('gallery-image-list')
         })
 
         it('creates a section for every image', () => {

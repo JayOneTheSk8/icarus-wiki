@@ -2,7 +2,7 @@ import App from '../../src-ts/app'
 import * as appConstants from '../../src-ts/app/app-constants'
 
 import { ASSOCIATIONS_TITLES_LIST, CHARACTERS_PAGE_TYPE, GALLERY_TITLES_LIST, NOTES_PAGE_TYPE } from '../../src-ts/constants'
-import { AttributesSection, GallerySection, Page } from '../../src-ts/DataTypes'
+import { AssociationsSection, AttributesSection, GallerySection, Page } from '../../src-ts/DataTypes'
 
 const documentBody = `<body class="${appConstants.PRIMARY_MODE_CLASS}">
     <div class="dark-mode-toggle-area">
@@ -1835,6 +1835,111 @@ describe('App', () => {
 
             expect(attrSectionTwo.children[1].className).toEqual('attribute-value')
             expect(attrSectionTwo.children[1].innerHTML).toEqual('attr2text')
+        })
+    })
+
+    describe('getAssociationsContents', () => {
+        const openedPageId = 'opened_page'
+        const siblingPageId = 'associated_sibling_page'
+        const friendPageId1 = 'associated_friend_page_1'
+        const friendPageId2 = 'associated_friend_page_2'
+
+        const openedPage: Page = {
+            id: 'opened_page',
+            type: CHARACTERS_PAGE_TYPE,
+            name: 'Opened Page',
+            sections: [
+                {
+                    title: ASSOCIATIONS_TITLES_LIST[0],
+                    associations: [
+                        {
+                            associationName: 'Siblings',
+                            associationPageIds: [
+                                siblingPageId
+                            ]
+                        },
+                        {
+                            associationName: 'Friends',
+                            associationPageIds: [
+                                friendPageId1,
+                                friendPageId2
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+        const associatedSiblingPage: Page = {
+            id: siblingPageId,
+            type: CHARACTERS_PAGE_TYPE,
+            name: 'Sibling Page',
+            sections: []
+        }
+        const associatedFriendPage1: Page = {
+            id: friendPageId1,
+            type: CHARACTERS_PAGE_TYPE,
+            name: 'Friend Page 1',
+            sections: []
+        }
+        const associatedFriendPage2: Page = {
+            id: friendPageId2,
+            type: CHARACTERS_PAGE_TYPE,
+            name: 'Friend Page 2',
+            sections: []
+        }
+
+        const app = new App()
+        app.PAGE_MAP = {
+            [openedPageId]: openedPage,
+            [siblingPageId]: associatedSiblingPage,
+            [friendPageId1]: associatedFriendPage1,
+            [friendPageId2]: associatedFriendPage2
+        }
+
+        const associationsSectionEl = app.getAssociationsContents(openedPage.sections[0] as AssociationsSection)
+
+        it('creates an associations section', () => {
+            expect(associationsSectionEl.className).toEqual('associations-section')
+        })
+
+        it('creates a group for each association', () => {
+            const associationGroup = [...associationsSectionEl.children]
+
+            expect(associationGroup).toHaveLength(2)
+            expect(associationGroup[0].className).toEqual('association-group')
+            expect(associationGroup[1].className).toEqual('association-group')
+        })
+
+        it('creates a title for each association group', () => {
+            const siblingsGroup = associationsSectionEl.children[0]
+            const friendsGroup = associationsSectionEl.children[1]
+
+            expect(siblingsGroup.children[0].className).toEqual('association-title')
+            expect(siblingsGroup.children[0].innerHTML).toEqual('Siblings')
+
+            expect(friendsGroup.children[0].className).toEqual('association-title')
+            expect(friendsGroup.children[0].innerHTML).toEqual('Friends')
+        })
+
+        it('adds each association page in its given association group', () => {
+            const siblingsGroup = associationsSectionEl.children[0]
+            const friendsGroup = associationsSectionEl.children[1]
+
+            const siblingAssociation = siblingsGroup.children[1] as HTMLElement
+            const friendAssociation1 = friendsGroup.children[1] as HTMLElement
+            const friendAssociation2 = friendsGroup.children[2] as HTMLElement
+
+            expect(siblingAssociation.className).toEqual('associated-page')
+            expect(siblingAssociation.innerHTML).toEqual('Sibling Page')
+            expect(siblingAssociation.onclick).toBeTruthy()
+
+            expect(friendAssociation1.className).toEqual('associated-page')
+            expect(friendAssociation1.innerHTML).toEqual('Friend Page 1')
+            expect(friendAssociation1.onclick).toBeTruthy()
+
+            expect(friendAssociation2.className).toEqual('associated-page')
+            expect(friendAssociation2.innerHTML).toEqual('Friend Page 2')
+            expect(friendAssociation2.onclick).toBeTruthy()
         })
     })
 })

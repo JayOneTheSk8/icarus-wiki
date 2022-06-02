@@ -1648,12 +1648,13 @@ describe('App', () => {
     })
 
     describe('findOrientation', () => {
+        const app = new App()
+
         describe('when img is portrait orientation', () => {
             it('returns "portrait"', () => {
                 const img = document.createElement('img')
                 img.setAttribute('height', '100')
 
-                const app = new App()
                 expect(app.findOrientation(img)).toEqual('portrait')
             })
         })
@@ -1663,7 +1664,6 @@ describe('App', () => {
                 const img = document.createElement('img')
                 img.setAttribute('width', '100')
 
-                const app = new App()
                 expect(app.findOrientation(img)).toEqual('landscape')
             })
         })
@@ -1713,10 +1713,9 @@ describe('App', () => {
     })
 
     describe('closeZoomModal', () => {
-        let app: App
+        const app = new App()
 
         beforeEach(() => {
-            app = new App()
             app.zoomInImage('testimage')()
             app.closeZoomModal()
         })

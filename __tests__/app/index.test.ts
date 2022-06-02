@@ -1787,6 +1787,9 @@ describe('App', () => {
             const secondImageCaption = gallerySectionEl.children[1].children[1]
 
             expect(firstImageCaption).toBeTruthy()
+            expect(firstImageCaption.className).toEqual('gallery-img-caption')
+            expect(firstImageCaption.innerHTML).toEqual('Test Image 1')
+
             expect(secondImageCaption).toBeFalsy()
         })
     })

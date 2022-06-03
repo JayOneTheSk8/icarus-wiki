@@ -2,7 +2,7 @@ import App from '../../src-ts/app'
 import * as appConstants from '../../src-ts/app/app-constants'
 
 import { ASSOCIATIONS_TITLES_LIST, CHARACTERS_PAGE_TYPE, GALLERY_TITLES_LIST, NOTES_PAGE_TYPE } from '../../src-ts/constants'
-import { AssociationsSection, AttributesSection, GallerySection, Page } from '../../src-ts/DataTypes'
+import { AssociationsSection, AttributesSection, GallerySection, Page, PageSection } from '../../src-ts/DataTypes'
 
 const documentBody = `<body class="${appConstants.PRIMARY_MODE_CLASS}">
     <div class="dark-mode-toggle-area">
@@ -1940,6 +1940,288 @@ describe('App', () => {
             expect(friendAssociation2.className).toEqual('associated-page')
             expect(friendAssociation2.innerHTML).toEqual('Friend Page 2')
             expect(friendAssociation2.onclick).toBeTruthy()
+        })
+    })
+
+    describe('addPageSectionToContents', () => {
+        const app = new App()
+        const genericSectionTitle = 'Generic Page Section'
+        jest.spyOn(app, 'zoomInImage').mockImplementation(() => () => null)
+
+        beforeEach(() => {
+            jest.clearAllMocks()
+        })
+
+        describe('when page section has text body', () => {
+            const textBody = 'Text Body Here'
+            const pageSection: PageSection = {
+                title: genericSectionTitle,
+                body: textBody
+            }
+
+            it('adds only the body of the section to the passed contents array', () => {
+                const contents: Array<HTMLElement> = []
+                app.addPageSectionToContents(contents, pageSection)
+
+                expect(contents).toHaveLength(1)
+                expect(contents[0].className).toEqual('page-section-text-body')
+                expect(contents[0].innerHTML).toEqual(textBody)
+            })
+
+            describe('when page section has an image', () => {
+                const imageUrl = 'imageurl'
+                const pageSectionWithImage: PageSection = {
+                    title: genericSectionTitle,
+                    sectionImage: {
+                        url: imageUrl
+                    },
+                    body: textBody
+                }
+
+                it('adds the image section to the passed contents array first', () => {
+                    const contents: Array<HTMLElement> = []
+                    app.addPageSectionToContents(contents, pageSectionWithImage)
+
+                    const imageSection = contents[0]
+
+                    expect(contents).toHaveLength(2)
+                    expect(imageSection.children).toHaveLength(1)
+                    expect(imageSection.className).toEqual('page-section-image-section')
+                })
+
+                it('adds the image as a child of the section', () => {
+                    const contents: Array<HTMLElement> = []
+                    app.addPageSectionToContents(contents, pageSectionWithImage)
+
+                    const image = contents[0].children[0] as HTMLImageElement
+
+                    expect(image.tagName).toEqual('IMG')
+                    expect(image.className).toEqual('page-section-img')
+                    expect(image.src.endsWith(imageUrl)).toBeTruthy()
+                    expect(image.onclick).toBeTruthy()
+
+                    expect(app.zoomInImage).toHaveBeenCalledTimes(1)
+                })
+
+                it('adds the body of the PageSection last', () => {
+                    const contents: Array<HTMLElement> = []
+                    app.addPageSectionToContents(contents, pageSectionWithImage)
+
+                    expect(contents[1].className).toEqual('page-section-text-body')
+                    expect(contents[1].innerHTML).toEqual(textBody)
+                })
+
+                describe('when image has caption', () => {
+                    const imageCaption = 'image-caption'
+                    const pageSectionWithImageCaption: PageSection = {
+                        title: genericSectionTitle,
+                        sectionImage: {
+                            url: imageUrl,
+                            caption: imageCaption
+                        },
+                        body: textBody
+                    }
+
+                    it('adds the image section to the passed contents array first', () => {
+                        const contents: Array<HTMLElement> = []
+                        app.addPageSectionToContents(contents, pageSectionWithImageCaption)
+
+                        const imageSection = contents[0]
+
+                        expect(contents).toHaveLength(2)
+                        expect(imageSection.children).toHaveLength(2)
+                        expect(imageSection.className).toEqual('page-section-image-section')
+                    })
+
+                    it('adds the image as the first child of the image section element', () => {
+                        const contents: Array<HTMLElement> = []
+                        app.addPageSectionToContents(contents, pageSectionWithImageCaption)
+
+                        const image = contents[0].children[0] as HTMLImageElement
+
+                        expect(image.tagName).toEqual('IMG')
+                        expect(image.className).toEqual('page-section-img')
+                        expect(image.src.endsWith(imageUrl)).toBeTruthy()
+                        expect(image.onclick).toBeTruthy()
+
+                        expect(app.zoomInImage).toHaveBeenCalledTimes(1)
+                    })
+
+                    it('adds the image caption as the second child of the image section element', () => {
+                        const contents: Array<HTMLElement> = []
+                        app.addPageSectionToContents(contents, pageSectionWithImageCaption)
+
+                        const caption = contents[0].children[1] as HTMLElement
+
+                        expect(caption.className).toEqual('page-section-img-caption')
+                        expect(caption.innerHTML).toEqual(imageCaption)
+                    })
+
+                    it('adds the body of the PageSection last', () => {
+                        const contents: Array<HTMLElement> = []
+                        app.addPageSectionToContents(contents, pageSectionWithImage)
+
+                        expect(contents[1].className).toEqual('page-section-text-body')
+                        expect(contents[1].innerHTML).toEqual(textBody)
+                    })
+                })
+            })
+        })
+
+        describe('when page section has subsections', () => {
+            const subSectionTitle = 'Subsection Here'
+            const subSectionBody = 'Subsection Body Text'
+            const pageSection: PageSection = {
+                title: genericSectionTitle,
+                body: [
+                    {
+                        subSectionTitle: subSectionTitle,
+                        subSectionText: subSectionBody
+                    }
+                ]
+            }
+
+            it('adds the subsection title to the passed contents array first', () => {
+                const contents: Array<HTMLElement> = []
+                app.addPageSectionToContents(contents, pageSection)
+
+                expect(contents).toHaveLength(2)
+                expect(contents[0].className).toEqual('page-subsection-title')
+                expect(contents[0].innerHTML).toEqual(subSectionTitle)
+            })
+
+            it('adds the subsection text to the array last', () => {
+                const contents: Array<HTMLElement> = []
+                app.addPageSectionToContents(contents, pageSection)
+
+                expect(contents[1].className).toEqual('page-subsection-text-body')
+                expect(contents[1].innerHTML).toEqual(subSectionBody)
+            })
+
+            describe('when subsection has an image', () => {
+                const subSectionImageUrl = 'subsectionimageurl'
+                const pageSectionWithSubImage: PageSection = {
+                    title: genericSectionTitle,
+                    body: [
+                        {
+                            subSectionTitle: subSectionTitle,
+                            subSectionText: subSectionBody,
+                            subSectionImage: {
+                                url: subSectionImageUrl
+                            }
+                        }
+                    ]
+                }
+
+                it('adds the subsection title to the passed contents array first', () => {
+                    const contents: Array<HTMLElement> = []
+                    app.addPageSectionToContents(contents, pageSectionWithSubImage)
+
+                    expect(contents).toHaveLength(2)
+                    expect(contents[0].className).toEqual('page-subsection-title')
+                    expect(contents[0].innerHTML).toEqual(subSectionTitle)
+                })
+
+                it('adds the subsection text to the array last', () => {
+                    const contents: Array<HTMLElement> = []
+                    app.addPageSectionToContents(contents, pageSectionWithSubImage)
+
+                    expect(contents[1].className).toEqual('page-subsection-text-body')
+                    expect(contents[1].innerHTML.startsWith(subSectionBody)).toBeTruthy()
+                })
+
+                it('adds the subsection image section as a child of the text element', () => {
+                    const contents: Array<HTMLElement> = []
+                    app.addPageSectionToContents(contents, pageSectionWithSubImage)
+
+                    const imageSection = contents[1].children[0]
+
+                    expect(imageSection.className).toEqual('page-subsection-image-section')
+                    expect(imageSection.children).toHaveLength(1)
+                })
+
+                it('adds the subsection image as a child of the image section element', () => {
+                    const contents: Array<HTMLElement> = []
+                    app.addPageSectionToContents(contents, pageSectionWithSubImage)
+
+                    const image = contents[1].children[0].children[0] as HTMLImageElement
+
+                    expect(image.tagName).toEqual('IMG')
+                    expect(image.className).toEqual('page-subsection-img')
+                    expect(image.src.endsWith(subSectionImageUrl)).toBeTruthy()
+                    expect(image.onclick).toBeTruthy()
+
+                    expect(app.zoomInImage).toHaveBeenCalledTimes(1)
+                })
+
+                describe('when image has caption', () => {
+                    const imageCaption = 'subsection-caption'
+                    const pageSectionWithSubImageCaption: PageSection = {
+                        title: genericSectionTitle,
+                        body: [
+                            {
+                                subSectionTitle: subSectionTitle,
+                                subSectionText: subSectionBody,
+                                subSectionImage: {
+                                    url: subSectionImageUrl,
+                                    caption: imageCaption
+                                }
+                            }
+                        ]
+                    }
+
+                    it('adds the subsection title to the passed contents array first', () => {
+                        const contents: Array<HTMLElement> = []
+                        app.addPageSectionToContents(contents, pageSectionWithSubImageCaption)
+
+                        expect(contents).toHaveLength(2)
+                        expect(contents[0].className).toEqual('page-subsection-title')
+                        expect(contents[0].innerHTML).toEqual(subSectionTitle)
+                    })
+
+                    it('adds the subsection text to the array last', () => {
+                        const contents: Array<HTMLElement> = []
+                        app.addPageSectionToContents(contents, pageSectionWithSubImageCaption)
+
+                        expect(contents[1].className).toEqual('page-subsection-text-body')
+                        expect(contents[1].innerHTML.startsWith(subSectionBody)).toBeTruthy()
+                    })
+
+                    it('adds the subsection image section as a child of the text element', () => {
+                        const contents: Array<HTMLElement> = []
+                        app.addPageSectionToContents(contents, pageSectionWithSubImageCaption)
+
+                        const imageSection = contents[1].children[0]
+
+                        expect(imageSection.className).toEqual('page-subsection-image-section')
+                        expect(imageSection.children).toHaveLength(2)
+                    })
+
+                    it('adds the subsection image as the first child of the image section element', () => {
+                        const contents: Array<HTMLElement> = []
+                        app.addPageSectionToContents(contents, pageSectionWithSubImageCaption)
+
+                        const image = contents[1].children[0].children[0] as HTMLImageElement
+
+                        expect(image.tagName).toEqual('IMG')
+                        expect(image.className).toEqual('page-subsection-img')
+                        expect(image.src.endsWith(subSectionImageUrl)).toBeTruthy()
+                        expect(image.onclick).toBeTruthy()
+
+                        expect(app.zoomInImage).toHaveBeenCalledTimes(1)
+                    })
+
+                    it('adds the subsection image caption as the second child of the image section element', () => {
+                        const contents: Array<HTMLElement> = []
+                        app.addPageSectionToContents(contents, pageSectionWithSubImageCaption)
+
+                        const caption = contents[1].children[0].children[1]
+
+                        expect(caption.className).toEqual('page-subsection-img-caption')
+                        expect(caption.innerHTML).toEqual(imageCaption)
+                    })
+                })
+            })
         })
     })
 })

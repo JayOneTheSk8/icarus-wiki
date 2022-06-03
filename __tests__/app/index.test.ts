@@ -1,8 +1,20 @@
 import App from '../../src-ts/app'
 import * as appConstants from '../../src-ts/app/app-constants'
 
-import { ASSOCIATIONS_TITLES_LIST, CHARACTERS_PAGE_TYPE, GALLERY_TITLES_LIST, NOTES_PAGE_TYPE } from '../../src-ts/constants'
-import { AssociationsSection, AttributesSection, GallerySection, Page, PageSection } from '../../src-ts/DataTypes'
+import {
+    AssociationsSection,
+    AttributesSection,
+    GallerySection,
+    Page,
+    PageSection,
+} from '../../src-ts/DataTypes'
+import {
+    ASSOCIATIONS_TITLES_LIST,
+    ATTRIBUTES_TITLES_LIST,
+    CHARACTERS_PAGE_TYPE,
+    GALLERY_TITLES_LIST,
+    NOTES_PAGE_TYPE,
+} from '../../src-ts/constants'
 
 const documentBody = `<body class="${appConstants.PRIMARY_MODE_CLASS}">
     <div class="dark-mode-toggle-area">
@@ -2221,6 +2233,577 @@ describe('App', () => {
                         expect(caption.innerHTML).toEqual(imageCaption)
                     })
                 })
+            })
+        })
+    })
+
+    describe('getPageHTMLContents', () => {
+        const emptyPageName = 'Empty Page'
+        const emptyPage: Page = {
+            name: emptyPageName,
+            id: 'empty_page',
+            type: CHARACTERS_PAGE_TYPE,
+            sections: []
+        }
+
+        beforeEach(() => {
+            jest.clearAllMocks()
+        })
+
+        it("adds the Page's title first", () => {
+            const contents = new App().getPageHTMLContents(emptyPage)
+            expect(contents).toHaveLength(2)
+            expect(contents[0].className).toEqual('page-title')
+            expect(contents[0].innerHTML).toEqual(emptyPageName)
+        })
+
+        it('adds a space block last', () => {
+            const contents = new App().getPageHTMLContents(emptyPage)
+            expect(contents[1].className).toEqual('space-block')
+        })
+
+        it('darkens the space block in dark mode', () => {
+            const app = new App()
+            app.darkMode = true
+
+            const contents = app.getPageHTMLContents(emptyPage)
+            expect(contents[1].className).toEqual('space-block-dark')
+        })
+
+        describe('when Page has a pageImage', () => {
+            const pageWithImageName = 'Page with Image'
+            const pageImageUrl = 'pageimage'
+
+            const pageWithImage: Page = {
+                name: pageWithImageName,
+                id: 'empty_page',
+                type: CHARACTERS_PAGE_TYPE,
+                pageImage: {
+                    url: pageImageUrl
+                },
+                sections: []
+            }
+
+            it("adds the Page's title first", () => {
+                const contents = new App().getPageHTMLContents(pageWithImage)
+                expect(contents).toHaveLength(3)
+                expect(contents[0].className).toEqual('page-title')
+                expect(contents[0].innerHTML).toEqual(pageWithImageName)
+            })
+
+            it('adds an image section below the title', () => {
+                const contents = new App().getPageHTMLContents(pageWithImage)
+                expect(contents[1].children).toHaveLength(1)
+                expect(contents[1].className).toEqual('page-image-section')
+            })
+
+            it('adds an image as a child of the image section', () => {
+                const app = new App()
+                jest.spyOn(app, 'zoomInImage')
+
+                const contents = app.getPageHTMLContents(pageWithImage)
+
+                const image = contents[1].children[0] as HTMLImageElement
+                expect(image.className).toEqual('page-img')
+                expect(image.src.endsWith(pageImageUrl)).toBeTruthy()
+                expect(image.onclick).toBeTruthy()
+
+                expect(app.zoomInImage).toHaveBeenCalledTimes(1)
+            })
+
+            it('adds a space block last', () => {
+                const contents = new App().getPageHTMLContents(pageWithImage)
+                expect(contents[2].className).toEqual('space-block')
+            })
+
+            describe('when pageImage has a caption', () => {
+                const imageCaption = 'image-caption'
+                const pageWithImageCaption: Page = {
+                    name: pageWithImageName,
+                    id: 'empty_page',
+                    type: CHARACTERS_PAGE_TYPE,
+                    pageImage: {
+                        url: pageImageUrl,
+                        caption: imageCaption
+                    },
+                    sections: []
+                }
+
+                it("adds the Page's title first", () => {
+                    const contents = new App().getPageHTMLContents(pageWithImageCaption)
+                    expect(contents).toHaveLength(3)
+                    expect(contents[0].className).toEqual('page-title')
+                    expect(contents[0].innerHTML).toEqual(pageWithImageName)
+                })
+
+                it('adds an image section below the title', () => {
+                    const contents = new App().getPageHTMLContents(pageWithImageCaption)
+                    expect(contents[1].children).toHaveLength(2)
+                    expect(contents[1].className).toEqual('page-image-section')
+                })
+
+                it('adds an image as the first child of the image section', () => {
+                    const app = new App()
+                    jest.spyOn(app, 'zoomInImage')
+
+                    const contents = app.getPageHTMLContents(pageWithImageCaption)
+
+                    const image = contents[1].children[0] as HTMLImageElement
+                    expect(image.className).toEqual('page-img')
+                    expect(image.src.endsWith(pageImageUrl)).toBeTruthy()
+                    expect(image.onclick).toBeTruthy()
+
+                    expect(app.zoomInImage).toHaveBeenCalledTimes(1)
+                })
+
+                it('adds an caption as the last child of the image section', () => {
+                    const contents = new App().getPageHTMLContents(pageWithImageCaption)
+                    const caption = contents[1].children[1]
+                    expect(caption.className).toEqual('page-img-caption')
+                    expect(caption.innerHTML).toEqual(imageCaption)
+                })
+
+                it('adds a space block last', () => {
+                    const contents = new App().getPageHTMLContents(pageWithImageCaption)
+                    expect(contents[2].className).toEqual('space-block')
+                })
+            })
+        })
+
+        describe('when Page has sections', () => {
+            describe('when sections are a PageSection', () => {
+                const pageWithPageSectionName = 'Page with PageSection'
+                const sectionTitle = 'Section'
+                const sectionBody = 'Stub Body'
+
+                const sectionPage: Page = {
+                    name: pageWithPageSectionName,
+                    id: 'page_w_page_section',
+                    type: CHARACTERS_PAGE_TYPE,
+                    sections: [
+                        {
+                            title: sectionTitle,
+                            body: sectionBody
+                        }
+                    ]
+                }
+
+                it("adds the Page's title first", () => {
+                    const contents = new App().getPageHTMLContents(sectionPage)
+                    expect(contents).toHaveLength(4)
+                    expect(contents[0].className).toEqual('page-title')
+                    expect(contents[0].innerHTML).toEqual(pageWithPageSectionName)
+                })
+
+                it("adds the PageSection's title second", () => {
+                    const contents = new App().getPageHTMLContents(sectionPage)
+                    expect(contents[1].className).toEqual('page-section-title')
+                    expect(contents[1].innerHTML).toEqual(sectionTitle)
+                })
+
+                it("adds the PageSection's contents third", () => {
+                    const app = new App()
+                    jest.spyOn(app, 'addPageSectionToContents')
+                    const contents = app.getPageHTMLContents(sectionPage)
+
+                    expect(contents[2].className).toEqual('page-section-text-body')
+                    expect(contents[2].innerHTML).toEqual(sectionBody)
+                    expect(app.addPageSectionToContents).toHaveBeenCalledTimes(1)
+                })
+
+                it('adds a space block last', () => {
+                    const contents = new App().getPageHTMLContents(sectionPage)
+                    expect(contents[3].className).toEqual('space-block')
+                })
+            })
+
+            describe('when sections are a GallerySection', () => {
+                const pageWithGallerySectionName = 'Page with GallerySection'
+
+                const gallerySection: GallerySection = {
+                    title: GALLERY_TITLES_LIST[0],
+                    gallery: [
+                        {
+                            url: 'imageurl',
+                            caption: 'imagecaption'
+                        }
+                    ]
+                }
+
+                const gallerySectionPage: Page = {
+                    name: pageWithGallerySectionName,
+                    id: 'page_w_page_section',
+                    type: CHARACTERS_PAGE_TYPE,
+                    sections: [gallerySection]
+                }
+
+                it("adds the Page's title first", () => {
+                    const contents = new App().getPageHTMLContents(gallerySectionPage)
+                    expect(contents).toHaveLength(4)
+                    expect(contents[0].className).toEqual('page-title')
+                    expect(contents[0].innerHTML).toEqual(pageWithGallerySectionName)
+                })
+
+                it("adds the GallerySection's title second", () => {
+                    const contents = new App().getPageHTMLContents(gallerySectionPage)
+                    expect(contents[1].className).toEqual('page-section-title')
+                    expect(contents[1].innerHTML).toEqual(GALLERY_TITLES_LIST[0])
+                })
+
+                it("adds the GallerySection's contents third", () => {
+                    const app = new App()
+                    jest.spyOn(app, 'getGalleryContents')
+                    const contents = app.getPageHTMLContents(gallerySectionPage)
+
+                    expect(contents[2].className).toEqual('gallery-image-list')
+                    expect(app.getGalleryContents).toHaveBeenCalledTimes(1)
+                })
+
+                it('adds a space block last', () => {
+                    const contents = new App().getPageHTMLContents(gallerySectionPage)
+                    expect(contents[3].className).toEqual('space-block')
+                })
+            })
+
+            describe('when sections are an AttributesSection', () => {
+                const pageWithAttributesSectionName = 'Page with AttributesSection'
+
+                const attributesSection: AttributesSection = {
+                    title: ATTRIBUTES_TITLES_LIST[0],
+                    attributes: [
+                        {
+                            attributeName: 'Full Name',
+                            attributeText: 'Jon Doe'
+                        }
+                    ]
+                }
+
+                const attributesSectionPage: Page = {
+                    name: pageWithAttributesSectionName,
+                    id: 'page_w_page_section',
+                    type: CHARACTERS_PAGE_TYPE,
+                    sections: [attributesSection]
+                }
+
+                it("adds the Page's title first", () => {
+                    const contents = new App().getPageHTMLContents(attributesSectionPage)
+                    expect(contents).toHaveLength(4)
+                    expect(contents[0].className).toEqual('page-title')
+                    expect(contents[0].innerHTML).toEqual(pageWithAttributesSectionName)
+                })
+
+                it("adds the AttributesSection's title second", () => {
+                    const contents = new App().getPageHTMLContents(attributesSectionPage)
+                    expect(contents[1].className).toEqual('page-section-title')
+                    expect(contents[1].innerHTML).toEqual(ATTRIBUTES_TITLES_LIST[0])
+                })
+
+                it("adds the AttributesSection's contents third", () => {
+                    const app = new App()
+                    jest.spyOn(app, 'getAttributesContents')
+                    const contents = app.getPageHTMLContents(attributesSectionPage)
+
+                    expect(contents[2].className).toEqual('attributes-list')
+                    expect(app.getAttributesContents).toHaveBeenCalledTimes(1)
+                })
+
+                it('adds a space block last', () => {
+                    const contents = new App().getPageHTMLContents(attributesSectionPage)
+                    expect(contents[3].className).toEqual('space-block')
+                })
+            })
+
+            describe('when sections are an AssociationsSection', () => {
+                const pageWithAssociationsSectionName = 'Page with AssociationsSection'
+
+                const pageOneId = 'page_one'
+                const pageTwoId = 'page_two'
+
+                const pageOne: Page = {
+                    name: 'Page One',
+                    id: pageOneId,
+                    type: CHARACTERS_PAGE_TYPE,
+                    sections: []
+                }
+
+                const pageTwo: Page = {
+                    name: 'Page Two',
+                    id: pageTwoId,
+                    type: CHARACTERS_PAGE_TYPE,
+                    sections: []
+                }
+
+                const associationsSection: AssociationsSection = {
+                    title: ASSOCIATIONS_TITLES_LIST[0],
+                    associations: [
+                        {
+                            associationName: 'Association',
+                            associationPageIds: [pageOneId, pageTwoId]
+                        }
+                    ]
+                }
+
+                const associationsSectionPage: Page = {
+                    name: pageWithAssociationsSectionName,
+                    id: 'page_w_page_section',
+                    type: CHARACTERS_PAGE_TYPE,
+                    sections: [associationsSection]
+                }
+
+                const app = new App()
+                app.PAGE_MAP = {
+                    [pageOneId]: pageOne,
+                    [pageTwoId]: pageTwo
+                }
+
+                it("adds the Page's title first", () => {
+                    const contents = app.getPageHTMLContents(associationsSectionPage)
+                    expect(contents).toHaveLength(4)
+                    expect(contents[0].className).toEqual('page-title')
+                    expect(contents[0].innerHTML).toEqual(pageWithAssociationsSectionName)
+                })
+
+                it("adds the AssociationsSection's title second", () => {
+                    const contents = app.getPageHTMLContents(associationsSectionPage)
+                    expect(contents[1].className).toEqual('page-section-title')
+                    expect(contents[1].innerHTML).toEqual(ASSOCIATIONS_TITLES_LIST[0])
+                })
+
+                it("adds the AssociationsSection's contents third", () => {
+                    jest.spyOn(app, 'getAssociationsContents')
+                    const contents = app.getPageHTMLContents(associationsSectionPage)
+
+                    expect(contents[2].className).toEqual('associations-section')
+                    expect(app.getAssociationsContents).toHaveBeenCalledTimes(1)
+                })
+
+                it('adds a space block last', () => {
+                    const contents = app.getPageHTMLContents(associationsSectionPage)
+                    expect(contents[3].className).toEqual('space-block')
+                })
+            })
+        })
+
+        describe('when Page has tags', () => {
+            describe('when it is a "Characters" page', () => {
+                const characterPageWithTagsName = 'Character Page with Tags'
+                const characterPageWithTags: Page = {
+                    name: characterPageWithTagsName,
+                    id: 'character_page',
+                    type: CHARACTERS_PAGE_TYPE,
+                    sections: [],
+                    tags: new Set(['tagOne', 'tagTwo'])
+                }
+
+                it("adds the Page's title first", () => {
+                    const contents = new App().getPageHTMLContents(characterPageWithTags)
+                    expect(contents).toHaveLength(3)
+                    expect(contents[0].className).toEqual('page-title')
+                    expect(contents[0].innerHTML).toEqual(characterPageWithTagsName)
+                })
+
+                it("adds the Page's tags list second", () => {
+                    const contents = new App().getPageHTMLContents(characterPageWithTags)
+                    expect(contents[1].className).toEqual('page-tags-list')
+                    expect(contents[1].children).toHaveLength(2)
+                })
+
+                it("adds the Page's tags as children of the tags list second", () => {
+                    const contents = new App().getPageHTMLContents(characterPageWithTags)
+                    const tagOneEl  = contents[1].children[0] as HTMLElement
+                    const tagTwoEl = contents[1].children[1] as HTMLElement
+
+                    expect(tagOneEl.className).toEqual(appConstants.PAGE_TAG)
+                    expect(tagOneEl.innerHTML).toEqual('tagOne')
+                    expect(tagOneEl.onclick).toBeTruthy()
+
+                    expect(tagTwoEl.className).toEqual(appConstants.PAGE_TAG)
+                    expect(tagTwoEl.innerHTML).toEqual('tagTwo')
+                    expect(tagTwoEl.onclick).toBeTruthy()
+                })
+
+                it("uses the 'pickTag' returned function using the App's SELECTED_CHARACTER_TAGS", () => {
+                    const app = new App()
+                    app.SELECTED_CHARACTER_TAGS = new Set(['tagThree'])
+
+                    jest.spyOn(app, 'pickTag')
+                    app.getPageHTMLContents(characterPageWithTags)
+
+                    expect(app.pickTag).toHaveBeenCalledTimes(2)
+                    expect(app.pickTag).toHaveBeenCalledWith(app.SELECTED_CHARACTER_TAGS)
+                    expect(app.pickTag).not.toHaveBeenCalledWith(app.SELECTED_NOTE_TAGS)
+                })
+
+                it('adds a space block last', () => {
+                    const contents = new App().getPageHTMLContents(characterPageWithTags)
+                    expect(contents[2].className).toEqual('space-block')
+                })
+            })
+
+            describe('when it is a "Notes" page', () => {
+                const notePageWithTagsName = 'Note Page with Tags'
+                const notePageWithTags: Page = {
+                    name: notePageWithTagsName,
+                    id: 'note_page',
+                    type: NOTES_PAGE_TYPE,
+                    sections: [],
+                    tags: new Set(['tagOne', 'tagTwo'])
+                }
+
+                it("adds the Page's title first", () => {
+                    const contents = new App().getPageHTMLContents(notePageWithTags)
+                    expect(contents).toHaveLength(3)
+                    expect(contents[0].className).toEqual('page-title')
+                    expect(contents[0].innerHTML).toEqual(notePageWithTagsName)
+                })
+
+                it("adds the Page's tags list second", () => {
+                    const contents = new App().getPageHTMLContents(notePageWithTags)
+                    expect(contents[1].className).toEqual('page-tags-list')
+                    expect(contents[1].children).toHaveLength(2)
+                })
+
+                it("adds the Page's tags as children of the tags list second", () => {
+                    const contents = new App().getPageHTMLContents(notePageWithTags)
+                    const tagOneEl  = contents[1].children[0] as HTMLElement
+                    const tagTwoEl = contents[1].children[1] as HTMLElement
+
+                    expect(tagOneEl.className).toEqual(appConstants.PAGE_TAG)
+                    expect(tagOneEl.innerHTML).toEqual('tagOne')
+                    expect(tagOneEl.onclick).toBeTruthy()
+
+                    expect(tagTwoEl.className).toEqual(appConstants.PAGE_TAG)
+                    expect(tagTwoEl.innerHTML).toEqual('tagTwo')
+                    expect(tagTwoEl.onclick).toBeTruthy()
+                })
+
+                it("uses the 'pickTag' returned function using the App's SELECTED_NOTE_TAGS", () => {
+                    const app = new App()
+                    app.SELECTED_NOTE_TAGS = new Set(['tagThree'])
+
+                    jest.spyOn(app, 'pickTag')
+                    app.getPageHTMLContents(notePageWithTags)
+
+                    expect(app.pickTag).toHaveBeenCalledTimes(2)
+                    expect(app.pickTag).toHaveBeenCalledWith(app.SELECTED_NOTE_TAGS)
+                    expect(app.pickTag).not.toHaveBeenCalledWith(app.SELECTED_CHARACTER_TAGS)
+                })
+
+                it('adds a space block last', () => {
+                    const contents = new App().getPageHTMLContents(notePageWithTags)
+                    expect(contents[2].className).toEqual('space-block')
+                })
+            })
+        })
+
+        describe('when the Page has all parts', () => {
+            const pageTitle = 'Full Page'
+
+            const fullImageLink = 'fullimagelink'
+            const fullImageComment = 'image caption'
+
+            const sectionOneName = 'Section One'
+            const sectionOneBody = 'Section one body'
+
+            const sectionTwoName = 'Section Two'
+            const sectionTwoBody = 'Section two body'
+
+            const fullPage: Page = {
+                name: pageTitle,
+                id: 'full_page',
+                type: CHARACTERS_PAGE_TYPE,
+                pageImage: {
+                    url: fullImageLink,
+                    caption: fullImageComment
+                },
+                sections: [
+                    {
+                        title: sectionOneName,
+                        body: sectionOneBody
+                    },
+                    {
+                        title: sectionTwoName,
+                        body: sectionTwoBody
+                    }
+                ],
+                tags: new Set(['tagOne'])
+            }
+
+            it("adds the Page's title first", () => {
+                const contents = new App().getPageHTMLContents(fullPage)
+                expect(contents).toHaveLength(8)
+                expect(contents[0].className).toEqual('page-title')
+                expect(contents[0].innerHTML).toEqual(pageTitle)
+            })
+
+            it('adds an image section below the title', () => {
+                const contents = new App().getPageHTMLContents(fullPage)
+                expect(contents[1].children).toHaveLength(2)
+                expect(contents[1].className).toEqual('page-image-section')
+            })
+
+            it('adds an image as the first child of the image section', () => {
+                const app = new App()
+                jest.spyOn(app, 'zoomInImage')
+
+                const contents = app.getPageHTMLContents(fullPage)
+
+                const image = contents[1].children[0] as HTMLImageElement
+                expect(image.className).toEqual('page-img')
+                expect(image.src.endsWith(fullImageLink)).toBeTruthy()
+                expect(image.onclick).toBeTruthy()
+
+                expect(app.zoomInImage).toHaveBeenCalledTimes(1)
+            })
+
+            it('adds an caption as the last child of the image section', () => {
+                const contents = new App().getPageHTMLContents(fullPage)
+                const caption = contents[1].children[1]
+                expect(caption.className).toEqual('page-img-caption')
+                expect(caption.innerHTML).toEqual(fullImageComment)
+            })
+
+            it("adds the first sections's title below the image section", () => {
+                const contents = new App().getPageHTMLContents(fullPage)
+                expect(contents[2].className).toEqual('page-section-title')
+                expect(contents[2].innerHTML).toEqual(sectionOneName)
+            })
+
+            it("adds the the first sections's contents below its title", () => {
+                const app = new App()
+                jest.spyOn(app, 'addPageSectionToContents')
+                const contents = app.getPageHTMLContents(fullPage)
+
+                expect(contents[3].className).toEqual('page-section-text-body')
+                expect(contents[3].innerHTML).toEqual(sectionOneBody)
+                expect(app.addPageSectionToContents).toHaveBeenCalledTimes(2)
+            })
+
+            it("adds the second sections's title below the first section's contents", () => {
+                const contents = new App().getPageHTMLContents(fullPage)
+                expect(contents[4].className).toEqual('page-section-title')
+                expect(contents[4].innerHTML).toEqual(sectionTwoName)
+            })
+
+            it("adds the the second sections's contents below its title", () => {
+                const app = new App()
+                jest.spyOn(app, 'addPageSectionToContents')
+                const contents = app.getPageHTMLContents(fullPage)
+
+                expect(contents[5].className).toEqual('page-section-text-body')
+                expect(contents[5].innerHTML).toEqual(sectionTwoBody)
+                expect(app.addPageSectionToContents).toHaveBeenCalledTimes(2)
+            })
+
+            it("adds the Page's tags before the last section's contents", () => {
+                const contents = new App().getPageHTMLContents(fullPage)
+                expect(contents[6].className).toEqual('page-tags-list')
+                expect(contents[6].children).toHaveLength(1)
+            })
+
+            it('adds a space block last', () => {
+                const contents = new App().getPageHTMLContents(fullPage)
+                expect(contents[7].className).toEqual('space-block')
             })
         })
     })

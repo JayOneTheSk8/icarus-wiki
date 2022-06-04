@@ -68,12 +68,12 @@ describe('Template Utils', () => {
             })
 
             describe('when string has multiple cases', () => {
-                test('Does not interfere with already pascal cased words', () => {
+                it('Does not interfere with already pascal cased words', () => {
                     expect(toPascalCase('SomeSpaced string')).toEqual('SomeSpacedString')
                     expect(toPascalCase('Some SpacedString')).toEqual('SomeSpacedString')
                 })
 
-                test('Uppercases first letter of camel case words', () => {
+                it('Uppercases first letter of camel case words', () => {
                     expect(toPascalCase('some spacedString')).toEqual('SomeSpacedString')
                     expect(toPascalCase('someSpaced string')).toEqual('SomeSpacedString')
                 })

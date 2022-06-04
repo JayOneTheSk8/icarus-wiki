@@ -57,7 +57,7 @@ class App {
     notesIcon: HTMLElement
     zoomedImageSection: HTMLElement
     zoomedModal: HTMLElement
-    darkModeToggle: HTMLElement
+    darkModeToggle: HTMLInputElement
 
     constructor() {
         /* Get DOM Elements */
@@ -76,7 +76,7 @@ class App {
         this.zoomedImageSection = this.findElement(appConstants.ZOOMED_IMAGE_SECTION)
         this.zoomedModal = this.findElement(appConstants.ZOOMED_IMAGE_MODAL)
         // Dark mode toggle
-        this.darkModeToggle = this.findElement(appConstants.DARK_MODE_TOGGLE)
+        this.darkModeToggle = this.findElement(appConstants.DARK_MODE_TOGGLE) as HTMLInputElement
     }
 
     /* Make HTML Elements Functions */
@@ -994,8 +994,7 @@ class App {
         const initDark = initSearchParams.get('dark') || initSearchParams.get('d')
 
         if (initDark === 'true' || initDark === 't') {
-            const checkIcon = this.darkModeToggle as HTMLInputElement
-            checkIcon.checked = true
+            this.darkModeToggle.checked = true
             this.changeToDarkMode(true)
         }
     }

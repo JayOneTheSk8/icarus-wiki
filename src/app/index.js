@@ -797,8 +797,7 @@ class App {
             const initSearchParams = new URLSearchParams(window.location.search);
             const initDark = initSearchParams.get('dark') || initSearchParams.get('d');
             if (initDark === 'true' || initDark === 't') {
-                const checkIcon = this.darkModeToggle;
-                checkIcon.checked = true;
+                this.darkModeToggle.checked = true;
                 this.changeToDarkMode(true);
             }
         };

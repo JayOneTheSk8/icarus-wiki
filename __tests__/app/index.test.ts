@@ -3553,4 +3553,220 @@ describe('App', () => {
             expect(app.PAGE_MAP[WikiData.notes[1].id]).toEqual(WikiData.notes[1])
         })
     })
+
+    describe('render', () => {
+        beforeEach(() => {
+            document.body.outerHTML = documentBody
+        })
+
+        it('generates Home, Character, and Note page selectors', () => {
+            const app = new App()
+            jest.spyOn(app, 'createHomeSelectors')
+            jest.spyOn(app, 'createCharacterSelectors')
+            jest.spyOn(app, 'createNoteSelectors')
+            app.render()
+
+            expect(app.createHomeSelectors).toHaveBeenCalledTimes(1)
+            expect(app.createCharacterSelectors).toHaveBeenCalledTimes(1)
+            expect(app.createNoteSelectors).toHaveBeenCalledTimes(1)
+        })
+
+        it('adds click functions to the icons', () => {
+            const app = new App()
+            jest.spyOn(app, 'setHomeSelectors')
+            jest.spyOn(app, 'setCharactersSelectors')
+            jest.spyOn(app, 'setNotesSelectors')
+            app.render()
+
+            expect(app.homeIcon.onclick).toBeTruthy()
+            expect(app.characterIcon.onclick).toBeTruthy()
+            expect(app.notesIcon.onclick).toBeTruthy()
+
+            app.homeIcon.click()
+            expect(app.setHomeSelectors).toHaveBeenCalledTimes(1)
+
+            app.characterIcon.click()
+            expect(app.setCharactersSelectors).toHaveBeenCalledTimes(1)
+
+            app.notesIcon.click()
+            expect(app.setNotesSelectors).toHaveBeenCalledTimes(1)
+        })
+
+        it('adds click function to the zoomedImageSection', () => {
+            const app = new App()
+            jest.spyOn(app, 'closeZoomModal')
+            app.render()
+
+            expect(app.zoomedImageSection.onclick).toBeTruthy()
+
+            app.zoomedImageSection.click()
+            expect(app.closeZoomModal).toHaveBeenCalledTimes(1)
+        })
+
+        it('adds change function to darkModeToggle', () => {
+            const app = new App()
+            jest.spyOn(app, 'changeToDarkMode')
+            app.render()
+
+            expect(app.darkModeToggle.onchange).toBeTruthy()
+        })
+
+        it('preloads images from Pages', () => {
+            const app = new App()
+            jest.spyOn(app, 'preloadImages')
+            app.render()
+
+            expect(app.preloadImages).toHaveBeenCalledTimes(1)
+        })
+
+        it('adds click function to pageSelectorModal', () => {
+            const app = new App()
+            jest.spyOn(app, 'toggleSidebar')
+            app.render()
+
+            expect(app.pageSelectorModal.onclick).toBeTruthy()
+
+            app.pageSelectorModal.click()
+            expect(app.toggleSidebar).toHaveBeenCalledTimes(1)
+            expect(app.toggleSidebar).toHaveBeenCalledWith(false)
+        })
+
+        it("sets the pageSelector to the Home Page's", () => {
+            const app = new App()
+            jest.spyOn(app.pageSelector, 'replaceChildren')
+            app.render()
+
+            expect(app.pageSelector.replaceChildren).toHaveBeenCalledWith(...app.homePageSelector)
+        })
+
+        it('opens the Home Page by default', () => {
+            const app = new App()
+            jest.spyOn(app, 'openPage')
+            app.render()
+
+            const pageTitle = document.getElementsByClassName(appConstants.PAGE_TITLE)[0]
+
+            expect(app.openPage).toHaveBeenCalledWith(WikiData.homePage)
+            expect(pageTitle.innerHTML).toEqual(WikiData.homePage.name)
+        })
+
+        it('adds event listener to handle resizing', () => {
+            const app = new App()
+            jest.spyOn(window, 'addEventListener')
+            app.render()
+
+            expect(window.addEventListener).toHaveBeenCalledWith('resize', app.handleResize)
+        })
+
+        describe('when window width is greater than than the MOBILE_WIDTH_LIMIT', () => {
+            it('does not change the App to mobile', () => {
+                const app = new App()
+                jest.spyOn(app, 'changeToMobile')
+
+                window.innerWidth = app.MOBILE_WIDTH_LIMIT + 1
+                app.render()
+
+                expect(app.changeToMobile).not.toHaveBeenCalled()
+            })
+        })
+
+        describe('when window width is equal to the MOBILE_WIDTH_LIMIT', () => {
+            it('does not change the App to mobile', () => {
+                const app = new App()
+                jest.spyOn(app, 'changeToMobile')
+
+                window.innerWidth = app.MOBILE_WIDTH_LIMIT
+                app.render()
+
+                expect(app.changeToMobile).not.toHaveBeenCalled()
+            })
+        })
+
+        describe('when window width is less than the MOBILE_WIDTH_LIMIT', () => {
+            it('changes the App to mobile', () => {
+                const app = new App()
+                jest.spyOn(app, 'changeToMobile')
+
+                window.innerWidth = app.MOBILE_WIDTH_LIMIT - 1
+                app.render()
+
+                expect(app.changeToMobile).toHaveBeenCalledWith(true)
+            })
+        })
+
+        describe('when url search params indicate dark mode should not be set initially', () => {
+            it('does not change the App to dark mode', () => {
+                window.history.pushState({}, '', '?dummyquery')
+
+                const app = new App()
+                jest.spyOn(app, 'changeToDarkMode')
+                app.render()
+
+                expect(app.darkModeToggle.checked).toBeFalsy()
+                expect(app.changeToDarkMode).not.toHaveBeenCalled()
+            })
+        })
+
+        describe('when url search params indicate dark mode should be set initially', () => {
+            afterEach(() => {
+                window.history.pushState({}, '', '?dummyquery')
+            })
+
+            describe('when key in search param is "dark"' , () => {
+                describe('when value is "true"', () => {
+                    it('changes the App to dark mode', () => {
+                        window.history.pushState({}, '', '?dark=true')
+
+                        const app = new App()
+                        jest.spyOn(app, 'changeToDarkMode')
+                        app.render()
+
+                        expect(app.darkModeToggle.checked).toBeTruthy()
+                        expect(app.changeToDarkMode).toHaveBeenCalledWith(true)
+                    })
+                })
+
+                describe('when value is "t"', () => {
+                    it('changes the App to dark mode', () => {
+                        window.history.pushState({}, '', '?dark=t')
+
+                        const app = new App()
+                        jest.spyOn(app, 'changeToDarkMode')
+                        app.render()
+
+                        expect(app.darkModeToggle.checked).toBeTruthy()
+                        expect(app.changeToDarkMode).toHaveBeenCalledWith(true)
+                    })
+                })
+            })
+
+            describe('when key in search param is "d"' , () => {
+                describe('when value is "true"', () => {
+                    it('changes the App to dark mode', () => {
+                        window.history.pushState({}, '', '?d=true')
+
+                        const app = new App()
+                        jest.spyOn(app, 'changeToDarkMode')
+                        app.render()
+
+                        expect(app.darkModeToggle.checked).toBeTruthy()
+                        expect(app.changeToDarkMode).toHaveBeenCalledWith(true)
+                    })
+                })
+
+                describe('when value is "t"', () => {
+                    it('changes the App to dark mode', () => {
+                        window.history.pushState({}, '', '?d=t')
+
+                        const app = new App()
+                        jest.spyOn(app, 'changeToDarkMode')
+                        app.render()
+
+                        expect(app.darkModeToggle.checked).toBeTruthy()
+                        expect(app.changeToDarkMode).toHaveBeenCalledWith(true)
+                    })
+                })
+            })
+        })
+    })
 })

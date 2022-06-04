@@ -975,7 +975,7 @@ class App {
         this.preloadImages()
 
         /* Page Selector Modal Click Function */
-        this.pageSelectorModal.onclick = (): void => this.toggleSidebar(false)
+        this.pageSelectorModal.onclick = () => this.toggleSidebar(false)
 
         /* Set Home Selectors by default */
         this.pageSelector.replaceChildren(...this.homePageSelector)

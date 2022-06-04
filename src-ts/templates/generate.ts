@@ -41,6 +41,7 @@ export const noteDir = (notePageName: string): string => `src-ts/WikiData/notes/
 export const generate = (firstArg: string, secondArg: string, pageName: string, sectionName: string): void => {
     // When asking for help
     if (helpOptions.includes(firstArg)) {
+        /* eslint no-console: "off" */
         console.log('Simple template generation script')
 
         console.log('WARNING: Will overwrite same file if created\n')

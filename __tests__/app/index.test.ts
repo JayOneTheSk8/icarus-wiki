@@ -7,6 +7,7 @@ import {
     GallerySection,
     Page,
     PageSection,
+    SubSection,
 } from '../../src-ts/DataTypes'
 import {
     ASSOCIATIONS_TITLES_LIST,
@@ -40,6 +41,8 @@ const documentBody = `<body class="${appConstants.PRIMARY_MODE_CLASS}">
     </div>
 </body>
 `
+
+jest.mock('../../src-ts/WikiData')
 
 describe('App', () => {
     describe('constructor', () => {
@@ -2805,6 +2808,307 @@ describe('App', () => {
                 const contents = new App().getPageHTMLContents(fullPage)
                 expect(contents[7].className).toEqual('space-block')
             })
+        })
+    })
+
+    describe('preloadGalleryImages', () => {
+        describe('when GallerySection has no images', () => {
+            const gallerySection: GallerySection = {
+                title: GALLERY_TITLES_LIST[0],
+                gallery: []
+            }
+
+            it('does not preload any images', () => {
+                const app = new App()
+                jest.spyOn(app, 'createImg')
+                app.preloadGalleryImages(gallerySection)
+                expect(app.createImg).not.toHaveBeenCalled()
+            })
+        })
+
+        describe('when GallerySection has images', () => {
+            const gallerySection: GallerySection = {
+                title: GALLERY_TITLES_LIST[0],
+                gallery: [
+                    {
+                        url: 'testimage1'
+                    },
+                    {
+                        url: 'testimage2'
+                    },
+                ]
+            }
+
+            it("preloads the images' src", () => {
+                const app = new App()
+                jest.spyOn(app, 'createImg')
+                app.preloadGalleryImages(gallerySection)
+                expect(app.createImg).toHaveBeenCalledTimes(2)
+            })
+        })
+    })
+
+    describe('preloadSubSectionImage', () => {
+        describe('when SubSection has no images', () => {
+            const subSection: SubSection = {
+                subSectionTitle: 'Subsection',
+                subSectionText: 'Subsection text'
+            }
+
+            it('does not preload any images', () => {
+                const app = new App()
+                jest.spyOn(app, 'createImg')
+                app.preloadSubSectionImage(subSection)
+                expect(app.createImg).not.toHaveBeenCalled()
+            })
+        })
+
+        describe('when SubSection has an image', () => {
+            const subSection: SubSection = {
+                subSectionTitle: 'Subsection',
+                subSectionText: 'Subsection text',
+                subSectionImage: {
+                    url: 'subsection'
+                }
+            }
+
+            it("preloads the image's src", () => {
+                const app = new App()
+                jest.spyOn(app, 'createImg')
+                app.preloadSubSectionImage(subSection)
+                expect(app.createImg).toHaveBeenCalledTimes(1)
+            })
+        })
+    })
+
+    describe('preloadPageSectionImage', () => {
+        describe('when PageSection has no images', () => {
+            const pageSection: PageSection = {
+                title: 'Page Section',
+                body: 'Page section body'
+            }
+
+            it('does not load any images', () => {
+                const app = new App()
+                jest.spyOn(app, 'createImg')
+                app.preloadPageSectionImage(pageSection)
+                expect(app.createImg).not.toHaveBeenCalled()
+            })
+        })
+
+        describe('when PageSection has an image', () => {
+            const pageSection: PageSection = {
+                title: 'Page Section',
+                body: 'Page section body',
+                sectionImage: {
+                    url: 'pagesectionimage'
+                }
+            }
+
+            it("preloads the image's src", () => {
+                const app = new App()
+                jest.spyOn(app, 'createImg')
+                app.preloadPageSectionImage(pageSection)
+                expect(app.createImg).toHaveBeenCalledTimes(1)
+            })
+        })
+
+        describe('when PageSection has a SubSection with an image', () => {
+            const pageSection: PageSection = {
+                title: 'Page Section',
+                body: [
+                    {
+                        subSectionTitle: 'Subsection Title',
+                        subSectionText: 'Subsection Body',
+                        subSectionImage: {
+                            url: 'subsectionimage'
+                        }
+                    }
+                ]
+            }
+
+            it("preloads the image's src", () => {
+                const app = new App()
+                jest.spyOn(app, 'createImg')
+                app.preloadPageSectionImage(pageSection)
+                expect(app.createImg).toHaveBeenCalledTimes(1)
+            })
+        })
+
+        describe('when PageSection and SubSection have images', () => {
+            const pageSection: PageSection = {
+                title: 'Page Section',
+                body: [
+                    {
+                        subSectionTitle: 'Subsection Title',
+                        subSectionText: 'Subsection Body',
+                        subSectionImage: {
+                            url: 'subsectionimage'
+                        }
+                    }
+                ],
+                sectionImage: {
+                    url: 'pagesectionimage'
+                }
+            }
+
+            it("preloads the image's src", () => {
+                const app = new App()
+                jest.spyOn(app, 'createImg')
+                app.preloadPageSectionImage(pageSection)
+                expect(app.createImg).toHaveBeenCalledTimes(2)
+            })
+        })
+    })
+
+    describe('preloadPageImage', () => {
+        describe('when Page has no image', () => {
+            const page: Page = {
+                name: 'Page One',
+                id: 'page_one',
+                type: CHARACTERS_PAGE_TYPE,
+                sections: []
+            }
+
+            it('does not load any images', () => {
+                const app = new App()
+                jest.spyOn(app, 'createImg')
+                app.preloadPageImage(page)
+                expect(app.createImg).not.toHaveBeenCalled()
+            })
+        })
+
+        describe('when Page has an image', () => {
+            const page: Page = {
+                name: 'Page One',
+                id: 'page_one',
+                type: CHARACTERS_PAGE_TYPE,
+                sections: [],
+                pageImage: {
+                    url: 'pageimage'
+                }
+            }
+
+            it("preloads the image's src", () => {
+                const app = new App()
+                jest.spyOn(app, 'createImg')
+                app.preloadPageImage(page)
+                expect(app.createImg).toHaveBeenCalledTimes(1)
+            })
+        })
+
+        describe('when Page has sections', () => {
+            describe('when section is AttributesSection', () => {
+                const page: Page = {
+                    name: 'Page One',
+                    id: 'page_one',
+                    type: CHARACTERS_PAGE_TYPE,
+                    sections: [
+                        {
+                            title: ATTRIBUTES_TITLES_LIST[0],
+                            attributes: [
+                                {
+                                    attributeName: 'Page Name',
+                                    attributeText: 'attribute text'
+                                }
+                            ]
+                        }
+                    ]
+                }
+
+                it('does not load any images', () => {
+                    const app = new App()
+                    jest.spyOn(app, 'createImg')
+                    app.preloadPageImage(page)
+                    expect(app.createImg).not.toHaveBeenCalled()
+                })
+            })
+
+            describe('when section is AssociationsSection', () => {
+                const page: Page = {
+                    name: 'Page One',
+                    id: 'page_one',
+                    type: CHARACTERS_PAGE_TYPE,
+                    sections: [
+                        {
+                            title: ASSOCIATIONS_TITLES_LIST[0],
+                            associations: [
+                                {
+                                    associationName: 'Association',
+                                    associationPageIds: ['page_two']
+                                }
+                            ]
+                        }
+                    ]
+                }
+
+                it('does not load any images', () => {
+                    const app = new App()
+                    jest.spyOn(app, 'createImg')
+                    app.preloadPageImage(page)
+                    expect(app.createImg).not.toHaveBeenCalled()
+                })
+            })
+
+            describe('when section is GallerySection', () => {
+                const page: Page = {
+                    name: 'Page One',
+                    id: 'page_one',
+                    type: CHARACTERS_PAGE_TYPE,
+                    sections: [
+                        {
+                            title: GALLERY_TITLES_LIST[0],
+                            gallery: [
+                                {
+                                    url: 'galleryimg1',
+                                },
+                                {
+                                    url: 'galleryimg2',
+                                }
+                            ]
+                        }
+                    ]
+                }
+
+                it('calls preloadGalleryImages', () => {
+                    const app = new App()
+                    jest.spyOn(app, 'preloadGalleryImages')
+                    app.preloadPageImage(page)
+                    expect(app.preloadGalleryImages).toHaveBeenCalledTimes(1)
+                })
+            })
+
+            describe('when section is PageSection', () => {
+                const page: Page = {
+                    name: 'Page One',
+                    id: 'page_one',
+                    type: CHARACTERS_PAGE_TYPE,
+                    sections: [
+                        {
+                            title: 'Generic Section',
+                            body: 'Generic body'
+                        }
+                    ]
+                }
+
+                it('calls preloadPageSectionImage', () => {
+                    const app = new App()
+                    jest.spyOn(app, 'preloadPageSectionImage')
+                    app.preloadPageImage(page)
+                    expect(app.preloadPageSectionImage).toHaveBeenCalledTimes(1)
+                })
+            })
+        })
+    })
+
+    describe('preloadImages', () => {
+        const app = new App()
+        jest.spyOn(app, 'preloadPageImage')
+
+        it("loads the Home, Character, and Note Pages' Images", () => {
+            app.preloadImages()
+            // 5 Pages in mock WikiData
+            expect(app.preloadPageImage).toHaveBeenCalledTimes(5)
         })
     })
 })

@@ -3111,4 +3111,153 @@ describe('App', () => {
             expect(app.preloadPageImage).toHaveBeenCalledTimes(5)
         })
     })
+
+    describe('displayPage', () => {
+        window.scrollTo = jest.fn()
+
+        const contents: Array<HTMLElement> = []
+        const element = document.createElement('div')
+        element.id = 'testelement'
+        contents.push(element)
+
+        it('adds the passed contents to the pageContent element', () => {
+            const app = new App()
+            app.displayPage(contents)
+
+            expect(app.pageContent.children).toHaveLength(1)
+            expect(app.pageContent.children[0]).toEqual(element)
+        })
+
+        it('scrolls the window to the top', () => {
+            const app = new App()
+            app.displayPage(contents)
+
+            expect(window.scrollTo).toHaveBeenCalledWith(0, 0)
+        })
+    })
+
+    describe('openPage', () => {
+        const page: Page = {
+            id: 'page',
+            name: 'Page',
+            type: CHARACTERS_PAGE_TYPE,
+            sections: []
+        }
+
+        it('returns a function', () => {
+            expect(new App().openPage(page)).toBeInstanceOf(Function)
+        })
+
+        describe('when returned function is called', () => {
+            beforeEach(() => {
+                document.body.outerHTML = documentBody
+            })
+
+            describe("when the target Page's title is already displayed", () => {
+                let pageTitle: HTMLElement
+
+                beforeEach(() => {
+                    pageTitle = document.createElement('div')
+                    pageTitle.className = appConstants.PAGE_TITLE
+                    pageTitle.innerHTML = 'Page'
+
+                    const pageContent = document.getElementById(appConstants.PAGE_CONTENT_CLASS)
+                    pageContent?.appendChild(pageTitle)
+                })
+
+                it('does not display the target Page', () => {
+                    const app = new App()
+
+                    jest.spyOn(app, 'getPageHTMLContents')
+                    jest.spyOn(app, 'displayPage')
+                    jest.spyOn(app, 'toggleSidebar')
+
+                    app.openPage(page)()
+
+                    expect(app.getPageHTMLContents).not.toHaveBeenCalled()
+                    expect(app.displayPage).not.toHaveBeenCalled()
+                    expect(app.toggleSidebar).not.toHaveBeenCalled()
+                })
+
+                describe('when the sideBar is open', () => {
+                    it('closes the sideBar', () => {
+                        const app = new App()
+                        app.sidebarOpen = true
+                        jest.spyOn(app, 'toggleSidebar')
+
+                        app.openPage(page)()
+
+                        expect(app.toggleSidebar).toHaveBeenCalledWith(false)
+                    })
+                })
+            })
+
+            describe('when there is no page-title set', () => {
+                it('displays the target Page', () => {
+                    const app = new App()
+
+                    jest.spyOn(app, 'displayPage')
+                    jest.spyOn(app, 'getPageHTMLContents')
+                    jest.spyOn(app, 'toggleSidebar')
+
+                    app.openPage(page)()
+
+                    expect(app.getPageHTMLContents).toHaveBeenCalledWith(page)
+                    expect(app.displayPage).toHaveBeenCalled()
+                    expect(app.toggleSidebar).not.toHaveBeenCalled()
+                })
+
+                describe('when the sideBar is open', () => {
+                    it('closes the sideBar', () => {
+                        const app = new App()
+                        app.sidebarOpen = true
+                        jest.spyOn(app, 'toggleSidebar')
+
+                        app.openPage(page)()
+
+                        expect(app.toggleSidebar).toHaveBeenCalledWith(false)
+                    })
+                })
+            })
+
+            describe("when the current title is different from the target Page's", () => {
+                let pageTitle: HTMLElement
+
+                beforeEach(() => {
+                    pageTitle = document.createElement('div')
+                    pageTitle.className = appConstants.PAGE_TITLE
+                    pageTitle.innerHTML = 'DifferentPage'
+
+                    const pageContent = document.getElementById(appConstants.PAGE_CONTENT_CLASS)
+                    pageContent?.appendChild(pageTitle)
+                })
+
+                it('displays the target Page', () => {
+                    const app = new App()
+
+                    jest.spyOn(app, 'displayPage')
+                    jest.spyOn(app, 'getPageHTMLContents')
+                    jest.spyOn(app, 'toggleSidebar')
+
+                    app.openPage(page)()
+
+                    expect(app.getPageHTMLContents).toHaveBeenCalledWith(page)
+                    expect(app.displayPage).toHaveBeenCalled()
+                    expect(app.toggleSidebar).not.toHaveBeenCalled()
+                })
+
+                describe('when the sideBar is open', () => {
+                    it('closes the sideBar', () => {
+                        const app = new App()
+                        app.sidebarOpen = true
+                        jest.spyOn(app, 'toggleSidebar')
+
+                        app.openPage(page)()
+
+                        expect(app.toggleSidebar).toHaveBeenCalledWith(false)
+                    })
+                })
+            })
+        })
+    })
 })

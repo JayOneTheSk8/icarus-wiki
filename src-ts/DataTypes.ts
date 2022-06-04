@@ -55,6 +55,8 @@ export type Notes = Array<Page>
 export type Tags = Set<string>
 export type PageType = 'Characters' | 'Notes' | 'Home Page'
 
+export type PictureOrientation = 'portrait' | 'landscape'
+
 export interface BlogData {
     homePage: Page
     characters: CharacterList

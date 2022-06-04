@@ -1,5 +1,14 @@
 import WikiData from '../WikiData'
-import { Page, PageSection, GallerySection, AttributesSection, SubSection, AssociationsSection, PageType } from '../DataTypes'
+import {
+    Page,
+    PageSection,
+    GallerySection,
+    AttributesSection,
+    SubSection,
+    AssociationsSection,
+    PageType,
+    PictureOrientation,
+} from '../DataTypes'
 import {
     GALLERY_TITLES_LIST,
     ATTRIBUTES_TITLES_LIST,
@@ -10,8 +19,6 @@ import {
 } from '../constants'
 
 import * as appConstants from './app-constants'
-
-type pictureOrientation = 'portrait' | 'landscape'
 
 const {
     homePage,
@@ -422,7 +429,7 @@ class App {
     }
 
     /* Zooom-In */
-    findOrientation = (image: HTMLImageElement): pictureOrientation => {
+    findOrientation = (image: HTMLImageElement): PictureOrientation => {
         if (image.height > image.width) {
             return 'portrait'
         } else {
@@ -435,7 +442,7 @@ class App {
             const zoomedImage = this.createImg()
             zoomedImage.src = imageSrc
 
-            zoomedImage.className = `zoomed-img-${this.findOrientation(zoomedImage)}`
+            zoomedImage.className = appConstants.zoomedImageClass(this.findOrientation(zoomedImage))
             this.zoomedImageSection.appendChild(zoomedImage)
 
             this.zoomedImageSection.className = appConstants.ZOOMED_IMAGE_SECTION_SHOW
@@ -453,17 +460,17 @@ class App {
     getGalleryContents = (section: GallerySection): HTMLElement => {
         // Create Gallery list
         const galleryImageList = this.createDiv()
-        galleryImageList.className = 'gallery-image-list'
+        galleryImageList.className = appConstants.GALLERY_IMAGE_LIST
 
         // Go through images
         section.gallery.forEach((image) => {
             // Create image section
             const galleryImageSection = this.createDiv()
-            galleryImageSection.className = 'gallery-image-section'
+            galleryImageSection.className = appConstants.GALLERY_IMAGE_SECTION
 
             // Create img
             const galleryImg = this.createImg()
-            galleryImg.className = 'gallery-img'
+            galleryImg.className = appConstants.GALLERY_IMAGE
             galleryImg.src = image.url
             galleryImg.onclick = this.zoomInImage(image.url)
 
@@ -473,7 +480,7 @@ class App {
             // Add caption
             if (image.caption) {
                 const galleryImageCaption = this.createDiv()
-                galleryImageCaption.className = 'gallery-img-caption'
+                galleryImageCaption.className = appConstants.GALLERY_IMAGE_CAPTION
                 galleryImageCaption.innerHTML = image.caption
 
                 galleryImageSection.appendChild(galleryImageCaption)
@@ -489,22 +496,22 @@ class App {
     getAttributesContents = (section: AttributesSection): HTMLElement => {
         // Create Attributes list
         const attributesList = this.createDiv()
-        attributesList.className = 'attributes-list'
+        attributesList.className = appConstants.ATTRIBUTES_LIST
 
         // Go through attributes
         section.attributes.forEach((attr) => {
             // Create attribute
             const attribute = this.createDiv()
-            attribute.className = 'attribute'
+            attribute.className = appConstants.ATTRIBUTE
 
             // Create title
             const attributeTitle = this.createDiv()
-            attributeTitle.className = 'attribute-title'
+            attributeTitle.className = appConstants.ATTRIBUTE_TITLE
             attributeTitle.innerHTML = attr.attributeName
 
             // Create Value
             const attributeValue = this.createDiv()
-            attributeValue.className = 'attribute-value'
+            attributeValue.className = appConstants.ATTRIBUTE_VALUE
             attributeValue.innerHTML = attr.attributeText
 
             // Append to Attribute
@@ -521,16 +528,16 @@ class App {
     getAssociationsContents = (section: AssociationsSection): HTMLElement => {
         // Create Associations section
         const associationsSection = this.createDiv()
-        associationsSection.className = 'associations-section'
+        associationsSection.className = appConstants.ASSOCIATIONS_SECTION
 
         section.associations.forEach((assc) => {
             // Create Group
             const associationGroup = this.createDiv()
-            associationGroup.className = 'association-group'
+            associationGroup.className = appConstants.ASSOCIATION_GROUP
 
             // Add Title
             const associationTitle = this.createDiv()
-            associationTitle.className = 'association-title'
+            associationTitle.className = appConstants.ASSOCIATION_TITLE
             associationTitle.innerHTML = assc.associationName
             associationGroup.appendChild(associationTitle)
 
@@ -539,7 +546,7 @@ class App {
                 const associationPage = this.PAGE_MAP[asscPageId]
 
                 const pageAssociated = this.createDiv()
-                pageAssociated.className = 'associated-page'
+                pageAssociated.className = appConstants.ASSOCIATED_PAGE
                 pageAssociated.innerHTML = associationPage.name
 
                 // Allow click to link to other pages
@@ -561,11 +568,11 @@ class App {
         if (section.sectionImage) {
             // Create image section
             const sectionImageSection = this.createDiv()
-            sectionImageSection.className = 'page-section-image-section'
+            sectionImageSection.className = appConstants.PAGE_SECTION_IMAGE_SECTION
 
             // Create image
             const sectionImage = this.createImg()
-            sectionImage.className = 'page-section-img'
+            sectionImage.className = appConstants.PAGE_SECTION_IMAGE
             sectionImage.src = section.sectionImage.url
             sectionImage.onclick = this.zoomInImage(section.sectionImage.url)
 
@@ -575,7 +582,7 @@ class App {
             // Add caption
             if (section.sectionImage.caption) {
                 const sectionImageCaption = this.createDiv()
-                sectionImageCaption.className = 'page-section-img-caption'
+                sectionImageCaption.className = appConstants.PAGE_SECTION_IMAGE_CAPTION
                 sectionImageCaption.innerHTML = section.sectionImage.caption
 
                 sectionImageSection.appendChild(sectionImageCaption)
@@ -592,7 +599,7 @@ class App {
 
             // Create text body
             const textBody = this.createDiv()
-            textBody.className = 'page-section-text-body'
+            textBody.className = appConstants.PAGE_SECTION_TEXT_BODY
             textBody.innerHTML = body
 
             // Add text body to content
@@ -604,7 +611,7 @@ class App {
             body.forEach((subSection) => {
                 // Add subSection title
                 const subSectionTitle = this.createDiv()
-                subSectionTitle.className = 'page-subsection-title'
+                subSectionTitle.className = appConstants.PAGE_SUBSECTION_TITLE
                 subSectionTitle.innerHTML = subSection.subSectionTitle
 
                 // Add subSection title to contents
@@ -612,18 +619,18 @@ class App {
 
                 // Create Text Body
                 const subSectionTextBody = this.createDiv()
-                subSectionTextBody.className = 'page-subsection-text-body'
+                subSectionTextBody.className = appConstants.PAGE_SUBSECTION_TEXT_BODY
                 subSectionTextBody.innerHTML = subSection.subSectionText
 
                 // Add subSection image
                 if (subSection.subSectionImage) {
                     // Add subSection image section
                     const subSectionImageSection = this.createDiv()
-                    subSectionImageSection.className = 'page-subsection-image-section'
+                    subSectionImageSection.className = appConstants.PAGE_SUBSECTION_IMAGE_SECTION
 
                     // Create Image
                     const subSectionImage = this.createImg()
-                    subSectionImage.className = 'page-subsection-img'
+                    subSectionImage.className = appConstants.PAGE_SUBSECTION_IMAGE
                     subSectionImage.src = subSection.subSectionImage.url
                     subSectionImage.onclick = this.zoomInImage(subSection.subSectionImage.url)
 
@@ -633,7 +640,7 @@ class App {
                     // Add caption
                     if (subSection.subSectionImage.caption) {
                         const subSectionImageCaption = this.createDiv()
-                        subSectionImageCaption.className = 'page-subsection-img-caption'
+                        subSectionImageCaption.className = appConstants.PAGE_SUBSECTION_IMAGE_CAPTION
                         subSectionImageCaption.innerHTML = subSection.subSectionImage.caption
 
                         subSectionImageSection.appendChild(subSectionImageCaption)
@@ -655,18 +662,18 @@ class App {
         // Get Page Name
         const pageName = this.createDiv()
         pageName.innerHTML = page.name
-        pageName.className = 'page-title'
+        pageName.className = appConstants.PAGE_TITLE
         contents.push(pageName)
 
         // Add Page Image
         if (page.pageImage) {
             // Create Section
             const pageImageSection = this.createDiv()
-            pageImageSection.className = 'page-image-section'
+            pageImageSection.className = appConstants.PAGE_IMAGE_SECTION
 
             // Create Image
             const pageImage = this.createImg()
-            pageImage.className = 'page-img'
+            pageImage.className = appConstants.PAGE_IMAGE
             pageImage.src = page.pageImage.url
             pageImage.onclick = this.zoomInImage(page.pageImage.url)
 
@@ -676,7 +683,7 @@ class App {
             // Add caption
             if (page.pageImage.caption) {
                 const pageImageCaption = this.createDiv()
-                pageImageCaption.className = 'page-img-caption'
+                pageImageCaption.className = appConstants.PAGE_IMAGE_CAPTION
                 pageImageCaption.innerHTML = page.pageImage.caption
 
                 pageImageSection.appendChild(pageImageCaption)
@@ -691,7 +698,7 @@ class App {
             // Add section title
             const sectionTitle = this.createDiv()
             sectionTitle.innerHTML = section.title
-            sectionTitle.className = 'page-section-title'
+            sectionTitle.className = appConstants.PAGE_SECTION_TITLE
             contents.push(sectionTitle)
 
             if (GALLERY_TITLES_LIST.includes(section.title)) {
@@ -712,7 +719,7 @@ class App {
         if (page.tags) {
             // Create tags list
             const tagsList = this.createDiv()
-            tagsList.className = 'page-tags-list'
+            tagsList.className = appConstants.PAGE_TAGS_LIST
 
             // Add tag elements
             page.tags.forEach((tag) => {

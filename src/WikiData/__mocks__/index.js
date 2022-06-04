@@ -21,7 +21,8 @@ const characterOne = {
             title: 'Character One',
             body: 'Character one body'
         }
-    ]
+    ],
+    tags: new Set(['tagOne', 'tagTwo'])
 };
 const characterTwo = {
     id: 'character_two',
@@ -32,7 +33,8 @@ const characterTwo = {
             title: 'Character Two',
             body: 'Character two body'
         }
-    ]
+    ],
+    tags: new Set(['oneTag'])
 };
 const noteOne = {
     id: 'note_one',
@@ -43,7 +45,8 @@ const noteOne = {
             title: 'Note One',
             body: 'Note one body'
         }
-    ]
+    ],
+    tags: new Set(['noteTagOne', 'noteTagTwo'])
 };
 const noteTwo = {
     id: 'note_two',
@@ -54,7 +57,8 @@ const noteTwo = {
             title: 'Note Two',
             body: 'Note two body'
         }
-    ]
+    ],
+    tags: new Set(['oneTagNote'])
 };
 const WikiData = {
     homePage,

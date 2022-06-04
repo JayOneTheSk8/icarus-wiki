@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   node: circleci/node@5.0.2
+  browser-tools: circleci/browser-tools@1.1.0
 
 jobs:
   lint:
@@ -13,6 +14,22 @@ jobs:
       - run:
           command: npm run lint
           name: Lint Files
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
+
+  test-e2e:
+    docker:
+      - image: cimg/node:lts-browsers
+    steps:
+      - checkout
+      - browser-tools/install-browser-tools
+      - node/install-packages:
+          pkg-manager: npm
+      - run:
+          command: npm run test-e2e
+          name: E2E Tests
       - persist_to_workspace:
           root: ~/project
           paths:

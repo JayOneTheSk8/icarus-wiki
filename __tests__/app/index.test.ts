@@ -1,5 +1,6 @@
 import App from '../../src-ts/app'
 import * as appConstants from '../../src-ts/app/app-constants'
+import WikiData from '../../src-ts/WikiData/__mocks__'
 
 import {
     AssociationsSection,
@@ -14,6 +15,7 @@ import {
     ATTRIBUTES_TITLES_LIST,
     CHARACTERS_PAGE_TYPE,
     GALLERY_TITLES_LIST,
+    HOME_PAGE_TYPE,
     NOTES_PAGE_TYPE,
 } from '../../src-ts/constants'
 
@@ -3344,6 +3346,211 @@ describe('App', () => {
                     expect(app.changeToMobile).not.toHaveBeenCalled()
                 })
             })
+        })
+    })
+
+    describe('createHomeSelectors', () => {
+        it("populates the App's homePageSelector", () => {
+            const app = new App()
+            jest.spyOn(app, 'openPage')
+            app.createHomeSelectors()
+
+            const homePageTitle = app.homePageSelector[0]
+            const homePageOption = app.homePageSelector[1] as HTMLElement
+
+            expect(app.homePageSelector).toHaveLength(2)
+
+            expect(homePageTitle.innerHTML).toEqual(WikiData.homePage.name)
+            expect(homePageTitle.className).toEqual(appConstants.SECTION_TITLE)
+
+            expect(homePageOption.innerHTML).toEqual(HOME_PAGE_TYPE)
+            expect(homePageOption.className).toEqual(appConstants.PAGE_OPTION)
+            expect(homePageOption.onclick).toBeTruthy()
+
+            expect(app.openPage).toHaveBeenCalledWith(WikiData.homePage)
+        })
+
+        it('adds Page to PAGE_MAP', () => {
+            const app = new App()
+            app.createHomeSelectors()
+            expect(Object.keys(app.PAGE_MAP)).toHaveLength(1)
+            expect(app.PAGE_MAP[WikiData.homePage.id]).toEqual(WikiData.homePage)
+        })
+    })
+
+    describe('createCharacterSelectors', () => {
+        it("populates the App's charactersSelector", () => {
+            const app = new App()
+            jest.spyOn(app, 'searchForTags')
+            app.createCharacterSelectors()
+
+            expect(app.charactersSelector).toHaveLength(5)
+
+            // First element is section title
+            const charactersTitle = app.charactersSelector[0]
+            expect(charactersTitle.innerHTML).toEqual(CHARACTERS_PAGE_TYPE)
+            expect(charactersTitle.className).toEqual(appConstants.SECTION_TITLE)
+
+            // Second element is tag input
+            const tagInput = app.charactersSelector[1] as HTMLInputElement
+            expect(tagInput.className).toEqual(appConstants.SECTION_TAG_SEARCH)
+            expect(tagInput.placeholder).toEqual(appConstants.TAG_SEARCH_PLACEHOLDER)
+            expect(tagInput.oninput).toBeTruthy()
+            expect(app.searchForTags).toHaveBeenCalledWith(CHARACTERS_PAGE_TYPE)
+
+            // Tag Areas
+            const selectedTagArea = app.charactersSelector[2]
+            expect(selectedTagArea.className).toEqual(appConstants.SELECTED_TAG_RESULTS)
+
+            const searchResultTagArea = app.charactersSelector[3]
+            expect(searchResultTagArea.className).toEqual(appConstants.TAG_RESULTS)
+
+            // Character Page options
+            const characterOptions = app.charactersSelector[4]
+            expect(characterOptions.className).toEqual(appConstants.PAGE_OPTION_CONTAINER)
+
+            // 2 Characters in mock data
+            expect(characterOptions.children).toHaveLength(2)
+        })
+
+        it('adds the Characters Pages as options', () => {
+            const app = new App()
+            jest.spyOn(app, 'openPage')
+            app.createCharacterSelectors()
+
+            const characterOptions = app.charactersSelector[4]
+            const firstCharacterOption = characterOptions.children[0] as HTMLElement
+            const secondCharacterOption = characterOptions.children[1] as HTMLElement
+
+            expect(app.openPage).toHaveBeenCalledTimes(2)
+
+            expect(firstCharacterOption.className).toEqual(appConstants.PAGE_OPTION)
+            expect(firstCharacterOption.innerHTML).toEqual(WikiData.characters[0].name)
+            expect(firstCharacterOption.onclick).toBeTruthy()
+            expect(app.openPage).toHaveBeenCalledWith(WikiData.characters[0])
+
+            expect(secondCharacterOption.className).toEqual(appConstants.PAGE_OPTION)
+            expect(secondCharacterOption.innerHTML).toEqual(WikiData.characters[1].name)
+            expect(secondCharacterOption.onclick).toBeTruthy()
+            expect(app.openPage).toHaveBeenCalledWith(WikiData.characters[1])
+        })
+
+        it('populates DEFAULT_CHARACTERS_OPTIONS', () => {
+            const app = new App()
+            app.createCharacterSelectors()
+
+            expect(app.DEFAULT_CHARACTERS_OPTIONS).toHaveLength(2)
+        })
+
+        it("adds characters' tags to ALL_CHARACTER_TAGS", () => {
+            const app = new App()
+            jest.spyOn(app, 'addPageTags')
+            app.createCharacterSelectors()
+
+            expect(app.ALL_CHARACTER_TAGS.size).toEqual(3)
+            expect(app.ALL_CHARACTER_TAGS).toContain('tagOne')
+            expect(app.ALL_CHARACTER_TAGS).toContain('tagTwo')
+            expect(app.ALL_CHARACTER_TAGS).toContain('oneTag')
+
+            expect(app.addPageTags).toHaveBeenCalledWith(WikiData.characters[0])
+            expect(app.addPageTags).toHaveBeenCalledWith(WikiData.characters[1])
+        })
+
+        it('adds Character Pages to PAGE_MAP', () => {
+            const app = new App()
+            app.createCharacterSelectors()
+
+            expect(Object.keys(app.PAGE_MAP)).toHaveLength(2)
+            expect(app.PAGE_MAP[WikiData.characters[0].id]).toEqual(WikiData.characters[0])
+            expect(app.PAGE_MAP[WikiData.characters[1].id]).toEqual(WikiData.characters[1])
+        })
+    })
+
+    describe('createNoteSelectors', () => {
+        it("populates the App's notesSelector", () => {
+            const app = new App()
+            jest.spyOn(app, 'searchForTags')
+            app.createNoteSelectors()
+
+            expect(app.notesSelector).toHaveLength(5)
+
+            // First element is section title
+            const notesTitle = app.notesSelector[0]
+            expect(notesTitle.innerHTML).toEqual(NOTES_PAGE_TYPE)
+            expect(notesTitle.className).toEqual(appConstants.SECTION_TITLE)
+
+            // Second element is tag input
+            const tagInput = app.notesSelector[1] as HTMLInputElement
+            expect(tagInput.className).toEqual(appConstants.SECTION_TAG_SEARCH)
+            expect(tagInput.placeholder).toEqual(appConstants.TAG_SEARCH_PLACEHOLDER)
+            expect(tagInput.oninput).toBeTruthy()
+            expect(app.searchForTags).toHaveBeenCalledWith(NOTES_PAGE_TYPE)
+
+            // Tag Areas
+            const selectedTagArea = app.notesSelector[2]
+            expect(selectedTagArea.className).toEqual(appConstants.SELECTED_TAG_RESULTS)
+
+            const searchResultTagArea = app.notesSelector[3]
+            expect(searchResultTagArea.className).toEqual(appConstants.TAG_RESULTS)
+
+            // Note Page options
+            const noteOptions = app.notesSelector[4]
+            expect(noteOptions.className).toEqual(appConstants.PAGE_OPTION_CONTAINER)
+
+            // 2 Notes in mock data
+            expect(noteOptions.children).toHaveLength(2)
+        })
+
+        it('adds the Note Pages as options', () => {
+            const app = new App()
+            jest.spyOn(app, 'openPage')
+            app.createNoteSelectors()
+
+            const noteOptions = app.notesSelector[4]
+            const firstNoteOption = noteOptions.children[0] as HTMLElement
+            const secondNoteOption = noteOptions.children[1] as HTMLElement
+
+            expect(app.openPage).toHaveBeenCalledTimes(2)
+
+            expect(firstNoteOption.className).toEqual(appConstants.PAGE_OPTION)
+            expect(firstNoteOption.innerHTML).toEqual(WikiData.notes[0].name)
+            expect(firstNoteOption.onclick).toBeTruthy()
+            expect(app.openPage).toHaveBeenCalledWith(WikiData.notes[0])
+
+            expect(secondNoteOption.className).toEqual(appConstants.PAGE_OPTION)
+            expect(secondNoteOption.innerHTML).toEqual(WikiData.notes[1].name)
+            expect(secondNoteOption.onclick).toBeTruthy()
+            expect(app.openPage).toHaveBeenCalledWith(WikiData.notes[1])
+        })
+
+        it('populates DEFAULT_NOTES_OPTIONS', () => {
+            const app = new App()
+            app.createNoteSelectors()
+
+            expect(app.DEFAULT_NOTES_OPTIONS).toHaveLength(2)
+        })
+
+        it("adds notes' tags to ALL_NOTE_TAGS", () => {
+            const app = new App()
+            jest.spyOn(app, 'addPageTags')
+            app.createNoteSelectors()
+
+            expect(app.ALL_NOTE_TAGS.size).toEqual(3)
+            expect(app.ALL_NOTE_TAGS).toContain('noteTagOne')
+            expect(app.ALL_NOTE_TAGS).toContain('noteTagTwo')
+            expect(app.ALL_NOTE_TAGS).toContain('oneTagNote')
+
+            expect(app.addPageTags).toHaveBeenCalledWith(WikiData.notes[0])
+            expect(app.addPageTags).toHaveBeenCalledWith(WikiData.notes[1])
+        })
+
+        it('adds Note Pages to PAGE_MAP', () => {
+            const app = new App()
+            app.createNoteSelectors()
+
+            expect(Object.keys(app.PAGE_MAP)).toHaveLength(2)
+            expect(app.PAGE_MAP[WikiData.notes[0].id]).toEqual(WikiData.notes[0])
+            expect(app.PAGE_MAP[WikiData.notes[1].id]).toEqual(WikiData.notes[1])
         })
     })
 })

@@ -96,6 +96,7 @@ workflows:
     jobs:
       - lint
       - test
+      - test-e2e
       - sass
       - tsc
       - build

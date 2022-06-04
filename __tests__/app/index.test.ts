@@ -3260,4 +3260,90 @@ describe('App', () => {
             })
         })
     })
+
+    describe('handleResize', () => {
+        describe("when windows width is less than the App's mobile width limit", () => {
+            beforeEach(() => {
+                window.innerWidth = new App().MOBILE_WIDTH_LIMIT - 1
+            })
+
+            describe('when already using mobile', () => {
+                const app = new App()
+                app.usingMobile = true
+                jest.spyOn(app, 'changeToMobile')
+
+                it('does not change the App to mobile', () => {
+                    app.handleResize()
+                    expect(app.changeToMobile).not.toHaveBeenCalled()
+                })
+            })
+
+            describe('when not using mobile', () => {
+                const app = new App()
+                app.usingMobile = false
+                jest.spyOn(app, 'changeToMobile')
+
+                it('changes the App to mobile', () => {
+                    app.handleResize()
+                    expect(app.changeToMobile).toHaveBeenCalledWith(true)
+                })
+            })
+        })
+
+        describe("when windows width is greater than the App's mobile width limit", () => {
+            beforeEach(() => {
+                window.innerWidth = new App().MOBILE_WIDTH_LIMIT + 1
+            })
+
+            describe('when using mobile', () => {
+                const app = new App()
+                app.usingMobile = true
+                jest.spyOn(app, 'changeToMobile')
+
+                it('takes the App off mobile', () => {
+                    app.handleResize()
+                    expect(app.changeToMobile).toHaveBeenCalledWith(false)
+                })
+            })
+
+            describe('when not using mobile', () => {
+                const app = new App()
+                app.usingMobile = false
+                jest.spyOn(app, 'changeToMobile')
+
+                it('does not attempt to take the App off mobile', () => {
+                    app.handleResize()
+                    expect(app.changeToMobile).not.toHaveBeenCalled()
+                })
+            })
+        })
+
+        describe("when windows width is equal to the App's mobile width limit", () => {
+            beforeEach(() => {
+                window.innerWidth = new App().MOBILE_WIDTH_LIMIT
+            })
+
+            describe('when using mobile', () => {
+                const app = new App()
+                app.usingMobile = true
+                jest.spyOn(app, 'changeToMobile')
+
+                it('takes the App off mobile', () => {
+                    app.handleResize()
+                    expect(app.changeToMobile).toHaveBeenCalledWith(false)
+                })
+            })
+
+            describe('when not using mobile', () => {
+                const app = new App()
+                app.usingMobile = false
+                jest.spyOn(app, 'changeToMobile')
+
+                it('does not attempt to take the App off mobile', () => {
+                    app.handleResize()
+                    expect(app.changeToMobile).not.toHaveBeenCalled()
+                })
+            })
+        })
+    })
 })

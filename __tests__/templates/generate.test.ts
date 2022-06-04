@@ -111,7 +111,7 @@ describe('File Generate Script', () => {
                 jest.spyOn(console, 'log').mockImplementation((str) => str)
 
                 generate('-h', '', '', '')
-                expect(console.log).toHaveBeenCalledTimes(23)
+                expect(console.log).toHaveBeenCalledTimes(23) // eslint-disable-line
             })
         })
 

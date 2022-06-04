@@ -60,7 +60,7 @@ export default NoteOne
 describe('Page Template', () => {
     describe('when creating character page', () => {
         describe('when single name page', () => {
-            test("it returns the page name template with the page's ID imported", () => {
+            it("it returns the page name template with the page's ID imported", () => {
                 expect(page('Person', 'PERSON', CHARACTERS_PAGE_TYPE)).toEqual(singleNameCharacterPage)
             })
         })
@@ -74,7 +74,7 @@ describe('Page Template', () => {
 
     describe('when creating note page', () => {
         describe('when single name page', () => {
-            test("it returns the page name template with the page's ID imported", () => {
+            it("it returns the page name template with the page's ID imported", () => {
                 expect(page('Note', 'NOTE', NOTES_PAGE_TYPE)).toEqual(singleNameNotePage)
             })
         })

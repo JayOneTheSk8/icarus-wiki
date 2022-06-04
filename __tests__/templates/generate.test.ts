@@ -107,7 +107,7 @@ describe('File Generate Script', () => {
     describe('when given suitable arguments', () => {
 
         describe('when getting help', () => {
-            test('logs help info to console', () => {
+            it('logs help info to console', () => {
                 jest.spyOn(console, 'log').mockImplementation((str) => str)
 
                 generate('-h', '', '', '')

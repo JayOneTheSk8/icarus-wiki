@@ -1712,7 +1712,7 @@ describe('App', () => {
 
                     expect(app.findOrientation).toHaveBeenCalledTimes(1)
                     expect(app.zoomedImageSection.children).toHaveLength(1)
-                    expect(app.zoomedImageSection.children[0].className).toEqual('zoomed-img-portrait')
+                    expect(app.zoomedImageSection.children[0].className).toEqual(appConstants.zoomedImageClass('portrait'))
                 })
             })
 
@@ -1723,7 +1723,7 @@ describe('App', () => {
 
                     expect(app.findOrientation).toHaveBeenCalledTimes(1)
                     expect(app.zoomedImageSection.children).toHaveLength(1)
-                    expect(app.zoomedImageSection.children[0].className).toEqual('zoomed-img-landscape')
+                    expect(app.zoomedImageSection.children[0].className).toEqual(appConstants.zoomedImageClass('landscape'))
                 })
             })
         })
@@ -1765,7 +1765,7 @@ describe('App', () => {
         const gallerySectionEl = app.getGalleryContents(gallerySection)
 
         it('creates a gallery image list', () => {
-            expect(gallerySectionEl.className).toEqual('gallery-image-list')
+            expect(gallerySectionEl.className).toEqual(appConstants.GALLERY_IMAGE_LIST)
         })
 
         it('creates a section for every image', () => {
@@ -1773,7 +1773,7 @@ describe('App', () => {
 
             const imageSections = [...gallerySectionEl.children]
             imageSections.forEach((section) => {
-                expect(section.className).toEqual('gallery-image-section')
+                expect(section.className).toEqual(appConstants.GALLERY_IMAGE_SECTION)
             })
         })
 
@@ -1781,7 +1781,7 @@ describe('App', () => {
             const imageSections = [...gallerySectionEl.children]
             imageSections.forEach((section) => {
                 expect(section.children[0].tagName).toEqual('IMG')
-                expect(section.children[0].className).toEqual('gallery-img')
+                expect(section.children[0].className).toEqual(appConstants.GALLERY_IMAGE)
             })
 
             const firstImageEl = imageSections[0].children[0] as HTMLImageElement
@@ -1803,7 +1803,7 @@ describe('App', () => {
             const secondImageCaption = gallerySectionEl.children[1].children[1]
 
             expect(firstImageCaption).toBeTruthy()
-            expect(firstImageCaption.className).toEqual('gallery-img-caption')
+            expect(firstImageCaption.className).toEqual(appConstants.GALLERY_IMAGE_CAPTION)
             expect(firstImageCaption.innerHTML).toEqual('Test Image 1')
 
             expect(secondImageCaption).toBeFalsy()
@@ -1828,29 +1828,29 @@ describe('App', () => {
         const attributesSectionEl = app.getAttributesContents(attributesSection)
 
         it('creates an attribute list element', () => {
-            expect(attributesSectionEl.className).toEqual('attributes-list')
+            expect(attributesSectionEl.className).toEqual(appConstants.ATTRIBUTES_LIST)
         })
 
         it('creates an attribute section for every attribute', () => {
             expect(attributesSectionEl.children).toHaveLength(2)
-            expect(attributesSectionEl.children[0].className).toEqual('attribute')
-            expect(attributesSectionEl.children[1].className).toEqual('attribute')
+            expect(attributesSectionEl.children[0].className).toEqual(appConstants.ATTRIBUTE)
+            expect(attributesSectionEl.children[1].className).toEqual(appConstants.ATTRIBUTE)
         })
 
         it('create an attribute title and value element based on section', () => {
             const attrSectionOne = attributesSectionEl.children[0]
             const attrSectionTwo = attributesSectionEl.children[1]
 
-            expect(attrSectionOne.children[0].className).toEqual('attribute-title')
+            expect(attrSectionOne.children[0].className).toEqual(appConstants.ATTRIBUTE_TITLE)
             expect(attrSectionOne.children[0].innerHTML).toEqual('Attr1')
 
-            expect(attrSectionOne.children[1].className).toEqual('attribute-value')
+            expect(attrSectionOne.children[1].className).toEqual(appConstants.ATTRIBUTE_VALUE)
             expect(attrSectionOne.children[1].innerHTML).toEqual('attr1text')
 
-            expect(attrSectionTwo.children[0].className).toEqual('attribute-title')
+            expect(attrSectionTwo.children[0].className).toEqual(appConstants.ATTRIBUTE_TITLE)
             expect(attrSectionTwo.children[0].innerHTML).toEqual('Attr2')
 
-            expect(attrSectionTwo.children[1].className).toEqual('attribute-value')
+            expect(attrSectionTwo.children[1].className).toEqual(appConstants.ATTRIBUTE_VALUE)
             expect(attrSectionTwo.children[1].innerHTML).toEqual('attr2text')
         })
     })
@@ -1916,25 +1916,25 @@ describe('App', () => {
         const associationsSectionEl = app.getAssociationsContents(openedPage.sections[0] as AssociationsSection)
 
         it('creates an associations section', () => {
-            expect(associationsSectionEl.className).toEqual('associations-section')
+            expect(associationsSectionEl.className).toEqual(appConstants.ASSOCIATIONS_SECTION)
         })
 
         it('creates a group for each association', () => {
             const associationGroup = [...associationsSectionEl.children]
 
             expect(associationGroup).toHaveLength(2)
-            expect(associationGroup[0].className).toEqual('association-group')
-            expect(associationGroup[1].className).toEqual('association-group')
+            expect(associationGroup[0].className).toEqual(appConstants.ASSOCIATION_GROUP)
+            expect(associationGroup[1].className).toEqual(appConstants.ASSOCIATION_GROUP)
         })
 
         it('creates a title for each association group', () => {
             const siblingsGroup = associationsSectionEl.children[0]
             const friendsGroup = associationsSectionEl.children[1]
 
-            expect(siblingsGroup.children[0].className).toEqual('association-title')
+            expect(siblingsGroup.children[0].className).toEqual(appConstants.ASSOCIATION_TITLE)
             expect(siblingsGroup.children[0].innerHTML).toEqual('Siblings')
 
-            expect(friendsGroup.children[0].className).toEqual('association-title')
+            expect(friendsGroup.children[0].className).toEqual(appConstants.ASSOCIATION_TITLE)
             expect(friendsGroup.children[0].innerHTML).toEqual('Friends')
         })
 
@@ -1946,15 +1946,15 @@ describe('App', () => {
             const friendAssociation1 = friendsGroup.children[1] as HTMLElement
             const friendAssociation2 = friendsGroup.children[2] as HTMLElement
 
-            expect(siblingAssociation.className).toEqual('associated-page')
+            expect(siblingAssociation.className).toEqual(appConstants.ASSOCIATED_PAGE)
             expect(siblingAssociation.innerHTML).toEqual('Sibling Page')
             expect(siblingAssociation.onclick).toBeTruthy()
 
-            expect(friendAssociation1.className).toEqual('associated-page')
+            expect(friendAssociation1.className).toEqual(appConstants.ASSOCIATED_PAGE)
             expect(friendAssociation1.innerHTML).toEqual('Friend Page 1')
             expect(friendAssociation1.onclick).toBeTruthy()
 
-            expect(friendAssociation2.className).toEqual('associated-page')
+            expect(friendAssociation2.className).toEqual(appConstants.ASSOCIATED_PAGE)
             expect(friendAssociation2.innerHTML).toEqual('Friend Page 2')
             expect(friendAssociation2.onclick).toBeTruthy()
         })
@@ -1981,7 +1981,7 @@ describe('App', () => {
                 app.addPageSectionToContents(contents, pageSection)
 
                 expect(contents).toHaveLength(1)
-                expect(contents[0].className).toEqual('page-section-text-body')
+                expect(contents[0].className).toEqual(appConstants.PAGE_SECTION_TEXT_BODY)
                 expect(contents[0].innerHTML).toEqual(textBody)
             })
 
@@ -2003,7 +2003,7 @@ describe('App', () => {
 
                     expect(contents).toHaveLength(2)
                     expect(imageSection.children).toHaveLength(1)
-                    expect(imageSection.className).toEqual('page-section-image-section')
+                    expect(imageSection.className).toEqual(appConstants.PAGE_SECTION_IMAGE_SECTION)
                 })
 
                 it('adds the image as a child of the section', () => {
@@ -2013,7 +2013,7 @@ describe('App', () => {
                     const image = contents[0].children[0] as HTMLImageElement
 
                     expect(image.tagName).toEqual('IMG')
-                    expect(image.className).toEqual('page-section-img')
+                    expect(image.className).toEqual(appConstants.PAGE_SECTION_IMAGE)
                     expect(image.src.endsWith(imageUrl)).toBeTruthy()
                     expect(image.onclick).toBeTruthy()
 
@@ -2024,7 +2024,7 @@ describe('App', () => {
                     const contents: Array<HTMLElement> = []
                     app.addPageSectionToContents(contents, pageSectionWithImage)
 
-                    expect(contents[1].className).toEqual('page-section-text-body')
+                    expect(contents[1].className).toEqual(appConstants.PAGE_SECTION_TEXT_BODY)
                     expect(contents[1].innerHTML).toEqual(textBody)
                 })
 
@@ -2047,7 +2047,7 @@ describe('App', () => {
 
                         expect(contents).toHaveLength(2)
                         expect(imageSection.children).toHaveLength(2)
-                        expect(imageSection.className).toEqual('page-section-image-section')
+                        expect(imageSection.className).toEqual(appConstants.PAGE_SECTION_IMAGE_SECTION)
                     })
 
                     it('adds the image as the first child of the image section element', () => {
@@ -2057,7 +2057,7 @@ describe('App', () => {
                         const image = contents[0].children[0] as HTMLImageElement
 
                         expect(image.tagName).toEqual('IMG')
-                        expect(image.className).toEqual('page-section-img')
+                        expect(image.className).toEqual(appConstants.PAGE_SECTION_IMAGE)
                         expect(image.src.endsWith(imageUrl)).toBeTruthy()
                         expect(image.onclick).toBeTruthy()
 
@@ -2070,7 +2070,7 @@ describe('App', () => {
 
                         const caption = contents[0].children[1] as HTMLElement
 
-                        expect(caption.className).toEqual('page-section-img-caption')
+                        expect(caption.className).toEqual(appConstants.PAGE_SECTION_IMAGE_CAPTION)
                         expect(caption.innerHTML).toEqual(imageCaption)
                     })
 
@@ -2078,7 +2078,7 @@ describe('App', () => {
                         const contents: Array<HTMLElement> = []
                         app.addPageSectionToContents(contents, pageSectionWithImage)
 
-                        expect(contents[1].className).toEqual('page-section-text-body')
+                        expect(contents[1].className).toEqual(appConstants.PAGE_SECTION_TEXT_BODY)
                         expect(contents[1].innerHTML).toEqual(textBody)
                     })
                 })
@@ -2103,7 +2103,7 @@ describe('App', () => {
                 app.addPageSectionToContents(contents, pageSection)
 
                 expect(contents).toHaveLength(2)
-                expect(contents[0].className).toEqual('page-subsection-title')
+                expect(contents[0].className).toEqual(appConstants.PAGE_SUBSECTION_TITLE)
                 expect(contents[0].innerHTML).toEqual(subSectionTitle)
             })
 
@@ -2111,7 +2111,7 @@ describe('App', () => {
                 const contents: Array<HTMLElement> = []
                 app.addPageSectionToContents(contents, pageSection)
 
-                expect(contents[1].className).toEqual('page-subsection-text-body')
+                expect(contents[1].className).toEqual(appConstants.PAGE_SUBSECTION_TEXT_BODY)
                 expect(contents[1].innerHTML).toEqual(subSectionBody)
             })
 
@@ -2135,7 +2135,7 @@ describe('App', () => {
                     app.addPageSectionToContents(contents, pageSectionWithSubImage)
 
                     expect(contents).toHaveLength(2)
-                    expect(contents[0].className).toEqual('page-subsection-title')
+                    expect(contents[0].className).toEqual(appConstants.PAGE_SUBSECTION_TITLE)
                     expect(contents[0].innerHTML).toEqual(subSectionTitle)
                 })
 
@@ -2143,7 +2143,7 @@ describe('App', () => {
                     const contents: Array<HTMLElement> = []
                     app.addPageSectionToContents(contents, pageSectionWithSubImage)
 
-                    expect(contents[1].className).toEqual('page-subsection-text-body')
+                    expect(contents[1].className).toEqual(appConstants.PAGE_SUBSECTION_TEXT_BODY)
                     expect(contents[1].innerHTML.startsWith(subSectionBody)).toBeTruthy()
                 })
 
@@ -2153,7 +2153,7 @@ describe('App', () => {
 
                     const imageSection = contents[1].children[0]
 
-                    expect(imageSection.className).toEqual('page-subsection-image-section')
+                    expect(imageSection.className).toEqual(appConstants.PAGE_SUBSECTION_IMAGE_SECTION)
                     expect(imageSection.children).toHaveLength(1)
                 })
 
@@ -2164,7 +2164,7 @@ describe('App', () => {
                     const image = contents[1].children[0].children[0] as HTMLImageElement
 
                     expect(image.tagName).toEqual('IMG')
-                    expect(image.className).toEqual('page-subsection-img')
+                    expect(image.className).toEqual(appConstants.PAGE_SUBSECTION_IMAGE)
                     expect(image.src.endsWith(subSectionImageUrl)).toBeTruthy()
                     expect(image.onclick).toBeTruthy()
 
@@ -2192,7 +2192,7 @@ describe('App', () => {
                         app.addPageSectionToContents(contents, pageSectionWithSubImageCaption)
 
                         expect(contents).toHaveLength(2)
-                        expect(contents[0].className).toEqual('page-subsection-title')
+                        expect(contents[0].className).toEqual(appConstants.PAGE_SUBSECTION_TITLE)
                         expect(contents[0].innerHTML).toEqual(subSectionTitle)
                     })
 
@@ -2200,7 +2200,7 @@ describe('App', () => {
                         const contents: Array<HTMLElement> = []
                         app.addPageSectionToContents(contents, pageSectionWithSubImageCaption)
 
-                        expect(contents[1].className).toEqual('page-subsection-text-body')
+                        expect(contents[1].className).toEqual(appConstants.PAGE_SUBSECTION_TEXT_BODY)
                         expect(contents[1].innerHTML.startsWith(subSectionBody)).toBeTruthy()
                     })
 
@@ -2210,7 +2210,7 @@ describe('App', () => {
 
                         const imageSection = contents[1].children[0]
 
-                        expect(imageSection.className).toEqual('page-subsection-image-section')
+                        expect(imageSection.className).toEqual(appConstants.PAGE_SUBSECTION_IMAGE_SECTION)
                         expect(imageSection.children).toHaveLength(2)
                     })
 
@@ -2221,7 +2221,7 @@ describe('App', () => {
                         const image = contents[1].children[0].children[0] as HTMLImageElement
 
                         expect(image.tagName).toEqual('IMG')
-                        expect(image.className).toEqual('page-subsection-img')
+                        expect(image.className).toEqual(appConstants.PAGE_SUBSECTION_IMAGE)
                         expect(image.src.endsWith(subSectionImageUrl)).toBeTruthy()
                         expect(image.onclick).toBeTruthy()
 
@@ -2234,7 +2234,7 @@ describe('App', () => {
 
                         const caption = contents[1].children[0].children[1]
 
-                        expect(caption.className).toEqual('page-subsection-img-caption')
+                        expect(caption.className).toEqual(appConstants.PAGE_SUBSECTION_IMAGE_CAPTION)
                         expect(caption.innerHTML).toEqual(imageCaption)
                     })
                 })
@@ -2258,7 +2258,7 @@ describe('App', () => {
         it("adds the Page's title first", () => {
             const contents = new App().getPageHTMLContents(emptyPage)
             expect(contents).toHaveLength(2)
-            expect(contents[0].className).toEqual('page-title')
+            expect(contents[0].className).toEqual(appConstants.PAGE_TITLE)
             expect(contents[0].innerHTML).toEqual(emptyPageName)
         })
 
@@ -2292,14 +2292,14 @@ describe('App', () => {
             it("adds the Page's title first", () => {
                 const contents = new App().getPageHTMLContents(pageWithImage)
                 expect(contents).toHaveLength(3)
-                expect(contents[0].className).toEqual('page-title')
+                expect(contents[0].className).toEqual(appConstants.PAGE_TITLE)
                 expect(contents[0].innerHTML).toEqual(pageWithImageName)
             })
 
             it('adds an image section below the title', () => {
                 const contents = new App().getPageHTMLContents(pageWithImage)
                 expect(contents[1].children).toHaveLength(1)
-                expect(contents[1].className).toEqual('page-image-section')
+                expect(contents[1].className).toEqual(appConstants.PAGE_IMAGE_SECTION)
             })
 
             it('adds an image as a child of the image section', () => {
@@ -2309,7 +2309,7 @@ describe('App', () => {
                 const contents = app.getPageHTMLContents(pageWithImage)
 
                 const image = contents[1].children[0] as HTMLImageElement
-                expect(image.className).toEqual('page-img')
+                expect(image.className).toEqual(appConstants.PAGE_IMAGE)
                 expect(image.src.endsWith(pageImageUrl)).toBeTruthy()
                 expect(image.onclick).toBeTruthy()
 
@@ -2337,14 +2337,14 @@ describe('App', () => {
                 it("adds the Page's title first", () => {
                     const contents = new App().getPageHTMLContents(pageWithImageCaption)
                     expect(contents).toHaveLength(3)
-                    expect(contents[0].className).toEqual('page-title')
+                    expect(contents[0].className).toEqual(appConstants.PAGE_TITLE)
                     expect(contents[0].innerHTML).toEqual(pageWithImageName)
                 })
 
                 it('adds an image section below the title', () => {
                     const contents = new App().getPageHTMLContents(pageWithImageCaption)
                     expect(contents[1].children).toHaveLength(2)
-                    expect(contents[1].className).toEqual('page-image-section')
+                    expect(contents[1].className).toEqual(appConstants.PAGE_IMAGE_SECTION)
                 })
 
                 it('adds an image as the first child of the image section', () => {
@@ -2354,7 +2354,7 @@ describe('App', () => {
                     const contents = app.getPageHTMLContents(pageWithImageCaption)
 
                     const image = contents[1].children[0] as HTMLImageElement
-                    expect(image.className).toEqual('page-img')
+                    expect(image.className).toEqual(appConstants.PAGE_IMAGE)
                     expect(image.src.endsWith(pageImageUrl)).toBeTruthy()
                     expect(image.onclick).toBeTruthy()
 
@@ -2364,7 +2364,7 @@ describe('App', () => {
                 it('adds an caption as the last child of the image section', () => {
                     const contents = new App().getPageHTMLContents(pageWithImageCaption)
                     const caption = contents[1].children[1]
-                    expect(caption.className).toEqual('page-img-caption')
+                    expect(caption.className).toEqual(appConstants.PAGE_IMAGE_CAPTION)
                     expect(caption.innerHTML).toEqual(imageCaption)
                 })
 
@@ -2396,13 +2396,13 @@ describe('App', () => {
                 it("adds the Page's title first", () => {
                     const contents = new App().getPageHTMLContents(sectionPage)
                     expect(contents).toHaveLength(4)
-                    expect(contents[0].className).toEqual('page-title')
+                    expect(contents[0].className).toEqual(appConstants.PAGE_TITLE)
                     expect(contents[0].innerHTML).toEqual(pageWithPageSectionName)
                 })
 
                 it("adds the PageSection's title second", () => {
                     const contents = new App().getPageHTMLContents(sectionPage)
-                    expect(contents[1].className).toEqual('page-section-title')
+                    expect(contents[1].className).toEqual(appConstants.PAGE_SECTION_TITLE)
                     expect(contents[1].innerHTML).toEqual(sectionTitle)
                 })
 
@@ -2411,7 +2411,7 @@ describe('App', () => {
                     jest.spyOn(app, 'addPageSectionToContents')
                     const contents = app.getPageHTMLContents(sectionPage)
 
-                    expect(contents[2].className).toEqual('page-section-text-body')
+                    expect(contents[2].className).toEqual(appConstants.PAGE_SECTION_TEXT_BODY)
                     expect(contents[2].innerHTML).toEqual(sectionBody)
                     expect(app.addPageSectionToContents).toHaveBeenCalledTimes(1)
                 })
@@ -2445,13 +2445,13 @@ describe('App', () => {
                 it("adds the Page's title first", () => {
                     const contents = new App().getPageHTMLContents(gallerySectionPage)
                     expect(contents).toHaveLength(4)
-                    expect(contents[0].className).toEqual('page-title')
+                    expect(contents[0].className).toEqual(appConstants.PAGE_TITLE)
                     expect(contents[0].innerHTML).toEqual(pageWithGallerySectionName)
                 })
 
                 it("adds the GallerySection's title second", () => {
                     const contents = new App().getPageHTMLContents(gallerySectionPage)
-                    expect(contents[1].className).toEqual('page-section-title')
+                    expect(contents[1].className).toEqual(appConstants.PAGE_SECTION_TITLE)
                     expect(contents[1].innerHTML).toEqual(GALLERY_TITLES_LIST[0])
                 })
 
@@ -2460,7 +2460,7 @@ describe('App', () => {
                     jest.spyOn(app, 'getGalleryContents')
                     const contents = app.getPageHTMLContents(gallerySectionPage)
 
-                    expect(contents[2].className).toEqual('gallery-image-list')
+                    expect(contents[2].className).toEqual(appConstants.GALLERY_IMAGE_LIST)
                     expect(app.getGalleryContents).toHaveBeenCalledTimes(1)
                 })
 
@@ -2493,13 +2493,13 @@ describe('App', () => {
                 it("adds the Page's title first", () => {
                     const contents = new App().getPageHTMLContents(attributesSectionPage)
                     expect(contents).toHaveLength(4)
-                    expect(contents[0].className).toEqual('page-title')
+                    expect(contents[0].className).toEqual(appConstants.PAGE_TITLE)
                     expect(contents[0].innerHTML).toEqual(pageWithAttributesSectionName)
                 })
 
                 it("adds the AttributesSection's title second", () => {
                     const contents = new App().getPageHTMLContents(attributesSectionPage)
-                    expect(contents[1].className).toEqual('page-section-title')
+                    expect(contents[1].className).toEqual(appConstants.PAGE_SECTION_TITLE)
                     expect(contents[1].innerHTML).toEqual(ATTRIBUTES_TITLES_LIST[0])
                 })
 
@@ -2508,7 +2508,7 @@ describe('App', () => {
                     jest.spyOn(app, 'getAttributesContents')
                     const contents = app.getPageHTMLContents(attributesSectionPage)
 
-                    expect(contents[2].className).toEqual('attributes-list')
+                    expect(contents[2].className).toEqual(appConstants.ATTRIBUTES_LIST)
                     expect(app.getAttributesContents).toHaveBeenCalledTimes(1)
                 })
 
@@ -2564,13 +2564,13 @@ describe('App', () => {
                 it("adds the Page's title first", () => {
                     const contents = app.getPageHTMLContents(associationsSectionPage)
                     expect(contents).toHaveLength(4)
-                    expect(contents[0].className).toEqual('page-title')
+                    expect(contents[0].className).toEqual(appConstants.PAGE_TITLE)
                     expect(contents[0].innerHTML).toEqual(pageWithAssociationsSectionName)
                 })
 
                 it("adds the AssociationsSection's title second", () => {
                     const contents = app.getPageHTMLContents(associationsSectionPage)
-                    expect(contents[1].className).toEqual('page-section-title')
+                    expect(contents[1].className).toEqual(appConstants.PAGE_SECTION_TITLE)
                     expect(contents[1].innerHTML).toEqual(ASSOCIATIONS_TITLES_LIST[0])
                 })
 
@@ -2578,7 +2578,7 @@ describe('App', () => {
                     jest.spyOn(app, 'getAssociationsContents')
                     const contents = app.getPageHTMLContents(associationsSectionPage)
 
-                    expect(contents[2].className).toEqual('associations-section')
+                    expect(contents[2].className).toEqual(appConstants.ASSOCIATIONS_SECTION)
                     expect(app.getAssociationsContents).toHaveBeenCalledTimes(1)
                 })
 
@@ -2603,13 +2603,13 @@ describe('App', () => {
                 it("adds the Page's title first", () => {
                     const contents = new App().getPageHTMLContents(characterPageWithTags)
                     expect(contents).toHaveLength(3)
-                    expect(contents[0].className).toEqual('page-title')
+                    expect(contents[0].className).toEqual(appConstants.PAGE_TITLE)
                     expect(contents[0].innerHTML).toEqual(characterPageWithTagsName)
                 })
 
                 it("adds the Page's tags list second", () => {
                     const contents = new App().getPageHTMLContents(characterPageWithTags)
-                    expect(contents[1].className).toEqual('page-tags-list')
+                    expect(contents[1].className).toEqual(appConstants.PAGE_TAGS_LIST)
                     expect(contents[1].children).toHaveLength(2)
                 })
 
@@ -2658,13 +2658,13 @@ describe('App', () => {
                 it("adds the Page's title first", () => {
                     const contents = new App().getPageHTMLContents(notePageWithTags)
                     expect(contents).toHaveLength(3)
-                    expect(contents[0].className).toEqual('page-title')
+                    expect(contents[0].className).toEqual(appConstants.PAGE_TITLE)
                     expect(contents[0].innerHTML).toEqual(notePageWithTagsName)
                 })
 
                 it("adds the Page's tags list second", () => {
                     const contents = new App().getPageHTMLContents(notePageWithTags)
-                    expect(contents[1].className).toEqual('page-tags-list')
+                    expect(contents[1].className).toEqual(appConstants.PAGE_TAGS_LIST)
                     expect(contents[1].children).toHaveLength(2)
                 })
 
@@ -2737,14 +2737,14 @@ describe('App', () => {
             it("adds the Page's title first", () => {
                 const contents = new App().getPageHTMLContents(fullPage)
                 expect(contents).toHaveLength(8)
-                expect(contents[0].className).toEqual('page-title')
+                expect(contents[0].className).toEqual(appConstants.PAGE_TITLE)
                 expect(contents[0].innerHTML).toEqual(pageTitle)
             })
 
             it('adds an image section below the title', () => {
                 const contents = new App().getPageHTMLContents(fullPage)
                 expect(contents[1].children).toHaveLength(2)
-                expect(contents[1].className).toEqual('page-image-section')
+                expect(contents[1].className).toEqual(appConstants.PAGE_IMAGE_SECTION)
             })
 
             it('adds an image as the first child of the image section', () => {
@@ -2754,7 +2754,7 @@ describe('App', () => {
                 const contents = app.getPageHTMLContents(fullPage)
 
                 const image = contents[1].children[0] as HTMLImageElement
-                expect(image.className).toEqual('page-img')
+                expect(image.className).toEqual(appConstants.PAGE_IMAGE)
                 expect(image.src.endsWith(fullImageLink)).toBeTruthy()
                 expect(image.onclick).toBeTruthy()
 
@@ -2764,13 +2764,13 @@ describe('App', () => {
             it('adds an caption as the last child of the image section', () => {
                 const contents = new App().getPageHTMLContents(fullPage)
                 const caption = contents[1].children[1]
-                expect(caption.className).toEqual('page-img-caption')
+                expect(caption.className).toEqual(appConstants.PAGE_IMAGE_CAPTION)
                 expect(caption.innerHTML).toEqual(fullImageComment)
             })
 
             it("adds the first sections's title below the image section", () => {
                 const contents = new App().getPageHTMLContents(fullPage)
-                expect(contents[2].className).toEqual('page-section-title')
+                expect(contents[2].className).toEqual(appConstants.PAGE_SECTION_TITLE)
                 expect(contents[2].innerHTML).toEqual(sectionOneName)
             })
 
@@ -2779,14 +2779,14 @@ describe('App', () => {
                 jest.spyOn(app, 'addPageSectionToContents')
                 const contents = app.getPageHTMLContents(fullPage)
 
-                expect(contents[3].className).toEqual('page-section-text-body')
+                expect(contents[3].className).toEqual(appConstants.PAGE_SECTION_TEXT_BODY)
                 expect(contents[3].innerHTML).toEqual(sectionOneBody)
                 expect(app.addPageSectionToContents).toHaveBeenCalledTimes(2)
             })
 
             it("adds the second sections's title below the first section's contents", () => {
                 const contents = new App().getPageHTMLContents(fullPage)
-                expect(contents[4].className).toEqual('page-section-title')
+                expect(contents[4].className).toEqual(appConstants.PAGE_SECTION_TITLE)
                 expect(contents[4].innerHTML).toEqual(sectionTwoName)
             })
 
@@ -2795,14 +2795,14 @@ describe('App', () => {
                 jest.spyOn(app, 'addPageSectionToContents')
                 const contents = app.getPageHTMLContents(fullPage)
 
-                expect(contents[5].className).toEqual('page-section-text-body')
+                expect(contents[5].className).toEqual(appConstants.PAGE_SECTION_TEXT_BODY)
                 expect(contents[5].innerHTML).toEqual(sectionTwoBody)
                 expect(app.addPageSectionToContents).toHaveBeenCalledTimes(2)
             })
 
             it("adds the Page's tags before the last section's contents", () => {
                 const contents = new App().getPageHTMLContents(fullPage)
-                expect(contents[6].className).toEqual('page-tags-list')
+                expect(contents[6].className).toEqual(appConstants.PAGE_TAGS_LIST)
                 expect(contents[6].children).toHaveLength(1)
             })
 

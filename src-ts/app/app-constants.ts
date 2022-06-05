@@ -1,3 +1,5 @@
+import { PictureOrientation } from '../DataTypes'
+
 export const TAG_SEARCH_PLACEHOLDER = 'Tag Search'
 
 export const SECTION_TITLE = 'section-title'
@@ -45,11 +47,44 @@ export const SECTION_SELECTOR_MOBILE_DARK_CLASS = 'section-selector-mobile-dark'
 export const PAGE_SELECTOR_MOBILE_SHOW_DARK_CLASS = 'page-selector-mobile-show-dark'
 export const SPACE_BLOCK_DARK_CLASS = 'space-block-dark'
 
-export const PAGE_TITLE = 'page-title'
-
-export const PAGE_TAG = 'page-tag'
-export const SELECTED_PAGE_TAG = 'selected-page-tag'
-
 export const SECTION_TAG_SEARCH = 'section-tag-search'
 export const SELECTED_TAG_RESULTS = 'section-selected-tag-results'
 export const TAG_RESULTS = 'section-tag-results'
+
+export const zoomedImageClass = (orientation: PictureOrientation) => (`zoomed-img-${orientation}`)
+
+export const GALLERY_IMAGE_LIST = 'gallery-image-list'
+export const GALLERY_IMAGE_SECTION = 'gallery-image-section'
+export const GALLERY_IMAGE = 'gallery-img'
+export const GALLERY_IMAGE_CAPTION = 'gallery-img-caption'
+
+export const ATTRIBUTES_LIST = 'attributes-list'
+export const ATTRIBUTE = 'attribute'
+export const ATTRIBUTE_TITLE = 'attribute-title'
+export const ATTRIBUTE_VALUE = 'attribute-value'
+
+export const ASSOCIATIONS_SECTION = 'associations-section'
+export const ASSOCIATION_GROUP = 'association-group'
+export const ASSOCIATION_TITLE = 'association-title'
+export const ASSOCIATED_PAGE = 'associated-page'
+
+export const PAGE_SECTION_IMAGE_SECTION = 'page-section-image-section'
+export const PAGE_SECTION_IMAGE = 'page-section-img'
+export const PAGE_SECTION_IMAGE_CAPTION = 'page-section-img-caption'
+export const PAGE_SECTION_TEXT_BODY = 'page-section-text-body'
+
+export const PAGE_SUBSECTION_TITLE = 'page-subsection-title'
+export const PAGE_SUBSECTION_TEXT_BODY = 'page-subsection-text-body'
+export const PAGE_SUBSECTION_IMAGE_SECTION = 'page-subsection-image-section'
+export const PAGE_SUBSECTION_IMAGE = 'page-subsection-img'
+export const PAGE_SUBSECTION_IMAGE_CAPTION = 'page-subsection-img-caption'
+
+export const PAGE_TITLE = 'page-title'
+export const PAGE_IMAGE_SECTION = 'page-image-section'
+export const PAGE_IMAGE = 'page-img'
+export const PAGE_IMAGE_CAPTION = 'page-img-caption'
+export const PAGE_SECTION_TITLE = 'page-section-title'
+
+export const PAGE_TAGS_LIST = 'page-tags-list'
+export const PAGE_TAG = 'page-tag'
+export const SELECTED_PAGE_TAG = 'selected-page-tag'

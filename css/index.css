@@ -848,11 +848,13 @@ template {
 }
 
 .zoomed-img-portrait {
-  height: 85vh;
+  max-width: 85vw;
+  max-height: 85vh;
 }
 
 .zoomed-img-landscape {
-  width: 85vw;
+  max-width: 85vw;
+  max-height: 85vh;
 }
 
 .zoomed-image-section-hide {

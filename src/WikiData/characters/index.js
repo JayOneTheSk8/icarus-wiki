@@ -10,6 +10,9 @@ const MelvinGerritsen_1 = __importDefault(require("./MelvinGerritsen"));
 const DrWeed_1 = __importDefault(require("./DrWeed"));
 const Ferguson_1 = __importDefault(require("./Ferguson"));
 const Opal_1 = __importDefault(require("./Opal"));
+const AgentJohnston_1 = __importDefault(require("./AgentJohnston"));
+const AgentBryson_1 = __importDefault(require("./AgentBryson"));
+const AgentTillerson_1 = __importDefault(require("./AgentTillerson"));
 exports.default = [
     RusselKing_1.default,
     ReggieKing_1.default,
@@ -18,4 +21,7 @@ exports.default = [
     DrWeed_1.default,
     Opal_1.default,
     Ferguson_1.default,
+    AgentJohnston_1.default,
+    AgentBryson_1.default,
+    AgentTillerson_1.default,
 ];

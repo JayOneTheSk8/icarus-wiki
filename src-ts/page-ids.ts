@@ -9,6 +9,9 @@ export const MELVIN_GERRITSEN_PAGE_ID = 'melvin_gerritsen'
 export const DR_WEED_PAGE_ID = 'dr_weed'
 export const OPAL_PAGE_ID = 'opal'
 export const FERGUSON_PAGE_ID = 'ferguson'
+export const AGENT_JOHNSTON_PAGE_ID = 'agent_johnston'
+export const AGENT_BRYSON_PAGE_ID = 'agent_bryson'
+export const AGENT_TILLERSON_PAGE_ID = 'agent_tillerson'
 
 /* Notes */
 export const STONE_FACED_PAGE_ID = 'stone_faced'

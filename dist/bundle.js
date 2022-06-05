@@ -70,6 +70,156 @@ eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {
 
 /***/ }),
 
+/***/ "./src/WikiData/characters/AgentBryson/appearance.js":
+/*!***********************************************************!*\
+  !*** ./src/WikiData/characters/AgentBryson/appearance.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar appearance = {\n  title: constants_1.APPEARANCE,\n  body: 'Bryson is a lean man with no facial hair. He typically has a clean face, free of facial hair, and slicked back blonde hair.'\n};\nexports[\"default\"] = appearance;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/AgentBryson/appearance.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/AgentBryson/associations.js":
+/*!*************************************************************!*\
+  !*** ./src/WikiData/characters/AgentBryson/associations.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: '',\n    associationPageIds: [page_ids_1.AGENT_JOHNSTON_PAGE_ID, page_ids_1.AGENT_TILLERSON_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/AgentBryson/associations.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/AgentBryson/attributes.js":
+/*!***********************************************************!*\
+  !*** ./src/WikiData/characters/AgentBryson/attributes.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar attributes = {\n  title: constants_1.ATTRIBUTES,\n  attributes: [{\n    attributeName: 'Full Name',\n    attributeText: 'Ronald Bryson'\n  }, {\n    attributeName: 'Occupation',\n    attributeText: 'DMPA Agent'\n  }, {\n    attributeName: 'Gender',\n    attributeText: 'Male'\n  }, {\n    attributeName: 'Age',\n    attributeText: '28'\n  }, {\n    attributeName: 'Height',\n    attributeText: \"5' 9\\\"\"\n  }, {\n    attributeName: 'Hair Color',\n    attributeText: 'Blonde'\n  }, {\n    attributeName: 'Hair Style',\n    attributeText: 'Slicked Back'\n  }, {\n    attributeName: 'Eye Color',\n    attributeText: 'Black'\n  }, {\n    attributeName: 'Race',\n    attributeText: 'Human'\n  }, {\n    attributeName: 'Debut',\n    attributeText: 'Chapter 5: The Man with Two Legs'\n  }]\n};\nexports[\"default\"] = attributes;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/AgentBryson/attributes.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/AgentBryson/headline.js":
+/*!*********************************************************!*\
+  !*** ./src/WikiData/characters/AgentBryson/headline.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar headline = {\n  title: constants_1.HEADLINE,\n  body: 'Agent Ronald Bryson is an enamored agent at the Philadelphia DMPA. He works under Agent Johnston with Agent Tillerson .'\n};\nexports[\"default\"] = headline;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/AgentBryson/headline.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/AgentBryson/index.js":
+/*!******************************************************!*\
+  !*** ./src/WikiData/characters/AgentBryson/index.js ***!
+  \******************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar attributes_1 = __importDefault(__webpack_require__(/*! ./attributes */ \"./src/WikiData/characters/AgentBryson/attributes.js\"));\n\nvar headline_1 = __importDefault(__webpack_require__(/*! ./headline */ \"./src/WikiData/characters/AgentBryson/headline.js\"));\n\nvar appearance_1 = __importDefault(__webpack_require__(/*! ./appearance */ \"./src/WikiData/characters/AgentBryson/appearance.js\"));\n\nvar associations_1 = __importDefault(__webpack_require__(/*! ./associations */ \"./src/WikiData/characters/AgentBryson/associations.js\"));\n\nvar AgentBryson = {\n  id: page_ids_1.AGENT_BRYSON_PAGE_ID,\n  type: constants_1.CHARACTERS_PAGE_TYPE,\n  name: 'Agent Bryson',\n  pageImage: {\n    url: constants_1.DRIVE_VIEW_PREFIX + '1QRivchuNUGcOt2MDa1dRlWXEKCfwsC9_'\n  },\n  sections: [attributes_1[\"default\"], headline_1[\"default\"], appearance_1[\"default\"], associations_1[\"default\"]],\n  tags: new Set(['DMPA Agent', 'DMPA Employee', 'Human'])\n};\nexports[\"default\"] = AgentBryson;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/AgentBryson/index.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/AgentJohnston/appearance.js":
+/*!*************************************************************!*\
+  !*** ./src/WikiData/characters/AgentJohnston/appearance.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar appearance = {\n  title: constants_1.APPEARANCE,\n  body: 'Johnston is a medium build woman with pointed ears and long hairs coming out of her ears, upper lip, and the sides of her nose. When her hairs are excited, they stand out straight. Her irises are green with thin, diamond shaped pupils. Her hair is dirty blonde and often in a bun.'\n};\nexports[\"default\"] = appearance;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/AgentJohnston/appearance.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/AgentJohnston/associations.js":
+/*!***************************************************************!*\
+  !*** ./src/WikiData/characters/AgentJohnston/associations.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Co-Workers',\n    associationPageIds: [page_ids_1.AGENT_BRYSON_PAGE_ID, page_ids_1.AGENT_TILLERSON_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/AgentJohnston/associations.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/AgentJohnston/attributes.js":
+/*!*************************************************************!*\
+  !*** ./src/WikiData/characters/AgentJohnston/attributes.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar attributes = {\n  title: constants_1.ATTRIBUTES,\n  attributes: [{\n    attributeName: 'Full Name',\n    attributeText: 'Sheila Johnston'\n  }, {\n    attributeName: 'Occupation',\n    attributeText: 'DMPA Agent'\n  }, {\n    attributeName: 'Gender',\n    attributeText: 'Female'\n  }, {\n    attributeName: 'Age',\n    attributeText: '30'\n  }, {\n    attributeName: 'Height',\n    attributeText: \"5' 7\\\"\"\n  }, {\n    attributeName: 'Meta-Human Type',\n    attributeText: 'Mythical'\n  }, {\n    attributeName: 'Hair Color',\n    attributeText: 'Dirty Blonde'\n  }, {\n    attributeName: 'Hair Style',\n    attributeText: 'Bun'\n  }, {\n    attributeName: 'Facial Hair',\n    attributeText: 'Long hairs out of ears/upper lip/sides of nose'\n  }, {\n    attributeName: 'Eye Color',\n    attributeText: 'Jade Green'\n  }, {\n    attributeName: 'Debut',\n    attributeText: 'Chapter 5: The Man with Two Legs'\n  }]\n};\nexports[\"default\"] = attributes;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/AgentJohnston/attributes.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/AgentJohnston/headline.js":
+/*!***********************************************************!*\
+  !*** ./src/WikiData/characters/AgentJohnston/headline.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar headline = {\n  title: constants_1.HEADLINE,\n  body: 'Agent Sheila Johnston is a no nonsense agent at the Philadelphia DMPA. She oversees Agent Tillerson and Agent Bryson, both of which are a hassle to deal with.'\n};\nexports[\"default\"] = headline;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/AgentJohnston/headline.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/AgentJohnston/index.js":
+/*!********************************************************!*\
+  !*** ./src/WikiData/characters/AgentJohnston/index.js ***!
+  \********************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar attributes_1 = __importDefault(__webpack_require__(/*! ./attributes */ \"./src/WikiData/characters/AgentJohnston/attributes.js\"));\n\nvar headline_1 = __importDefault(__webpack_require__(/*! ./headline */ \"./src/WikiData/characters/AgentJohnston/headline.js\"));\n\nvar appearance_1 = __importDefault(__webpack_require__(/*! ./appearance */ \"./src/WikiData/characters/AgentJohnston/appearance.js\"));\n\nvar associations_1 = __importDefault(__webpack_require__(/*! ./associations */ \"./src/WikiData/characters/AgentJohnston/associations.js\"));\n\nvar AgentJohnston = {\n  id: page_ids_1.AGENT_JOHNSTON_PAGE_ID,\n  type: constants_1.CHARACTERS_PAGE_TYPE,\n  name: 'Agent Johnston',\n  pageImage: {\n    url: constants_1.DRIVE_VIEW_PREFIX + '1Qv_lhqGn8-Mj_0sj7cy2_18dYQVKhWKJ'\n  },\n  sections: [attributes_1[\"default\"], headline_1[\"default\"], appearance_1[\"default\"], associations_1[\"default\"]],\n  tags: new Set(['DMPA Agent', 'DMPA Employee', 'Mythical'])\n};\nexports[\"default\"] = AgentJohnston;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/AgentJohnston/index.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/AgentTillerson/appearance.js":
+/*!**************************************************************!*\
+  !*** ./src/WikiData/characters/AgentTillerson/appearance.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar appearance = {\n  title: constants_1.APPEARANCE,\n  body: 'Tillerson is a short, heavy set, balding man with dark brown hair remaining on the sides of his head. He has a thick mustache and is often wearing a full suit with an earpiece.'\n};\nexports[\"default\"] = appearance;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/AgentTillerson/appearance.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/AgentTillerson/associations.js":
+/*!****************************************************************!*\
+  !*** ./src/WikiData/characters/AgentTillerson/associations.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Co-Workers',\n    associationPageIds: [page_ids_1.AGENT_JOHNSTON_PAGE_ID, page_ids_1.AGENT_BRYSON_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/AgentTillerson/associations.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/AgentTillerson/attributes.js":
+/*!**************************************************************!*\
+  !*** ./src/WikiData/characters/AgentTillerson/attributes.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar attributes = {\n  title: constants_1.ATTRIBUTES,\n  attributes: [{\n    attributeName: 'Full Name',\n    attributeText: 'Bryan Tillerson'\n  }, {\n    attributeName: 'Occupation',\n    attributeText: 'DMPA Agent'\n  }, {\n    attributeName: 'Gender',\n    attributeText: 'Male'\n  }, {\n    attributeName: 'Age',\n    attributeText: '35'\n  }, {\n    attributeName: 'Height',\n    attributeText: \"5' 4\\\"\"\n  }, {\n    attributeName: 'Hair Color',\n    attributeText: 'Dark Brown'\n  }, {\n    attributeName: 'Hair Style',\n    attributeText: 'Bushy, Balding'\n  }, {\n    attributeName: 'Facial Hair',\n    attributeText: 'Mustache'\n  }, {\n    attributeName: 'Eye Color',\n    attributeText: 'Blue'\n  }, {\n    attributeName: 'Race',\n    attributeText: 'Human'\n  }, {\n    attributeName: 'Debut',\n    attributeText: 'Chapter 5: The Man with Two Legs'\n  }]\n};\nexports[\"default\"] = attributes;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/AgentTillerson/attributes.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/AgentTillerson/headline.js":
+/*!************************************************************!*\
+  !*** ./src/WikiData/characters/AgentTillerson/headline.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar headline = {\n  title: constants_1.HEADLINE,\n  body: 'Agent Bryan Tillerson is a perfectionist agent at the Philadelphia DMPA. He works under Agent Johnston with Agent Bryson.'\n};\nexports[\"default\"] = headline;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/AgentTillerson/headline.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/AgentTillerson/index.js":
+/*!*********************************************************!*\
+  !*** ./src/WikiData/characters/AgentTillerson/index.js ***!
+  \*********************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar attributes_1 = __importDefault(__webpack_require__(/*! ./attributes */ \"./src/WikiData/characters/AgentTillerson/attributes.js\"));\n\nvar headline_1 = __importDefault(__webpack_require__(/*! ./headline */ \"./src/WikiData/characters/AgentTillerson/headline.js\"));\n\nvar appearance_1 = __importDefault(__webpack_require__(/*! ./appearance */ \"./src/WikiData/characters/AgentTillerson/appearance.js\"));\n\nvar associations_1 = __importDefault(__webpack_require__(/*! ./associations */ \"./src/WikiData/characters/AgentTillerson/associations.js\"));\n\nvar AgentTillerson = {\n  id: page_ids_1.AGENT_TILLERSON_PAGE_ID,\n  type: constants_1.CHARACTERS_PAGE_TYPE,\n  name: 'Agent Tillerson',\n  pageImage: {\n    url: constants_1.DRIVE_VIEW_PREFIX + '1QsX9Udv3WDHJhIsYsDdCXYjLrseVZ-24'\n  },\n  sections: [attributes_1[\"default\"], headline_1[\"default\"], appearance_1[\"default\"], associations_1[\"default\"]],\n  tags: new Set(['DMPA Agent', 'DMPA Employee', 'Human'])\n};\nexports[\"default\"] = AgentTillerson;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/AgentTillerson/index.js?");
+
+/***/ }),
+
 /***/ "./src/WikiData/characters/DrWeed/appearance.js":
 /*!******************************************************!*\
   !*** ./src/WikiData/characters/DrWeed/appearance.js ***!
@@ -86,7 +236,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
   \********************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Co-Workers',\n    associationPageIds: [page_ids_1.FERGUSON_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/DrWeed/associations.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Co-Workers',\n    associationPageIds: [page_ids_1.OPAL_PAGE_ID, page_ids_1.FERGUSON_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/DrWeed/associations.js?");
 
 /***/ }),
 
@@ -220,6 +370,56 @@ eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {
 
 /***/ }),
 
+/***/ "./src/WikiData/characters/Opal/appearance.js":
+/*!****************************************************!*\
+  !*** ./src/WikiData/characters/Opal/appearance.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar appearance = {\n  title: constants_1.APPEARANCE,\n  body: 'Opal often wears lime-green scrubs with matching nurse cap. Her face has noticeable wrinkles around her mouth and crows-feet.'\n};\nexports[\"default\"] = appearance;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Opal/appearance.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/Opal/associations.js":
+/*!******************************************************!*\
+  !*** ./src/WikiData/characters/Opal/associations.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Co-Workers',\n    associationPageIds: [page_ids_1.DR_WEED_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Opal/associations.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/Opal/attributes.js":
+/*!****************************************************!*\
+  !*** ./src/WikiData/characters/Opal/attributes.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar attributes = {\n  title: constants_1.ATTRIBUTES,\n  attributes: [{\n    attributeName: 'Gender',\n    attributeText: 'Female'\n  }, {\n    attributeName: 'Height',\n    attributeText: \"5' 3\\\"\"\n  }, {\n    attributeName: 'Hair Color',\n    attributeText: 'Forest Green'\n  }, {\n    attributeName: 'Eye Color',\n    attributeText: 'Black'\n  }, {\n    attributeName: 'Debut',\n    attributeText: 'Chapter 2: Baby Bird (Seen)<br />Chapter 3: Blood Brothers(Heard)'\n  }]\n};\nexports[\"default\"] = attributes;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Opal/attributes.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/Opal/headline.js":
+/*!**************************************************!*\
+  !*** ./src/WikiData/characters/Opal/headline.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar headline = {\n  title: constants_1.HEADLINE,\n  body: \"Opal is Dorson \\\"Dr Weed\\\" Nutsedge 's medical assistant. Though she appears old, she has a teenage mentality.\"\n};\nexports[\"default\"] = headline;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Opal/headline.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/Opal/index.js":
+/*!***********************************************!*\
+  !*** ./src/WikiData/characters/Opal/index.js ***!
+  \***********************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar attributes_1 = __importDefault(__webpack_require__(/*! ./attributes */ \"./src/WikiData/characters/Opal/attributes.js\"));\n\nvar headline_1 = __importDefault(__webpack_require__(/*! ./headline */ \"./src/WikiData/characters/Opal/headline.js\"));\n\nvar appearance_1 = __importDefault(__webpack_require__(/*! ./appearance */ \"./src/WikiData/characters/Opal/appearance.js\"));\n\nvar associations_1 = __importDefault(__webpack_require__(/*! ./associations */ \"./src/WikiData/characters/Opal/associations.js\"));\n\nvar Opal = {\n  id: page_ids_1.OPAL_PAGE_ID,\n  type: constants_1.CHARACTERS_PAGE_TYPE,\n  name: 'Opal',\n  pageImage: {\n    url: constants_1.DRIVE_VIEW_PREFIX + '1RAPKHJCj1YYkN7Gb5OhJTZYnBjDKllyA'\n  },\n  sections: [attributes_1[\"default\"], headline_1[\"default\"], appearance_1[\"default\"], associations_1[\"default\"]],\n  tags: new Set(['DMPA Employee', 'Human'])\n};\nexports[\"default\"] = Opal;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Opal/index.js?");
+
+/***/ }),
+
 /***/ "./src/WikiData/characters/ReggieKing/appearance.js":
 /*!**********************************************************!*\
   !*** ./src/WikiData/characters/ReggieKing/appearance.js ***!
@@ -346,7 +546,7 @@ eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {
   \******************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar RusselKing_1 = __importDefault(__webpack_require__(/*! ./RusselKing */ \"./src/WikiData/characters/RusselKing/index.js\"));\n\nvar ReggieKing_1 = __importDefault(__webpack_require__(/*! ./ReggieKing */ \"./src/WikiData/characters/ReggieKing/index.js\"));\n\nvar Achilles_1 = __importDefault(__webpack_require__(/*! ./Achilles */ \"./src/WikiData/characters/Achilles/index.js\"));\n\nvar MelvinGerritsen_1 = __importDefault(__webpack_require__(/*! ./MelvinGerritsen */ \"./src/WikiData/characters/MelvinGerritsen/index.js\"));\n\nvar DrWeed_1 = __importDefault(__webpack_require__(/*! ./DrWeed */ \"./src/WikiData/characters/DrWeed/index.js\"));\n\nvar Ferguson_1 = __importDefault(__webpack_require__(/*! ./Ferguson */ \"./src/WikiData/characters/Ferguson/index.js\"));\n\nexports[\"default\"] = [RusselKing_1[\"default\"], ReggieKing_1[\"default\"], Achilles_1[\"default\"], MelvinGerritsen_1[\"default\"], DrWeed_1[\"default\"], Ferguson_1[\"default\"]];\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/index.js?");
+eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar RusselKing_1 = __importDefault(__webpack_require__(/*! ./RusselKing */ \"./src/WikiData/characters/RusselKing/index.js\"));\n\nvar ReggieKing_1 = __importDefault(__webpack_require__(/*! ./ReggieKing */ \"./src/WikiData/characters/ReggieKing/index.js\"));\n\nvar Achilles_1 = __importDefault(__webpack_require__(/*! ./Achilles */ \"./src/WikiData/characters/Achilles/index.js\"));\n\nvar MelvinGerritsen_1 = __importDefault(__webpack_require__(/*! ./MelvinGerritsen */ \"./src/WikiData/characters/MelvinGerritsen/index.js\"));\n\nvar DrWeed_1 = __importDefault(__webpack_require__(/*! ./DrWeed */ \"./src/WikiData/characters/DrWeed/index.js\"));\n\nvar Ferguson_1 = __importDefault(__webpack_require__(/*! ./Ferguson */ \"./src/WikiData/characters/Ferguson/index.js\"));\n\nvar Opal_1 = __importDefault(__webpack_require__(/*! ./Opal */ \"./src/WikiData/characters/Opal/index.js\"));\n\nvar AgentJohnston_1 = __importDefault(__webpack_require__(/*! ./AgentJohnston */ \"./src/WikiData/characters/AgentJohnston/index.js\"));\n\nvar AgentBryson_1 = __importDefault(__webpack_require__(/*! ./AgentBryson */ \"./src/WikiData/characters/AgentBryson/index.js\"));\n\nvar AgentTillerson_1 = __importDefault(__webpack_require__(/*! ./AgentTillerson */ \"./src/WikiData/characters/AgentTillerson/index.js\"));\n\nexports[\"default\"] = [RusselKing_1[\"default\"], ReggieKing_1[\"default\"], Achilles_1[\"default\"], MelvinGerritsen_1[\"default\"], DrWeed_1[\"default\"], Opal_1[\"default\"], Ferguson_1[\"default\"], AgentJohnston_1[\"default\"], AgentBryson_1[\"default\"], AgentTillerson_1[\"default\"]];\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/index.js?");
 
 /***/ }),
 
@@ -436,7 +636,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
   \*************************/
 /***/ ((__unused_webpack_module, exports) => {
 
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports.STONE_FACED_PAGE_ID = exports.FERGUSON_PAGE_ID = exports.DR_WEED_PAGE_ID = exports.MELVIN_GERRITSEN_PAGE_ID = exports.ACHILLES_PAGE_ID = exports.REGGIE_KING_PAGE_ID = exports.RUSSEL_KING_PAGE_ID = exports.HOME_PAGE_ID = void 0;\n/* Home */\n\nexports.HOME_PAGE_ID = 'home_page';\n/* Characters */\n\nexports.RUSSEL_KING_PAGE_ID = 'russel_king';\nexports.REGGIE_KING_PAGE_ID = 'reggie_king';\nexports.ACHILLES_PAGE_ID = 'achilles';\nexports.MELVIN_GERRITSEN_PAGE_ID = 'melvin_gerritsen';\nexports.DR_WEED_PAGE_ID = 'dr_weed';\nexports.FERGUSON_PAGE_ID = 'ferguson';\n/* Notes */\n\nexports.STONE_FACED_PAGE_ID = 'stone_faced';\n\n//# sourceURL=webpack://icarus-wiki/./src/page-ids.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports.STONE_FACED_PAGE_ID = exports.AGENT_TILLERSON_PAGE_ID = exports.AGENT_BRYSON_PAGE_ID = exports.AGENT_JOHNSTON_PAGE_ID = exports.FERGUSON_PAGE_ID = exports.OPAL_PAGE_ID = exports.DR_WEED_PAGE_ID = exports.MELVIN_GERRITSEN_PAGE_ID = exports.ACHILLES_PAGE_ID = exports.REGGIE_KING_PAGE_ID = exports.RUSSEL_KING_PAGE_ID = exports.HOME_PAGE_ID = void 0;\n/* Home */\n\nexports.HOME_PAGE_ID = 'home_page';\n/* Characters */\n\nexports.RUSSEL_KING_PAGE_ID = 'russel_king';\nexports.REGGIE_KING_PAGE_ID = 'reggie_king';\nexports.ACHILLES_PAGE_ID = 'achilles';\nexports.MELVIN_GERRITSEN_PAGE_ID = 'melvin_gerritsen';\nexports.DR_WEED_PAGE_ID = 'dr_weed';\nexports.OPAL_PAGE_ID = 'opal';\nexports.FERGUSON_PAGE_ID = 'ferguson';\nexports.AGENT_JOHNSTON_PAGE_ID = 'agent_johnston';\nexports.AGENT_BRYSON_PAGE_ID = 'agent_bryson';\nexports.AGENT_TILLERSON_PAGE_ID = 'agent_tillerson';\n/* Notes */\n\nexports.STONE_FACED_PAGE_ID = 'stone_faced';\n\n//# sourceURL=webpack://icarus-wiki/./src/page-ids.js?");
 
 /***/ }),
 

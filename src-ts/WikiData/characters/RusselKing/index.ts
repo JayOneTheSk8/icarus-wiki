@@ -7,6 +7,7 @@ import attributes from './attributes'
 import gallery from './gallery'
 import headline from './headline'
 import associations from './associations'
+import { HERO, MAIN_CHARACTER, META_HUMAN, MYTHICAL } from '../tags'
 
 const RusselKing: Page = {
     id: RUSSEL_KING_PAGE_ID,
@@ -24,10 +25,10 @@ const RusselKing: Page = {
         gallery,
     ],
     tags: new Set([
-        'Meta-Human',
-        'Main Character',
-        'Hero',
-        'Mythical',
+        META_HUMAN,
+        MAIN_CHARACTER,
+        HERO,
+        MYTHICAL,
     ])
 }
 

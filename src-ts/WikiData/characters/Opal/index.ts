@@ -6,6 +6,7 @@ import attributes from './attributes'
 import headline from './headline'
 import appearance from './appearance'
 import associations from './associations'
+import { DMPA_EMPLOYEE, HUMAN } from '../tags'
 
 const Opal: Page = {
     id: OPAL_PAGE_ID,
@@ -21,8 +22,8 @@ const Opal: Page = {
         associations
     ],
     tags: new Set([
-        'DMPA Employee',
-        'Human',
+        DMPA_EMPLOYEE,
+        HUMAN,
     ])
 }
 

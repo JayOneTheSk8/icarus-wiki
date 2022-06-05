@@ -1,6 +1,7 @@
 import { CHARACTERS_PAGE_TYPE, DRIVE_VIEW_PREFIX } from '../../../constants'
 import { Page } from '../../../DataTypes'
 import { FERGUSON_PAGE_ID } from '../../../page-ids'
+import { DMPA_EMPLOYEE, HUMAN } from '../tags'
 
 import attributes from './attributes'
 import headline from './headline'
@@ -21,8 +22,8 @@ const Ferguson: Page = {
         associations,
     ],
     tags: new Set([
-        'Human',
-        'DMPA Employee',
+        HUMAN,
+        DMPA_EMPLOYEE,
     ])
 }
 

@@ -1,6 +1,7 @@
 import { Page } from '../../../DataTypes'
 import { CHARACTERS_PAGE_TYPE, DRIVE_VIEW_PREFIX } from '../../../constants'
 import { REGGIE_KING_PAGE_ID } from '../../../page-ids'
+import { HERO, MAIN_CHARACTER, META_HUMAN, MYTHICAL } from '../tags'
 
 import attributes from './attributes'
 import headline from './headline'
@@ -24,10 +25,10 @@ const ReggieKing: Page = {
         gallery,
     ],
     tags: new Set([
-        'Meta-Human',
-        'Main Character',
-        'Hero',
-        'Mythical',
+        META_HUMAN,
+        MAIN_CHARACTER,
+        HERO,
+        MYTHICAL,
     ])
 }
 

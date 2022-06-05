@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const constants_1 = require("../../../constants");
 const page_ids_1 = require("../../../page-ids");
+const tags_1 = require("../tags");
 const attributes_1 = __importDefault(require("./attributes"));
 const headline_1 = __importDefault(require("./headline"));
 const appearance_1 = __importDefault(require("./appearance"));
@@ -23,9 +24,9 @@ const AgentBryson = {
         associations_1.default,
     ],
     tags: new Set([
-        'DMPA Agent',
-        'DMPA Employee',
-        'Human',
+        tags_1.DMPA_AGENT,
+        tags_1.DMPA_EMPLOYEE,
+        tags_1.HUMAN,
     ])
 };
 exports.default = AgentBryson;

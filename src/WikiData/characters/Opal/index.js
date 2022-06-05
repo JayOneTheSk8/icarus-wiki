@@ -9,6 +9,7 @@ const attributes_1 = __importDefault(require("./attributes"));
 const headline_1 = __importDefault(require("./headline"));
 const appearance_1 = __importDefault(require("./appearance"));
 const associations_1 = __importDefault(require("./associations"));
+const tags_1 = require("../tags");
 const Opal = {
     id: page_ids_1.OPAL_PAGE_ID,
     type: constants_1.CHARACTERS_PAGE_TYPE,
@@ -23,8 +24,8 @@ const Opal = {
         associations_1.default
     ],
     tags: new Set([
-        'DMPA Employee',
-        'Human',
+        tags_1.DMPA_EMPLOYEE,
+        tags_1.HUMAN,
     ])
 };
 exports.default = Opal;

@@ -1,6 +1,7 @@
 import { Page } from '../../../DataTypes'
 import { CHARACTERS_PAGE_TYPE, DRIVE_VIEW_PREFIX } from '../../../constants'
 import { MELVIN_GERRITSEN_PAGE_ID } from '../../../page-ids'
+import { HERO, MAIN_CHARACTER, META_HUMAN, PARANORMAL } from '../tags'
 
 import appearance from './appearance'
 import associations from './associations'
@@ -22,10 +23,10 @@ const MelvinGerritsen: Page = {
         associations,
     ],
     tags: new Set([
-        'Meta-Human',
-        'Main Character',
-        'Hero',
-        'Paranormal',
+        META_HUMAN,
+        MAIN_CHARACTER,
+        HERO,
+        PARANORMAL,
     ])
 }
 

@@ -10,6 +10,7 @@ const attributes_1 = __importDefault(require("./attributes"));
 const gallery_1 = __importDefault(require("./gallery"));
 const headline_1 = __importDefault(require("./headline"));
 const associations_1 = __importDefault(require("./associations"));
+const tags_1 = require("../tags");
 const RusselKing = {
     id: page_ids_1.RUSSEL_KING_PAGE_ID,
     type: constants_1.CHARACTERS_PAGE_TYPE,
@@ -26,10 +27,10 @@ const RusselKing = {
         gallery_1.default,
     ],
     tags: new Set([
-        'Meta-Human',
-        'Main Character',
-        'Hero',
-        'Mythical',
+        tags_1.META_HUMAN,
+        tags_1.MAIN_CHARACTER,
+        tags_1.HERO,
+        tags_1.MYTHICAL,
     ])
 };
 exports.default = RusselKing;

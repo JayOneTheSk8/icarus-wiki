@@ -1,6 +1,7 @@
 import { Page } from '../../../DataTypes'
 import { CHARACTERS_PAGE_TYPE, DRIVE_VIEW_PREFIX } from '../../../constants'
 import { AGENT_TILLERSON_PAGE_ID } from '../../../page-ids'
+import { DMPA_AGENT, DMPA_EMPLOYEE, HUMAN } from '../tags'
 
 import attributes from './attributes'
 import headline from './headline'
@@ -21,9 +22,9 @@ const AgentTillerson: Page = {
         associations,
     ],
     tags: new Set([
-        'DMPA Agent',
-        'DMPA Employee',
-        'Human',
+        DMPA_AGENT,
+        DMPA_EMPLOYEE,
+        HUMAN,
     ])
 }
 

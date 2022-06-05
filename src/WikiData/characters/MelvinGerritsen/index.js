@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const constants_1 = require("../../../constants");
 const page_ids_1 = require("../../../page-ids");
+const tags_1 = require("../tags");
 const appearance_1 = __importDefault(require("./appearance"));
 const associations_1 = __importDefault(require("./associations"));
 const attributes_1 = __importDefault(require("./attributes"));
@@ -24,10 +25,10 @@ const MelvinGerritsen = {
         associations_1.default,
     ],
     tags: new Set([
-        'Meta-Human',
-        'Main Character',
-        'Hero',
-        'Paranormal',
+        tags_1.META_HUMAN,
+        tags_1.MAIN_CHARACTER,
+        tags_1.HERO,
+        tags_1.PARANORMAL,
     ])
 };
 exports.default = MelvinGerritsen;

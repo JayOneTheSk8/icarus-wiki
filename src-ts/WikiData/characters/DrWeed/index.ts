@@ -1,6 +1,7 @@
 import { Page } from '../../../DataTypes'
 import { CHARACTERS_PAGE_TYPE, DRIVE_VIEW_PREFIX } from '../../../constants'
 import { DR_WEED_PAGE_ID } from '../../../page-ids'
+import { DMPA_EMPLOYEE, HERO, META_HUMAN, PARANORMAL, PSYCHIC } from '../tags'
 
 import appearance from './appearance'
 import attributes from './attributes'
@@ -21,11 +22,11 @@ const DrWeed: Page = {
         associations,
     ],
     tags: new Set([
-        'Meta-Human',
-        'Psychic',
-        'DMPA Employee',
-        'Hero',
-        'Paranormal',
+        META_HUMAN,
+        PSYCHIC,
+        DMPA_EMPLOYEE,
+        HERO,
+        PARANORMAL,
     ])
 }
 

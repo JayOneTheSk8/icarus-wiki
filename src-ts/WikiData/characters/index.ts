@@ -6,6 +6,7 @@ import Achilles from './Achilles'
 import MelvinGerritsen from './MelvinGerritsen'
 import DrWeed from './DrWeed'
 import Ferguson from './Ferguson'
+import Opal from './Opal'
 
 export default [
     RusselKing,
@@ -13,5 +14,6 @@ export default [
     Achilles,
     MelvinGerritsen,
     DrWeed,
-    Ferguson
+    Opal,
+    Ferguson,
 ] as CharacterList

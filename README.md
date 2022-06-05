@@ -307,4 +307,3 @@ When a picture is clicked, it zooms into fullscreen. Clicking on it or the modal
 
 #### Widescreen
 ![](./public/WideLandscape.png)
-

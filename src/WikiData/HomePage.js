@@ -14,6 +14,9 @@ const HomePage = {
     id: page_ids_1.HOME_PAGE_ID,
     type: constants_1.HOME_PAGE_TYPE,
     name: 'Icarus Wiki',
+    pageImage: {
+        url: constants_1.DRIVE_VIEW_PREFIX + '1kFqBqCuFRcMHnN3ipAWi6kUE9aXmTCVU'
+    },
     sections: [
         whatsIcarus,
         whereToRead,

@@ -22,7 +22,10 @@ describe('File Generate Script', () => {
 
         describe('when no flags are passed', () => {
             it('does not generate a file', () => {
+                jest.spyOn(console, 'log').mockImplementation((str) => str)
                 generate('', '', '', '')
+
+                expect(console.log).toHaveBeenCalledTimes(23) // eslint-disable-line
 
                 expect(fs.existsSync).not.toHaveBeenCalled()
                 expect(fs.mkdirSync).not.toHaveBeenCalled()

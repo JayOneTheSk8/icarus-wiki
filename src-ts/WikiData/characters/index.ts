@@ -13,6 +13,12 @@ import AgentJohnston from './AgentJohnston'
 import AgentBryson from './AgentBryson'
 import AgentTillerson from './AgentTillerson'
 import AgentMadison from './AgentMadison'
+import AgentRayson from './AgentRayson'
+
+import Ellie from './Ellie'
+import Nemo from './Nemo'
+import Suzanne from './Suzanne'
+import Radio from './Radio'
 
 export default [
     RusselKing,
@@ -26,4 +32,9 @@ export default [
     AgentBryson,
     AgentTillerson,
     AgentMadison,
+    AgentRayson,
+    Radio,
+    Ellie,
+    Nemo,
+    Suzanne,
 ] as CharacterList

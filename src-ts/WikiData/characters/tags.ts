@@ -3,6 +3,7 @@ export const DMPA_AGENT = 'DMPA Agent'
 
 export const MAIN_CHARACTER = 'Main Character'
 export const HERO = 'Hero'
+export const ANTI_HERO = 'Anti-Hero'
 
 export const META_HUMAN = 'Meta-Human'
 export const MYTHICAL = 'Mythical'

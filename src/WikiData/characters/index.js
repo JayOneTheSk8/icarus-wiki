@@ -14,6 +14,11 @@ const AgentJohnston_1 = __importDefault(require("./AgentJohnston"));
 const AgentBryson_1 = __importDefault(require("./AgentBryson"));
 const AgentTillerson_1 = __importDefault(require("./AgentTillerson"));
 const AgentMadison_1 = __importDefault(require("./AgentMadison"));
+const AgentRayson_1 = __importDefault(require("./AgentRayson"));
+const Ellie_1 = __importDefault(require("./Ellie"));
+const Nemo_1 = __importDefault(require("./Nemo"));
+const Suzanne_1 = __importDefault(require("./Suzanne"));
+const Radio_1 = __importDefault(require("./Radio"));
 exports.default = [
     RusselKing_1.default,
     ReggieKing_1.default,
@@ -26,4 +31,9 @@ exports.default = [
     AgentBryson_1.default,
     AgentTillerson_1.default,
     AgentMadison_1.default,
+    AgentRayson_1.default,
+    Radio_1.default,
+    Ellie_1.default,
+    Nemo_1.default,
+    Suzanne_1.default,
 ];

@@ -220,6 +220,56 @@ eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {
 
 /***/ }),
 
+/***/ "./src/WikiData/characters/AgentRayson/appearance.js":
+/*!***********************************************************!*\
+  !*** ./src/WikiData/characters/AgentRayson/appearance.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar appearance = {\n  title: constants_1.APPEARANCE,\n  body: 'Rayson is a medium height, medium build, tan man with a chin strip goatee. He always wears sunglasses and a grey suit jacket with matching grey slacks. His shirts differentiate.'\n};\nexports[\"default\"] = appearance;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/AgentRayson/appearance.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/AgentRayson/associations.js":
+/*!*************************************************************!*\
+  !*** ./src/WikiData/characters/AgentRayson/associations.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Friends',\n    associationPageIds: [page_ids_1.RADIO_PAGE_ID, page_ids_1.ELLIE_PAGE_ID, page_ids_1.SUZANNE_PAGE_ID, page_ids_1.NEMO_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/AgentRayson/associations.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/AgentRayson/attributes.js":
+/*!***********************************************************!*\
+  !*** ./src/WikiData/characters/AgentRayson/attributes.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar attributes = {\n  title: constants_1.ATTRIBUTES,\n  attributes: [{\n    attributeName: 'Full Name',\n    attributeText: 'Gregory Rayson'\n  }, {\n    attributeName: 'Occupation',\n    attributeText: 'DMPA Agent'\n  }, {\n    attributeName: 'Gender',\n    attributeText: 'Male'\n  }, {\n    attributeName: 'Age',\n    attributeText: '32'\n  }, {\n    attributeName: 'Height',\n    attributeText: \"5' 8\\\"\"\n  }, {\n    attributeName: 'Hair Color',\n    attributeText: 'Black'\n  }, {\n    attributeName: 'Facial Hair',\n    attributeText: 'Chin Strip Beard'\n  }, {\n    attributeName: 'Debut',\n    attributeText: 'Chapter 9: How the Days Breeze By'\n  }]\n};\nexports[\"default\"] = attributes;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/AgentRayson/attributes.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/AgentRayson/headline.js":
+/*!*********************************************************!*\
+  !*** ./src/WikiData/characters/AgentRayson/headline.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar headline = {\n  title: constants_1.HEADLINE,\n  body: 'Agent Gregory Rayson is a DMPA Agent in the Philidephia branch and the sole human liaison assigned to watch over Radio.'\n};\nexports[\"default\"] = headline;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/AgentRayson/headline.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/AgentRayson/index.js":
+/*!******************************************************!*\
+  !*** ./src/WikiData/characters/AgentRayson/index.js ***!
+  \******************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar tags_1 = __webpack_require__(/*! ../tags */ \"./src/WikiData/characters/tags.js\");\n\nvar attributes_1 = __importDefault(__webpack_require__(/*! ./attributes */ \"./src/WikiData/characters/AgentRayson/attributes.js\"));\n\nvar headline_1 = __importDefault(__webpack_require__(/*! ./headline */ \"./src/WikiData/characters/AgentRayson/headline.js\"));\n\nvar appearance_1 = __importDefault(__webpack_require__(/*! ./appearance */ \"./src/WikiData/characters/AgentRayson/appearance.js\"));\n\nvar associations_1 = __importDefault(__webpack_require__(/*! ./associations */ \"./src/WikiData/characters/AgentRayson/associations.js\"));\n\nvar AgentRayson = {\n  id: page_ids_1.AGENT_RAYSON_PAGE_ID,\n  type: constants_1.CHARACTERS_PAGE_TYPE,\n  name: 'Agent Rayson',\n  pageImage: {\n    url: constants_1.DRIVE_VIEW_PREFIX + '1QPmyI_Mcm69shZtFO1uHYTJimGXvlL4y'\n  },\n  sections: [attributes_1[\"default\"], headline_1[\"default\"], appearance_1[\"default\"], associations_1[\"default\"]],\n  tags: new Set([tags_1.DMPA_AGENT, tags_1.DMPA_EMPLOYEE, tags_1.HUMAN, tags_1.ANTI_HERO])\n};\nexports[\"default\"] = AgentRayson;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/AgentRayson/index.js?");
+
+/***/ }),
+
 /***/ "./src/WikiData/characters/AgentTillerson/appearance.js":
 /*!**************************************************************!*\
   !*** ./src/WikiData/characters/AgentTillerson/appearance.js ***!
@@ -317,6 +367,56 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar tags_1 = __webpack_require__(/*! ../tags */ \"./src/WikiData/characters/tags.js\");\n\nvar appearance_1 = __importDefault(__webpack_require__(/*! ./appearance */ \"./src/WikiData/characters/DrWeed/appearance.js\"));\n\nvar attributes_1 = __importDefault(__webpack_require__(/*! ./attributes */ \"./src/WikiData/characters/DrWeed/attributes.js\"));\n\nvar headline_1 = __importDefault(__webpack_require__(/*! ./headline */ \"./src/WikiData/characters/DrWeed/headline.js\"));\n\nvar associations_1 = __importDefault(__webpack_require__(/*! ./associations */ \"./src/WikiData/characters/DrWeed/associations.js\"));\n\nvar DrWeed = {\n  id: page_ids_1.DR_WEED_PAGE_ID,\n  type: constants_1.CHARACTERS_PAGE_TYPE,\n  name: 'Dr Weed',\n  pageImage: {\n    url: constants_1.DRIVE_VIEW_PREFIX + '1Qm31QZc0p2sZlo7w8eq7hJFEGD8kyWhx'\n  },\n  sections: [attributes_1[\"default\"], headline_1[\"default\"], appearance_1[\"default\"], associations_1[\"default\"]],\n  tags: new Set([tags_1.META_HUMAN, tags_1.PSYCHIC, tags_1.DMPA_EMPLOYEE, tags_1.HERO, tags_1.PARANORMAL])\n};\nexports[\"default\"] = DrWeed;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/DrWeed/index.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/Ellie/appearance.js":
+/*!*****************************************************!*\
+  !*** ./src/WikiData/characters/Ellie/appearance.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar appearance = {\n  title: constants_1.APPEARANCE,\n  body: 'Ellie is covered in light green scales with darker green hair. She has a thick body and often wears elegant clothing.'\n};\nexports[\"default\"] = appearance;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Ellie/appearance.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/Ellie/associations.js":
+/*!*******************************************************!*\
+  !*** ./src/WikiData/characters/Ellie/associations.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Friends',\n    associationPageIds: [page_ids_1.RADIO_PAGE_ID, page_ids_1.SUZANNE_PAGE_ID, page_ids_1.NEMO_PAGE_ID, page_ids_1.AGENT_RAYSON_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Ellie/associations.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/Ellie/attributes.js":
+/*!*****************************************************!*\
+  !*** ./src/WikiData/characters/Ellie/attributes.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar attributes = {\n  title: constants_1.ATTRIBUTES,\n  attributes: [{\n    attributeName: 'Full Name',\n    attributeText: 'Elizabeth Vaughn'\n  }, {\n    attributeName: 'Gender',\n    attributeText: 'Female'\n  }, {\n    attributeName: 'Age',\n    attributeText: '42'\n  }, {\n    attributeName: 'Height',\n    attributeText: \"5' 6\\\"\"\n  }, {\n    attributeName: 'Hair Color',\n    attributeText: 'Dark Green'\n  }, {\n    attributeName: 'Hair Style',\n    attributeText: 'Dreads-Like (Scales)'\n  }, {\n    attributeName: 'Eye Color',\n    attributeText: 'Brown'\n  }, {\n    attributeName: 'Debut',\n    attributeText: 'Chapter 9: How the Days Breeze By'\n  }]\n};\nexports[\"default\"] = attributes;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Ellie/attributes.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/Ellie/headline.js":
+/*!***************************************************!*\
+  !*** ./src/WikiData/characters/Ellie/headline.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar headline = {\n  title: constants_1.HEADLINE,\n  body: 'Elizabeth Vaughn is a meta-human who lives with Radio in his underground mansion with Suzanne and Nemo.'\n};\nexports[\"default\"] = headline;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Ellie/headline.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/Ellie/index.js":
+/*!************************************************!*\
+  !*** ./src/WikiData/characters/Ellie/index.js ***!
+  \************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar tags_1 = __webpack_require__(/*! ../tags */ \"./src/WikiData/characters/tags.js\");\n\nvar attributes_1 = __importDefault(__webpack_require__(/*! ./attributes */ \"./src/WikiData/characters/Ellie/attributes.js\"));\n\nvar headline_1 = __importDefault(__webpack_require__(/*! ./headline */ \"./src/WikiData/characters/Ellie/headline.js\"));\n\nvar appearance_1 = __importDefault(__webpack_require__(/*! ./appearance */ \"./src/WikiData/characters/Ellie/appearance.js\"));\n\nvar associations_1 = __importDefault(__webpack_require__(/*! ./associations */ \"./src/WikiData/characters/Ellie/associations.js\"));\n\nvar Ellie = {\n  id: page_ids_1.ELLIE_PAGE_ID,\n  type: constants_1.CHARACTERS_PAGE_TYPE,\n  name: 'Ellie',\n  pageImage: {\n    url: constants_1.DRIVE_VIEW_PREFIX + '1QDUNU-G4PUT1PbYLAKgJQJFex5ZTZB2y'\n  },\n  sections: [attributes_1[\"default\"], headline_1[\"default\"], appearance_1[\"default\"], associations_1[\"default\"]],\n  tags: new Set([tags_1.ANTI_HERO, tags_1.META_HUMAN, tags_1.PARANORMAL])\n};\nexports[\"default\"] = Ellie;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Ellie/index.js?");
 
 /***/ }),
 
@@ -420,6 +520,56 @@ eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {
 
 /***/ }),
 
+/***/ "./src/WikiData/characters/Nemo/appearance.js":
+/*!****************************************************!*\
+  !*** ./src/WikiData/characters/Nemo/appearance.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar appearance = {\n  title: constants_1.APPEARANCE,\n  body: 'Nemo has short blonde hair and a long tentacle, reaching down to his belly button, on his chin. He is almost always sweating. He dresses very much like a typical young rich businessperson, sometimes wearing a suit or pea coat.'\n};\nexports[\"default\"] = appearance;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Nemo/appearance.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/Nemo/associations.js":
+/*!******************************************************!*\
+  !*** ./src/WikiData/characters/Nemo/associations.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Friends',\n    associationPageIds: [page_ids_1.ELLIE_PAGE_ID, page_ids_1.RADIO_PAGE_ID, page_ids_1.SUZANNE_PAGE_ID, page_ids_1.AGENT_RAYSON_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Nemo/associations.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/Nemo/attributes.js":
+/*!****************************************************!*\
+  !*** ./src/WikiData/characters/Nemo/attributes.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar attributes = {\n  title: constants_1.ATTRIBUTES,\n  attributes: [{\n    attributeName: 'Gender',\n    attributeText: 'Male'\n  }, {\n    attributeName: 'Age',\n    attributeText: '43'\n  }, {\n    attributeName: 'Height',\n    attributeText: \"5' 8\\\"\"\n  }, {\n    attributeName: 'Hair Color',\n    attributeText: 'Blonde'\n  }, {\n    attributeName: 'Hair Style',\n    attributeText: 'Short, straight'\n  }, {\n    attributeName: 'Eye Color',\n    attributeText: 'Blue'\n  }, {\n    attributeName: 'Debut',\n    attributeText: 'Chapter 9: How the Days Breeze By'\n  }]\n};\nexports[\"default\"] = attributes;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Nemo/attributes.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/Nemo/headline.js":
+/*!**************************************************!*\
+  !*** ./src/WikiData/characters/Nemo/headline.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar headline = {\n  title: constants_1.HEADLINE,\n  body: \"Nemo is a nerve-wrecked being living in Radio's mansion with Ellie and Suzanne. His accent does not allow him to pronounce \\\"G\\\" or \\\"K\\\" sounds and he is made fun of for it.\"\n};\nexports[\"default\"] = headline;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Nemo/headline.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/Nemo/index.js":
+/*!***********************************************!*\
+  !*** ./src/WikiData/characters/Nemo/index.js ***!
+  \***********************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar tags_1 = __webpack_require__(/*! ../tags */ \"./src/WikiData/characters/tags.js\");\n\nvar attributes_1 = __importDefault(__webpack_require__(/*! ./attributes */ \"./src/WikiData/characters/Nemo/attributes.js\"));\n\nvar headline_1 = __importDefault(__webpack_require__(/*! ./headline */ \"./src/WikiData/characters/Nemo/headline.js\"));\n\nvar appearance_1 = __importDefault(__webpack_require__(/*! ./appearance */ \"./src/WikiData/characters/Nemo/appearance.js\"));\n\nvar associations_1 = __importDefault(__webpack_require__(/*! ./associations */ \"./src/WikiData/characters/Nemo/associations.js\"));\n\nvar Nemo = {\n  id: page_ids_1.NEMO_PAGE_ID,\n  type: constants_1.CHARACTERS_PAGE_TYPE,\n  name: 'Nemo',\n  pageImage: {\n    url: constants_1.DRIVE_VIEW_PREFIX + '1QF1XKdkOhEo7OIdGPDnGwEHv66fa46dD'\n  },\n  sections: [attributes_1[\"default\"], headline_1[\"default\"], appearance_1[\"default\"], associations_1[\"default\"]],\n  tags: new Set([tags_1.ANTI_HERO, tags_1.META_HUMAN, tags_1.MYTHICAL])\n};\nexports[\"default\"] = Nemo;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Nemo/index.js?");
+
+/***/ }),
+
 /***/ "./src/WikiData/characters/Opal/appearance.js":
 /*!****************************************************!*\
   !*** ./src/WikiData/characters/Opal/appearance.js ***!
@@ -467,6 +617,56 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar attributes_1 = __importDefault(__webpack_require__(/*! ./attributes */ \"./src/WikiData/characters/Opal/attributes.js\"));\n\nvar headline_1 = __importDefault(__webpack_require__(/*! ./headline */ \"./src/WikiData/characters/Opal/headline.js\"));\n\nvar appearance_1 = __importDefault(__webpack_require__(/*! ./appearance */ \"./src/WikiData/characters/Opal/appearance.js\"));\n\nvar associations_1 = __importDefault(__webpack_require__(/*! ./associations */ \"./src/WikiData/characters/Opal/associations.js\"));\n\nvar tags_1 = __webpack_require__(/*! ../tags */ \"./src/WikiData/characters/tags.js\");\n\nvar Opal = {\n  id: page_ids_1.OPAL_PAGE_ID,\n  type: constants_1.CHARACTERS_PAGE_TYPE,\n  name: 'Opal',\n  pageImage: {\n    url: constants_1.DRIVE_VIEW_PREFIX + '1RAPKHJCj1YYkN7Gb5OhJTZYnBjDKllyA'\n  },\n  sections: [attributes_1[\"default\"], headline_1[\"default\"], appearance_1[\"default\"], associations_1[\"default\"]],\n  tags: new Set([tags_1.DMPA_EMPLOYEE, tags_1.HUMAN])\n};\nexports[\"default\"] = Opal;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Opal/index.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/Radio/appearance.js":
+/*!*****************************************************!*\
+  !*** ./src/WikiData/characters/Radio/appearance.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar appearance = {\n  title: constants_1.APPEARANCE,\n  body: [{\n    subSectionTitle: 'Pre-Incident',\n    subSectionText: \"Before the incident, Radio is a brown haired man with a 5'o clock shadow and mustache. He is tall and well-built. He mostly wears comfortable clothing.\"\n  }, {\n    subSectionTitle: 'Post-Incident',\n    subSectionText: 'After the incident, Radio has lost all the hair on his body. He is skinnier by comparison, but this only makes his muscles appear more defined. His left eyeball bulges out of his head. In his mansion, he wears elegant clothing.'\n  }]\n};\nexports[\"default\"] = appearance;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Radio/appearance.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/Radio/associations.js":
+/*!*******************************************************!*\
+  !*** ./src/WikiData/characters/Radio/associations.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Friends',\n    associationPageIds: [page_ids_1.ELLIE_PAGE_ID, page_ids_1.SUZANNE_PAGE_ID, page_ids_1.NEMO_PAGE_ID, page_ids_1.AGENT_RAYSON_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Radio/associations.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/Radio/attributes.js":
+/*!*****************************************************!*\
+  !*** ./src/WikiData/characters/Radio/attributes.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar attributes = {\n  title: constants_1.ATTRIBUTES,\n  attributes: [{\n    attributeName: 'Full Name',\n    attributeText: 'Howard Maeter'\n  }, {\n    attributeName: 'Gender',\n    attributeText: 'Male'\n  }, {\n    attributeName: 'Age',\n    attributeText: '35'\n  }, {\n    attributeName: 'Height',\n    attributeText: \"6' 1\\\"\"\n  }, {\n    attributeName: 'Eye Color',\n    attributeText: 'Dark Blue'\n  }, {\n    attributeName: 'Debut',\n    attributeText: 'Chapter 9: How the Days Breeze By'\n  }]\n};\nexports[\"default\"] = attributes;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Radio/attributes.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/Radio/headline.js":
+/*!***************************************************!*\
+  !*** ./src/WikiData/characters/Radio/headline.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar headline = {\n  title: constants_1.HEADLINE,\n  body: 'Howard \"Radio\" Maeter is a metahuman in the Philadelphia DMPA who is given their own place away from others due to the massive danger he poses. He loves playing games and randomness enthralls him.'\n};\nexports[\"default\"] = headline;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Radio/headline.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/Radio/index.js":
+/*!************************************************!*\
+  !*** ./src/WikiData/characters/Radio/index.js ***!
+  \************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar tags_1 = __webpack_require__(/*! ../tags */ \"./src/WikiData/characters/tags.js\");\n\nvar attributes_1 = __importDefault(__webpack_require__(/*! ./attributes */ \"./src/WikiData/characters/Radio/attributes.js\"));\n\nvar headline_1 = __importDefault(__webpack_require__(/*! ./headline */ \"./src/WikiData/characters/Radio/headline.js\"));\n\nvar appearance_1 = __importDefault(__webpack_require__(/*! ./appearance */ \"./src/WikiData/characters/Radio/appearance.js\"));\n\nvar associations_1 = __importDefault(__webpack_require__(/*! ./associations */ \"./src/WikiData/characters/Radio/associations.js\"));\n\nvar Radio = {\n  id: page_ids_1.RADIO_PAGE_ID,\n  type: constants_1.CHARACTERS_PAGE_TYPE,\n  name: 'Radio',\n  pageImage: {\n    url: constants_1.DRIVE_VIEW_PREFIX + '1QPyJhqebmCIt0kUgUhFqWL4pIBZWNPws'\n  },\n  sections: [attributes_1[\"default\"], headline_1[\"default\"], appearance_1[\"default\"], associations_1[\"default\"]],\n  tags: new Set([tags_1.ANTI_HERO, tags_1.META_HUMAN, tags_1.PARANORMAL])\n};\nexports[\"default\"] = Radio;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Radio/index.js?");
 
 /***/ }),
 
@@ -590,13 +790,63 @@ eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {
 
 /***/ }),
 
+/***/ "./src/WikiData/characters/Suzanne/appearance.js":
+/*!*******************************************************!*\
+  !*** ./src/WikiData/characters/Suzanne/appearance.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar appearance = {\n  title: constants_1.APPEARANCE,\n  body: 'Suzanne has razor sharp teeth and an overbite. She wears her black hair in a very short ponytail. She often wears a lot of makeup (especially mascara). Her high-class dressing style can vary from current high fashion to princess dresses.'\n};\nexports[\"default\"] = appearance;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Suzanne/appearance.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/Suzanne/associations.js":
+/*!*********************************************************!*\
+  !*** ./src/WikiData/characters/Suzanne/associations.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Friends',\n    associationPageIds: [page_ids_1.ELLIE_PAGE_ID, page_ids_1.RADIO_PAGE_ID, page_ids_1.NEMO_PAGE_ID, page_ids_1.AGENT_RAYSON_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Suzanne/associations.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/Suzanne/attributes.js":
+/*!*******************************************************!*\
+  !*** ./src/WikiData/characters/Suzanne/attributes.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar attributes = {\n  title: constants_1.ATTRIBUTES,\n  attributes: [{\n    attributeName: 'Gender',\n    attributeText: 'Female'\n  }, {\n    attributeName: 'Age',\n    attributeText: '32'\n  }, {\n    attributeName: 'Height',\n    attributeText: \"5' 2\\\"\"\n  }, {\n    attributeName: 'Hair Color',\n    attributeText: 'Black'\n  }, {\n    attributeName: 'Hair Style',\n    attributeText: 'Short ponytail'\n  }, {\n    attributeName: 'Eye Color',\n    attributeText: 'Hazel'\n  }, {\n    attributeName: 'Debut',\n    attributeText: 'Chapter 9: How the Days Breeze By'\n  }]\n};\nexports[\"default\"] = attributes;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Suzanne/attributes.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/Suzanne/headline.js":
+/*!*****************************************************!*\
+  !*** ./src/WikiData/characters/Suzanne/headline.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar headline = {\n  title: constants_1.HEADLINE,\n  body: \"Suzanne is a blood (and wine) thirsty metahuman living with Nemo and Ellie at Radio's mansion in the DMPA.\"\n};\nexports[\"default\"] = headline;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Suzanne/headline.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/Suzanne/index.js":
+/*!**************************************************!*\
+  !*** ./src/WikiData/characters/Suzanne/index.js ***!
+  \**************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar tags_1 = __webpack_require__(/*! ../tags */ \"./src/WikiData/characters/tags.js\");\n\nvar attributes_1 = __importDefault(__webpack_require__(/*! ./attributes */ \"./src/WikiData/characters/Suzanne/attributes.js\"));\n\nvar headline_1 = __importDefault(__webpack_require__(/*! ./headline */ \"./src/WikiData/characters/Suzanne/headline.js\"));\n\nvar appearance_1 = __importDefault(__webpack_require__(/*! ./appearance */ \"./src/WikiData/characters/Suzanne/appearance.js\"));\n\nvar associations_1 = __importDefault(__webpack_require__(/*! ./associations */ \"./src/WikiData/characters/Suzanne/associations.js\"));\n\nvar Suzanne = {\n  id: page_ids_1.SUZANNE_PAGE_ID,\n  type: constants_1.CHARACTERS_PAGE_TYPE,\n  name: 'Suzanne',\n  pageImage: {\n    url: constants_1.DRIVE_VIEW_PREFIX + '1QMAKo4Z0IdEkB5D_OYlqYYXu_nOysEIo'\n  },\n  sections: [attributes_1[\"default\"], headline_1[\"default\"], appearance_1[\"default\"], associations_1[\"default\"]],\n  tags: new Set([tags_1.ANTI_HERO, tags_1.META_HUMAN, tags_1.MYTHICAL])\n};\nexports[\"default\"] = Suzanne;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/Suzanne/index.js?");
+
+/***/ }),
+
 /***/ "./src/WikiData/characters/index.js":
 /*!******************************************!*\
   !*** ./src/WikiData/characters/index.js ***!
   \******************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar RusselKing_1 = __importDefault(__webpack_require__(/*! ./RusselKing */ \"./src/WikiData/characters/RusselKing/index.js\"));\n\nvar ReggieKing_1 = __importDefault(__webpack_require__(/*! ./ReggieKing */ \"./src/WikiData/characters/ReggieKing/index.js\"));\n\nvar Achilles_1 = __importDefault(__webpack_require__(/*! ./Achilles */ \"./src/WikiData/characters/Achilles/index.js\"));\n\nvar MelvinGerritsen_1 = __importDefault(__webpack_require__(/*! ./MelvinGerritsen */ \"./src/WikiData/characters/MelvinGerritsen/index.js\"));\n\nvar DrWeed_1 = __importDefault(__webpack_require__(/*! ./DrWeed */ \"./src/WikiData/characters/DrWeed/index.js\"));\n\nvar Ferguson_1 = __importDefault(__webpack_require__(/*! ./Ferguson */ \"./src/WikiData/characters/Ferguson/index.js\"));\n\nvar Opal_1 = __importDefault(__webpack_require__(/*! ./Opal */ \"./src/WikiData/characters/Opal/index.js\"));\n\nvar AgentJohnston_1 = __importDefault(__webpack_require__(/*! ./AgentJohnston */ \"./src/WikiData/characters/AgentJohnston/index.js\"));\n\nvar AgentBryson_1 = __importDefault(__webpack_require__(/*! ./AgentBryson */ \"./src/WikiData/characters/AgentBryson/index.js\"));\n\nvar AgentTillerson_1 = __importDefault(__webpack_require__(/*! ./AgentTillerson */ \"./src/WikiData/characters/AgentTillerson/index.js\"));\n\nvar AgentMadison_1 = __importDefault(__webpack_require__(/*! ./AgentMadison */ \"./src/WikiData/characters/AgentMadison/index.js\"));\n\nexports[\"default\"] = [RusselKing_1[\"default\"], ReggieKing_1[\"default\"], Achilles_1[\"default\"], MelvinGerritsen_1[\"default\"], DrWeed_1[\"default\"], Opal_1[\"default\"], Ferguson_1[\"default\"], AgentJohnston_1[\"default\"], AgentBryson_1[\"default\"], AgentTillerson_1[\"default\"], AgentMadison_1[\"default\"]];\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/index.js?");
+eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar RusselKing_1 = __importDefault(__webpack_require__(/*! ./RusselKing */ \"./src/WikiData/characters/RusselKing/index.js\"));\n\nvar ReggieKing_1 = __importDefault(__webpack_require__(/*! ./ReggieKing */ \"./src/WikiData/characters/ReggieKing/index.js\"));\n\nvar Achilles_1 = __importDefault(__webpack_require__(/*! ./Achilles */ \"./src/WikiData/characters/Achilles/index.js\"));\n\nvar MelvinGerritsen_1 = __importDefault(__webpack_require__(/*! ./MelvinGerritsen */ \"./src/WikiData/characters/MelvinGerritsen/index.js\"));\n\nvar DrWeed_1 = __importDefault(__webpack_require__(/*! ./DrWeed */ \"./src/WikiData/characters/DrWeed/index.js\"));\n\nvar Ferguson_1 = __importDefault(__webpack_require__(/*! ./Ferguson */ \"./src/WikiData/characters/Ferguson/index.js\"));\n\nvar Opal_1 = __importDefault(__webpack_require__(/*! ./Opal */ \"./src/WikiData/characters/Opal/index.js\"));\n\nvar AgentJohnston_1 = __importDefault(__webpack_require__(/*! ./AgentJohnston */ \"./src/WikiData/characters/AgentJohnston/index.js\"));\n\nvar AgentBryson_1 = __importDefault(__webpack_require__(/*! ./AgentBryson */ \"./src/WikiData/characters/AgentBryson/index.js\"));\n\nvar AgentTillerson_1 = __importDefault(__webpack_require__(/*! ./AgentTillerson */ \"./src/WikiData/characters/AgentTillerson/index.js\"));\n\nvar AgentMadison_1 = __importDefault(__webpack_require__(/*! ./AgentMadison */ \"./src/WikiData/characters/AgentMadison/index.js\"));\n\nvar AgentRayson_1 = __importDefault(__webpack_require__(/*! ./AgentRayson */ \"./src/WikiData/characters/AgentRayson/index.js\"));\n\nvar Ellie_1 = __importDefault(__webpack_require__(/*! ./Ellie */ \"./src/WikiData/characters/Ellie/index.js\"));\n\nvar Nemo_1 = __importDefault(__webpack_require__(/*! ./Nemo */ \"./src/WikiData/characters/Nemo/index.js\"));\n\nvar Suzanne_1 = __importDefault(__webpack_require__(/*! ./Suzanne */ \"./src/WikiData/characters/Suzanne/index.js\"));\n\nvar Radio_1 = __importDefault(__webpack_require__(/*! ./Radio */ \"./src/WikiData/characters/Radio/index.js\"));\n\nexports[\"default\"] = [RusselKing_1[\"default\"], ReggieKing_1[\"default\"], Achilles_1[\"default\"], MelvinGerritsen_1[\"default\"], DrWeed_1[\"default\"], Opal_1[\"default\"], Ferguson_1[\"default\"], AgentJohnston_1[\"default\"], AgentBryson_1[\"default\"], AgentTillerson_1[\"default\"], AgentMadison_1[\"default\"], AgentRayson_1[\"default\"], Radio_1[\"default\"], Ellie_1[\"default\"], Nemo_1[\"default\"], Suzanne_1[\"default\"]];\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/index.js?");
 
 /***/ }),
 
@@ -606,7 +856,7 @@ eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {
   \*****************************************/
 /***/ ((__unused_webpack_module, exports) => {
 
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports.HUMAN = exports.PSYCHIC = exports.PARANORMAL = exports.MYTHICAL = exports.META_HUMAN = exports.HERO = exports.MAIN_CHARACTER = exports.DMPA_AGENT = exports.DMPA_EMPLOYEE = void 0;\nexports.DMPA_EMPLOYEE = 'DMPA Employee';\nexports.DMPA_AGENT = 'DMPA Agent';\nexports.MAIN_CHARACTER = 'Main Character';\nexports.HERO = 'Hero';\nexports.META_HUMAN = 'Meta-Human';\nexports.MYTHICAL = 'Mythical';\nexports.PARANORMAL = 'Paranormal';\nexports.PSYCHIC = 'Psychic';\nexports.HUMAN = 'Human';\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/tags.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports.HUMAN = exports.PSYCHIC = exports.PARANORMAL = exports.MYTHICAL = exports.META_HUMAN = exports.ANTI_HERO = exports.HERO = exports.MAIN_CHARACTER = exports.DMPA_AGENT = exports.DMPA_EMPLOYEE = void 0;\nexports.DMPA_EMPLOYEE = 'DMPA Employee';\nexports.DMPA_AGENT = 'DMPA Agent';\nexports.MAIN_CHARACTER = 'Main Character';\nexports.HERO = 'Hero';\nexports.ANTI_HERO = 'Anti-Hero';\nexports.META_HUMAN = 'Meta-Human';\nexports.MYTHICAL = 'Mythical';\nexports.PARANORMAL = 'Paranormal';\nexports.PSYCHIC = 'Psychic';\nexports.HUMAN = 'Human';\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/tags.js?");
 
 /***/ }),
 
@@ -696,7 +946,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
   \*************************/
 /***/ ((__unused_webpack_module, exports) => {
 
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports.AGENT_MADISON_PAGE_ID = exports.AGENT_TILLERSON_PAGE_ID = exports.AGENT_BRYSON_PAGE_ID = exports.AGENT_JOHNSTON_PAGE_ID = exports.FERGUSON_PAGE_ID = exports.OPAL_PAGE_ID = exports.DR_WEED_PAGE_ID = exports.MELVIN_GERRITSEN_PAGE_ID = exports.ACHILLES_PAGE_ID = exports.REGGIE_KING_PAGE_ID = exports.RUSSEL_KING_PAGE_ID = exports.STONE_FACED_PAGE_ID = exports.HOME_PAGE_ID = void 0;\n/* Home */\n\nexports.HOME_PAGE_ID = 'home_page';\n/* Notes */\n\nexports.STONE_FACED_PAGE_ID = 'stone_faced';\n/* Characters */\n\nexports.RUSSEL_KING_PAGE_ID = 'russel_king';\nexports.REGGIE_KING_PAGE_ID = 'reggie_king';\nexports.ACHILLES_PAGE_ID = 'achilles';\nexports.MELVIN_GERRITSEN_PAGE_ID = 'melvin_gerritsen';\nexports.DR_WEED_PAGE_ID = 'dr_weed';\nexports.OPAL_PAGE_ID = 'opal';\nexports.FERGUSON_PAGE_ID = 'ferguson';\nexports.AGENT_JOHNSTON_PAGE_ID = 'agent_johnston';\nexports.AGENT_BRYSON_PAGE_ID = 'agent_bryson';\nexports.AGENT_TILLERSON_PAGE_ID = 'agent_tillerson';\nexports.AGENT_MADISON_PAGE_ID = 'agent_madison';\n\n//# sourceURL=webpack://icarus-wiki/./src/page-ids.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports.NEMO_PAGE_ID = exports.SUZANNE_PAGE_ID = exports.ELLIE_PAGE_ID = exports.RADIO_PAGE_ID = exports.AGENT_RAYSON_PAGE_ID = exports.AGENT_MADISON_PAGE_ID = exports.AGENT_TILLERSON_PAGE_ID = exports.AGENT_BRYSON_PAGE_ID = exports.AGENT_JOHNSTON_PAGE_ID = exports.FERGUSON_PAGE_ID = exports.OPAL_PAGE_ID = exports.DR_WEED_PAGE_ID = exports.MELVIN_GERRITSEN_PAGE_ID = exports.ACHILLES_PAGE_ID = exports.REGGIE_KING_PAGE_ID = exports.RUSSEL_KING_PAGE_ID = exports.STONE_FACED_PAGE_ID = exports.HOME_PAGE_ID = void 0;\n/* Home */\n\nexports.HOME_PAGE_ID = 'home_page';\n/* Notes */\n\nexports.STONE_FACED_PAGE_ID = 'stone_faced';\n/* Characters */\n\nexports.RUSSEL_KING_PAGE_ID = 'russel_king';\nexports.REGGIE_KING_PAGE_ID = 'reggie_king';\nexports.ACHILLES_PAGE_ID = 'achilles';\nexports.MELVIN_GERRITSEN_PAGE_ID = 'melvin_gerritsen';\nexports.DR_WEED_PAGE_ID = 'dr_weed';\nexports.OPAL_PAGE_ID = 'opal';\nexports.FERGUSON_PAGE_ID = 'ferguson';\nexports.AGENT_JOHNSTON_PAGE_ID = 'agent_johnston';\nexports.AGENT_BRYSON_PAGE_ID = 'agent_bryson';\nexports.AGENT_TILLERSON_PAGE_ID = 'agent_tillerson';\nexports.AGENT_MADISON_PAGE_ID = 'agent_madison';\nexports.AGENT_RAYSON_PAGE_ID = 'agent_rayson';\nexports.RADIO_PAGE_ID = 'radio';\nexports.ELLIE_PAGE_ID = 'ellie';\nexports.SUZANNE_PAGE_ID = 'suzanne';\nexports.NEMO_PAGE_ID = 'nemo';\n\n//# sourceURL=webpack://icarus-wiki/./src/page-ids.js?");
 
 /***/ }),
 

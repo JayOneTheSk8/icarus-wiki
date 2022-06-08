@@ -19,7 +19,8 @@
     "gen-char-page": "node src/templates/generate.js -c -p",
     "gen-char-sect": "node src/templates/generate.js -c -s",
     "gen-note-page": "node src/templates/generate.js -n -p",
-    "gen-note-sect": "node src/templates/generate.js -n -s"
+    "gen-note-sect": "node src/templates/generate.js -n -s",
+    "char-init": "node src/templates/char-init.js"
   },
   "repository": {
     "type": "git",

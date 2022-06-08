@@ -671,7 +671,7 @@ template {
 }
 
 .page-subsection-img {
-  width: 11em;
+  width: 8em;
   cursor: pointer;
 }
 
@@ -693,6 +693,8 @@ template {
   margin-bottom: 3em;
   font-size: 2em;
   white-space: pre-wrap;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* Attributes Section */

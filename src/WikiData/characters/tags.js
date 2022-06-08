@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.HUMAN = exports.PSYCHIC = exports.PARANORMAL = exports.MYTHICAL = exports.META_HUMAN = exports.ANTI_HERO = exports.HERO = exports.MAIN_CHARACTER = exports.DMPA_AGENT = exports.DMPA_EMPLOYEE = void 0;
+exports.ROBOT = exports.ARTIFICIAL_INTELLIGENCE = exports.AI = exports.HUMAN = exports.PSYCHIC = exports.PARANORMAL = exports.MYTHICAL = exports.META_HUMAN = exports.ANTI_HERO = exports.HERO = exports.MAIN_CHARACTER = exports.DMPA_AGENT = exports.DMPA_EMPLOYEE = void 0;
 exports.DMPA_EMPLOYEE = 'DMPA Employee';
 exports.DMPA_AGENT = 'DMPA Agent';
 exports.MAIN_CHARACTER = 'Main Character';
@@ -11,3 +11,6 @@ exports.MYTHICAL = 'Mythical';
 exports.PARANORMAL = 'Paranormal';
 exports.PSYCHIC = 'Psychic';
 exports.HUMAN = 'Human';
+exports.AI = 'AI';
+exports.ARTIFICIAL_INTELLIGENCE = 'Artificial Intelligence';
+exports.ROBOT = 'Robot';

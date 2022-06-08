@@ -20,6 +20,8 @@ import Nemo from './Nemo'
 import Suzanne from './Suzanne'
 import Radio from './Radio'
 
+import SAIM from './SAIM'
+
 export default [
     RusselKing,
     ReggieKing,
@@ -37,4 +39,5 @@ export default [
     Ellie,
     Nemo,
     Suzanne,
+    SAIM,
 ] as CharacterList

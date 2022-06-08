@@ -12,3 +12,6 @@ export const PARANORMAL = 'Paranormal'
 export const PSYCHIC = 'Psychic'
 
 export const HUMAN = 'Human'
+export const AI = 'AI'
+export const ARTIFICIAL_INTELLIGENCE = 'Artificial Intelligence'
+export const ROBOT = 'Robot'

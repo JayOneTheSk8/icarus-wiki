@@ -19,6 +19,7 @@ const Ellie_1 = __importDefault(require("./Ellie"));
 const Nemo_1 = __importDefault(require("./Nemo"));
 const Suzanne_1 = __importDefault(require("./Suzanne"));
 const Radio_1 = __importDefault(require("./Radio"));
+const SAIM_1 = __importDefault(require("./SAIM"));
 exports.default = [
     RusselKing_1.default,
     ReggieKing_1.default,
@@ -36,4 +37,5 @@ exports.default = [
     Ellie_1.default,
     Nemo_1.default,
     Suzanne_1.default,
+    SAIM_1.default,
 ];

@@ -40,13 +40,13 @@ export const noteDir = (notePageName: string): string => `src-ts/WikiData/notes/
 
 export const generate = (firstArg: string, secondArg: string, pageName: string, sectionName: string): void => {
     // When asking for help
-    if (helpOptions.includes(firstArg)) {
+    if (!firstArg || helpOptions.includes(firstArg)) {
         /* eslint no-console: "off" */
         console.log('Simple template generation script')
 
         console.log('WARNING: Will overwrite same file if created\n')
         console.log(`Usage: 'npm run generate -- [Page Type Flag] [Page or Section Flag] [name of page] [name of section]'\n`)
-        console.log('   -h, --help                          Access this menu')
+        console.log('   -h, --help                          Access this menu\n')
 
         console.log('Page Type Flags:')
         console.log('   -c, --char                          Character Page')

@@ -1,6 +1,9 @@
 /* Home */
 export const HOME_PAGE_ID = 'home_page'
 
+/* Notes */
+export const STONE_FACED_PAGE_ID = 'stone_faced'
+
 /* Characters */
 export const RUSSEL_KING_PAGE_ID = 'russel_king'
 export const REGGIE_KING_PAGE_ID = 'reggie_king'
@@ -12,6 +15,4 @@ export const FERGUSON_PAGE_ID = 'ferguson'
 export const AGENT_JOHNSTON_PAGE_ID = 'agent_johnston'
 export const AGENT_BRYSON_PAGE_ID = 'agent_bryson'
 export const AGENT_TILLERSON_PAGE_ID = 'agent_tillerson'
-
-/* Notes */
-export const STONE_FACED_PAGE_ID = 'stone_faced'
+export const AGENT_MADISON_PAGE_ID = 'agent_madison'

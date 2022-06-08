@@ -8,9 +8,7 @@ const associations = {
         {
             associationName: 'Co-Workers',
             associationPageIds: [
-                page_ids_1.OPAL_PAGE_ID,
-                page_ids_1.FERGUSON_PAGE_ID,
-                page_ids_1.AGENT_MADISON_PAGE_ID,
+                page_ids_1.DR_WEED_PAGE_ID,
             ]
         }
     ]

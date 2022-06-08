@@ -170,6 +170,56 @@ eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {
 
 /***/ }),
 
+/***/ "./src/WikiData/characters/AgentMadison/appearance.js":
+/*!************************************************************!*\
+  !*** ./src/WikiData/characters/AgentMadison/appearance.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar appearance = {\n  title: constants_1.APPEARANCE,\n  body: 'Madison is a young-looking, tall, hulking woman whose muscles bulge from her suit. She wears cat-eye glasses and has her hair in a bun with perfectly aligned bangs.'\n};\nexports[\"default\"] = appearance;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/AgentMadison/appearance.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/AgentMadison/associations.js":
+/*!**************************************************************!*\
+  !*** ./src/WikiData/characters/AgentMadison/associations.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Co-Workers',\n    associationPageIds: [page_ids_1.DR_WEED_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/AgentMadison/associations.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/AgentMadison/attributes.js":
+/*!************************************************************!*\
+  !*** ./src/WikiData/characters/AgentMadison/attributes.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar attributes = {\n  title: constants_1.ATTRIBUTES,\n  attributes: [{\n    attributeName: 'Occupation',\n    attributeText: 'DMPA Agent'\n  }, {\n    attributeName: 'Gender',\n    attributeText: 'Female'\n  }, {\n    attributeName: 'Age',\n    attributeText: '40'\n  }, {\n    attributeName: 'Height',\n    attributeText: \"6' 1\\\"\"\n  }, {\n    attributeName: 'Hair Color',\n    attributeText: 'Red'\n  }, {\n    attributeName: 'Hair Style',\n    attributeText: 'Bun'\n  }, {\n    attributeName: 'Debut',\n    attributeText: 'Chapter 6: Fi(r)st Fight'\n  }]\n};\nexports[\"default\"] = attributes;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/AgentMadison/attributes.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/AgentMadison/headline.js":
+/*!**********************************************************!*\
+  !*** ./src/WikiData/characters/AgentMadison/headline.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar headline = {\n  title: constants_1.HEADLINE,\n  body: 'Madison is a DMPA agent at the Philadelphia branch who oversees Reggie and Russel King when they are grounded.'\n};\nexports[\"default\"] = headline;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/AgentMadison/headline.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/AgentMadison/index.js":
+/*!*******************************************************!*\
+  !*** ./src/WikiData/characters/AgentMadison/index.js ***!
+  \*******************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar tags_1 = __webpack_require__(/*! ../tags */ \"./src/WikiData/characters/tags.js\");\n\nvar attributes_1 = __importDefault(__webpack_require__(/*! ./attributes */ \"./src/WikiData/characters/AgentMadison/attributes.js\"));\n\nvar headline_1 = __importDefault(__webpack_require__(/*! ./headline */ \"./src/WikiData/characters/AgentMadison/headline.js\"));\n\nvar appearance_1 = __importDefault(__webpack_require__(/*! ./appearance */ \"./src/WikiData/characters/AgentMadison/appearance.js\"));\n\nvar associations_1 = __importDefault(__webpack_require__(/*! ./associations */ \"./src/WikiData/characters/AgentMadison/associations.js\"));\n\nvar AgentMadison = {\n  id: page_ids_1.AGENT_MADISON_PAGE_ID,\n  type: constants_1.CHARACTERS_PAGE_TYPE,\n  name: 'Agent Madison',\n  pageImage: {\n    url: constants_1.DRIVE_VIEW_PREFIX + '1iibWMb2ovvbcFwMWCNWK8m0Hv4LAlj0R'\n  },\n  sections: [attributes_1[\"default\"], headline_1[\"default\"], appearance_1[\"default\"], associations_1[\"default\"]],\n  tags: new Set([tags_1.DMPA_AGENT, tags_1.DMPA_EMPLOYEE, tags_1.HUMAN])\n};\nexports[\"default\"] = AgentMadison;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/AgentMadison/index.js?");
+
+/***/ }),
+
 /***/ "./src/WikiData/characters/AgentTillerson/appearance.js":
 /*!**************************************************************!*\
   !*** ./src/WikiData/characters/AgentTillerson/appearance.js ***!
@@ -236,7 +286,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
   \********************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Co-Workers',\n    associationPageIds: [page_ids_1.OPAL_PAGE_ID, page_ids_1.FERGUSON_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/DrWeed/associations.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Co-Workers',\n    associationPageIds: [page_ids_1.OPAL_PAGE_ID, page_ids_1.FERGUSON_PAGE_ID, page_ids_1.AGENT_MADISON_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/DrWeed/associations.js?");
 
 /***/ }),
 
@@ -546,7 +596,7 @@ eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {
   \******************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar RusselKing_1 = __importDefault(__webpack_require__(/*! ./RusselKing */ \"./src/WikiData/characters/RusselKing/index.js\"));\n\nvar ReggieKing_1 = __importDefault(__webpack_require__(/*! ./ReggieKing */ \"./src/WikiData/characters/ReggieKing/index.js\"));\n\nvar Achilles_1 = __importDefault(__webpack_require__(/*! ./Achilles */ \"./src/WikiData/characters/Achilles/index.js\"));\n\nvar MelvinGerritsen_1 = __importDefault(__webpack_require__(/*! ./MelvinGerritsen */ \"./src/WikiData/characters/MelvinGerritsen/index.js\"));\n\nvar DrWeed_1 = __importDefault(__webpack_require__(/*! ./DrWeed */ \"./src/WikiData/characters/DrWeed/index.js\"));\n\nvar Ferguson_1 = __importDefault(__webpack_require__(/*! ./Ferguson */ \"./src/WikiData/characters/Ferguson/index.js\"));\n\nvar Opal_1 = __importDefault(__webpack_require__(/*! ./Opal */ \"./src/WikiData/characters/Opal/index.js\"));\n\nvar AgentJohnston_1 = __importDefault(__webpack_require__(/*! ./AgentJohnston */ \"./src/WikiData/characters/AgentJohnston/index.js\"));\n\nvar AgentBryson_1 = __importDefault(__webpack_require__(/*! ./AgentBryson */ \"./src/WikiData/characters/AgentBryson/index.js\"));\n\nvar AgentTillerson_1 = __importDefault(__webpack_require__(/*! ./AgentTillerson */ \"./src/WikiData/characters/AgentTillerson/index.js\"));\n\nexports[\"default\"] = [RusselKing_1[\"default\"], ReggieKing_1[\"default\"], Achilles_1[\"default\"], MelvinGerritsen_1[\"default\"], DrWeed_1[\"default\"], Opal_1[\"default\"], Ferguson_1[\"default\"], AgentJohnston_1[\"default\"], AgentBryson_1[\"default\"], AgentTillerson_1[\"default\"]];\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/index.js?");
+eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar RusselKing_1 = __importDefault(__webpack_require__(/*! ./RusselKing */ \"./src/WikiData/characters/RusselKing/index.js\"));\n\nvar ReggieKing_1 = __importDefault(__webpack_require__(/*! ./ReggieKing */ \"./src/WikiData/characters/ReggieKing/index.js\"));\n\nvar Achilles_1 = __importDefault(__webpack_require__(/*! ./Achilles */ \"./src/WikiData/characters/Achilles/index.js\"));\n\nvar MelvinGerritsen_1 = __importDefault(__webpack_require__(/*! ./MelvinGerritsen */ \"./src/WikiData/characters/MelvinGerritsen/index.js\"));\n\nvar DrWeed_1 = __importDefault(__webpack_require__(/*! ./DrWeed */ \"./src/WikiData/characters/DrWeed/index.js\"));\n\nvar Ferguson_1 = __importDefault(__webpack_require__(/*! ./Ferguson */ \"./src/WikiData/characters/Ferguson/index.js\"));\n\nvar Opal_1 = __importDefault(__webpack_require__(/*! ./Opal */ \"./src/WikiData/characters/Opal/index.js\"));\n\nvar AgentJohnston_1 = __importDefault(__webpack_require__(/*! ./AgentJohnston */ \"./src/WikiData/characters/AgentJohnston/index.js\"));\n\nvar AgentBryson_1 = __importDefault(__webpack_require__(/*! ./AgentBryson */ \"./src/WikiData/characters/AgentBryson/index.js\"));\n\nvar AgentTillerson_1 = __importDefault(__webpack_require__(/*! ./AgentTillerson */ \"./src/WikiData/characters/AgentTillerson/index.js\"));\n\nvar AgentMadison_1 = __importDefault(__webpack_require__(/*! ./AgentMadison */ \"./src/WikiData/characters/AgentMadison/index.js\"));\n\nexports[\"default\"] = [RusselKing_1[\"default\"], ReggieKing_1[\"default\"], Achilles_1[\"default\"], MelvinGerritsen_1[\"default\"], DrWeed_1[\"default\"], Opal_1[\"default\"], Ferguson_1[\"default\"], AgentJohnston_1[\"default\"], AgentBryson_1[\"default\"], AgentTillerson_1[\"default\"], AgentMadison_1[\"default\"]];\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/index.js?");
 
 /***/ }),
 
@@ -646,7 +696,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
   \*************************/
 /***/ ((__unused_webpack_module, exports) => {
 
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports.STONE_FACED_PAGE_ID = exports.AGENT_TILLERSON_PAGE_ID = exports.AGENT_BRYSON_PAGE_ID = exports.AGENT_JOHNSTON_PAGE_ID = exports.FERGUSON_PAGE_ID = exports.OPAL_PAGE_ID = exports.DR_WEED_PAGE_ID = exports.MELVIN_GERRITSEN_PAGE_ID = exports.ACHILLES_PAGE_ID = exports.REGGIE_KING_PAGE_ID = exports.RUSSEL_KING_PAGE_ID = exports.HOME_PAGE_ID = void 0;\n/* Home */\n\nexports.HOME_PAGE_ID = 'home_page';\n/* Characters */\n\nexports.RUSSEL_KING_PAGE_ID = 'russel_king';\nexports.REGGIE_KING_PAGE_ID = 'reggie_king';\nexports.ACHILLES_PAGE_ID = 'achilles';\nexports.MELVIN_GERRITSEN_PAGE_ID = 'melvin_gerritsen';\nexports.DR_WEED_PAGE_ID = 'dr_weed';\nexports.OPAL_PAGE_ID = 'opal';\nexports.FERGUSON_PAGE_ID = 'ferguson';\nexports.AGENT_JOHNSTON_PAGE_ID = 'agent_johnston';\nexports.AGENT_BRYSON_PAGE_ID = 'agent_bryson';\nexports.AGENT_TILLERSON_PAGE_ID = 'agent_tillerson';\n/* Notes */\n\nexports.STONE_FACED_PAGE_ID = 'stone_faced';\n\n//# sourceURL=webpack://icarus-wiki/./src/page-ids.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports.AGENT_MADISON_PAGE_ID = exports.AGENT_TILLERSON_PAGE_ID = exports.AGENT_BRYSON_PAGE_ID = exports.AGENT_JOHNSTON_PAGE_ID = exports.FERGUSON_PAGE_ID = exports.OPAL_PAGE_ID = exports.DR_WEED_PAGE_ID = exports.MELVIN_GERRITSEN_PAGE_ID = exports.ACHILLES_PAGE_ID = exports.REGGIE_KING_PAGE_ID = exports.RUSSEL_KING_PAGE_ID = exports.STONE_FACED_PAGE_ID = exports.HOME_PAGE_ID = void 0;\n/* Home */\n\nexports.HOME_PAGE_ID = 'home_page';\n/* Notes */\n\nexports.STONE_FACED_PAGE_ID = 'stone_faced';\n/* Characters */\n\nexports.RUSSEL_KING_PAGE_ID = 'russel_king';\nexports.REGGIE_KING_PAGE_ID = 'reggie_king';\nexports.ACHILLES_PAGE_ID = 'achilles';\nexports.MELVIN_GERRITSEN_PAGE_ID = 'melvin_gerritsen';\nexports.DR_WEED_PAGE_ID = 'dr_weed';\nexports.OPAL_PAGE_ID = 'opal';\nexports.FERGUSON_PAGE_ID = 'ferguson';\nexports.AGENT_JOHNSTON_PAGE_ID = 'agent_johnston';\nexports.AGENT_BRYSON_PAGE_ID = 'agent_bryson';\nexports.AGENT_TILLERSON_PAGE_ID = 'agent_tillerson';\nexports.AGENT_MADISON_PAGE_ID = 'agent_madison';\n\n//# sourceURL=webpack://icarus-wiki/./src/page-ids.js?");
 
 /***/ }),
 

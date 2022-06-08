@@ -12,6 +12,7 @@ import Opal from './Opal'
 import AgentJohnston from './AgentJohnston'
 import AgentBryson from './AgentBryson'
 import AgentTillerson from './AgentTillerson'
+import AgentMadison from './AgentMadison'
 
 export default [
     RusselKing,
@@ -24,4 +25,5 @@ export default [
     AgentJohnston,
     AgentBryson,
     AgentTillerson,
+    AgentMadison,
 ] as CharacterList

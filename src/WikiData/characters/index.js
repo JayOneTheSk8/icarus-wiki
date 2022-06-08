@@ -13,6 +13,7 @@ const Opal_1 = __importDefault(require("./Opal"));
 const AgentJohnston_1 = __importDefault(require("./AgentJohnston"));
 const AgentBryson_1 = __importDefault(require("./AgentBryson"));
 const AgentTillerson_1 = __importDefault(require("./AgentTillerson"));
+const AgentMadison_1 = __importDefault(require("./AgentMadison"));
 exports.default = [
     RusselKing_1.default,
     ReggieKing_1.default,
@@ -24,4 +25,5 @@ exports.default = [
     AgentJohnston_1.default,
     AgentBryson_1.default,
     AgentTillerson_1.default,
+    AgentMadison_1.default,
 ];

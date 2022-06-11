@@ -233,17 +233,19 @@ export const ASSOCIATIONS_TITLES_LIST: Array<string> = [ASSOCIATIONS, FAMILY, FR
 To prevent circular imports, instead of `AssociationsSection` being lists of `Page`s (which would be more straightforward), they are a list of `Page` `id`s. `id`s will be linked to `Page`s in an object in memory.
 
 ```typescript
-/* src-ts/index.ts */
-const PAGE_MAP: { [key: string]: Page } = {}
+/* src-ts/app/index.ts */
+class App {
+    const PAGE_MAP: { [key: string]: Page } = {}
 
-// Add homepage to page map
-PAGE_MAP[homePage.id] = homePage
+    // Add homepage to page map
+    PAGE_MAP[homePage.id] = homePage
 
-// Add character page to page map
-PAGE_MAP[character.id] = character
+    // Add character page to page map
+    PAGE_MAP[character.id] = character
 
-// Add note page to page map
-PAGE_MAP[note.id] = note
+    // Add note page to page map
+    PAGE_MAP[note.id] = note
+}
 ```
 
 This is still a very clumsy way of managing `id`s in lieu of a DBMS. A `Page`'s `id` must be unique for the functionality to work. The solution was to maintain `page-id`s in a single file. This is far from perfect, but it at least allows a visual check of when `id`s could possibly overlap.

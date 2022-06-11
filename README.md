@@ -14,7 +14,7 @@ The HTML is fairly straightforward: the main `"page-content"` simply adds the DO
 
 ## CLI Page generation
 
-A convenient file generator can be used. Run `npm run g -- -h` for more info.
+A convenient file generator can be used. Run `npm run g` or `npm run char-init` for more info.
 
 ## Page's `name` and `pageImage`
 

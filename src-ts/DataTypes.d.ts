@@ -1,3 +1,6 @@
+export type PageType = 'Characters' | 'Notes' | 'Home Page'
+export type PictureOrientation = 'portrait' | 'landscape'
+
 export interface Image {
     url: string
     caption?: string
@@ -47,15 +50,11 @@ export interface Page {
     name: string
     pageImage?: Image
     sections: Array<PageSection | GallerySection | AttributesSection | AssociationsSection>
-    tags?: Tags
+    tags?: Set<string>
 }
 
 export type CharacterList = Array<Page>
 export type Notes = Array<Page>
-export type Tags = Set<string>
-export type PageType = 'Characters' | 'Notes' | 'Home Page'
-
-export type PictureOrientation = 'portrait' | 'landscape'
 
 export interface BlogData {
     homePage: Page

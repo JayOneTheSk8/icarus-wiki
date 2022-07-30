@@ -5,6 +5,7 @@ export const TAG_SEARCH_PLACEHOLDER = 'Tag Search'
 export const SECTION_TITLE = 'section-title'
 export const PAGE_OPTION_CONTAINER = 'page-option-container'
 export const PAGE_OPTION = 'page-option'
+export const PAGE_OPTION_SPACE_BLOCK = 'page-option-spaceblock'
 
 export const MAIN_CLASS = 'main'
 export const PAGE_CONTENT_CLASS = 'page-content'

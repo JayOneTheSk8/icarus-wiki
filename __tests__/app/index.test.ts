@@ -3410,7 +3410,10 @@ describe('App', () => {
             expect(characterOptions.className).toEqual(appConstants.PAGE_OPTION_CONTAINER)
 
             // 2 Characters in mock data
-            expect(characterOptions.children).toHaveLength(2)
+            expect(characterOptions.children).toHaveLength(3)
+
+            // Last element is space block
+            expect(characterOptions.children[characterOptions.children.length - 1].className).toEqual(appConstants.PAGE_OPTION_SPACE_BLOCK)
         })
 
         it('adds the Characters Pages as options', () => {
@@ -3498,7 +3501,10 @@ describe('App', () => {
             expect(noteOptions.className).toEqual(appConstants.PAGE_OPTION_CONTAINER)
 
             // 2 Notes in mock data
-            expect(noteOptions.children).toHaveLength(2)
+            expect(noteOptions.children).toHaveLength(3)
+
+            // Last element is space block
+            expect(noteOptions.children[noteOptions.children.length - 1].className).toEqual(appConstants.PAGE_OPTION_SPACE_BLOCK)
         })
 
         it('adds the Note Pages as options', () => {

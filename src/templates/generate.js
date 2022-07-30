@@ -233,4 +233,4 @@ const generate = (firstArg, secondArg, pageName, sectionName) => {
     }
 };
 exports.generate = generate;
-(0, exports.generate)(process.argv[2], process.argv[3], process.argv[4], process.argv[5]);
+process.argv[2] === 'run' && (0, exports.generate)(process.argv[3], process.argv[4], process.argv[5], process.argv[6]);

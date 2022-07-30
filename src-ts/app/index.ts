@@ -904,6 +904,11 @@ class App {
             this.PAGE_MAP[character.id] = character
         })
 
+        // Add Space Block
+        const spaceBlock = this.createDiv()
+        spaceBlock.className = appConstants.PAGE_OPTION_SPACE_BLOCK
+        characterOptionsDiv.appendChild(spaceBlock)
+
         this.charactersSelector.push(characterOptionsDiv)
     }
 
@@ -954,6 +959,11 @@ class App {
             // Add note page to page map
             this.PAGE_MAP[note.id] = note
         })
+
+        // Add Space Block
+        const spaceBlock = this.createDiv()
+        spaceBlock.className = appConstants.PAGE_OPTION_SPACE_BLOCK
+        noteOptionsDiv.appendChild(spaceBlock)
 
         this.notesSelector.push(noteOptionsDiv)
     }

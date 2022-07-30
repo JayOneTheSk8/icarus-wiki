@@ -14,12 +14,12 @@
     "lint": "eslint '**/*.ts' --ignore-pattern node_modules/ --max-warnings=0",
     "test": "jest --verbose",
     "test-e2e": "testcafe",
-    "g": "node src/templates/generate.js",
-    "generate": "node src/templates/generate.js",
-    "gen-char-page": "node src/templates/generate.js -c -p",
-    "gen-char-sect": "node src/templates/generate.js -c -s",
-    "gen-note-page": "node src/templates/generate.js -n -p",
-    "gen-note-sect": "node src/templates/generate.js -n -s",
+    "g": "node src/templates/generate.js run",
+    "generate": "node src/templates/generate.js run",
+    "gen-char-page": "node src/templates/generate.js run -c -p",
+    "gen-char-sect": "node src/templates/generate.js run -c -s",
+    "gen-note-page": "node src/templates/generate.js run -n -p",
+    "gen-note-sect": "node src/templates/generate.js run -n -s",
     "char-init": "node src/templates/char-init.js"
   },
   "repository": {

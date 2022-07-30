@@ -15,7 +15,7 @@ describe('Character Page Init Script', () => {
             charInit('', [])
 
             expect(generate).not.toHaveBeenCalled()
-            expect(console.log).toHaveBeenCalled() // eslint-disable-line
+            expect(console.log).toHaveBeenCalledTimes(19) // eslint-disable-line
         })
     })
 

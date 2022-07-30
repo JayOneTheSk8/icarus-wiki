@@ -151,13 +151,15 @@
 
 /* Selectors */
 .section-title {
-    padding: 1em;
+    padding: 1.5em 0.2em;
     font-size: 1.5em;
     font-weight: bold;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     border-bottom: 2px solid black;
+    text-align: center;
+    line-height: 0;
 }
 
 .page-option {
@@ -172,7 +174,7 @@
 }
 
 .page-option-spaceblock {
-    height: 9.5em;
+    height: 11em;
     width: 100%;
     border-bottom: 1px solid transparent;
 }

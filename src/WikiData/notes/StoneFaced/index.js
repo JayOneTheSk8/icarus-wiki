@@ -12,7 +12,7 @@ const StoneFaced = {
     type: constants_1.NOTES_PAGE_TYPE,
     name: 'Stone-Faced',
     pageImage: {
-        url: constants_1.DRIVE_VIEW_PREFIX + '1cx-R2-OwVB04JDTL7jqz-1EkcTR5zo99'
+        url: (0, constants_1.imgurLink)('62KrK04')
     },
     sections: [
         attributes_1.default,

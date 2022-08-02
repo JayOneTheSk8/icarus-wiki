@@ -26,4 +26,7 @@ export const RADIO_PAGE_ID = 'radio'
 export const ELLIE_PAGE_ID = 'ellie'
 export const SUZANNE_PAGE_ID = 'suzanne'
 export const NEMO_PAGE_ID = 'nemo'
-export const SAIM_PAGE_ID = 'saim'
+
+export const WALLY_WATERMAN_PAGE_ID = 'wally_waterman'
+export const KALO_AGUIRRE_PAGE_ID = 'kalo_aguirre'
+export const NED_BARRETT_PAGE_ID = 'ned_barrett'

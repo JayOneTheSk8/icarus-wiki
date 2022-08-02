@@ -10,36 +10,32 @@ const attributes: AttributesSection = {
         },
         {
             attributeName: 'Age',
-            attributeText: '15'
+            attributeText: '16'
         },
         {
             attributeName: 'Height',
-            attributeText: `5' 3"`
+            attributeText: `5' 9"`
         },
         {
             attributeName: 'Meta-Human Type',
-            attributeText: 'Paranormal'
+            attributeText: 'Mythical'
         },
         {
             attributeName: 'Race',
-            attributeText: 'Human'
-        },
-        {
-            attributeName: 'Eye Color',
-            attributeText: 'Green'
+            attributeText: 'Neo-Olmec'
         },
         {
             attributeName: 'Hair Color',
-            attributeText: 'Brown'
+            attributeText: 'Black'
         },
         {
             attributeName: 'Hair Style',
-            attributeText: 'Curly Afro'
+            attributeText: 'Mohawk'
         },
         {
             attributeName: 'Debut',
-            attributeText: 'Chapter 5: The Man with Two Legs(Seen)<br />Chapter 6: Fi(r)st Fight (Heard)'
-        }
+            attributeText: 'Chapter 5: The Man with Two Legs (Seen)<br />Chapter 6: Fi(r)st Fight(Heard)'
+        },
     ]
 }
 

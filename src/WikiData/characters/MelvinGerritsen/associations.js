@@ -12,6 +12,14 @@ const associations = {
                 page_ids_1.REGGIE_KING_PAGE_ID,
                 page_ids_1.RUSSEL_KING_PAGE_ID,
             ]
+        },
+        {
+            associationName: 'Enemies',
+            associationPageIds: [
+                page_ids_1.KALO_AGUIRRE_PAGE_ID,
+                page_ids_1.WALLY_WATERMAN_PAGE_ID,
+                page_ids_1.NED_BARRETT_PAGE_ID,
+            ]
         }
     ]
 };

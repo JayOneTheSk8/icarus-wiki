@@ -21,6 +21,9 @@ import Radio from './Radio'
 import Ellie from './Ellie'
 import Suzanne from './Suzanne'
 import Nemo from './Nemo'
+import KaloAguirre from './KaloAguirre'
+import WallyWaterman from './WallyWaterman'
+import NedBarrett from './NedBarrett'
 
 export default [
     RusselKing,
@@ -31,6 +34,9 @@ export default [
     Opal,
     SAIM,
     Ferguson,
+    KaloAguirre,
+    WallyWaterman,
+    NedBarrett,
     Radio,
     Ellie,
     Suzanne,

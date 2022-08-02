@@ -678,6 +678,12 @@ template {
   font-weight: bold;
 }
 
+.page-subsection-image-section {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
 .page-subsection-img {
   width: 8em;
   cursor: pointer;

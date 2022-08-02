@@ -31,3 +31,6 @@ export const SECTION_TITLES_LIST: Array<string> = [
 
 /* Google Drive */
 export const DRIVE_VIEW_PREFIX = 'https://drive.google.com/uc?export=view&id='
+
+/* Imgur */
+export const imgurLink = (id: string) => `https://i.imgur.com/${id}.jpg`

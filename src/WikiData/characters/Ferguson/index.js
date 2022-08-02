@@ -15,7 +15,7 @@ const Ferguson = {
     type: constants_1.CHARACTERS_PAGE_TYPE,
     name: 'Sgt. Ferguson',
     pageImage: {
-        url: constants_1.DRIVE_VIEW_PREFIX + '1RWqIfCXbWc9K4gbW7p7KMQFWOpdhhwmK'
+        url: (0, constants_1.imgurLink)('u7x4OJP')
     },
     sections: [
         attributes_1.default,

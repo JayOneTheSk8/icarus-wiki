@@ -1,5 +1,5 @@
 import { PageSection } from '../../../DataTypes'
-import { DESCRIPTION, DRIVE_VIEW_PREFIX } from '../../../constants'
+import { DESCRIPTION, imgurLink } from '../../../constants'
 
 const description: PageSection = {
     title: DESCRIPTION,
@@ -7,7 +7,7 @@ const description: PageSection = {
         {
             subSectionTitle: '',
             subSectionImage: {
-                url: DRIVE_VIEW_PREFIX + '1mKmYSBYPlS7cxx8hN2hCcVq3Zt00Akch',
+                url: imgurLink('VGhVmQ5'),
                 caption: 'Ester Island Maoi'
             },
             subSectionText: '"stone-face(d)" is a shorthand parenthetical used in the story Icarus to describe a character expressing a 😑 face. The name is meant to mimic the faces of the Moai statues of Easter Island.'

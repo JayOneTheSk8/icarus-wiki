@@ -15,7 +15,7 @@ const AgentRayson = {
     type: constants_1.CHARACTERS_PAGE_TYPE,
     name: 'Agent Rayson',
     pageImage: {
-        url: constants_1.DRIVE_VIEW_PREFIX + '1QPmyI_Mcm69shZtFO1uHYTJimGXvlL4y'
+        url: (0, constants_1.imgurLink)('t2YpQlc')
     },
     sections: [
         attributes_1.default,

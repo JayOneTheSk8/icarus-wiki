@@ -15,7 +15,7 @@ const Achilles = {
     type: constants_1.CHARACTERS_PAGE_TYPE,
     name: 'Achilles',
     pageImage: {
-        url: constants_1.DRIVE_VIEW_PREFIX + '1Pfg4oVvlXURqevxJNxrQHBCMJPre-N56',
+        url: (0, constants_1.imgurLink)('uR7mq3B'),
         caption: 'Achilles (Age 17)'
     },
     sections: [

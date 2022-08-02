@@ -15,7 +15,7 @@ const AgentTillerson = {
     type: constants_1.CHARACTERS_PAGE_TYPE,
     name: 'Agent Tillerson',
     pageImage: {
-        url: constants_1.DRIVE_VIEW_PREFIX + '1QsX9Udv3WDHJhIsYsDdCXYjLrseVZ-24'
+        url: (0, constants_1.imgurLink)('j3iaKA3')
     },
     sections: [
         attributes_1.default,

@@ -15,7 +15,7 @@ const Radio = {
     type: constants_1.CHARACTERS_PAGE_TYPE,
     name: 'Radio',
     pageImage: {
-        url: constants_1.DRIVE_VIEW_PREFIX + '1QPyJhqebmCIt0kUgUhFqWL4pIBZWNPws'
+        url: (0, constants_1.imgurLink)('hyhibPe')
     },
     sections: [
         attributes_1.default,

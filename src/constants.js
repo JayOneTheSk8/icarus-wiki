@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DRIVE_VIEW_PREFIX = exports.SECTION_TITLES_LIST = exports.ASSOCIATIONS_TITLES_LIST = exports.ATTRIBUTES_TITLES_LIST = exports.GALLERY_TITLES_LIST = exports.ASSOCIATIONS = exports.ATTRIBUTES = exports.GALLERY = exports.DESCRIPTION = exports.HISTORY = exports.HEADLINE = exports.APPEARANCE = exports.ABILITIES = exports.HOME_PAGE_TYPE = exports.NOTES_PAGE_TYPE = exports.CHARACTERS_PAGE_TYPE = void 0;
+exports.imgurLink = exports.DRIVE_VIEW_PREFIX = exports.SECTION_TITLES_LIST = exports.ASSOCIATIONS_TITLES_LIST = exports.ATTRIBUTES_TITLES_LIST = exports.GALLERY_TITLES_LIST = exports.ASSOCIATIONS = exports.ATTRIBUTES = exports.GALLERY = exports.DESCRIPTION = exports.HISTORY = exports.HEADLINE = exports.APPEARANCE = exports.ABILITIES = exports.HOME_PAGE_TYPE = exports.NOTES_PAGE_TYPE = exports.CHARACTERS_PAGE_TYPE = void 0;
 /* Page Types */
 exports.CHARACTERS_PAGE_TYPE = 'Characters';
 exports.NOTES_PAGE_TYPE = 'Notes';
@@ -29,3 +29,6 @@ exports.SECTION_TITLES_LIST = [
 ];
 /* Google Drive */
 exports.DRIVE_VIEW_PREFIX = 'https://drive.google.com/uc?export=view&id=';
+/* Imgur */
+const imgurLink = (id) => `https://i.imgur.com/${id}.jpg`;
+exports.imgurLink = imgurLink;

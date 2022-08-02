@@ -15,7 +15,7 @@ const Opal = {
     type: constants_1.CHARACTERS_PAGE_TYPE,
     name: 'Opal',
     pageImage: {
-        url: constants_1.DRIVE_VIEW_PREFIX + '1RAPKHJCj1YYkN7Gb5OhJTZYnBjDKllyA'
+        url: (0, constants_1.imgurLink)('dMPtG6u')
     },
     sections: [
         attributes_1.default,

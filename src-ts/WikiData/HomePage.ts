@@ -1,4 +1,4 @@
-import { DRIVE_VIEW_PREFIX, HOME_PAGE_TYPE } from '../constants'
+import { imgurLink, HOME_PAGE_TYPE } from '../constants'
 import { Page, PageSection } from '../DataTypes'
 import { HOME_PAGE_ID } from '../page-ids'
 
@@ -17,7 +17,7 @@ const HomePage: Page = {
     type: HOME_PAGE_TYPE,
     name: 'Icarus Wiki',
     pageImage: {
-        url: DRIVE_VIEW_PREFIX + '1kFqBqCuFRcMHnN3ipAWi6kUE9aXmTCVU'
+        url: imgurLink('m3l15lt')
     },
     sections: [
         whatsIcarus,

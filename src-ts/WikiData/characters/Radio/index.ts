@@ -1,5 +1,5 @@
 import { Page } from '../../../DataTypes'
-import { CHARACTERS_PAGE_TYPE, DRIVE_VIEW_PREFIX } from '../../../constants'
+import { CHARACTERS_PAGE_TYPE, imgurLink } from '../../../constants'
 import { RADIO_PAGE_ID } from '../../../page-ids'
 import { ANTI_HERO, META_HUMAN, PARANORMAL } from '../tags'
 
@@ -13,7 +13,7 @@ const Radio: Page = {
     type: CHARACTERS_PAGE_TYPE,
     name: 'Radio',
     pageImage: {
-        url: DRIVE_VIEW_PREFIX + '1QPyJhqebmCIt0kUgUhFqWL4pIBZWNPws'
+        url: imgurLink('hyhibPe')
     },
     sections: [
         attributes,

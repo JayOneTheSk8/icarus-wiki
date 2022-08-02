@@ -16,7 +16,7 @@ const ReggieKing = {
     type: constants_1.CHARACTERS_PAGE_TYPE,
     name: 'Reggie King',
     pageImage: {
-        url: constants_1.DRIVE_VIEW_PREFIX + '1PnMGTIJsaIy__AkWuYpAM4G9-saN4VQ5',
+        url: (0, constants_1.imgurLink)('prhNYem'),
         caption: 'Reggie (Age 16)'
     },
     sections: [

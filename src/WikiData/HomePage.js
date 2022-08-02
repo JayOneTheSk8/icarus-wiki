@@ -15,7 +15,7 @@ const HomePage = {
     type: constants_1.HOME_PAGE_TYPE,
     name: 'Icarus Wiki',
     pageImage: {
-        url: constants_1.DRIVE_VIEW_PREFIX + '1kFqBqCuFRcMHnN3ipAWi6kUE9aXmTCVU'
+        url: (0, constants_1.imgurLink)('m3l15lt')
     },
     sections: [
         whatsIcarus,

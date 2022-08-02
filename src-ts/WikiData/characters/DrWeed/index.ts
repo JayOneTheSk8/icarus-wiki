@@ -1,5 +1,5 @@
 import { Page } from '../../../DataTypes'
-import { CHARACTERS_PAGE_TYPE, DRIVE_VIEW_PREFIX } from '../../../constants'
+import { CHARACTERS_PAGE_TYPE, imgurLink } from '../../../constants'
 import { DR_WEED_PAGE_ID } from '../../../page-ids'
 import { DMPA_EMPLOYEE, HERO, META_HUMAN, PARANORMAL, PSYCHIC } from '../tags'
 
@@ -13,7 +13,7 @@ const DrWeed: Page = {
     type: CHARACTERS_PAGE_TYPE,
     name: 'Dr Weed',
     pageImage: {
-        url: DRIVE_VIEW_PREFIX + '1Qm31QZc0p2sZlo7w8eq7hJFEGD8kyWhx'
+        url: imgurLink('88DOnEU')
     },
     sections: [
         attributes,

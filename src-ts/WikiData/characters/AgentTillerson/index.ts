@@ -1,5 +1,5 @@
 import { Page } from '../../../DataTypes'
-import { CHARACTERS_PAGE_TYPE, DRIVE_VIEW_PREFIX } from '../../../constants'
+import { CHARACTERS_PAGE_TYPE, imgurLink } from '../../../constants'
 import { AGENT_TILLERSON_PAGE_ID } from '../../../page-ids'
 import { DMPA_AGENT, DMPA_EMPLOYEE, HUMAN } from '../tags'
 
@@ -13,7 +13,7 @@ const AgentTillerson: Page = {
     type: CHARACTERS_PAGE_TYPE,
     name: 'Agent Tillerson',
     pageImage: {
-        url: DRIVE_VIEW_PREFIX + '1QsX9Udv3WDHJhIsYsDdCXYjLrseVZ-24'
+        url: imgurLink('j3iaKA3')
     },
     sections: [
         attributes,

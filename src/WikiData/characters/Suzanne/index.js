@@ -15,7 +15,7 @@ const Suzanne = {
     type: constants_1.CHARACTERS_PAGE_TYPE,
     name: 'Suzanne',
     pageImage: {
-        url: constants_1.DRIVE_VIEW_PREFIX + '1QMAKo4Z0IdEkB5D_OYlqYYXu_nOysEIo'
+        url: (0, constants_1.imgurLink)('96ssxL6')
     },
     sections: [
         attributes_1.default,

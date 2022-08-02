@@ -5,7 +5,7 @@ const gallery = {
     title: constants_1.GALLERY,
     gallery: [
         {
-            url: constants_1.DRIVE_VIEW_PREFIX + '1RHPsg3vWivrJCz0TCannWyifzdehBAaN'
+            url: (0, constants_1.imgurLink)('9C4C40W')
         }
     ]
 };

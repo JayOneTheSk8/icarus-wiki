@@ -1,5 +1,5 @@
 import { Page } from '../../../DataTypes'
-import { CHARACTERS_PAGE_TYPE, DRIVE_VIEW_PREFIX } from '../../../constants'
+import { CHARACTERS_PAGE_TYPE, imgurLink } from '../../../constants'
 import { ACHILLES_PAGE_ID } from '../../../page-ids'
 import { HERO, MAIN_CHARACTER, META_HUMAN, PARANORMAL } from '../tags'
 
@@ -13,7 +13,7 @@ const Achilles: Page = {
     type: CHARACTERS_PAGE_TYPE,
     name: 'Achilles',
     pageImage: {
-        url: DRIVE_VIEW_PREFIX + '1Pfg4oVvlXURqevxJNxrQHBCMJPre-N56',
+        url: imgurLink('uR7mq3B'),
         caption: 'Achilles (Age 17)'
     },
     sections: [

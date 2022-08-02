@@ -1,5 +1,5 @@
 import { Page } from '../../../DataTypes'
-import { CHARACTERS_PAGE_TYPE, DRIVE_VIEW_PREFIX } from '../../../constants'
+import { CHARACTERS_PAGE_TYPE, imgurLink } from '../../../constants'
 import { MELVIN_GERRITSEN_PAGE_ID } from '../../../page-ids'
 import { HERO, MAIN_CHARACTER, META_HUMAN, PARANORMAL } from '../tags'
 
@@ -13,7 +13,7 @@ const MelvinGerritsen: Page = {
     type: CHARACTERS_PAGE_TYPE,
     name: 'Melvin Gerritsen',
     pageImage: {
-        url: DRIVE_VIEW_PREFIX + '1RKZWzGgko6hw0mHSDr6_jE0e401WVo2d',
+        url: imgurLink('Ca0uJT8'),
         caption: 'Melvin (Age 15)'
     },
     sections: [

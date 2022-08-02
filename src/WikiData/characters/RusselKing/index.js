@@ -16,7 +16,7 @@ const RusselKing = {
     type: constants_1.CHARACTERS_PAGE_TYPE,
     name: 'Russel King',
     pageImage: {
-        url: constants_1.DRIVE_VIEW_PREFIX + '1QAiWVNXwS6Zgvyqxkz2LwEKe1ti3bJ66',
+        url: (0, constants_1.imgurLink)('F4Kq3hk'),
         caption: 'Russel (Age 13)'
     },
     sections: [

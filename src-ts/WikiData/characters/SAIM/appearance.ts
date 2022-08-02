@@ -1,5 +1,5 @@
 import { PageSection } from '../../../DataTypes'
-import { APPEARANCE, DRIVE_VIEW_PREFIX } from '../../../constants'
+import { APPEARANCE, imgurLink } from '../../../constants'
 
 const appearance: PageSection = {
     title: APPEARANCE,
@@ -18,7 +18,7 @@ const appearance: PageSection = {
                 'Footwear: Never Shown'
             ),
             subSectionImage: {
-                url: DRIVE_VIEW_PREFIX + '1isKsOtWDq5A1RjAbuxkjDwxCLunOxj5k'
+                url: imgurLink('3Zwhf0O')
             }
         },
         {
@@ -31,7 +31,7 @@ const appearance: PageSection = {
                 'Footwear: White Sneakers'
             ),
             subSectionImage: {
-                url: DRIVE_VIEW_PREFIX + '1ixA5qeK6tH7BK0C5UZxvn28gUNLKL6QG'
+                url: imgurLink('HVt630v')
             }
         },
         {
@@ -44,7 +44,7 @@ const appearance: PageSection = {
                 'Footwear: Flip Flops'
             ),
             subSectionImage: {
-                url: DRIVE_VIEW_PREFIX + '1iyN_mJV96qM-79QdHU3ULDcU25qfXsoa'
+                url: imgurLink('bmIDqUm')
             }
         },
         {

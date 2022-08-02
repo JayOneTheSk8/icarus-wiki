@@ -15,7 +15,7 @@ const AgentMadison = {
     type: constants_1.CHARACTERS_PAGE_TYPE,
     name: 'Agent Madison',
     pageImage: {
-        url: constants_1.DRIVE_VIEW_PREFIX + '1iibWMb2ovvbcFwMWCNWK8m0Hv4LAlj0R'
+        url: (0, constants_1.imgurLink)('K8MOBqM')
     },
     sections: [
         attributes_1.default,

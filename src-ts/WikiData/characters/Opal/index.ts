@@ -1,5 +1,5 @@
 import { Page } from '../../../DataTypes'
-import { CHARACTERS_PAGE_TYPE, DRIVE_VIEW_PREFIX } from '../../../constants'
+import { CHARACTERS_PAGE_TYPE, imgurLink } from '../../../constants'
 import { OPAL_PAGE_ID } from '../../../page-ids'
 
 import attributes from './attributes'
@@ -13,7 +13,7 @@ const Opal: Page = {
     type: CHARACTERS_PAGE_TYPE,
     name: 'Opal',
     pageImage: {
-        url: DRIVE_VIEW_PREFIX + '1RAPKHJCj1YYkN7Gb5OhJTZYnBjDKllyA'
+        url: imgurLink('dMPtG6u')
     },
     sections: [
         attributes,

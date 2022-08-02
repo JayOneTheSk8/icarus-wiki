@@ -15,7 +15,7 @@ const DrWeed = {
     type: constants_1.CHARACTERS_PAGE_TYPE,
     name: 'Dr Weed',
     pageImage: {
-        url: constants_1.DRIVE_VIEW_PREFIX + '1Qm31QZc0p2sZlo7w8eq7hJFEGD8kyWhx'
+        url: (0, constants_1.imgurLink)('88DOnEU')
     },
     sections: [
         attributes_1.default,

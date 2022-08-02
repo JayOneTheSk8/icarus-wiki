@@ -1,5 +1,5 @@
 import { Page } from '../../../DataTypes'
-import { CHARACTERS_PAGE_TYPE, DRIVE_VIEW_PREFIX } from '../../../constants'
+import { CHARACTERS_PAGE_TYPE, imgurLink } from '../../../constants'
 import { REGGIE_KING_PAGE_ID } from '../../../page-ids'
 import { HERO, MAIN_CHARACTER, META_HUMAN, MYTHICAL } from '../tags'
 
@@ -14,7 +14,7 @@ const ReggieKing: Page = {
     type: CHARACTERS_PAGE_TYPE,
     name: 'Reggie King',
     pageImage: {
-        url: DRIVE_VIEW_PREFIX + '1PnMGTIJsaIy__AkWuYpAM4G9-saN4VQ5',
+        url: imgurLink('prhNYem'),
         caption: 'Reggie (Age 16)'
     },
     sections: [

@@ -16,7 +16,7 @@ const appearance = {
                 'Bottoms: Black Palazzo Pants\n' +
                 'Footwear: Never Shown'),
             subSectionImage: {
-                url: constants_1.DRIVE_VIEW_PREFIX + '1isKsOtWDq5A1RjAbuxkjDwxCLunOxj5k'
+                url: (0, constants_1.imgurLink)('3Zwhf0O')
             }
         },
         {
@@ -27,7 +27,7 @@ const appearance = {
                 'Bottoms: Blue Jean Bell Bottoms\n' +
                 'Footwear: White Sneakers'),
             subSectionImage: {
-                url: constants_1.DRIVE_VIEW_PREFIX + '1ixA5qeK6tH7BK0C5UZxvn28gUNLKL6QG'
+                url: (0, constants_1.imgurLink)('HVt630v')
             }
         },
         {
@@ -38,7 +38,7 @@ const appearance = {
                 'Bottoms: Tight Fitting White Pants\n' +
                 'Footwear: Flip Flops'),
             subSectionImage: {
-                url: constants_1.DRIVE_VIEW_PREFIX + '1iyN_mJV96qM-79QdHU3ULDcU25qfXsoa'
+                url: (0, constants_1.imgurLink)('bmIDqUm')
             }
         },
         {

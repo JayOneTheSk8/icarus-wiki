@@ -15,7 +15,7 @@ const Nemo = {
     type: constants_1.CHARACTERS_PAGE_TYPE,
     name: 'Nemo',
     pageImage: {
-        url: constants_1.DRIVE_VIEW_PREFIX + '1QF1XKdkOhEo7OIdGPDnGwEHv66fa46dD'
+        url: (0, constants_1.imgurLink)('e1h8tmn')
     },
     sections: [
         attributes_1.default,

@@ -1,5 +1,5 @@
 import { Page } from '../../../DataTypes'
-import { CHARACTERS_PAGE_TYPE, DRIVE_VIEW_PREFIX } from '../../../constants'
+import { CHARACTERS_PAGE_TYPE, imgurLink } from '../../../constants'
 import { ELLIE_PAGE_ID } from '../../../page-ids'
 import { ANTI_HERO, META_HUMAN, PARANORMAL } from '../tags'
 
@@ -13,7 +13,7 @@ const Ellie: Page = {
     type: CHARACTERS_PAGE_TYPE,
     name: 'Ellie',
     pageImage: {
-        url: DRIVE_VIEW_PREFIX + '1QDUNU-G4PUT1PbYLAKgJQJFex5ZTZB2y'
+        url: imgurLink('XOUwAEk')
     },
     sections: [
         attributes,

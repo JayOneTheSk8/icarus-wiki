@@ -15,7 +15,7 @@ const MelvinGerritsen = {
     type: constants_1.CHARACTERS_PAGE_TYPE,
     name: 'Melvin Gerritsen',
     pageImage: {
-        url: constants_1.DRIVE_VIEW_PREFIX + '1RKZWzGgko6hw0mHSDr6_jE0e401WVo2d',
+        url: (0, constants_1.imgurLink)('Ca0uJT8'),
         caption: 'Melvin (Age 15)'
     },
     sections: [

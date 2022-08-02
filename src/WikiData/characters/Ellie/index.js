@@ -15,7 +15,7 @@ const Ellie = {
     type: constants_1.CHARACTERS_PAGE_TYPE,
     name: 'Ellie',
     pageImage: {
-        url: constants_1.DRIVE_VIEW_PREFIX + '1QDUNU-G4PUT1PbYLAKgJQJFex5ZTZB2y'
+        url: (0, constants_1.imgurLink)('XOUwAEk')
     },
     sections: [
         attributes_1.default,

@@ -1,5 +1,5 @@
 import { Page } from '../../../DataTypes'
-import { CHARACTERS_PAGE_TYPE, DRIVE_VIEW_PREFIX } from '../../../constants'
+import { CHARACTERS_PAGE_TYPE, imgurLink } from '../../../constants'
 import { RUSSEL_KING_PAGE_ID } from '../../../page-ids'
 
 import appearance from './appearance'
@@ -14,7 +14,7 @@ const RusselKing: Page = {
     type: CHARACTERS_PAGE_TYPE,
     name: 'Russel King',
     pageImage: {
-        url: DRIVE_VIEW_PREFIX + '1QAiWVNXwS6Zgvyqxkz2LwEKe1ti3bJ66',
+        url: imgurLink('F4Kq3hk'),
         caption: 'Russel (Age 13)'
     },
     sections: [

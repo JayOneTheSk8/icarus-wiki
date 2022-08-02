@@ -1,11 +1,11 @@
 import { GallerySection } from '../../../DataTypes'
-import { DRIVE_VIEW_PREFIX, GALLERY } from '../../../constants'
+import { imgurLink, GALLERY } from '../../../constants'
 
 const gallery: GallerySection = {
     title: GALLERY,
     gallery: [
         {
-            url: DRIVE_VIEW_PREFIX + '1RHPsg3vWivrJCz0TCannWyifzdehBAaN'
+            url: imgurLink('9C4C40W')
         }
     ]
 }

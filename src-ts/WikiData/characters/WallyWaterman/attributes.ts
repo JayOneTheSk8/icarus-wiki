@@ -14,7 +14,7 @@ const attributes: AttributesSection = {
         },
         {
             attributeName: 'Height',
-            attributeText: `5' 3"`
+            attributeText: `5' 4"`
         },
         {
             attributeName: 'Meta-Human Type',
@@ -26,20 +26,20 @@ const attributes: AttributesSection = {
         },
         {
             attributeName: 'Eye Color',
-            attributeText: 'Green'
+            attributeText: 'Cornflower blue'
         },
         {
             attributeName: 'Hair Color',
-            attributeText: 'Brown'
+            attributeText: 'Black'
         },
         {
             attributeName: 'Hair Style',
-            attributeText: 'Curly Afro'
+            attributeText: 'Very Long'
         },
         {
             attributeName: 'Debut',
-            attributeText: 'Chapter 5: The Man with Two Legs(Seen)<br />Chapter 6: Fi(r)st Fight (Heard)'
-        }
+            attributeText: 'Chapter 5: The Man with Two Legs'
+        },
     ]
 }
 

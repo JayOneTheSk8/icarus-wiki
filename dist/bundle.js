@@ -470,6 +470,56 @@ eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {
 
 /***/ }),
 
+/***/ "./src/WikiData/characters/KaloAguirre/appearance.js":
+/*!***********************************************************!*\
+  !*** ./src/WikiData/characters/KaloAguirre/appearance.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar appearance = {\n  title: constants_1.APPEARANCE,\n  body: 'Kalo is a growing teen who often wears dark clothing. He has a mohawk and a nearly permanent look of contempt on his face.'\n};\nexports[\"default\"] = appearance;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/KaloAguirre/appearance.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/KaloAguirre/associations.js":
+/*!*************************************************************!*\
+  !*** ./src/WikiData/characters/KaloAguirre/associations.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Friends',\n    associationPageIds: [page_ids_1.WALLY_WATERMAN_PAGE_ID, page_ids_1.NED_BARRETT_PAGE_ID]\n  }, {\n    associationName: 'Enemies',\n    associationPageIds: [page_ids_1.REGGIE_KING_PAGE_ID, page_ids_1.RUSSEL_KING_PAGE_ID, page_ids_1.MELVIN_GERRITSEN_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/KaloAguirre/associations.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/KaloAguirre/attributes.js":
+/*!***********************************************************!*\
+  !*** ./src/WikiData/characters/KaloAguirre/attributes.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar attributes = {\n  title: constants_1.ATTRIBUTES,\n  attributes: [{\n    attributeName: 'Gender',\n    attributeText: 'Male'\n  }, {\n    attributeName: 'Age',\n    attributeText: '16'\n  }, {\n    attributeName: 'Height',\n    attributeText: \"5' 9\\\"\"\n  }, {\n    attributeName: 'Meta-Human Type',\n    attributeText: 'Mythical'\n  }, {\n    attributeName: 'Race',\n    attributeText: 'Neo-Olmec'\n  }, {\n    attributeName: 'Hair Color',\n    attributeText: 'Black'\n  }, {\n    attributeName: 'Hair Style',\n    attributeText: 'Mohawk'\n  }, {\n    attributeName: 'Debut',\n    attributeText: 'Chapter 5: The Man with Two Legs (Seen)<br />Chapter 6: Fi(r)st Fight(Heard)'\n  }]\n};\nexports[\"default\"] = attributes;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/KaloAguirre/attributes.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/KaloAguirre/headline.js":
+/*!*********************************************************!*\
+  !*** ./src/WikiData/characters/KaloAguirre/headline.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar headline = {\n  title: constants_1.HEADLINE,\n  body: 'Kalo Aguirre is a cold-blooded teen living at the Philadelphia DMPA branch. He, with Wally Waterman and Ned Barrett, help Radio to recruit and... convince people to sign up for the Trial of Steel.'\n};\nexports[\"default\"] = headline;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/KaloAguirre/headline.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/KaloAguirre/index.js":
+/*!******************************************************!*\
+  !*** ./src/WikiData/characters/KaloAguirre/index.js ***!
+  \******************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar tags_1 = __webpack_require__(/*! ../tags */ \"./src/WikiData/characters/tags.js\");\n\nvar appearance_1 = __importDefault(__webpack_require__(/*! ./appearance */ \"./src/WikiData/characters/KaloAguirre/appearance.js\"));\n\nvar attributes_1 = __importDefault(__webpack_require__(/*! ./attributes */ \"./src/WikiData/characters/KaloAguirre/attributes.js\"));\n\nvar headline_1 = __importDefault(__webpack_require__(/*! ./headline */ \"./src/WikiData/characters/KaloAguirre/headline.js\"));\n\nvar associations_1 = __importDefault(__webpack_require__(/*! ./associations */ \"./src/WikiData/characters/KaloAguirre/associations.js\"));\n\nvar KaloAguirre = {\n  id: page_ids_1.KALO_AGUIRRE_PAGE_ID,\n  type: constants_1.CHARACTERS_PAGE_TYPE,\n  name: 'Kalo Aguirre',\n  pageImage: {\n    url: (0, constants_1.imgurLink)('4Dbbmci')\n  },\n  sections: [attributes_1[\"default\"], headline_1[\"default\"], appearance_1[\"default\"], associations_1[\"default\"]],\n  tags: new Set([tags_1.ANTI_HERO, tags_1.META_HUMAN, tags_1.MYTHICAL])\n};\nexports[\"default\"] = KaloAguirre;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/KaloAguirre/index.js?");
+
+/***/ }),
+
 /***/ "./src/WikiData/characters/MelvinGerritsen/appearance.js":
 /*!***************************************************************!*\
   !*** ./src/WikiData/characters/MelvinGerritsen/appearance.js ***!
@@ -486,7 +536,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
   \*****************************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Friends',\n    associationPageIds: [page_ids_1.ACHILLES_PAGE_ID, page_ids_1.REGGIE_KING_PAGE_ID, page_ids_1.RUSSEL_KING_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/MelvinGerritsen/associations.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Friends',\n    associationPageIds: [page_ids_1.ACHILLES_PAGE_ID, page_ids_1.REGGIE_KING_PAGE_ID, page_ids_1.RUSSEL_KING_PAGE_ID]\n  }, {\n    associationName: 'Enemies',\n    associationPageIds: [page_ids_1.KALO_AGUIRRE_PAGE_ID, page_ids_1.WALLY_WATERMAN_PAGE_ID, page_ids_1.NED_BARRETT_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/MelvinGerritsen/associations.js?");
 
 /***/ }),
 
@@ -496,7 +546,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
   \***************************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar attributes = {\n  title: constants_1.ATTRIBUTES,\n  attributes: [{\n    attributeName: 'Gender',\n    attributeText: 'Male'\n  }, {\n    attributeName: 'Age',\n    attributeText: '15'\n  }, {\n    attributeName: 'Height',\n    attributeText: \"5' 3\\\"\"\n  }, {\n    attributeName: 'Meta-Human Type',\n    attributeText: 'Paranormal'\n  }, {\n    attributeName: 'Race',\n    attributeText: 'Human'\n  }, {\n    attributeName: 'Eye Color',\n    attributeText: 'Green'\n  }, {\n    attributeName: 'Hair Color',\n    attributeText: 'Brown'\n  }, {\n    attributeName: 'Hair Style',\n    attributeText: 'Curly Afro'\n  }, {\n    attributeName: 'Debut',\n    attributeText: 'Chapter 5: The Man with Two Legs(Heard)<br />Chapter 6: Fi(r)st Fight (Heard)'\n  }]\n};\nexports[\"default\"] = attributes;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/MelvinGerritsen/attributes.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar attributes = {\n  title: constants_1.ATTRIBUTES,\n  attributes: [{\n    attributeName: 'Gender',\n    attributeText: 'Male'\n  }, {\n    attributeName: 'Age',\n    attributeText: '15'\n  }, {\n    attributeName: 'Height',\n    attributeText: \"5' 3\\\"\"\n  }, {\n    attributeName: 'Meta-Human Type',\n    attributeText: 'Paranormal'\n  }, {\n    attributeName: 'Race',\n    attributeText: 'Human'\n  }, {\n    attributeName: 'Eye Color',\n    attributeText: 'Green'\n  }, {\n    attributeName: 'Hair Color',\n    attributeText: 'Brown'\n  }, {\n    attributeName: 'Hair Style',\n    attributeText: 'Curly Afro'\n  }, {\n    attributeName: 'Debut',\n    attributeText: 'Chapter 5: The Man with Two Legs(Seen)<br />Chapter 6: Fi(r)st Fight (Heard)'\n  }]\n};\nexports[\"default\"] = attributes;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/MelvinGerritsen/attributes.js?");
 
 /***/ }),
 
@@ -517,6 +567,56 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar tags_1 = __webpack_require__(/*! ../tags */ \"./src/WikiData/characters/tags.js\");\n\nvar appearance_1 = __importDefault(__webpack_require__(/*! ./appearance */ \"./src/WikiData/characters/MelvinGerritsen/appearance.js\"));\n\nvar associations_1 = __importDefault(__webpack_require__(/*! ./associations */ \"./src/WikiData/characters/MelvinGerritsen/associations.js\"));\n\nvar attributes_1 = __importDefault(__webpack_require__(/*! ./attributes */ \"./src/WikiData/characters/MelvinGerritsen/attributes.js\"));\n\nvar headline_1 = __importDefault(__webpack_require__(/*! ./headline */ \"./src/WikiData/characters/MelvinGerritsen/headline.js\"));\n\nvar MelvinGerritsen = {\n  id: page_ids_1.MELVIN_GERRITSEN_PAGE_ID,\n  type: constants_1.CHARACTERS_PAGE_TYPE,\n  name: 'Melvin Gerritsen',\n  pageImage: {\n    url: (0, constants_1.imgurLink)('Ca0uJT8'),\n    caption: 'Melvin (Age 15)'\n  },\n  sections: [attributes_1[\"default\"], headline_1[\"default\"], appearance_1[\"default\"], associations_1[\"default\"]],\n  tags: new Set([tags_1.META_HUMAN, tags_1.MAIN_CHARACTER, tags_1.HERO, tags_1.PARANORMAL])\n};\nexports[\"default\"] = MelvinGerritsen;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/MelvinGerritsen/index.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/NedBarrett/appearance.js":
+/*!**********************************************************!*\
+  !*** ./src/WikiData/characters/NedBarrett/appearance.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar appearance = {\n  title: constants_1.APPEARANCE,\n  body: 'Ned is a regular looking older teen with a large jaw, which he can open wide enough to fit appendages. He has a light caesar with thick, squared eyebrows.'\n};\nexports[\"default\"] = appearance;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/NedBarrett/appearance.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/NedBarrett/associations.js":
+/*!************************************************************!*\
+  !*** ./src/WikiData/characters/NedBarrett/associations.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Friends',\n    associationPageIds: [page_ids_1.KALO_AGUIRRE_PAGE_ID, page_ids_1.WALLY_WATERMAN_PAGE_ID]\n  }, {\n    associationName: 'Enemies',\n    associationPageIds: [page_ids_1.REGGIE_KING_PAGE_ID, page_ids_1.RUSSEL_KING_PAGE_ID, page_ids_1.MELVIN_GERRITSEN_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/NedBarrett/associations.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/NedBarrett/attributes.js":
+/*!**********************************************************!*\
+  !*** ./src/WikiData/characters/NedBarrett/attributes.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar attributes = {\n  title: constants_1.ATTRIBUTES,\n  attributes: [{\n    attributeName: 'Gender',\n    attributeText: 'Male'\n  }, {\n    attributeName: 'Age',\n    attributeText: '17'\n  }, {\n    attributeName: 'Height',\n    attributeText: \"5' 6\\\"\"\n  }, {\n    attributeName: 'Meta-Human Type',\n    attributeText: 'Paranormal'\n  }, {\n    attributeName: 'Race',\n    attributeText: 'Human'\n  }, {\n    attributeName: 'Hair Color',\n    attributeText: 'Black'\n  }, {\n    attributeName: 'Debut',\n    attributeText: 'Chapter 5: The Man with Two Legs'\n  }]\n};\nexports[\"default\"] = attributes;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/NedBarrett/attributes.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/NedBarrett/headline.js":
+/*!********************************************************!*\
+  !*** ./src/WikiData/characters/NedBarrett/headline.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar headline = {\n  title: constants_1.HEADLINE,\n  body: \"Ned Barrett is a troubled teen living in the Philadelphia DMPA. He helps Kalo Aguirre, along with Wally Waterman, convince people to join Radio's Trial of Steel.\"\n};\nexports[\"default\"] = headline;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/NedBarrett/headline.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/NedBarrett/index.js":
+/*!*****************************************************!*\
+  !*** ./src/WikiData/characters/NedBarrett/index.js ***!
+  \*****************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar tags_1 = __webpack_require__(/*! ../tags */ \"./src/WikiData/characters/tags.js\");\n\nvar appearance_1 = __importDefault(__webpack_require__(/*! ./appearance */ \"./src/WikiData/characters/NedBarrett/appearance.js\"));\n\nvar attributes_1 = __importDefault(__webpack_require__(/*! ./attributes */ \"./src/WikiData/characters/NedBarrett/attributes.js\"));\n\nvar headline_1 = __importDefault(__webpack_require__(/*! ./headline */ \"./src/WikiData/characters/NedBarrett/headline.js\"));\n\nvar associations_1 = __importDefault(__webpack_require__(/*! ./associations */ \"./src/WikiData/characters/NedBarrett/associations.js\"));\n\nvar NedBarrett = {\n  id: page_ids_1.NED_BARRETT_PAGE_ID,\n  type: constants_1.CHARACTERS_PAGE_TYPE,\n  name: 'Ned Barrett',\n  pageImage: {\n    url: (0, constants_1.imgurLink)('oPg2qQX')\n  },\n  sections: [attributes_1[\"default\"], headline_1[\"default\"], appearance_1[\"default\"], associations_1[\"default\"]],\n  tags: new Set([tags_1.ANTI_HERO, tags_1.META_HUMAN, tags_1.PARANORMAL])\n};\nexports[\"default\"] = NedBarrett;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/NedBarrett/index.js?");
 
 /***/ }),
 
@@ -686,7 +786,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
   \************************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Siblings',\n    associationPageIds: [page_ids_1.RUSSEL_KING_PAGE_ID]\n  }, {\n    associationName: 'Friends',\n    associationPageIds: [page_ids_1.ACHILLES_PAGE_ID, page_ids_1.MELVIN_GERRITSEN_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/ReggieKing/associations.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Siblings',\n    associationPageIds: [page_ids_1.RUSSEL_KING_PAGE_ID]\n  }, {\n    associationName: 'Friends',\n    associationPageIds: [page_ids_1.ACHILLES_PAGE_ID, page_ids_1.MELVIN_GERRITSEN_PAGE_ID]\n  }, {\n    associationName: 'Enemies',\n    associationPageIds: [page_ids_1.KALO_AGUIRRE_PAGE_ID, page_ids_1.WALLY_WATERMAN_PAGE_ID, page_ids_1.NED_BARRETT_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/ReggieKing/associations.js?");
 
 /***/ }),
 
@@ -746,7 +846,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
   \************************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Siblings',\n    associationPageIds: [page_ids_1.REGGIE_KING_PAGE_ID]\n  }, {\n    associationName: 'Friends',\n    associationPageIds: [page_ids_1.ACHILLES_PAGE_ID, page_ids_1.MELVIN_GERRITSEN_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/RusselKing/associations.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Siblings',\n    associationPageIds: [page_ids_1.REGGIE_KING_PAGE_ID]\n  }, {\n    associationName: 'Friends',\n    associationPageIds: [page_ids_1.ACHILLES_PAGE_ID, page_ids_1.MELVIN_GERRITSEN_PAGE_ID]\n  }, {\n    associationName: 'Enemies',\n    associationPageIds: [page_ids_1.KALO_AGUIRRE_PAGE_ID, page_ids_1.WALLY_WATERMAN_PAGE_ID, page_ids_1.NED_BARRETT_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/RusselKing/associations.js?");
 
 /***/ }),
 
@@ -880,13 +980,63 @@ eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {
 
 /***/ }),
 
+/***/ "./src/WikiData/characters/WallyWaterman/appearance.js":
+/*!*************************************************************!*\
+  !*** ./src/WikiData/characters/WallyWaterman/appearance.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar appearance = {\n  title: constants_1.APPEARANCE,\n  body: 'Wally is a generally dour looking person. He has long black hair that covers some of his face. He normally wears dark shirts with a rearranged smiley face on it.'\n};\nexports[\"default\"] = appearance;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/WallyWaterman/appearance.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/WallyWaterman/associations.js":
+/*!***************************************************************!*\
+  !*** ./src/WikiData/characters/WallyWaterman/associations.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar associations = {\n  title: constants_1.ASSOCIATIONS,\n  associations: [{\n    associationName: 'Friends',\n    associationPageIds: [page_ids_1.KALO_AGUIRRE_PAGE_ID, page_ids_1.NED_BARRETT_PAGE_ID]\n  }, {\n    associationName: 'Enemies',\n    associationPageIds: [page_ids_1.REGGIE_KING_PAGE_ID, page_ids_1.RUSSEL_KING_PAGE_ID, page_ids_1.MELVIN_GERRITSEN_PAGE_ID]\n  }]\n};\nexports[\"default\"] = associations;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/WallyWaterman/associations.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/WallyWaterman/attributes.js":
+/*!*************************************************************!*\
+  !*** ./src/WikiData/characters/WallyWaterman/attributes.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar attributes = {\n  title: constants_1.ATTRIBUTES,\n  attributes: [{\n    attributeName: 'Gender',\n    attributeText: 'Male'\n  }, {\n    attributeName: 'Age',\n    attributeText: '15'\n  }, {\n    attributeName: 'Height',\n    attributeText: \"5' 4\\\"\"\n  }, {\n    attributeName: 'Meta-Human Type',\n    attributeText: 'Paranormal'\n  }, {\n    attributeName: 'Race',\n    attributeText: 'Human'\n  }, {\n    attributeName: 'Eye Color',\n    attributeText: 'Cornflower blue'\n  }, {\n    attributeName: 'Hair Color',\n    attributeText: 'Black'\n  }, {\n    attributeName: 'Hair Style',\n    attributeText: 'Very Long'\n  }, {\n    attributeName: 'Debut',\n    attributeText: 'Chapter 5: The Man with Two Legs'\n  }]\n};\nexports[\"default\"] = attributes;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/WallyWaterman/attributes.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/WallyWaterman/headline.js":
+/*!***********************************************************!*\
+  !*** ./src/WikiData/characters/WallyWaterman/headline.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar headline = {\n  title: constants_1.HEADLINE,\n  body: \"Wally Waterman is a devilish teen living in the Philadelphia DMPA. With his friends Kalo Aguirre and Ned Barrett, he helps to coerce people into joining Radio's Trial of Steel.\"\n};\nexports[\"default\"] = headline;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/WallyWaterman/headline.js?");
+
+/***/ }),
+
+/***/ "./src/WikiData/characters/WallyWaterman/index.js":
+/*!********************************************************!*\
+  !*** ./src/WikiData/characters/WallyWaterman/index.js ***!
+  \********************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar constants_1 = __webpack_require__(/*! ../../../constants */ \"./src/constants.js\");\n\nvar page_ids_1 = __webpack_require__(/*! ../../../page-ids */ \"./src/page-ids.js\");\n\nvar tags_1 = __webpack_require__(/*! ../tags */ \"./src/WikiData/characters/tags.js\");\n\nvar appearance_1 = __importDefault(__webpack_require__(/*! ./appearance */ \"./src/WikiData/characters/WallyWaterman/appearance.js\"));\n\nvar attributes_1 = __importDefault(__webpack_require__(/*! ./attributes */ \"./src/WikiData/characters/WallyWaterman/attributes.js\"));\n\nvar headline_1 = __importDefault(__webpack_require__(/*! ./headline */ \"./src/WikiData/characters/WallyWaterman/headline.js\"));\n\nvar associations_1 = __importDefault(__webpack_require__(/*! ./associations */ \"./src/WikiData/characters/WallyWaterman/associations.js\"));\n\nvar WallyWaterman = {\n  id: page_ids_1.WALLY_WATERMAN_PAGE_ID,\n  type: constants_1.CHARACTERS_PAGE_TYPE,\n  name: 'Wally Waterman',\n  pageImage: {\n    url: (0, constants_1.imgurLink)('3p0LODQ')\n  },\n  sections: [attributes_1[\"default\"], headline_1[\"default\"], appearance_1[\"default\"], associations_1[\"default\"]],\n  tags: new Set([tags_1.ANTI_HERO, tags_1.META_HUMAN, tags_1.PARANORMAL])\n};\nexports[\"default\"] = WallyWaterman;\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/WallyWaterman/index.js?");
+
+/***/ }),
+
 /***/ "./src/WikiData/characters/index.js":
 /*!******************************************!*\
   !*** ./src/WikiData/characters/index.js ***!
   \******************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
-eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar RusselKing_1 = __importDefault(__webpack_require__(/*! ./RusselKing */ \"./src/WikiData/characters/RusselKing/index.js\"));\n\nvar ReggieKing_1 = __importDefault(__webpack_require__(/*! ./ReggieKing */ \"./src/WikiData/characters/ReggieKing/index.js\"));\n\nvar Achilles_1 = __importDefault(__webpack_require__(/*! ./Achilles */ \"./src/WikiData/characters/Achilles/index.js\"));\n\nvar MelvinGerritsen_1 = __importDefault(__webpack_require__(/*! ./MelvinGerritsen */ \"./src/WikiData/characters/MelvinGerritsen/index.js\"));\n\nvar DrWeed_1 = __importDefault(__webpack_require__(/*! ./DrWeed */ \"./src/WikiData/characters/DrWeed/index.js\"));\n\nvar Ferguson_1 = __importDefault(__webpack_require__(/*! ./Ferguson */ \"./src/WikiData/characters/Ferguson/index.js\"));\n\nvar Opal_1 = __importDefault(__webpack_require__(/*! ./Opal */ \"./src/WikiData/characters/Opal/index.js\"));\n\nvar AgentJohnston_1 = __importDefault(__webpack_require__(/*! ./AgentJohnston */ \"./src/WikiData/characters/AgentJohnston/index.js\"));\n\nvar AgentBryson_1 = __importDefault(__webpack_require__(/*! ./AgentBryson */ \"./src/WikiData/characters/AgentBryson/index.js\"));\n\nvar AgentTillerson_1 = __importDefault(__webpack_require__(/*! ./AgentTillerson */ \"./src/WikiData/characters/AgentTillerson/index.js\"));\n\nvar AgentMadison_1 = __importDefault(__webpack_require__(/*! ./AgentMadison */ \"./src/WikiData/characters/AgentMadison/index.js\"));\n\nvar AgentRayson_1 = __importDefault(__webpack_require__(/*! ./AgentRayson */ \"./src/WikiData/characters/AgentRayson/index.js\"));\n\nvar Ellie_1 = __importDefault(__webpack_require__(/*! ./Ellie */ \"./src/WikiData/characters/Ellie/index.js\"));\n\nvar Nemo_1 = __importDefault(__webpack_require__(/*! ./Nemo */ \"./src/WikiData/characters/Nemo/index.js\"));\n\nvar Suzanne_1 = __importDefault(__webpack_require__(/*! ./Suzanne */ \"./src/WikiData/characters/Suzanne/index.js\"));\n\nvar Radio_1 = __importDefault(__webpack_require__(/*! ./Radio */ \"./src/WikiData/characters/Radio/index.js\"));\n\nvar SAIM_1 = __importDefault(__webpack_require__(/*! ./SAIM */ \"./src/WikiData/characters/SAIM/index.js\"));\n\nexports[\"default\"] = [RusselKing_1[\"default\"], ReggieKing_1[\"default\"], Achilles_1[\"default\"], MelvinGerritsen_1[\"default\"], DrWeed_1[\"default\"], Opal_1[\"default\"], Ferguson_1[\"default\"], AgentJohnston_1[\"default\"], AgentBryson_1[\"default\"], AgentTillerson_1[\"default\"], AgentMadison_1[\"default\"], AgentRayson_1[\"default\"], Radio_1[\"default\"], Ellie_1[\"default\"], Nemo_1[\"default\"], Suzanne_1[\"default\"], SAIM_1[\"default\"]];\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/index.js?");
+eval("\n\nvar __importDefault = this && this.__importDefault || function (mod) {\n  return mod && mod.__esModule ? mod : {\n    \"default\": mod\n  };\n};\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\n\nvar RusselKing_1 = __importDefault(__webpack_require__(/*! ./RusselKing */ \"./src/WikiData/characters/RusselKing/index.js\"));\n\nvar ReggieKing_1 = __importDefault(__webpack_require__(/*! ./ReggieKing */ \"./src/WikiData/characters/ReggieKing/index.js\"));\n\nvar Achilles_1 = __importDefault(__webpack_require__(/*! ./Achilles */ \"./src/WikiData/characters/Achilles/index.js\"));\n\nvar MelvinGerritsen_1 = __importDefault(__webpack_require__(/*! ./MelvinGerritsen */ \"./src/WikiData/characters/MelvinGerritsen/index.js\"));\n\nvar DrWeed_1 = __importDefault(__webpack_require__(/*! ./DrWeed */ \"./src/WikiData/characters/DrWeed/index.js\"));\n\nvar Ferguson_1 = __importDefault(__webpack_require__(/*! ./Ferguson */ \"./src/WikiData/characters/Ferguson/index.js\"));\n\nvar Opal_1 = __importDefault(__webpack_require__(/*! ./Opal */ \"./src/WikiData/characters/Opal/index.js\"));\n\nvar SAIM_1 = __importDefault(__webpack_require__(/*! ./SAIM */ \"./src/WikiData/characters/SAIM/index.js\"));\n\nvar AgentJohnston_1 = __importDefault(__webpack_require__(/*! ./AgentJohnston */ \"./src/WikiData/characters/AgentJohnston/index.js\"));\n\nvar AgentBryson_1 = __importDefault(__webpack_require__(/*! ./AgentBryson */ \"./src/WikiData/characters/AgentBryson/index.js\"));\n\nvar AgentTillerson_1 = __importDefault(__webpack_require__(/*! ./AgentTillerson */ \"./src/WikiData/characters/AgentTillerson/index.js\"));\n\nvar AgentMadison_1 = __importDefault(__webpack_require__(/*! ./AgentMadison */ \"./src/WikiData/characters/AgentMadison/index.js\"));\n\nvar AgentRayson_1 = __importDefault(__webpack_require__(/*! ./AgentRayson */ \"./src/WikiData/characters/AgentRayson/index.js\"));\n\nvar Radio_1 = __importDefault(__webpack_require__(/*! ./Radio */ \"./src/WikiData/characters/Radio/index.js\"));\n\nvar Ellie_1 = __importDefault(__webpack_require__(/*! ./Ellie */ \"./src/WikiData/characters/Ellie/index.js\"));\n\nvar Suzanne_1 = __importDefault(__webpack_require__(/*! ./Suzanne */ \"./src/WikiData/characters/Suzanne/index.js\"));\n\nvar Nemo_1 = __importDefault(__webpack_require__(/*! ./Nemo */ \"./src/WikiData/characters/Nemo/index.js\"));\n\nvar KaloAguirre_1 = __importDefault(__webpack_require__(/*! ./KaloAguirre */ \"./src/WikiData/characters/KaloAguirre/index.js\"));\n\nvar WallyWaterman_1 = __importDefault(__webpack_require__(/*! ./WallyWaterman */ \"./src/WikiData/characters/WallyWaterman/index.js\"));\n\nvar NedBarrett_1 = __importDefault(__webpack_require__(/*! ./NedBarrett */ \"./src/WikiData/characters/NedBarrett/index.js\"));\n\nexports[\"default\"] = [RusselKing_1[\"default\"], ReggieKing_1[\"default\"], Achilles_1[\"default\"], MelvinGerritsen_1[\"default\"], DrWeed_1[\"default\"], Opal_1[\"default\"], SAIM_1[\"default\"], Ferguson_1[\"default\"], KaloAguirre_1[\"default\"], WallyWaterman_1[\"default\"], NedBarrett_1[\"default\"], Radio_1[\"default\"], Ellie_1[\"default\"], Suzanne_1[\"default\"], Nemo_1[\"default\"], AgentJohnston_1[\"default\"], AgentBryson_1[\"default\"], AgentTillerson_1[\"default\"], AgentMadison_1[\"default\"], AgentRayson_1[\"default\"]];\n\n//# sourceURL=webpack://icarus-wiki/./src/WikiData/characters/index.js?");
 
 /***/ }),
 
@@ -986,7 +1136,7 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));
   \*************************/
 /***/ ((__unused_webpack_module, exports) => {
 
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports.SAIM_PAGE_ID = exports.NEMO_PAGE_ID = exports.SUZANNE_PAGE_ID = exports.ELLIE_PAGE_ID = exports.RADIO_PAGE_ID = exports.AGENT_RAYSON_PAGE_ID = exports.AGENT_MADISON_PAGE_ID = exports.AGENT_TILLERSON_PAGE_ID = exports.AGENT_BRYSON_PAGE_ID = exports.AGENT_JOHNSTON_PAGE_ID = exports.FERGUSON_PAGE_ID = exports.OPAL_PAGE_ID = exports.DR_WEED_PAGE_ID = exports.MELVIN_GERRITSEN_PAGE_ID = exports.ACHILLES_PAGE_ID = exports.REGGIE_KING_PAGE_ID = exports.RUSSEL_KING_PAGE_ID = exports.STONE_FACED_PAGE_ID = exports.HOME_PAGE_ID = void 0;\n/* Home */\n\nexports.HOME_PAGE_ID = 'home_page';\n/* Notes */\n\nexports.STONE_FACED_PAGE_ID = 'stone_faced';\n/* Characters */\n\nexports.RUSSEL_KING_PAGE_ID = 'russel_king';\nexports.REGGIE_KING_PAGE_ID = 'reggie_king';\nexports.ACHILLES_PAGE_ID = 'achilles';\nexports.MELVIN_GERRITSEN_PAGE_ID = 'melvin_gerritsen';\nexports.DR_WEED_PAGE_ID = 'dr_weed';\nexports.OPAL_PAGE_ID = 'opal';\nexports.FERGUSON_PAGE_ID = 'ferguson';\nexports.AGENT_JOHNSTON_PAGE_ID = 'agent_johnston';\nexports.AGENT_BRYSON_PAGE_ID = 'agent_bryson';\nexports.AGENT_TILLERSON_PAGE_ID = 'agent_tillerson';\nexports.AGENT_MADISON_PAGE_ID = 'agent_madison';\nexports.AGENT_RAYSON_PAGE_ID = 'agent_rayson';\nexports.RADIO_PAGE_ID = 'radio';\nexports.ELLIE_PAGE_ID = 'ellie';\nexports.SUZANNE_PAGE_ID = 'suzanne';\nexports.NEMO_PAGE_ID = 'nemo';\nexports.SAIM_PAGE_ID = 'saim';\n\n//# sourceURL=webpack://icarus-wiki/./src/page-ids.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports.NED_BARRETT_PAGE_ID = exports.KALO_AGUIRRE_PAGE_ID = exports.WALLY_WATERMAN_PAGE_ID = exports.NEMO_PAGE_ID = exports.SUZANNE_PAGE_ID = exports.ELLIE_PAGE_ID = exports.RADIO_PAGE_ID = exports.AGENT_RAYSON_PAGE_ID = exports.AGENT_MADISON_PAGE_ID = exports.AGENT_TILLERSON_PAGE_ID = exports.AGENT_BRYSON_PAGE_ID = exports.AGENT_JOHNSTON_PAGE_ID = exports.SAIM_PAGE_ID = exports.OPAL_PAGE_ID = exports.FERGUSON_PAGE_ID = exports.DR_WEED_PAGE_ID = exports.MELVIN_GERRITSEN_PAGE_ID = exports.ACHILLES_PAGE_ID = exports.REGGIE_KING_PAGE_ID = exports.RUSSEL_KING_PAGE_ID = exports.STONE_FACED_PAGE_ID = exports.HOME_PAGE_ID = void 0;\n/* Home */\n\nexports.HOME_PAGE_ID = 'home_page';\n/* Notes */\n\nexports.STONE_FACED_PAGE_ID = 'stone_faced';\n/* Characters */\n\nexports.RUSSEL_KING_PAGE_ID = 'russel_king';\nexports.REGGIE_KING_PAGE_ID = 'reggie_king';\nexports.ACHILLES_PAGE_ID = 'achilles';\nexports.MELVIN_GERRITSEN_PAGE_ID = 'melvin_gerritsen';\nexports.DR_WEED_PAGE_ID = 'dr_weed';\nexports.FERGUSON_PAGE_ID = 'ferguson';\nexports.OPAL_PAGE_ID = 'opal';\nexports.SAIM_PAGE_ID = 'saim';\nexports.AGENT_JOHNSTON_PAGE_ID = 'agent_johnston';\nexports.AGENT_BRYSON_PAGE_ID = 'agent_bryson';\nexports.AGENT_TILLERSON_PAGE_ID = 'agent_tillerson';\nexports.AGENT_MADISON_PAGE_ID = 'agent_madison';\nexports.AGENT_RAYSON_PAGE_ID = 'agent_rayson';\nexports.RADIO_PAGE_ID = 'radio';\nexports.ELLIE_PAGE_ID = 'ellie';\nexports.SUZANNE_PAGE_ID = 'suzanne';\nexports.NEMO_PAGE_ID = 'nemo';\nexports.WALLY_WATERMAN_PAGE_ID = 'wally_waterman';\nexports.KALO_AGUIRRE_PAGE_ID = 'kalo_aguirre';\nexports.NED_BARRETT_PAGE_ID = 'ned_barrett';\n\n//# sourceURL=webpack://icarus-wiki/./src/page-ids.js?");
 
 /***/ }),
 

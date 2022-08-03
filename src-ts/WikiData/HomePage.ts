@@ -17,7 +17,7 @@ const HomePage: Page = {
     type: HOME_PAGE_TYPE,
     name: 'Icarus Wiki',
     pageImage: {
-        url: imgurLink('m3l15lt')
+        url: imgurLink('9QD2cRD')
     },
     sections: [
         whatsIcarus,
